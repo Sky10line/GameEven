@@ -12,8 +12,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     private var touchedNode: SKSpriteNode?
     
+    override func sceneDidLoad() {
+        self.physicsWorld.contactDelegate = self
+      }
+    
     override func didMove(to view: SKView) {
-        //make sprites
+        //make Sprites
+        for i in 1...4{
+            let square = Square(image: "testeSpriteDrag", size: CGSize(width: 150, height: 150), pos: CGPoint(x: 150*i-375, y: -400))
+            self.addChild(square.spriteNode!)
+        }
+       
     }
     
     
@@ -23,7 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             
             let touchNodes = self.nodes(at: location)
             for node in touchNodes.reversed() {
-                if node.name == "arrastavel" {
+                if node.name == "draggable" {
                     self.touchedNode = node as? SKSpriteNode
                 }
             }
@@ -51,19 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         // Called before each frame is rendered
     }
     
-    func checkInsideSquare(back: SKNode, nodePos: CGPoint, nodeSize: CGSize) -> Bool{
-        let bBPointUp = CGPoint(x:nodePos.x, y:(nodePos.y + (nodeSize.height/2))) //monta um ponto na aresta de cima da sprite que está sendo encaixada
-        let bBPointDown = CGPoint(x: nodePos.x, y:(nodePos.y - (nodeSize.height/2)))//monta um ponto na aresta de baixo da sprite que está sendo encaixada
-        let bBPointLeft = CGPoint(x: (nodePos.x - (nodeSize.width/2)), y:nodePos.y)//monta um ponto na aresta da esquerda da sprite que está sendo encaixada
-        let bBPointRight = CGPoint(x: (nodePos.x + (nodeSize.width/2)), y:nodePos.y)//monta um ponto na aresta da direita da sprite que está sendo encaixada
-        
-        if(back.contains(bBPointUp) && back.contains(bBPointDown)){ //checa primeiro em cima e embaixo
-            if(back.contains(bBPointLeft) && back.contains(bBPointRight)){//depois os lados
-                return true
-            }
-        }
-        return false
-    }
+    
 }
 
 
