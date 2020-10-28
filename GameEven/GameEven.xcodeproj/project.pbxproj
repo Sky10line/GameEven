@@ -17,6 +17,9 @@
 		BD87B60A25474D1D00F38CE1 /* GameEvenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B60925474D1D00F38CE1 /* GameEvenTests.swift */; };
 		BD87B61525474D1D00F38CE1 /* GameEvenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B61425474D1D00F38CE1 /* GameEvenUITests.swift */; };
 		BD87B6302548A63C00F38CE1 /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B62F2548A63C00F38CE1 /* Square.swift */; };
+		BD87B6382549E8B800F38CE1 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B6372549E8B800F38CE1 /* Triangle.swift */; };
+		BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B63C254A0C5700F38CE1 /* Draggable.swift */; };
+		BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		BD87B61425474D1D00F38CE1 /* GameEvenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEvenUITests.swift; sourceTree = "<group>"; };
 		BD87B61625474D1D00F38CE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD87B62F2548A63C00F38CE1 /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
+		BD87B6372549E8B800F38CE1 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		BD87B63C254A0C5700F38CE1 /* Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draggable.swift; sourceTree = "<group>"; };
+		BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +144,9 @@
 				BD87B5F325474D1A00F38CE1 /* GameScene.sks */,
 				BD87B5F725474D1A00F38CE1 /* GameScene.swift */,
 				BD87B62F2548A63C00F38CE1 /* Square.swift */,
+				BD87B6372549E8B800F38CE1 /* Triangle.swift */,
+				BD87B63C254A0C5700F38CE1 /* Draggable.swift */,
+				BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */,
 			);
 			path = Gameplay;
 			sourceTree = "<group>";
@@ -275,7 +284,10 @@
 			files = (
 				BD87B6302548A63C00F38CE1 /* Square.swift in Sources */,
 				BD87B5F825474D1B00F38CE1 /* GameScene.swift in Sources */,
+				BD87B6382549E8B800F38CE1 /* Triangle.swift in Sources */,
+				BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */,
 				BD87B5FA25474D1B00F38CE1 /* GameViewController.swift in Sources */,
+				BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */,
 				BD87B5F225474D1A00F38CE1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

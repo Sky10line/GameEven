@@ -8,31 +8,24 @@
 import UIKit
 import GameplayKit
 
-class Square {
-    var spriteNode: SKSpriteNode?
+class Square: Draggable, DraggableProtocol{
+   
     
-    init(image: String, size: CGSize, pos: CGPoint){
-        self.spriteNode = SKSpriteNode(imageNamed: image)
-        
-        if let node = self.spriteNode{
-            node.size = size
-            node.position = pos
-            node.name = "draggable"
-            node.physicsBody = SKPhysicsBody(rectangleOf: size)
-        
-            if let pb = node.physicsBody{
-                pb.categoryBitMask = 1
-                pb.collisionBitMask = 1
-                pb.contactTestBitMask = 1
-                pb.affectedByGravity = false
-                pb.isDynamic = true
-                pb.allowsRotation = false
-                pb.usesPreciseCollisionDetection = true
-            }
+    func insertCollider(){
+        self.spriteNode?.physicsBody = SKPhysicsBody(rectangleOf: self.spriteNode!.size)
+    
+        if let pb = self.spriteNode!.physicsBody{
+            pb.categoryBitMask = 1
+            pb.collisionBitMask = 1
+            pb.contactTestBitMask = 1
+            pb.affectedByGravity = false
+            pb.isDynamic = true
+            pb.allowsRotation = false
+            pb.usesPreciseCollisionDetection = true
         }
     }
     
-    func checkInsideSquare(back: SKNode) -> Bool{
+    func checkInside(back: SKNode) -> Bool{
         let nodeSize = self.spriteNode!.size
         let nodePos = self.spriteNode!.position
         
