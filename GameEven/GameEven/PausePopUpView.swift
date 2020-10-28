@@ -27,7 +27,6 @@ class PausePopUpView: SKSpriteNode {
         
         isUserInteractionEnabled = true
         
-        
         buttonSize = scale(90)
         fontSize = scale(28)
         
@@ -68,7 +67,7 @@ class PausePopUpView: SKSpriteNode {
         y = resetLevel.position.y + resetLevel.size.height / 2 + resume.size.height / 2
         resume.position = CGPoint(x: 0, y: y + scale(32))
         self.addChild(resume)
-        
+
         let txtLabel = SKLabelNode(text: "CONTINUAR")
         txtLabel.fontSize = fontSize
         txtLabel.fontColor = .black
@@ -83,7 +82,6 @@ class PausePopUpView: SKSpriteNode {
         even.name = "even"
         even.position = CGPoint(x: 0, y: scale(80))
         self.addChild(even)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -96,7 +94,12 @@ class PausePopUpView: SKSpriteNode {
         let screen = UIScreen.main.bounds
         let newDimension: CGFloat = min(screen.height, screen.width)
         
-        return  valueToScale * (((100 * newDimension) / base) / 100)
+        var scale: CGFloat = ((100 * newDimension) / base) / 100
+        
+        if scale > 2 {
+            scale = 2
+        }
+        return valueToScale * scale
     }
     
     //Interacoes
