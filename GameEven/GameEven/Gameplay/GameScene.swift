@@ -49,8 +49,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         let triangle = Triangle(image: "triangleSprite", size: CGSize(width: 150, height: 150), pos: CGPoint(x: 0, y: 0), rotation: 0)
         triangle.insertCollider()
-        self.draggablesList.insert(triangle, at: 0)
+        self.draggablesList.insert(triangle, at: 2)
         self.addChild(triangle.spriteNode!)
+        
+        let circle = Circle(image: "circleSprite", size: CGSize(width: 150, height: 150), pos: CGPoint(x: 0, y: 0), rotation: 0)
+        circle.insertCollider()
+        self.draggablesList.insert(circle, at: 3)
+        self.addChild(circle.spriteNode!)
     }
     
     
@@ -61,7 +66,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let touchNodes = self.nodes(at: location)
             for node in touchNodes.reversed() {
                 if node.name == "draggable" {
+//                    node.physicsBody?.mass = CGFloat(1000)
                     self.touchedNode = node as? SKSpriteNode
+                    
                 }
             }
         }
@@ -70,7 +77,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, let node = self.touchedNode {
             let touchLocation =  touch.location(in: self)
-            node.position = touchLocation
+            node.run(SKAction.move(to: touchLocation, duration: 1/60))
+            node.physicsBody.
+//            node.position = touchLocation
+            
         }
     }
     

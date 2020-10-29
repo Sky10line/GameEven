@@ -20,6 +20,7 @@
 		BD87B6382549E8B800F38CE1 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B6372549E8B800F38CE1 /* Triangle.swift */; };
 		BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B63C254A0C5700F38CE1 /* Draggable.swift */; };
 		BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */; };
+		BD87B647254B354100F38CE1 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B646254B354100F38CE1 /* Circle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		BD87B6372549E8B800F38CE1 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		BD87B63C254A0C5700F38CE1 /* Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draggable.swift; sourceTree = "<group>"; };
 		BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableProtocol.swift; sourceTree = "<group>"; };
+		BD87B646254B354100F38CE1 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				BD87B5F725474D1A00F38CE1 /* GameScene.swift */,
 				BD87B62F2548A63C00F38CE1 /* Square.swift */,
 				BD87B6372549E8B800F38CE1 /* Triangle.swift */,
+				BD87B646254B354100F38CE1 /* Circle.swift */,
 				BD87B63C254A0C5700F38CE1 /* Draggable.swift */,
 				BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */,
 			);
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD87B6302548A63C00F38CE1 /* Square.swift in Sources */,
+				BD87B647254B354100F38CE1 /* Circle.swift in Sources */,
 				BD87B5F825474D1B00F38CE1 /* GameScene.swift in Sources */,
 				BD87B6382549E8B800F38CE1 /* Triangle.swift in Sources */,
 				BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */,
