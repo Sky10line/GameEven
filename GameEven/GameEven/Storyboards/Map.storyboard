@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wSQ-re-Tlh">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="dS1-u3-sAn">
+            <objects>
+                <viewController title="Map View Controller" id="wSQ-re-Tlh" customClass="MapViewController" customModule="GameEven" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fZe-Of-GoB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kR0-Wm-fzj">
+                                <rect key="frame" x="0.0" y="44" width="414" height="1422"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ue-Ik-J14">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1422"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="MapBackground" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-xH-WEu" propertyAccessControl="all">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1422"/>
+                                                <color key="backgroundColor" red="0.090196078431372548" green="0.027450980392156862" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIR-kI-p64">
+                                                <rect key="frame" x="41" y="1016" width="170" height="228"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="oi" backgroundImage="MapButton">
+                                                    <color key="titleColor" red="0.30980392159999998" green="1" blue="0.77290125700000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="titleShadowColor" red="0.86787137420000005" green="1" blue="0.77290125700000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbm-b9-ohv">
+                                                <rect key="frame" x="290" y="1057" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" backgroundImage="MapButton"/>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUA-hq-E6a">
+                                                <rect key="frame" x="57" y="884" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" backgroundImage="MapButton"/>
+                                            </button>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQC-LO-PEQ">
+                                                <rect key="frame" x="234" y="737" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" backgroundImage="MapButton"/>
+                                            </button>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmE-Np-q4N">
+                                                <rect key="frame" x="178" y="518" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" backgroundImage="MapButton"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="5oH-xH-WEu" secondAttribute="bottom" id="09u-Xs-uye"/>
+                                            <constraint firstAttribute="width" constant="414" id="RRb-BX-dFI"/>
+                                            <constraint firstAttribute="trailing" secondItem="5oH-xH-WEu" secondAttribute="trailing" id="VTe-pT-IJn"/>
+                                            <constraint firstItem="5oH-xH-WEu" firstAttribute="top" secondItem="5ue-Ik-J14" secondAttribute="top" id="Zx5-98-fOv"/>
+                                            <constraint firstItem="5oH-xH-WEu" firstAttribute="leading" secondItem="5ue-Ik-J14" secondAttribute="leading" id="awB-Gv-tMY"/>
+                                            <constraint firstAttribute="height" constant="1422" id="cof-P0-fNo"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5ue-Ik-J14" firstAttribute="height" secondItem="kR0-Wm-fzj" secondAttribute="height" priority="250" id="1Do-6D-Alu"/>
+                                    <constraint firstItem="5ue-Ik-J14" firstAttribute="leading" secondItem="kR0-Wm-fzj" secondAttribute="leading" id="IfZ-t5-CBt"/>
+                                    <constraint firstAttribute="trailing" secondItem="5ue-Ik-J14" secondAttribute="trailing" id="PVu-fn-6ba"/>
+                                    <constraint firstItem="5ue-Ik-J14" firstAttribute="top" secondItem="kR0-Wm-fzj" secondAttribute="top" id="oX4-Xb-hoL"/>
+                                    <constraint firstAttribute="bottom" secondItem="5ue-Ik-J14" secondAttribute="bottom" id="oZO-uD-Di3"/>
+                                    <constraint firstItem="5ue-Ik-J14" firstAttribute="width" secondItem="kR0-Wm-fzj" secondAttribute="width" id="xFy-Uo-4z3"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="56B-M0-r6p"/>
+                        <color key="backgroundColor" red="0.86787137420000005" green="1" blue="0.77290125700000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="kR0-Wm-fzj" firstAttribute="leading" secondItem="56B-M0-r6p" secondAttribute="leading" id="B0D-3X-1xM"/>
+                            <constraint firstItem="kR0-Wm-fzj" firstAttribute="trailing" secondItem="56B-M0-r6p" secondAttribute="trailing" id="bGG-NB-O1k"/>
+                            <constraint firstItem="kR0-Wm-fzj" firstAttribute="bottom" secondItem="56B-M0-r6p" secondAttribute="bottom" id="cx0-Mc-HB9"/>
+                            <constraint firstItem="kR0-Wm-fzj" firstAttribute="top" secondItem="56B-M0-r6p" secondAttribute="top" id="gDw-jt-X5i"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="1500"/>
+                    <connections>
+                        <outletCollection property="buttonWay" destination="wIR-kI-p64" collectionClass="NSMutableArray" id="U50-LR-cAZ"/>
+                        <outletCollection property="buttonWay" destination="DQC-LO-PEQ" collectionClass="NSMutableArray" id="IKe-o9-fJe"/>
+                        <outletCollection property="buttonWay" destination="YmE-Np-q4N" collectionClass="NSMutableArray" id="bj4-Zs-Qgl"/>
+                        <outletCollection property="buttonWay" destination="zUA-hq-E6a" collectionClass="NSMutableArray" id="EFo-Da-puz"/>
+                        <outletCollection property="buttonWay" destination="Mbm-b9-ohv" collectionClass="NSMutableArray" id="YL2-GB-MMB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ge8-4Q-Cil" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="371.01449275362324" y="152.67857142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="MapBackground" width="1918" height="4148"/>
+        <image name="MapButton" width="379" height="508"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
