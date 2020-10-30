@@ -14,6 +14,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     private var draggablesList: [DraggableProtocol] = []
     private var backImage: SKSpriteNode?
     
+    private var touching = false
+    private var touchPoint: CGPoint?
+    
     override func sceneDidLoad() {
         self.physicsWorld.contactDelegate = self
       }
@@ -60,44 +63,55 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let location = touch.location(in: self)
-            
-            let touchNodes = self.nodes(at: location)
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        let touchNodes = self.nodes(at: location)
             for node in touchNodes.reversed() {
                 if node.name == "draggable" {
-//                    node.physicsBody?.mass = CGFloat(1000)
                     self.touchedNode = node as? SKSpriteNode
-                    
+                    touchPoint = location
+                    touching = true
                 }
             }
-        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first, let node = self.touchedNode {
-            let touchLocation =  touch.location(in: self)
-            node.run(SKAction.move(to: touchLocation, duration: 1/60))
-            node.physicsBody.
-//            node.position = touchLocation
-            
-        }
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        touchPoint = location
     }
     
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for i in self.draggablesList{
-            print(i.checkInside(back: backImage!))
-        }
-        
-        self.touchedNode = nil
+        touching = false
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.touchedNode = nil
+        touching = false
     }
     
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+    override func update(_ currentTime: CFTimeInterval) {
+        if touching {
+            if touchPoint != self.touchedNode?.position
+            {
+                let dt:CGFloat = 0.01
+                let distance = CGVector(dx: touchPoint!.x-(self.touchedNode?.position.x)!, dy: touchPoint!.y-(self.touchedNode?.position.y)!)
+                let vel = CGVector(dx: distance.dx/dt, dy: distance.dy/dt)
+                self.touchedNode!.physicsBody!.velocity = vel
+            }
+        }
+        else {
+            self.touchedNode?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            self.touchedNode = nil
+        }
+    }
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+        let bodyA = contact.bodyA
+        let bodyB = contact.bodyB
+        
+        bodyA.velocity = CGVector(dx: 0, dy: 0)
+        bodyB.velocity = CGVector(dx: 0, dy: 0)
     }
 }
 

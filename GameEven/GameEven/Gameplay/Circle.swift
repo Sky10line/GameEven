@@ -10,7 +10,7 @@ import GameplayKit
 
 class Circle: Draggable, DraggableProtocol {
     func insertCollider() {
-        self.spriteNode?.physicsBody = SKPhysicsBody(rectangleOf: self.spriteNode!.size)
+        self.spriteNode?.physicsBody = SKPhysicsBody(circleOfRadius: self.spriteNode!.size.width/2)
         
         if let pb = self.spriteNode!.physicsBody{
             pb.categoryBitMask = 1
@@ -20,7 +20,6 @@ class Circle: Draggable, DraggableProtocol {
             pb.isDynamic = true
             pb.allowsRotation = false
             pb.usesPreciseCollisionDetection = true
-            
         }
     }
     
