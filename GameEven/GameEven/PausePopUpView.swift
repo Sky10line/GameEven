@@ -138,7 +138,6 @@ class PausePopUpView: SKSpriteNode {
     
     private func exit(){
         pauseDelegate?.exitLevel()
-        self.removeFromParent()
     }
     
     private func reset(){

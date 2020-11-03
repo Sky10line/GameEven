@@ -150,6 +150,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         pause.isHidden = true
     }
+    
+    func endGame() {
+        let endGame = LevelCompletePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.8))
+        endGame.levelCompleteDelegate = self
+        self.isPaused = true
+        endGame.zPosition = 1
+        addChild(endGame)
+        
+        pause.isHidden = true
+    }
 }
 
 extension GameScene: PauseMenuDelegate {
@@ -159,12 +169,17 @@ extension GameScene: PauseMenuDelegate {
     }
     
     func resetLevel() {
-        
+        print("Reset nao implementado")
     }
     
     func exitLevel() {
-        self.isPaused = false
-        pause.isHidden = false
+        print("Exit nao implementado")
+    }
+}
+
+extension GameScene: LevelCompleteMenuDelegate {
+    func nextLevel() {
+        print("Next nao implementado")
     }
 }
 
