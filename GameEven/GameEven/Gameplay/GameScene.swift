@@ -18,10 +18,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     private var touchPoint: CGPoint?
     
     override func sceneDidLoad() {
+        super.sceneDidLoad()
+        
         self.physicsWorld.contactDelegate = self
+        
+        //Pause Btt
+        let pause = SKSpriteNode(
+            color: .red,
+            size: CGSize(width: 46, height: 46)
+        )
+        pause.name = "pause"
+        pause.texture = SKTexture(imageNamed: "Button-X")
+        pause.position.x = UIScreen.main.bounds.maxX / 2 - pause.size.width / 2 - 32
+        pause.position.y = UIScreen.main.bounds.maxY / 2 - pause.size.height / 2 - ( safeAreaInsets().top == .zero ? 32 : safeAreaInsets().top)
+        self.addChild(pause)
       }
     
     override func didMove(to view: SKView) {
+        
         //make Sprites
         
         let back = SKSpriteNode(color: .purple, size: CGSize(width: 160, height: 320))
@@ -72,6 +86,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                     touchPoint = location
                     touching = true
                 }
+                if node.name == "pause" {
+                    pauseGame()
+                }
             }
     }
     
@@ -113,6 +130,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         bodyA.velocity = CGVector(dx: 0, dy: 0)
         bodyB.velocity = CGVector(dx: 0, dy: 0)
     }
+    
+    private func safeAreaInsets() -> UIEdgeInsets {
+        if #available(iOS 11.0, *) {
+            return UIApplication.shared.windows.first?.safeAreaInsets ?? .zero
+        } else {
+            return .zero
+        }
+    }
+    
+    func pauseGame(){
+        let pauseMenu = PausePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.75))
+        pauseMenu.pauseDelegate = self
+        self.isPaused = true
+        pauseMenu.zPosition = 1
+        addChild(pauseMenu)
+    }
 }
 
+extension GameScene: PauseMenuDelegate {
+    func resumeLevel() {
+        self.isPaused = false
+    }
+    
+    func resetLevel() {
+        
+    }
+    
+    func exitLevel() {
+        self.isPaused = false
+    }
+}
 
