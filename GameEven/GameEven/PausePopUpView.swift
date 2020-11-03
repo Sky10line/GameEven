@@ -9,9 +9,9 @@ import Foundation
 import SpriteKit
 
 protocol PauseMenuDelegate {
-    func resume()
-    func reset()
-    func exit()
+    func resumeLevel()
+    func resetLevel()
+    func exitLevel()
 }
 
 class PausePopUpView: SKSpriteNode {
@@ -125,14 +125,14 @@ class PausePopUpView: SKSpriteNode {
     }
     
     private func exit(){
-        pauseDelegate?.exit()
+        pauseDelegate?.exitLevel()
     }
     
     private func reset(){
-        pauseDelegate?.reset()
+        pauseDelegate?.resetLevel()
     }
     
     private func resume(){
-        pauseDelegate?.resume()
+        pauseDelegate?.resumeLevel()
     }
 }

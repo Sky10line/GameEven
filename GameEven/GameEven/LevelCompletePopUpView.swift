@@ -24,7 +24,7 @@ class LevelCompletePopUpView: SKSpriteNode {
     init(size: CGSize){
         
         super.init(texture: nil, color: .orange, size: size)
-        
+        texture = SKTexture(imageNamed: "Backgroud-PopUp")
         isUserInteractionEnabled = true
         
         buttonSize = scale(90)
@@ -33,22 +33,24 @@ class LevelCompletePopUpView: SKSpriteNode {
         //Reset Btt
         let resetLevel = SKSpriteNode(
             color: .red,
-            size: CGSize(width: buttonSize, height: buttonSize)
+            size: CGSize(width: buttonSize, height: buttonSize * 0.719)
         )
         resetLevel.name = "reset"
-        resetLevel.texture = SKTexture(imageNamed: "ResetButton")
+        resetLevel.texture = SKTexture(imageNamed: "Button-Reset")
         var y: CGFloat = size.height / 2 - resetLevel.size.height / 2 - scale(64)
         resetLevel.position = CGPoint(x: resetLevel.size.width / 2 + scale(16), y: -y)
+        resetLevel.zPosition = 1
         self.addChild(resetLevel)
         
         //Exit to Map Btt
         let map = SKSpriteNode(
             color: .blue,
-            size: CGSize(width: buttonSize, height: buttonSize)
+            size: CGSize(width: buttonSize, height: buttonSize * 0.719)
         )
-        map.texture = SKTexture(imageNamed: "MapButton")
+        map.texture = SKTexture(imageNamed: "Button-Map")
         map.name = "exit"
         map.position = CGPoint(x: -map.size.width / 2 - scale(16), y: -y)
+        map.zPosition = 1
         self.addChild(map)
         
         //EXCELENTE!
@@ -57,26 +59,30 @@ class LevelCompletePopUpView: SKSpriteNode {
         text.fontSize = fontSize * 1.7
         text.fontColor = .black
         text.verticalAlignmentMode = .center
+        text.zPosition = 1
         self.addChild(text)
     
         //Next Btt
         let next = SKSpriteNode(
             color: .green,
-            size: CGSize(width: buttonSize * 2 + scale(32), height: buttonSize * 0.75)
+            size: CGSize(width: buttonSize * 2 + scale(32), height: (buttonSize * 0.75) * 0.719)
         )
         next.name = "next"
-        next.texture = SKTexture(imageNamed: "NextButton")
+        next.texture = SKTexture(imageNamed: "Button-Next")
         y = resetLevel.position.y + resetLevel.size.height / 2 + next.size.height / 2
         next.position = CGPoint(x: 0, y: y + scale(32))
+        next.zPosition = 1
         self.addChild(next)
         
         //Even
         let even = SKSpriteNode(
             color: .blue,
-            size: CGSize(width: scale(200), height: scale(200))
+            size: CGSize(width: scale(300) * 0.68, height: scale(300))
         )
         even.name = "even"
-        even.position = CGPoint(x: 0, y: next.position.y + next.size.height / 2 + even.size.height / 2 + scale(80))
+        even.texture = SKTexture(imageNamed: "Even-Next")
+        even.position = CGPoint(x: 0, y: next.position.y + next.size.height / 2 + even.size.height / 2 + scale(60))
+        even.zPosition = 1
         self.addChild(even)
     }
     
@@ -105,7 +111,6 @@ class LevelCompletePopUpView: SKSpriteNode {
             
             let touchedNodes = self.nodes(at: location)
             for node in touchedNodes.reversed() {
-                print("NODE TOUCH: \(String(describing: node.name))")
                 switch node.name {
                 case "exit":
                     exit()
