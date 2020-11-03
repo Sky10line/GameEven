@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YKp-G2-hJf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="dS1-u3-sAn">
+            <objects>
+                <viewController storyboardIdentifier="MapView" title="Map View Controller" interfaceStyle="dark" id="wSQ-re-Tlh" customClass="MapViewController" customModule="GameEven" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fZe-Of-GoB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kR0-Wm-fzj">
+                                <rect key="frame" x="0.0" y="44" width="414" height="1022"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ue-Ik-J14">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="1022"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="5oH-xH-WEu">
+                                                <rect key="frame" x="0.0" y="-41" width="414" height="1063"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.094117647058823528" green="0.027450980390000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHM-Gi-U9M" userLabel="Button_1">
+                                                <rect key="frame" x="45" y="861" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="1" backgroundImage="GrayMapButton"/>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGs-uw-KzJ" userLabel="Button_2">
+                                                <rect key="frame" x="183" y="765" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="2" backgroundImage="GrayMapButton"/>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7w1-a8-wIH" userLabel="Button_3">
+                                                <rect key="frame" x="315" y="665" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="3" backgroundImage="GrayMapButton"/>
+                                            </button>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cj-JT-ZjK" userLabel="Button_4">
+                                                <rect key="frame" x="183" y="565" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="4" backgroundImage="GrayMapButton"/>
+                                            </button>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iao-Ob-5Tw" userLabel="Button_5">
+                                                <rect key="frame" x="45" y="466" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="5" backgroundImage="GrayMapButton"/>
+                                            </button>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTm-Fp-QCT" userLabel="Button_6">
+                                                <rect key="frame" x="183" y="366" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="6" backgroundImage="GrayMapButton"/>
+                                            </button>
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UiX-jZ-CAL" userLabel="Button_7">
+                                                <rect key="frame" x="315" y="250" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="7" backgroundImage="GrayMapButton"/>
+                                            </button>
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4A0-3N-ITc" userLabel="Button_8">
+                                                <rect key="frame" x="183" y="152" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="8" backgroundImage="GrayMapButton"/>
+                                            </button>
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ib-a0-Asj" userLabel="Button_9">
+                                                <rect key="frame" x="45" y="51" width="68" height="91"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" title="9" backgroundImage="GrayMapButton"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1022" id="qa3-QI-DXp"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.094117647060000004" green="0.027450980390000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5ue-Ik-J14" firstAttribute="top" secondItem="kR0-Wm-fzj" secondAttribute="top" constant="44" id="44Y-Un-DEo"/>
+                                    <constraint firstItem="5ue-Ik-J14" firstAttribute="centerX" secondItem="kR0-Wm-fzj" secondAttribute="centerX" id="BPQ-5t-eRs"/>
+                                    <constraint firstAttribute="trailing" secondItem="5ue-Ik-J14" secondAttribute="trailing" id="Bs1-x1-DD4"/>
+                                    <constraint firstItem="5ue-Ik-J14" firstAttribute="leading" secondItem="kR0-Wm-fzj" secondAttribute="leading" id="f3j-5e-IIp"/>
+                                    <constraint firstAttribute="bottom" secondItem="5ue-Ik-J14" secondAttribute="bottom" constant="-44" id="mX3-bv-T2z"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="56B-M0-r6p"/>
+                        <color key="backgroundColor" red="0.094117647060000004" green="0.027450980390000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="kR0-Wm-fzj" firstAttribute="leading" secondItem="fZe-Of-GoB" secondAttribute="leading" id="aaJ-Xj-JrG"/>
+                            <constraint firstAttribute="bottom" secondItem="kR0-Wm-fzj" secondAttribute="bottom" constant="34" id="lRp-8M-aaO"/>
+                            <constraint firstItem="kR0-Wm-fzj" firstAttribute="top" secondItem="fZe-Of-GoB" secondAttribute="top" constant="44" id="vwg-S6-gcY"/>
+                            <constraint firstAttribute="trailing" secondItem="kR0-Wm-fzj" secondAttribute="trailing" id="wAa-pA-sFQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Aty-Jk-koF"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <size key="freeformSize" width="414" height="1100"/>
+                    <connections>
+                        <outletCollection property="buttonWay" destination="4A0-3N-ITc" collectionClass="NSMutableArray" id="40q-4f-NC5"/>
+                        <outletCollection property="buttonWay" destination="zHM-Gi-U9M" collectionClass="NSMutableArray" id="L7S-cc-IQe"/>
+                        <outletCollection property="buttonWay" destination="eGs-uw-KzJ" collectionClass="NSMutableArray" id="bAb-Rw-uGj"/>
+                        <outletCollection property="buttonWay" destination="7w1-a8-wIH" collectionClass="NSMutableArray" id="bO5-aN-MxX"/>
+                        <outletCollection property="buttonWay" destination="6cj-JT-ZjK" collectionClass="NSMutableArray" id="suR-jJ-Gnj"/>
+                        <outletCollection property="buttonWay" destination="Iao-Ob-5Tw" collectionClass="NSMutableArray" id="YcG-tg-bnS"/>
+                        <outletCollection property="buttonWay" destination="eTm-Fp-QCT" collectionClass="NSMutableArray" id="dQO-JV-pFR"/>
+                        <outletCollection property="buttonWay" destination="UiX-jZ-CAL" collectionClass="NSMutableArray" id="25o-4w-6gs"/>
+                        <outletCollection property="buttonWay" destination="9Ib-a0-Asj" collectionClass="NSMutableArray" id="v2f-dk-aVw"/>
+                        <segue destination="0VT-2y-car" kind="show" identifier="goToInstruction" id="3Ql-lD-ytl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ge8-4Q-Cil" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1281.1594202898552" y="151.33928571428569"/>
+        </scene>
+        <!--InstructionView-->
+        <scene sceneID="k0O-iG-abR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Instruction" referencedIdentifier="InstructionView" id="0VT-2y-car" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8Yf-aS-bWf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ChP-r0-1Ri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1833" y="-342"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GzN-hO-IN9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="YKp-G2-hJf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XZh-5Z-BBo">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wSQ-re-Tlh" kind="relationship" relationship="rootViewController" id="dX3-Sx-w2e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LKh-Ij-KGg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="107" y="151"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Background" width="1916" height="4149"/>
+        <image name="GrayMapButton" width="378" height="506"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
