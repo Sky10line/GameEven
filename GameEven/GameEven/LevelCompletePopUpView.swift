@@ -1,22 +1,22 @@
 //
-//  PausePopUpView.swift
+//  LevelCompletePopUpView.swift
 //  GameEven
 //
-//  Created by Rogerio Lucon on 27/10/20.
+//  Created by Rogerio Lucon on 29/10/20.
 //
 
 import Foundation
 import SpriteKit
 
-protocol PauseMenuDelegate {
-    func resumeLevel()
+protocol LevelCompleteMenuDelegate {
+    func nextLevel()
     func resetLevel()
     func exitLevel()
 }
 
-class PausePopUpView: SKSpriteNode {
+class LevelCompletePopUpView: SKSpriteNode {
     
-    var pauseDelegate: PauseMenuDelegate?
+    var levelCompleteDelegate: LevelCompleteMenuDelegate?
     
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
@@ -25,7 +25,6 @@ class PausePopUpView: SKSpriteNode {
         
         super.init(texture: nil, color: .orange, size: size)
         texture = SKTexture(imageNamed: "Backgroud-PopUp")
-        
         isUserInteractionEnabled = true
         
         buttonSize = scale(90)
@@ -37,8 +36,8 @@ class PausePopUpView: SKSpriteNode {
             size: CGSize(width: buttonSize, height: buttonSize * 0.719)
         )
         resetLevel.name = "reset"
-        var y: CGFloat = size.height / 2 - resetLevel.size.height / 2 - scale(64)
         resetLevel.texture = SKTexture(imageNamed: "Button-Reset")
+        var y: CGFloat = size.height / 2 - resetLevel.size.height / 2 - scale(64)
         resetLevel.position = CGPoint(x: resetLevel.size.width / 2 + scale(16), y: -y)
         resetLevel.zPosition = 1
         self.addChild(resetLevel)
@@ -48,51 +47,42 @@ class PausePopUpView: SKSpriteNode {
             color: .blue,
             size: CGSize(width: buttonSize, height: buttonSize * 0.719)
         )
-        map.name = "exit"
         map.texture = SKTexture(imageNamed: "Button-Map")
+        map.name = "exit"
         map.position = CGPoint(x: -map.size.width / 2 - scale(16), y: -y)
         map.zPosition = 1
         self.addChild(map)
         
-        //X Btt
-        let xBtt = SKSpriteNode(
-            color: .red,
-            size: CGSize(width: 46, height: 46)
-        )
-        xBtt.name = "resume"
-        xBtt.texture = SKTexture(imageNamed: "Button-X")
-        xBtt.position = CGPoint(x: size.width / 2 - 24 - xBtt.size.width / 2, y: size.height / 2 - 24 - xBtt.size.height / 2)
-        xBtt.zPosition = 1
-        self.addChild(xBtt)
+        //EXCELENTE!
+        let text = SKLabelNode(text: "EXCELENTE!")
+        text.position = CGPoint(x: 0, y: size.height / 2 - text.fontSize / 2 - scale(64))
+        text.fontSize = fontSize * 1.7
+        text.fontColor = #colorLiteral(red: 0.06604217738, green: 0.6873383522, blue: 0.7892531753, alpha: 1)
+        text.fontName = "AvenirNext-Bold"
+        text.verticalAlignmentMode = .center
+        text.zPosition = 1
+        self.addChild(text)
     
-        //Resume Btt
-        let resume = SKSpriteNode(
+        //Next Btt
+        let next = SKSpriteNode(
             color: .green,
-            size: CGSize(width: buttonSize * 2 + scale(32), height: buttonSize * 0.75 * 0.719)
+            size: CGSize(width: buttonSize * 2 + scale(32), height: (buttonSize * 0.75) * 0.719)
         )
-        resume.name = "resume"
-        resume.texture = SKTexture(imageNamed: "Button-Resume")
-        y = resetLevel.position.y + resetLevel.size.height / 2 + resume.size.height / 2
-        resume.position = CGPoint(x: 0, y: y + scale(32))
-        resume.zPosition = 1
-        self.addChild(resume)
-
-        let txtLabel = SKLabelNode(text: "CONTINUAR")
-        txtLabel.fontSize = fontSize
-        txtLabel.fontColor = .white
-        txtLabel.fontName = "AvenirNext-Bold"
-        txtLabel.verticalAlignmentMode = .center
-        txtLabel.zPosition = 1
-        resume.addChild(txtLabel)
+        next.name = "next"
+        next.texture = SKTexture(imageNamed: "Button-Next")
+        y = resetLevel.position.y + resetLevel.size.height / 2 + next.size.height / 2
+        next.position = CGPoint(x: 0, y: y + scale(32))
+        next.zPosition = 1
+        self.addChild(next)
         
         //Even
         let even = SKSpriteNode(
             color: .blue,
-            size: CGSize(width: scale(280) * 0.84, height: scale(280))
+            size: CGSize(width: scale(300) * 0.68, height: scale(300))
         )
         even.name = "even"
-        even.texture = SKTexture(imageNamed: "Even-Pause")
-        even.position = CGPoint(x: 0, y: scale(80))
+        even.texture = SKTexture(imageNamed: "Even-Next")
+        even.position = CGPoint(x: 0, y: next.position.y + next.size.height / 2 + even.size.height / 2 + scale(60))
         even.zPosition = 1
         self.addChild(even)
     }
@@ -122,14 +112,13 @@ class PausePopUpView: SKSpriteNode {
             
             let touchedNodes = self.nodes(at: location)
             for node in touchedNodes.reversed() {
-                print("NODE TOUCH: \(String(describing: node.name))")
                 switch node.name {
                 case "exit":
                     exit()
                 case "reset":
                     reset()
-                case "resume":
-                    resume()
+                case "next":
+                    next()
                 default:
                     break
                 }
@@ -138,14 +127,15 @@ class PausePopUpView: SKSpriteNode {
     }
     
     private func exit(){
-        pauseDelegate?.exitLevel()
+        levelCompleteDelegate?.exitLevel()
     }
     
     private func reset(){
-        pauseDelegate?.resetLevel()
+        levelCompleteDelegate?.resetLevel()
     }
     
-    private func resume(){
-        pauseDelegate?.resumeLevel()
+    private func next(){
+        levelCompleteDelegate?.nextLevel()
     }
+    
 }
