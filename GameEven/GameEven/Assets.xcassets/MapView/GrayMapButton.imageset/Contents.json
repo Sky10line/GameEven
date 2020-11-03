@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "MapBackground.png",
+      "filename" : "GrayMapButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

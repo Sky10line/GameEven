@@ -11,30 +11,50 @@ class MapViewController: UIViewController {
     
     @IBOutlet var buttonWay: [UIButton]! // Array com todos os botões da fase.
     
-    var playerPhase: Int = 1 // Int com a fase em que o jogador está.
+    var playerPhase: Int = 5 // Int com a fase em que o jogador está
     
     override func viewDidLoad() {
         
-        // Ordena de forma crescente o vetor de botões pela tag de cada botão.
-        buttonWay.sort {
-            $0.tag < $1.tag
-        }
+        overrideUserInterfaceStyle = .dark
         
-        // Caso a fase do jogador esteja acima da contagem de botões, ele retorna ao número de fases existentes.
-        if playerPhase > buttonWay.count { playerPhase = buttonWay.count }
-        
-        // Baseado na fase em que o jogador está, modifica os botões das fases anteriores e da atual.
-        buttonWay[(0..<playerPhase)].forEach {
-            
-            $0.addTarget(self, action: #selector(enterInPhase), for: UIControl.Event.touchUpInside)
-        }
-        
+        initButtons()
+
         super.viewDidLoad()
     }
     
-    // Função para o jogador entrar na fase referente a .tag do botão.
-    @objc func enterInPhase(sender: UIButton!) {
-        
-        print(sender.tag)
+    // Método que baseado na fase em que o jogador está, modifica os botões das fases anteriores e da atual.
+    func initButtons() {
+
+        buttonWay.forEach { (button) in
+            
+            // Ajusta o texto do botão para aparecer em 1/4 da altura
+            button.titleEdgeInsets = UIEdgeInsets(top: ((button.frame.height) / 4)-5, left: 0, bottom: 0, right: 0)
+            
+            if (button.tag <= playerPhase) {
+                
+                button.setBackgroundImage(UIImage.init(named: "BlueMapButton"), for: .normal)
+                button.addTarget(self, action: #selector(enterInInstruction), for: .touchUpInside)
+            }
+        }
     }
+    
+    // Método para o jogador entrar na fase referente a .tag do botão.
+    @objc func enterInInstruction(sender: UIButton!) {
+        
+        performSegue(withIdentifier: "goToInstruction", sender: sender.tag)
+    }
+    
+    // Função que passará a fase e chamará a próxima tela
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "goToInstruction") {
+            guard let instructionView = segue.destination as? InstructionViewController else { return }
+            
+            instructionView.selectedPhase = sender as! Int
+        }
+    }
+    
+    // Método retornar ao mapa
+    @IBAction func unwindToMap(_ sender: UIStoryboardSegue) {}
+    
 }
