@@ -122,7 +122,6 @@ class PausePopUpView: SKSpriteNode {
             
             let touchedNodes = self.nodes(at: location)
             for node in touchedNodes.reversed() {
-                print("NODE TOUCH: \(String(describing: node.name))")
                 switch node.name {
                 case "exit":
                     exit()
@@ -147,5 +146,8 @@ class PausePopUpView: SKSpriteNode {
     
     private func resume(){
         pauseDelegate?.resumeLevel()
+        self.run(  .fadeAlpha(to: 0, duration: 0.3)) {
+            self.removeFromParent()
+        }
     }
 }
