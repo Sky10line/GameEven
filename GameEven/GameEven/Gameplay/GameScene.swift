@@ -17,18 +17,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     private var touching = false
     private var touchPoint: CGPoint?
     
+    private var pause: SKSpriteNode!
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         
         self.physicsWorld.contactDelegate = self
         
         //Pause Btt
-        let pause = SKSpriteNode(
+        pause = SKSpriteNode(
             color: .red,
             size: CGSize(width: 46, height: 46)
         )
         pause.name = "pause"
-        pause.texture = SKTexture(imageNamed: "Button-X")
+        pause.texture = SKTexture(imageNamed: "Button-Pause")
         pause.position.x = UIScreen.main.bounds.maxX / 2 - pause.size.width / 2 - 32
         pause.position.y = UIScreen.main.bounds.maxY / 2 - pause.size.height / 2 - ( safeAreaInsets().top == .zero ? 32 : safeAreaInsets().top)
         self.addChild(pause)
@@ -145,12 +147,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.isPaused = true
         pauseMenu.zPosition = 1
         addChild(pauseMenu)
+        
+        pause.isHidden = true
     }
 }
 
 extension GameScene: PauseMenuDelegate {
     func resumeLevel() {
         self.isPaused = false
+        pause.isHidden = false
     }
     
     func resetLevel() {
@@ -159,6 +164,7 @@ extension GameScene: PauseMenuDelegate {
     
     func exitLevel() {
         self.isPaused = false
+        pause.isHidden = false
     }
 }
 
