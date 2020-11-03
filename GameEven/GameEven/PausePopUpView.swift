@@ -146,6 +146,8 @@ class PausePopUpView: SKSpriteNode {
     
     private func resume(){
         pauseDelegate?.resumeLevel()
-        self.removeFromParent()
+        self.run(  .fadeAlpha(to: 0, duration: 0.3)) {
+            self.removeFromParent()
+        }
     }
 }

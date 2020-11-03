@@ -144,11 +144,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     func pauseGame(){
         let pauseMenu = PausePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.75))
         pauseMenu.pauseDelegate = self
-        self.isPaused = true
         pauseMenu.zPosition = 1
+        pauseMenu.alpha = 0
         addChild(pauseMenu)
         
-        pause.isHidden = true
+        pauseMenu.run(  .fadeAlpha(to: 1, duration: 0.5))
+        
+        pause.run(  .fadeAlpha(to: 0, duration: 0.5)) {
+            self.isPaused = true
+        }
+        
+
     }
     
     func endGame() {
@@ -156,14 +162,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         endGame.levelCompleteDelegate = self
         self.isPaused = true
         endGame.zPosition = 1
+        endGame.alpha = 0
         addChild(endGame)
         
-        pause.isHidden = true
+        endGame.run(  .fadeAlpha(to: 1, duration: 0.5))
+        
+        pause.run(  .fadeAlpha(to: 0, duration: 0.5)) {
+            self.isPaused = true
+        }
     }
 }
 
 extension GameScene: PauseMenuDelegate {
     func resumeLevel() {
+        pause.run(  .fadeAlpha(to: 1, duration: 0.5)) {
+            self.pause.isHidden = false
+        }
         self.isPaused = false
         pause.isHidden = false
     }
