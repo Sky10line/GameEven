@@ -61,12 +61,23 @@
                         <outlet property="instructionText" destination="hdw-wU-ZCR" id="Epg-MB-kFT"/>
                         <outlet property="okButton" destination="TFt-gv-LSk" id="1T0-VW-TTT"/>
                         <outlet property="returnButton" destination="3pn-cs-DSU" id="Pbp-S3-lUi"/>
+                        <segue destination="AeR-wN-dep" kind="show" identifier="Game" id="aGB-Ct-ejB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJ7-KS-YVw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="HKr-q5-I6y" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1139.1304347826087" y="62.946428571428569"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="2hf-I5-dsC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="AeR-wN-dep" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QyO-HH-Cp2"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q3Y-T4-YNq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752" y="63"/>
         </scene>
     </scenes>
     <resources>
