@@ -19,9 +19,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     private var pause: SKSpriteNode!
     
-    override func sceneDidLoad() {
-        super.sceneDidLoad()
-        
+    override func didMove(to view: SKView) {
+        //make Sprites
         self.physicsWorld.contactDelegate = self
         
         //Pause Btt
@@ -34,19 +33,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         pause.position.x = UIScreen.main.bounds.maxX / 2 - pause.size.width / 2 - 32
         pause.position.y = UIScreen.main.bounds.maxY / 2 - pause.size.height / 2 - ( safeAreaInsets().top == .zero ? 32 : safeAreaInsets().top)
         self.addChild(pause)
-      }
-    
-    override func didMove(to view: SKView) {
-        
-        //make Sprites
         
         let back = SKSpriteNode(color: .purple, size: CGSize(width: 160, height: 320))
-    
+        
         back.position = CGPoint(x: 0, y: 0)
         back.name = "silhouette"
-
+        
         back.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 160, height: 320))
-
+        
         if let bpb = back.physicsBody{
             bpb.categoryBitMask = 2
             bpb.collisionBitMask = 2
@@ -59,22 +53,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.backImage = back
         self.addChild(back)
         
-        for i in 0...1{
-            let square = Square(image: "testeSpriteDrag", size: CGSize(width: 150, height: 150), pos: CGPoint(x: 0, y: 0), rotation: 0)
-            square.insertCollider()
-            self.draggablesList.insert(square, at: i)
-            self.addChild(square.spriteNode!)
+        let lvl: lvlReader = load("lvl\(1).json")
+        
+        for square in lvl.squares{
+            let size = CGSize(width: CGFloat(square.size[0]), height: CGFloat(square.size[1]))
+            let pos = CGPoint(x: CGFloat(square.pos[0]), y: CGFloat(square.pos[1]))
+            let rot = CGFloat(square.rotation)
+            let part = Square(image: square.sprite, size: size, pos: pos, rotation: rot)
+            
+            part.insertCollider()
+            self.draggablesList.append(part)
+            self.addChild(part.spriteNode!)
         }
         
-        let triangle = Triangle(image: "triangleSprite", size: CGSize(width: 150, height: 150), pos: CGPoint(x: 0, y: 0), rotation: 0)
-        triangle.insertCollider()
-        self.draggablesList.insert(triangle, at: 2)
-        self.addChild(triangle.spriteNode!)
+        for triangle in lvl.triangles{
+            let size = CGSize(width: CGFloat(triangle.size[0]), height: CGFloat(triangle.size[1]))
+            let pos = CGPoint(x: CGFloat(triangle.pos[0]), y: CGFloat(triangle.pos[1]))
+            let rot = CGFloat(triangle.rotation)
+            let part = Triangle(image: triangle.sprite, size: size, pos: pos, rotation: rot)
+            
+            part.insertCollider()
+            self.draggablesList.append(part)
+            self.addChild(part.spriteNode!)
+        }
         
-        let circle = Circle(image: "circleSprite", size: CGSize(width: 150, height: 150), pos: CGPoint(x: 0, y: 0), rotation: 0)
-        circle.insertCollider()
-        self.draggablesList.insert(circle, at: 3)
-        self.addChild(circle.spriteNode!)
+        for circle in lvl.circles{
+            let size = CGSize(width: CGFloat(circle.size[0]), height: CGFloat(circle.size[1]))
+            let pos = CGPoint(x: CGFloat(circle.pos[0]), y: CGFloat(circle.pos[1]))
+            let rot = CGFloat(circle.rotation)
+            let part = Circle(image: circle.sprite, size: size, pos: pos, rotation: rot)
+            
+            part.insertCollider()
+            self.draggablesList.append(part)
+            self.addChild(part.spriteNode!)
+            
+        }
     }
     
     
@@ -82,16 +95,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let touch = touches.first!
         let location = touch.location(in: self)
         let touchNodes = self.nodes(at: location)
-            for node in touchNodes.reversed() {
-                if node.name == "draggable" {
-                    self.touchedNode = node as? SKSpriteNode
-                    touchPoint = location
-                    touching = true
-                }
-                if node.name == "pause" {
-                    pauseGame()
-                }
+        for node in touchNodes.reversed() {
+            if node.name == "draggable" {
+                self.touchedNode = node as? SKSpriteNode
+                touchPoint = location
+                touching = true
             }
+            if node.name == "pause" {
+                pauseGame()
+            }
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -133,6 +146,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         bodyB.velocity = CGVector(dx: 0, dy: 0)
     }
     
+    func load<T: Decodable>(_ filename: String) -> T {
+            let data: Data
+            
+            guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+                else {
+                    fatalError("Couldn't find \(filename) in main bundle.")
+            }
+            
+            do {
+                data = try Data(contentsOf: file)
+            } catch {
+                fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                return try decoder.decode(T.self, from: data)
+            } catch {
+                fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
+            }
+        }
+    
     private func safeAreaInsets() -> UIEdgeInsets {
         if #available(iOS 11.0, *) {
             return UIApplication.shared.windows.first?.safeAreaInsets ?? .zero
@@ -154,7 +189,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             self.isPaused = true
         }
         
-
+        
     }
     
     func endGame() {
