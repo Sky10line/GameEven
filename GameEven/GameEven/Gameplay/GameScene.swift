@@ -9,13 +9,16 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
-    
+
     private var touchedNode: SKSpriteNode?
     private var draggablesList: [DraggableProtocol] = []
     private var backImage: SKSpriteNode?
+    private var win = false
+    public var level: Int = 1
     
     private var touching = false
     private var touchPoint: CGPoint?
+    private var touchDistToCenter: CGPoint?
     
     private var pause: SKSpriteNode!
     
@@ -53,7 +56,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.backImage = back
         self.addChild(back)
         
-        let lvl: lvlReader = load("lvl\(1).json")
+        let lvl: lvlReader = load("lvl\(level).json")
         
         for square in lvl.squares{
             let size = CGSize(width: CGFloat(square.size[0]), height: CGFloat(square.size[1]))
@@ -98,8 +101,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         for node in touchNodes.reversed() {
             if node.name == "draggable" {
                 self.touchedNode = node as? SKSpriteNode
-                touchPoint = location
-                touching = true
+                self.touchPoint = location
+                self.touchDistToCenter = CGPoint(x: (self.touchedNode?.position.x)!-self.touchPoint!.x, y: (self.touchedNode?.position.y)!-self.touchPoint!.y)
+                self.touching = true
             }
             if node.name == "pause" {
                 pauseGame()
@@ -116,6 +120,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         touching = false
+        var i = 0
+        for part in draggablesList{ //checa quantas pecas estão na silhueta
+            if(part.checkInside(back: backImage!)){
+                i += 1
+            }
+        }
+        if(i == draggablesList.count){ //se todas estiverem dentro ele executa o codigo
+            win = true
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -123,18 +136,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     override func update(_ currentTime: CFTimeInterval) {
-        if touching {
+        if touching { //executa o movimento da peca movida pelo usuario
             if touchPoint != self.touchedNode?.position
             {
                 let dt:CGFloat = 0.01
-                let distance = CGVector(dx: touchPoint!.x-(self.touchedNode?.position.x)!, dy: touchPoint!.y-(self.touchedNode?.position.y)!)
+                let distance = CGVector(dx: (touchPoint!.x+touchDistToCenter!.x)-(self.touchedNode?.position.x)!, dy: (touchPoint!.y+touchDistToCenter!.y)-(self.touchedNode?.position.y)!)
                 let vel = CGVector(dx: distance.dx/dt, dy: distance.dy/dt)
                 self.touchedNode!.physicsBody!.velocity = vel
             }
         }
-        else {
+        else { // para o movimento da peca quando o usuario tira o dedo
             self.touchedNode?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             self.touchedNode = nil
+        }
+    }
+    
+    func resetScene(_ lvl: Int){ // func reseta a cena e carrega o lvl desejado
+        if let scene = SKScene(fileNamed: "GameScene") {
+            (scene as? GameScene)?.level = lvl
+            // Set the scale mode to scale to fit the window
+            scene.scaleMode = .aspectFill
+            scene.size = UIScreen.main.bounds.size
+            let transition = SKTransition.fade(withDuration: 1.0)
+            // Present the scene
+            view!.presentScene(scene, transition: transition)
         }
     }
     
@@ -146,7 +171,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         bodyB.velocity = CGVector(dx: 0, dy: 0)
     }
     
-    func load<T: Decodable>(_ filename: String) -> T {
+    func load<T: Decodable>(_ filename: String) -> T { //func para conseguir acessar um arquivo json
             let data: Data
             
             guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
