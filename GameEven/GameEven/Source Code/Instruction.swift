@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SpriteKit
+import GameplayKit
 
 class InstructionViewController: UIViewController {
     
@@ -20,18 +22,18 @@ class InstructionViewController: UIViewController {
     override func viewDidLoad() {
         
         overrideUserInterfaceStyle = .dark
-
+        
         instructionText.text = readPhaseInstruction()
         
         okButton.addTarget(self, action: #selector(enterInPhase), for: .touchUpInside)
         
         super.viewDidLoad()
-
+        
     }
     
     // Método que retornará o texto da instrução.
     func readPhaseInstruction() -> String {
-
+        
         return "\(selectedPhase)"
     }
     
@@ -40,6 +42,7 @@ class InstructionViewController: UIViewController {
         
         print("Entrando na fase \(selectedPhase)")
         
+        performSegue(withIdentifier: "Game", sender: sender.tag)
+        
     }
-    
 }
