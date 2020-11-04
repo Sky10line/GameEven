@@ -21,6 +21,9 @@
 		BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B63C254A0C5700F38CE1 /* Draggable.swift */; };
 		BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */; };
 		BD87B647254B354100F38CE1 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B646254B354100F38CE1 /* Circle.swift */; };
+		BDE1E2F62551D277001566AD /* lvl1.json in Resources */ = {isa = PBXBuildFile; fileRef = BDE1E2F52551D277001566AD /* lvl1.json */; };
+		BDE1E3062551D8E3001566AD /* lvlReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E3052551D8E3001566AD /* lvlReader.swift */; };
+		BDE1E30B2551DA80001566AD /* PartsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E30A2551DA80001566AD /* PartsReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		BD87B63C254A0C5700F38CE1 /* Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draggable.swift; sourceTree = "<group>"; };
 		BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableProtocol.swift; sourceTree = "<group>"; };
 		BD87B646254B354100F38CE1 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		BDE1E2F52551D277001566AD /* lvl1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lvl1.json; sourceTree = "<group>"; };
+		BDE1E3052551D8E3001566AD /* lvlReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lvlReader.swift; sourceTree = "<group>"; };
+		BDE1E30A2551DA80001566AD /* PartsReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,7 @@
 		BD87B62E2548A5D000F38CE1 /* Gameplay */ = {
 			isa = PBXGroup;
 			children = (
+				BDE1E2F32551CE47001566AD /* Levels */,
 				BD87B5F325474D1A00F38CE1 /* GameScene.sks */,
 				BD87B5F725474D1A00F38CE1 /* GameScene.swift */,
 				BD87B62F2548A63C00F38CE1 /* Square.swift */,
@@ -150,8 +157,18 @@
 				BD87B646254B354100F38CE1 /* Circle.swift */,
 				BD87B63C254A0C5700F38CE1 /* Draggable.swift */,
 				BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */,
+				BDE1E3052551D8E3001566AD /* lvlReader.swift */,
+				BDE1E30A2551DA80001566AD /* PartsReader.swift */,
 			);
 			path = Gameplay;
+			sourceTree = "<group>";
+		};
+		BDE1E2F32551CE47001566AD /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				BDE1E2F52551D277001566AD /* lvl1.json */,
+			);
+			path = Levels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +276,7 @@
 			files = (
 				BD87B5FD25474D1B00F38CE1 /* Main.storyboard in Resources */,
 				BD87B5F425474D1A00F38CE1 /* GameScene.sks in Resources */,
+				BDE1E2F62551D277001566AD /* lvl1.json in Resources */,
 				BD87B5FF25474D1D00F38CE1 /* Assets.xcassets in Resources */,
 				BD87B5F625474D1A00F38CE1 /* Actions.sks in Resources */,
 			);
@@ -290,6 +308,8 @@
 				BD87B5F825474D1B00F38CE1 /* GameScene.swift in Sources */,
 				BD87B6382549E8B800F38CE1 /* Triangle.swift in Sources */,
 				BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */,
+				BDE1E30B2551DA80001566AD /* PartsReader.swift in Sources */,
+				BDE1E3062551D8E3001566AD /* lvlReader.swift in Sources */,
 				BD87B5FA25474D1B00F38CE1 /* GameViewController.swift in Sources */,
 				BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */,
 				BD87B5F225474D1A00F38CE1 /* AppDelegate.swift in Sources */,

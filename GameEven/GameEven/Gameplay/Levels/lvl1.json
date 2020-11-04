@@ -1,0 +1,45 @@
+{
+ "id": 0,
+ "squares": [
+     {
+         "sprite": "testeSpriteDrag",
+         "size": [150, 150],
+         "pos": [0, 0],
+         "rotation": 0
+     },
+     {
+         "sprite": "testeSpriteDrag",
+         "size": [150, 150],
+         "pos": [0, 0],
+         "rotation": 0
+     },
+     {
+         "sprite": "testeSpriteDrag",
+         "size": [150, 150],
+         "pos": [0, 0],
+         "rotation": 0
+     }
+ ],
+ "triangles": [
+     {
+         "sprite": "triangleSprite",
+         "size": [150, 150],
+         "pos": [0, 0],
+         "rotation": 0
+     },
+     {
+         "sprite": "triangleSprite",
+         "size": [100, 150],
+         "pos": [0, 0],
+         "rotation": 0
+     }
+ ],
+ "circles": [
+     {
+         "sprite": "circleSprite",
+         "size": [150, 150],
+         "pos": [0, 0],
+         "rotation": 0
+     }
+ ]
+}
