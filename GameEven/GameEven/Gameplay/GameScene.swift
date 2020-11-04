@@ -22,6 +22,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     private var pause: SKSpriteNode!
     
+    var viewControllerDelegate: PopViewControllerDelegate?
+    
     override func didMove(to view: SKView) {
         //make Sprites
         self.physicsWorld.contactDelegate = self
@@ -247,13 +249,23 @@ extension GameScene: PauseMenuDelegate {
     }
     
     func exitLevel() {
-        print("Exit nao implementado")
+        popView()
     }
 }
 
 extension GameScene: LevelCompleteMenuDelegate {
     func nextLevel() {
-        print("Next nao implementado")
+        changeLevel()
+    }
+}
+
+extension GameScene: PopViewControllerDelegate {
+    func changeLevel() {
+        self.viewControllerDelegate?.changeLevel()
+    }
+    
+    func popView() {
+        self.viewControllerDelegate?.popView()
     }
 }
 
