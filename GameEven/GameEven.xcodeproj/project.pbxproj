@@ -30,6 +30,7 @@
 		BDE1E2F62551D277001566AD /* lvl1.json in Resources */ = {isa = PBXBuildFile; fileRef = BDE1E2F52551D277001566AD /* lvl1.json */; };
 		BDE1E3062551D8E3001566AD /* lvlReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E3052551D8E3001566AD /* lvlReader.swift */; };
 		BDE1E30B2551DA80001566AD /* PartsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E30A2551DA80001566AD /* PartsReader.swift */; };
+		BDE1E34525533E84001566AD /* lvl2.json in Resources */ = {isa = PBXBuildFile; fileRef = BDE1E34425533E84001566AD /* lvl2.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		BDE1E2F52551D277001566AD /* lvl1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lvl1.json; sourceTree = "<group>"; };
 		BDE1E3052551D8E3001566AD /* lvlReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lvlReader.swift; sourceTree = "<group>"; };
 		BDE1E30A2551DA80001566AD /* PartsReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsReader.swift; sourceTree = "<group>"; };
+		BDE1E34425533E84001566AD /* lvl2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lvl2.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				BDE1E2F52551D277001566AD /* lvl1.json */,
+				BDE1E34425533E84001566AD /* lvl2.json */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = BD87B5E525474D1A00F38CE1;
 			productRefGroup = BD87B5EF25474D1A00F38CE1 /* Products */;
@@ -309,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD87B5FD25474D1B00F38CE1 /* Main.storyboard in Resources */,
+				BDE1E34525533E84001566AD /* lvl2.json in Resources */,
 				16A747D7254B2F8500D59C71 /* Instruction.storyboard in Resources */,
 				BD87B5F425474D1A00F38CE1 /* GameScene.sks in Resources */,
 				BDE1E2F62551D277001566AD /* lvl1.json in Resources */,
@@ -403,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -464,6 +470,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -521,7 +528,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YHY9LU893D;
+				DEVELOPMENT_TEAM = HKSJLM4DRR;
 				INFOPLIST_FILE = GameEven/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -540,7 +547,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YHY9LU893D;
+				DEVELOPMENT_TEAM = HKSJLM4DRR;
 				INFOPLIST_FILE = GameEven/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
