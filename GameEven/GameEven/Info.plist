@@ -23,9 +23,9 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
-	<string>Main</string>
+	<string>Map</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>Map</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

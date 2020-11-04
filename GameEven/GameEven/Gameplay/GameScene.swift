@@ -17,11 +17,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     private var touching = false
     private var touchPoint: CGPoint?
     
+    private var pause: SKSpriteNode!
+    
     override func sceneDidLoad() {
+        super.sceneDidLoad()
+        
         self.physicsWorld.contactDelegate = self
+        
+        //Pause Btt
+        pause = SKSpriteNode(
+            color: .red,
+            size: CGSize(width: 46, height: 46)
+        )
+        pause.name = "pause"
+        pause.texture = SKTexture(imageNamed: "Button-Pause")
+        pause.position.x = UIScreen.main.bounds.maxX / 2 - pause.size.width / 2 - 32
+        pause.position.y = UIScreen.main.bounds.maxY / 2 - pause.size.height / 2 - ( safeAreaInsets().top == .zero ? 32 : safeAreaInsets().top)
+        self.addChild(pause)
       }
     
     override func didMove(to view: SKView) {
+        
         //make Sprites
         
         let back = SKSpriteNode(color: .purple, size: CGSize(width: 160, height: 320))
@@ -72,6 +88,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                     touchPoint = location
                     touching = true
                 }
+                if node.name == "pause" {
+                    pauseGame()
+                }
             }
     }
     
@@ -113,6 +132,68 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         bodyA.velocity = CGVector(dx: 0, dy: 0)
         bodyB.velocity = CGVector(dx: 0, dy: 0)
     }
+    
+    private func safeAreaInsets() -> UIEdgeInsets {
+        if #available(iOS 11.0, *) {
+            return UIApplication.shared.windows.first?.safeAreaInsets ?? .zero
+        } else {
+            return .zero
+        }
+    }
+    
+    func pauseGame(){
+        let pauseMenu = PausePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.75))
+        pauseMenu.pauseDelegate = self
+        pauseMenu.zPosition = 1
+        pauseMenu.alpha = 0
+        addChild(pauseMenu)
+        
+        pauseMenu.run(  .fadeAlpha(to: 1, duration: 0.5))
+        
+        pause.run(  .fadeAlpha(to: 0, duration: 0.5)) {
+            self.isPaused = true
+        }
+        
+
+    }
+    
+    func endGame() {
+        let endGame = LevelCompletePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.8))
+        endGame.levelCompleteDelegate = self
+        self.isPaused = true
+        endGame.zPosition = 1
+        endGame.alpha = 0
+        addChild(endGame)
+        
+        endGame.run(  .fadeAlpha(to: 1, duration: 0.5))
+        
+        pause.run(  .fadeAlpha(to: 0, duration: 0.5)) {
+            self.isPaused = true
+        }
+    }
 }
 
+extension GameScene: PauseMenuDelegate {
+    func resumeLevel() {
+        pause.run(  .fadeAlpha(to: 1, duration: 0.5)) {
+            self.pause.isHidden = false
+        }
+        self.isPaused = false
+        pause.isHidden = false
+    }
+    
+    func resetLevel() {
+        print("Reset nao implementado")
+    }
+    
+    func exitLevel() {
+        print("Exit nao implementado")
+    }
+}
+
+extension GameScene: LevelCompleteMenuDelegate {
+    func nextLevel() {
+        print("Next nao implementado")
+    }
+}
 
