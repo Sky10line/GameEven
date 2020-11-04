@@ -9,6 +9,11 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+protocol PopViewControllerDelegate {
+    func popView()
+    func changeLevel()
+}
+
 class GameViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -21,6 +26,9 @@ class GameViewController: UIViewController {
                 scene.scaleMode = .aspectFill
                 scene.size = UIScreen.main.bounds.size
                 // Present the scene
+                if let s = scene as? GameScene {
+                    s.viewControllerDelegate = self
+                }
                 view.presentScene(scene)
             }
             
@@ -45,5 +53,16 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+}
+
+extension GameViewController: PopViewControllerDelegate {
+    func changeLevel() {
+        print("ChangeLevel nao Implementado")
+    }
+    
+    func popView() {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }
 }
