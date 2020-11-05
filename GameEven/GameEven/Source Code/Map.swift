@@ -11,14 +11,31 @@ class MapViewController: UIViewController {
     
     @IBOutlet var buttonWay: [UIButton]! // Array com todos os botões da fase.
     
+    @IBOutlet weak var scrollView: UIScrollView!
+        
+    @IBOutlet weak var viewzinha: UIView!
+    
+    @IBOutlet weak var imageview: UIImageView!
+    
     var playerPhase: Int = 5 // Int com a fase em que o jogador está
     
     override func viewDidLoad() {
         
         overrideUserInterfaceStyle = .dark
         
+        
+        let image = UIImage(named: "BackG_Mapa")!
+
+        let scaled = UIImage(cgImage: image.cgImage!, scale: UIScreen.main.scale*(image.size.width/(UIScreen.main.bounds.width*2)), orientation: image.imageOrientation)
+
+
+        scrollView.backgroundColor = UIColor(patternImage: scaled)
+
+        
         initButtons()
 
+        
+        
         super.viewDidLoad()
     }
     

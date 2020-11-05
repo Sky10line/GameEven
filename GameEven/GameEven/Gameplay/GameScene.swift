@@ -128,8 +128,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 i += 1
             }
         }
-        if(i == draggablesList.count){ //se todas estiverem dentro ele executa o codigo
-            win = true
+        if(i == 2){ //se todas estiverem dentro ele executa o codigo
+            //draggablesList ==
+            endGame()
         }
     }
     
@@ -155,7 +156,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     func resetScene(_ lvl: Int){ // func reseta a cena e carrega o lvl desejado
         if let scene = SKScene(fileNamed: "GameScene") {
-            (scene as? GameScene)?.level = lvl
+            
+            if let s = scene as? GameScene {
+                s.viewControllerDelegate = self.viewControllerDelegate
+                s.level = lvl
+            }
+            
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
             scene.size = UIScreen.main.bounds.size
@@ -222,7 +228,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     func endGame() {
         let endGame = LevelCompletePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.8))
         endGame.levelCompleteDelegate = self
-        self.isPaused = true
         endGame.zPosition = 1
         endGame.alpha = 0
         addChild(endGame)
@@ -245,17 +250,19 @@ extension GameScene: PauseMenuDelegate {
     }
     
     func resetLevel() {
-        print("Reset nao implementado")
+        resetScene(level)
     }
     
     func exitLevel() {
+        print("exitevel")
         popView()
     }
 }
 
 extension GameScene: LevelCompleteMenuDelegate {
     func nextLevel() {
-        changeLevel()
+        // guard pra n dar ruim
+        resetScene(level+1)
     }
 }
 
@@ -265,6 +272,7 @@ extension GameScene: PopViewControllerDelegate {
     }
     
     func popView() {
+        print("Popview")
         self.viewControllerDelegate?.popView()
     }
 }

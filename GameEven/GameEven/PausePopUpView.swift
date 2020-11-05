@@ -124,6 +124,7 @@ class PausePopUpView: SKSpriteNode {
             for node in touchedNodes.reversed() {
                 switch node.name {
                 case "exit":
+                    print("OI")
                     exit()
                 case "reset":
                     reset()

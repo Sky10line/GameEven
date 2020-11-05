@@ -62,6 +62,9 @@ extension GameViewController: PopViewControllerDelegate {
     }
     
     func popView() {
+        
+        print("Voltando")
+        
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
             self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }
