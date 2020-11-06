@@ -20,8 +20,10 @@ class LevelCompletePopUpView: SKSpriteNode {
     
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
-    
-    init(size: CGSize){
+    private var level: Int!
+    private var maxLvl = 2
+    init(size: CGSize, level: Int){
+        self.level = level
         
         super.init(texture: nil, color: .orange, size: size)
         texture = SKTexture(imageNamed: "Backgroud-PopUp")
@@ -69,7 +71,13 @@ class LevelCompletePopUpView: SKSpriteNode {
             size: CGSize(width: buttonSize * 2 + scale(32), height: (buttonSize * 0.75) * 0.719)
         )
         next.name = "next"
-        next.texture = SKTexture(imageNamed: "Button-Next")
+        if level >= maxLvl {
+//            next.texture = SKTexture(imageNamed: "Button-Next")
+            next.color = .gray
+            next.name = ""
+        } else {
+            next.texture = SKTexture(imageNamed: "Button-Next")
+        }
         y = resetLevel.position.y + resetLevel.size.height / 2 + next.size.height / 2
         next.position = CGPoint(x: 0, y: y + scale(32))
         next.zPosition = 1
@@ -85,6 +93,7 @@ class LevelCompletePopUpView: SKSpriteNode {
         even.position = CGPoint(x: 0, y: next.position.y + next.size.height / 2 + even.size.height / 2 + scale(60))
         even.zPosition = 1
         self.addChild(even)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
