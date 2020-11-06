@@ -112,11 +112,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }
         }
     }
-    
+    let maxDistActiveMove: CGFloat = 100
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let node = touchedNode else {
+            return
+        }
         let touch = touches.first!
         let location = touch.location(in: self)
-        touchPoint = location
+        if euclideanDist(distance: node.position, distance: location) < maxDistActiveMove {
+            touchPoint = location
+        }
     }
     
     
@@ -226,6 +231,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if maxLvl < level {
             UserDefaults.standard.savePlayerLevel(playerLevel: level)
         }
+    }
+    
+    private func euclideanDist(distance a: CGPoint, distance b: CGPoint) -> CGFloat {
+        let x = abs(a.x - b.x)
+        let y = abs(a.y - b.y)
+        return sqrt(x * x + y * y)
     }
 }
 
