@@ -16,11 +16,15 @@ extension UserDefaults{
     //MARK: Salvar número da fase
     func savePlayerLevel(playerLevel: Int) {
         set(Int8(playerLevel), forKey: UserDefaultsKeys.playerLevel.rawValue)
-        //synchronize()
     }
 
     //MARK: Carregar número da fase
     func loadPlayerLevel()-> Int {
         return integer(forKey: UserDefaultsKeys.playerLevel.rawValue)
+    }
+    
+    //MARK: Resetar progresso de fases para 0
+    func resetPlayerLevel() {
+        set(Int8(0), forKey: UserDefaultsKeys.playerLevel.rawValue)
     }
 }

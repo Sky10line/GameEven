@@ -105,7 +105,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="414" height="1100"/>
                     <connections>
-                        <outlet property="scrollView" destination="kR0-Wm-fzj" id="59P-o0-bKZ"/>
+                        <outlet property="backgroundScrollView" destination="kR0-Wm-fzj" id="CQw-nf-qWe"/>
                         <outletCollection property="buttonWay" destination="4A0-3N-ITc" collectionClass="NSMutableArray" id="40q-4f-NC5"/>
                         <outletCollection property="buttonWay" destination="zHM-Gi-U9M" collectionClass="NSMutableArray" id="L7S-cc-IQe"/>
                         <outletCollection property="buttonWay" destination="eGs-uw-KzJ" collectionClass="NSMutableArray" id="bAb-Rw-uGj"/>
