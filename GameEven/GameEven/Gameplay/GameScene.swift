@@ -220,6 +220,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         pause.run(  .fadeAlpha(to: 0, duration: 0.5)) {
             self.isPaused = true
         }
+        
+        let maxLvl = UserDefaults.standard.loadPlayerLevel()
+        
+        if maxLvl < level {
+            UserDefaults.standard.savePlayerLevel(playerLevel: level)
+        }
+        
     }
 }
 
