@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("View Did Load")
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
@@ -57,15 +57,31 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: PopViewControllerDelegate {
+    
     func changeLevel() {
-        print("ChangeLevel nao Implementado")
+        print("GameViewController ChangeLevel")
+        guard let scene = SKScene(fileNamed: "GameScene") else {
+            fatalError("Scene nao encontrada")
+        }
+        guard let s = scene as? GameScene else {
+            fatalError("Scene nao e uma GameScene")
+        }
+        s.viewControllerDelegate = self
+        s.level = 1
+        // Set the scale mode to scale to fit the window
+        s.scaleMode = .aspectFill
+        s.size = UIScreen.main.bounds.size
+        //TRANSICAO COM PROBLEMA
+//            let transition = SKTransition.fade(withDuration: 1.0)
+        // Present the scene
+        guard let view = self.view as? SKView else {
+            fatalError("view nao e uma SKView")
+        }
+        view.presentScene(s)
     }
     
     func popView() {
-        
-        print("Voltando")
-        
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }
 }

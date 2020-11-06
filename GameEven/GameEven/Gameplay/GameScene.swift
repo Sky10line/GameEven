@@ -154,23 +154,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
     }
     
-    func resetScene(_ lvl: Int){ // func reseta a cena e carrega o lvl desejado
-        if let scene = SKScene(fileNamed: "GameScene") {
-            
-            if let s = scene as? GameScene {
-                s.viewControllerDelegate = self.viewControllerDelegate
-                s.level = lvl
-            }
-            
-            // Set the scale mode to scale to fit the window
-            scene.scaleMode = .aspectFill
-            scene.size = UIScreen.main.bounds.size
-            let transition = SKTransition.fade(withDuration: 1.0)
-            // Present the scene
-            view!.presentScene(scene, transition: transition)
-        }
-    }
-    
     func didEnd(_ contact: SKPhysicsContact) {
         let bodyA = contact.bodyA
         let bodyB = contact.bodyB
@@ -246,23 +229,20 @@ extension GameScene: PauseMenuDelegate {
             self.pause.isHidden = false
         }
         self.isPaused = false
-        pause.isHidden = false
     }
     
     func resetLevel() {
-        resetScene(level)
+        changeLevel()
     }
     
     func exitLevel() {
-        print("exitevel")
         popView()
     }
 }
 
 extension GameScene: LevelCompleteMenuDelegate {
     func nextLevel() {
-        // guard pra n dar ruim
-        resetScene(level+1)
+        viewControllerDelegate?.changeLevel()
     }
 }
 
@@ -272,7 +252,6 @@ extension GameScene: PopViewControllerDelegate {
     }
     
     func popView() {
-        print("Popview")
         self.viewControllerDelegate?.popView()
     }
 }
