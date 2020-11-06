@@ -29,6 +29,8 @@ class InstructionViewController: UIViewController {
         
         super.viewDidLoad()
         
+        UserDefaults.standard.savePlayerLevel(playerLevel: selectedPhase + 1)
+        
     }
     
     // Método que retornará o texto da instrução.

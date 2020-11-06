@@ -12,31 +12,42 @@ class MapViewController: UIViewController {
     @IBOutlet var buttonWay: [UIButton]! // Array com todos os botões da fase.
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    var playerPhase: Int = 1// Int com a fase em que o jogador está
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadingPlayerLevel()
         
-    @IBOutlet weak var viewzinha: UIView!
-    
-    @IBOutlet weak var imageview: UIImageView!
-    
-    var playerPhase: Int = 5 // Int com a fase em que o jogador está
+        initButtons()
+        
+        print(UserDefaults.standard.loadPlayerLevel())
+    }
     
     override func viewDidLoad() {
         
         overrideUserInterfaceStyle = .dark
+        repeatingBackground()
+
+        super.viewDidLoad()
+    }
+    
+    
+    // Método que carrega em que nível está o jogador baseado no userDefault, define como 1 caso não encontre nada.
+    func loadingPlayerLevel() {
         
+        playerPhase = UserDefaults.standard.loadPlayerLevel()
+        playerPhase == 0 ? playerPhase = 1 : ()
         
+    }
+    
+    // Método que colore a scrollView com a imagem do background de maneira repetida.
+    func repeatingBackground() {
         let image = UIImage(named: "BackG_Mapa")!
 
         let scaled = UIImage(cgImage: image.cgImage!, scale: UIScreen.main.scale*(image.size.width/(UIScreen.main.bounds.width*2)), orientation: image.imageOrientation)
 
 
         scrollView.backgroundColor = UIColor(patternImage: scaled)
-
-        
-        initButtons()
-
-        
-        
-        super.viewDidLoad()
     }
     
     // Método que baseado na fase em que o jogador está, modifica os botões das fases anteriores e da atual.
