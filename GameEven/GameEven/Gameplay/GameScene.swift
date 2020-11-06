@@ -226,7 +226,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if maxLvl < level {
             UserDefaults.standard.savePlayerLevel(playerLevel: level)
         }
-        
     }
 }
 
@@ -239,7 +238,7 @@ extension GameScene: PauseMenuDelegate {
     }
     
     func resetLevel() {
-        changeLevel()
+        changeLevel(changeTo: level)
     }
     
     func exitLevel() {
@@ -249,13 +248,13 @@ extension GameScene: PauseMenuDelegate {
 
 extension GameScene: LevelCompleteMenuDelegate {
     func nextLevel() {
-        viewControllerDelegate?.changeLevel()
+        self.viewControllerDelegate?.changeLevel(changeTo: level + 1)
     }
 }
 
 extension GameScene: PopViewControllerDelegate {
-    func changeLevel() {
-        self.viewControllerDelegate?.changeLevel()
+    func changeLevel(changeTo level: Int) {
+        self.viewControllerDelegate?.changeLevel(changeTo: level)
     }
     
     func popView() {

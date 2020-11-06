@@ -11,7 +11,7 @@ import GameplayKit
 
 protocol PopViewControllerDelegate {
     func popView()
-    func changeLevel()
+    func changeLevel(changeTo level: Int)
 }
 
 class GameViewController: UIViewController {
@@ -56,7 +56,7 @@ class GameViewController: UIViewController {
 
 extension GameViewController: PopViewControllerDelegate {
     
-    func changeLevel() {
+    func changeLevel(changeTo level: Int) {
         print("GameViewController ChangeLevel")
         guard let scene = SKScene(fileNamed: "GameScene") else {
             fatalError("Scene nao encontrada")
@@ -65,7 +65,7 @@ extension GameViewController: PopViewControllerDelegate {
             fatalError("Scene nao e uma GameScene")
         }
         s.viewControllerDelegate = self
-        s.level = 1
+        s.level = level
         // Set the scale mode to scale to fit the window
         s.scaleMode = .aspectFill
         s.size = UIScreen.main.bounds.size
