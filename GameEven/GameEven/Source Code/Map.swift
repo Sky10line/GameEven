@@ -66,7 +66,7 @@ class MapViewController: UIViewController {
         buttonWay.forEach { (button) in
             
             // Ajusta o texto do botão para aparecer em 1/4 da altura.
-            button.titleEdgeInsets = UIEdgeInsets(top: ((button.frame.height) / 4)-5, left: 0, bottom: 0, right: 0)
+            button.titleEdgeInsets = UIEdgeInsets(top: ((button.frame.height) / 4)-7.5, left: 0, bottom: 0, right: 0)
             
             if (button.tag <= currentPlayerLevel) {
                 
