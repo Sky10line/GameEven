@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		165E1A012554958700BA72CA /* UserDefaultCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E1A002554958700BA72CA /* UserDefaultCommands.swift */; };
 		165E1A122555C2F600BA72CA /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165E1A112555C2F600BA72CA /* Map.storyboard */; };
+		168AE0232559BF660089CBBC /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE0222559BF660089CBBC /* LaunchScreen.swift */; };
+		168AE0282559C1840089CBBC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AE0272559C1840089CBBC /* Launch Screen.storyboard */; };
+		168AE0382559C39A0089CBBC /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 168AE0372559C39A0089CBBC /* launch.png */; };
 		16A747D7254B2F8500D59C71 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A747D6254B2F8500D59C71 /* Instruction.storyboard */; };
 		16A747DC254B2F9100D59C71 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A747DB254B2F9100D59C71 /* Instruction.swift */; };
 		16CA95D22549EAF8003038C9 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA95D12549EAF8003038C9 /* Map.swift */; };
@@ -120,6 +123,9 @@
 /* Begin PBXFileReference section */
 		165E1A002554958700BA72CA /* UserDefaultCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultCommands.swift; sourceTree = "<group>"; };
 		165E1A112555C2F600BA72CA /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		168AE0222559BF660089CBBC /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		168AE0272559C1840089CBBC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "GameEven/Source Code/Launch Screen.storyboard"; sourceTree = SOURCE_ROOT; };
+		168AE0372559C39A0089CBBC /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		16A747D6254B2F8500D59C71 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
 		16A747DB254B2F9100D59C71 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
 		16CA95D12549EAF8003038C9 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
@@ -245,6 +251,7 @@
 		16CA95CA2549EAC9003038C9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				168AE0272559C1840089CBBC /* Launch Screen.storyboard */,
 				165E1A112555C2F600BA72CA /* Map.storyboard */,
 				16A747D6254B2F8500D59C71 /* Instruction.storyboard */,
 			);
@@ -257,6 +264,7 @@
 				16CA95D12549EAF8003038C9 /* Map.swift */,
 				16A747DB254B2F9100D59C71 /* Instruction.swift */,
 				165E1A002554958700BA72CA /* UserDefaultCommands.swift */,
+				168AE0222559BF660089CBBC /* LaunchScreen.swift */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -419,6 +427,7 @@
 				BD87B5F125474D1A00F38CE1 /* AppDelegate.swift */,
 				8966336F254B371D00EBF5DF /* PausePopUpView.swift */,
 				BD87B5F525474D1A00F38CE1 /* Actions.sks */,
+				168AE0372559C39A0089CBBC /* launch.png */,
 				BD87B62E2548A5D000F38CE1 /* Gameplay */,
 				BD87B5F925474D1B00F38CE1 /* GameViewController.swift */,
 				BD87B5FB25474D1B00F38CE1 /* Main.storyboard */,
@@ -617,11 +626,13 @@
 				BDE1E34525533E84001566AD /* lvl2.json in Resources */,
 				16EA97B52555F12C00DFFC5F /* Blogger Sans-Light.otf in Resources */,
 				16EA97892555F12C00DFFC5F /* BloggerSans-Bold.ttf in Resources */,
+				168AE0382559C39A0089CBBC /* launch.png in Resources */,
 				16EA97822555F12C00DFFC5F /* BloggerSans-Bold.eot in Resources */,
 				16A747D7254B2F8500D59C71 /* Instruction.storyboard in Resources */,
 				16EA97B42555F12C00DFFC5F /* Blogger Sans-Bold.otf in Resources */,
 				16EA97812555F12C00DFFC5F /* BloggerSans.ttf in Resources */,
 				16EA97A52555F12C00DFFC5F /* BloggerSans-MediumItalic.ttf in Resources */,
+				168AE0282559C1840089CBBC /* Launch Screen.storyboard in Resources */,
 				16EA97872555F12C00DFFC5F /* BloggerSans-Bold.woff in Resources */,
 				16EA979A2555F12C00DFFC5F /* BloggerSans-LightItalic.woff in Resources */,
 				16EA97802555F12C00DFFC5F /* Blogger Sans-Medium.ttf in Resources */,
@@ -683,6 +694,7 @@
 				BD87B6382549E8B800F38CE1 /* Triangle.swift in Sources */,
 				BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */,
 				BDE1E30B2551DA80001566AD /* PartsReader.swift in Sources */,
+				168AE0232559BF660089CBBC /* LaunchScreen.swift in Sources */,
 				BDE1E3062551D8E3001566AD /* lvlReader.swift in Sources */,
 				BD87B5FA25474D1B00F38CE1 /* GameViewController.swift in Sources */,
 				16CA95D22549EAF8003038C9 /* Map.swift in Sources */,
