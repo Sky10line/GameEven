@@ -112,11 +112,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }
         }
     }
-    
+    let maxDistActiveMove: CGFloat = 100
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let node = touchedNode else {
+            return
+        }
         let touch = touches.first!
         let location = touch.location(in: self)
-        touchPoint = location
+        if euclideanDist(distance: node.position, distance: location) < maxDistActiveMove {
+            touchPoint = location
+        }
     }
     
     
@@ -128,8 +133,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 i += 1
             }
         }
-        if(i == draggablesList.count){ //se todas estiverem dentro ele executa o codigo
-            win = true
+        if(i == 2){ //se todas estiverem dentro ele executa o codigo
+            //draggablesList ==
+            endGame()
         }
     }
     
@@ -150,18 +156,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         else { // para o movimento da peca quando o usuario tira o dedo
             self.touchedNode?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             self.touchedNode = nil
-        }
-    }
-    
-    func resetScene(_ lvl: Int){ // func reseta a cena e carrega o lvl desejado
-        if let scene = SKScene(fileNamed: "GameScene") {
-            (scene as? GameScene)?.level = lvl
-            // Set the scale mode to scale to fit the window
-            scene.scaleMode = .aspectFill
-            scene.size = UIScreen.main.bounds.size
-            let transition = SKTransition.fade(withDuration: 1.0)
-            // Present the scene
-            view!.presentScene(scene, transition: transition)
         }
     }
     
@@ -220,9 +214,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func endGame() {
-        let endGame = LevelCompletePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.8))
+        let endGame = LevelCompletePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.8), level: level)
         endGame.levelCompleteDelegate = self
-        self.isPaused = true
         endGame.zPosition = 1
         endGame.alpha = 0
         addChild(endGame)
@@ -232,6 +225,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         pause.run(  .fadeAlpha(to: 0, duration: 0.5)) {
             self.isPaused = true
         }
+        
+        let maxLvl = UserDefaults.standard.loadPlayerLevel()
+        
+        if maxLvl < level {
+            UserDefaults.standard.savePlayerLevel(playerLevel: level)
+        }
+    }
+    
+    private func euclideanDist(distance a: CGPoint, distance b: CGPoint) -> CGFloat {
+        let x = abs(a.x - b.x)
+        let y = abs(a.y - b.y)
+        return sqrt(x * x + y * y)
     }
 }
 
@@ -241,11 +246,10 @@ extension GameScene: PauseMenuDelegate {
             self.pause.isHidden = false
         }
         self.isPaused = false
-        pause.isHidden = false
     }
     
     func resetLevel() {
-        print("Reset nao implementado")
+        changeLevel(changeTo: level)
     }
     
     func exitLevel() {
@@ -255,13 +259,13 @@ extension GameScene: PauseMenuDelegate {
 
 extension GameScene: LevelCompleteMenuDelegate {
     func nextLevel() {
-        changeLevel()
+        self.viewControllerDelegate?.changeLevel(changeTo: level + 1)
     }
 }
 
 extension GameScene: PopViewControllerDelegate {
-    func changeLevel() {
-        self.viewControllerDelegate?.changeLevel()
+    func changeLevel(changeTo level: Int) {
+        self.viewControllerDelegate?.changeLevel(changeTo: level)
     }
     
     func popView() {
