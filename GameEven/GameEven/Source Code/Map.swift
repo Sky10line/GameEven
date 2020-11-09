@@ -118,7 +118,7 @@ class MapViewController: UIViewController {
     // Método que anima a movimentação do scroll até chegar ao nível atual.
     func animateScroll(position: CGFloat) {
         
-        UIView.animate(withDuration: 1.25, delay: 0.0, animations: {
+        UIView.animate(withDuration: 1.00, delay: 0.0, animations: {
             self.backgroundScrollView.contentOffset.y = position
         })
     }
