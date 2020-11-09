@@ -70,6 +70,7 @@ class MapViewController: UIViewController {
         let scaled = UIImage(cgImage: image.cgImage!, scale: UIScreen.main.scale*(image.size.width/(UIScreen.main.bounds.width*2)), orientation: image.imageOrientation)
         
         backgroundScrollView.backgroundColor = UIColor(patternImage: scaled)
+        
     }
     
     // Método que baseado no nível de fases do jogador, modifica os botões das fases anteriores e da atual.
@@ -88,13 +89,15 @@ class MapViewController: UIViewController {
         }
     }
     
+    // Método que faz a rolagem automática do scroll até centralizar no botão da nível atual, respeitando os limites do scrollView.
     func autoScrollToLevel() {
         
         let screenSize = backgroundScrollView.frame.midY
         let scrollSize = backgroundScrollView.contentSize.height - (screenSize * 2)
-        let yButtonPosition = buttonWay.first(where: {$0.tag == currentPlayerLevel})?.frame.midY ?? screenSize
+        let yButtonPosition = buttonWay.first(where: {$0.tag == currentPlayerLevel})?.frame.midY ?? (screenSize + scrollSize/2)
         let centralizedScreenPosition = yButtonPosition - screenSize + scrollSize/2
         
+        // Define a posição inicial da scroll para o final da scrollView, ocorre somente uma vez.
         if scrollFirstTime {
             backgroundScrollView.contentInsetAdjustmentBehavior = .never
             backgroundScrollView.contentOffset.y = scrollSize
@@ -112,6 +115,7 @@ class MapViewController: UIViewController {
         }
     }
     
+    // Método que anima a movimentação do scroll até chegar ao nível atual.
     func animateScroll(position: CGFloat) {
         
         UIView.animate(withDuration: 1.25, delay: 0.0, animations: {
