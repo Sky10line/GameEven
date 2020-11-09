@@ -25,6 +25,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var viewControllerDelegate: PopViewControllerDelegate?
     
     override func didMove(to view: SKView) {
+        let i = InstructionPopUpView(size: size)
+            i.zPosition = 1
+        addChild(i)
         //make Sprites
         self.physicsWorld.contactDelegate = self
         
