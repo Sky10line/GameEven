@@ -22,23 +22,35 @@ class MapViewController: UIViewController {
     
     var currentPlayerLevel: Int = 1 // Int com o nível de fases atual do jogador
     
+    var scrollFirstTime: Bool = true
+    
     // MARK: Ciclo de Vida da View
     
     override func viewWillAppear(_ animated: Bool) {
         
+        overrideUserInterfaceStyle = .dark
+        
         loadingPlayerLevel()
         
         initButtons()
+        
     }
     
     override func viewDidLoad() {
         
-        overrideUserInterfaceStyle = .dark
+        UserDefaults.standard.resetPlayerLevel()
+        
         repeatingBackground()
-
+        
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        autoScrollToLevel()
+        
+    }
+
     //MARK: Métodos de Lógica Interna
     
     // Método que carrega em que nível está o jogador baseado no userDefault, define como 1 caso não encontre nada.
@@ -54,15 +66,15 @@ class MapViewController: UIViewController {
     func repeatingBackground() {
         
         let image = UIImage(named: "BackG_Mapa")!
-
+        
         let scaled = UIImage(cgImage: image.cgImage!, scale: UIScreen.main.scale*(image.size.width/(UIScreen.main.bounds.width*2)), orientation: image.imageOrientation)
-
+        
         backgroundScrollView.backgroundColor = UIColor(patternImage: scaled)
     }
     
     // Método que baseado no nível de fases do jogador, modifica os botões das fases anteriores e da atual.
     func initButtons() {
-
+        
         buttonWay.forEach { (button) in
             
             // Ajusta o texto do botão para aparecer em 1/4 da altura.
@@ -76,11 +88,41 @@ class MapViewController: UIViewController {
         }
     }
     
+    func autoScrollToLevel() {
+        
+        let screenSize = backgroundScrollView.frame.midY
+        let scrollSize = backgroundScrollView.contentSize.height - (screenSize * 2)
+        let yButtonPosition = buttonWay.first(where: {$0.tag == currentPlayerLevel})?.frame.midY ?? screenSize
+        let centralizedScreenPosition = yButtonPosition - screenSize + scrollSize/2
+        
+        if scrollFirstTime {
+            backgroundScrollView.contentInsetAdjustmentBehavior = .never
+            backgroundScrollView.contentOffset.y = scrollSize
+            scrollFirstTime = false
+        }
+        
+        if centralizedScreenPosition < 0.0 {
+            animateScroll(position: 0.0)
+            
+        } else if centralizedScreenPosition > scrollSize {
+            animateScroll(position: scrollSize)
+            
+        } else {
+            animateScroll(position: centralizedScreenPosition)
+        }
+    }
+    
+    func animateScroll(position: CGFloat) {
+        
+        UIView.animate(withDuration: 1.25, delay: 0.0, animations: {
+            self.backgroundScrollView.contentOffset.y = position
+        })
+    }
+    
     //MARK: Entrada e Saída da View
     
     // Método para o jogador entrar na fase referente a .tag do botão.
     @objc func enterInInstruction(sender: UIButton!) {
-        
         performSegue(withIdentifier: "goToInstruction", sender: sender.tag)
     }
     
