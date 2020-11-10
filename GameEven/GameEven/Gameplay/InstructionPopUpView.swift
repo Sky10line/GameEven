@@ -12,7 +12,7 @@ class InstructionPopUpView: SKSpriteNode {
     
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
-    
+
     init(size: CGSize){
         
         super.init(texture: nil, color: .orange, size: size)
@@ -24,6 +24,7 @@ class InstructionPopUpView: SKSpriteNode {
         
         buttonSize = scale(90)
         fontSize = scale(28)
+        
         let offset = scale(100)
         let ballon = SKSpriteNode(
             color: .red,
@@ -34,7 +35,28 @@ class InstructionPopUpView: SKSpriteNode {
         ballon.zPosition = 1
         ballon.color = .green
         self.addChild(ballon)
-
+        
+        //Text
+        let labelText = SKLabelNode()
+        labelText.text = "Puxar do arquivo ahfihafoi fjafojp ojaspfoj jajfpo  jaspfoj jaspfoj jaspfoj jaspfoj"
+        labelText.zPosition = 1
+        labelText.fontSize = fontSize
+        labelText.fontColor = .black
+        labelText.fontName = "Even"
+        labelText.numberOfLines = 10
+        labelText.preferredMaxLayoutWidth = ballon.size.width - 32
+        labelText.lineBreakMode = .byCharWrapping
+        labelText.verticalAlignmentMode = .top
+        labelText.position.y = ballon.position.y + 32
+        ballon.addChild(labelText)
+        print(labelText.frame)
+        
+        if labelText.frame.height > 154 {
+            let dif = labelText.frame.height - 154
+            ballon.size.height = ballon.frame.height + dif
+            labelText.position.y = ballon.position.y + 32 + dif / 2
+        }
+        
         //X Btt
         let xBtt = SKSpriteNode(
             color: .red,
@@ -49,16 +71,24 @@ class InstructionPopUpView: SKSpriteNode {
         //Ok Btt
         let okBtt = SKSpriteNode(
             color: .red,
-            size: CGSize(width: 46, height: 46)
+            size: CGSize(width: scale(100), height: scale(50))
         )
         okBtt.name = "ok"
-        okBtt.texture = SKTexture(imageNamed: "Button-X")
+        okBtt.texture = SKTexture(imageNamed: "Button-Resume")
         okBtt.position = CGPoint(x: 0, y: 16  - ballon.size.height/4 + xBtt.size.height / 2 )
         okBtt.zPosition = 1
         ballon.addChild(okBtt)
         
-        //Text
-
+        let labelOk = SKLabelNode()
+        labelOk.text = "Ok"
+        labelOk.zPosition = 1
+        labelOk.fontSize = fontSize
+        labelOk.fontColor = .white
+        labelOk.fontName = "Even"
+        labelOk.verticalAlignmentMode = .center
+       
+        okBtt.addChild(labelOk)
+        
         //Even
         let even = SKSpriteNode(
             color: .blue,
