@@ -12,6 +12,14 @@ class Triangle: Draggable, DraggableProtocol{
     private var path: CGPath?
     private var points: [CGPoint] = []
     
+    func getName() -> String {
+        return self.spriteNode!.name!
+    }
+    
+    func getPos() -> CGPoint {
+        return self.spriteNode!.position
+    }
+    
     func insertCollider(){
         let width = self.spriteNode!.size.width
         let height = self.spriteNode!.size.height
