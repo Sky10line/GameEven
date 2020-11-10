@@ -7,10 +7,77 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		165E1A012554958700BA72CA /* UserDefaultCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E1A002554958700BA72CA /* UserDefaultCommands.swift */; };
+		165E1A122555C2F600BA72CA /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165E1A112555C2F600BA72CA /* Map.storyboard */; };
 		16A747D7254B2F8500D59C71 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A747D6254B2F8500D59C71 /* Instruction.storyboard */; };
 		16A747DC254B2F9100D59C71 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A747DB254B2F9100D59C71 /* Instruction.swift */; };
-		16CA95CD2549EAEA003038C9 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CA95CC2549EAEA003038C9 /* Map.storyboard */; };
 		16CA95D22549EAF8003038C9 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA95D12549EAF8003038C9 /* Map.swift */; };
+		16EA97772555F12C00DFFC5F /* Even-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA972E2555F12B00DFFC5F /* Even-Regular.ttf */; };
+		16EA97782555F12C00DFFC5F /* blogger-sans-ot-guide.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97302555F12B00DFFC5F /* blogger-sans-ot-guide.pdf */; };
+		16EA97792555F12C00DFFC5F /* Blogger Sans-Light Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97322555F12B00DFFC5F /* Blogger Sans-Light Italic.ttf */; };
+		16EA977A2555F12C00DFFC5F /* Blogger Sans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97332555F12B00DFFC5F /* Blogger Sans-Bold.ttf */; };
+		16EA977B2555F12C00DFFC5F /* Blogger Sans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97342555F12B00DFFC5F /* Blogger Sans.ttf */; };
+		16EA977C2555F12C00DFFC5F /* Blogger Sans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97352555F12B00DFFC5F /* Blogger Sans-Italic.ttf */; };
+		16EA977D2555F12C00DFFC5F /* Blogger Sans-Medium Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97362555F12B00DFFC5F /* Blogger Sans-Medium Italic.ttf */; };
+		16EA977E2555F12C00DFFC5F /* Blogger Sans-Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97372555F12B00DFFC5F /* Blogger Sans-Bold Italic.ttf */; };
+		16EA977F2555F12C00DFFC5F /* Blogger Sans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97382555F12B00DFFC5F /* Blogger Sans-Light.ttf */; };
+		16EA97802555F12C00DFFC5F /* Blogger Sans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97392555F12B00DFFC5F /* Blogger Sans-Medium.ttf */; };
+		16EA97812555F12C00DFFC5F /* BloggerSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA973C2555F12B00DFFC5F /* BloggerSans.ttf */; };
+		16EA97822555F12C00DFFC5F /* BloggerSans-Bold.eot in Resources */ = {isa = PBXBuildFile; fileRef = 16EA973D2555F12B00DFFC5F /* BloggerSans-Bold.eot */; };
+		16EA97832555F12C00DFFC5F /* BloggerSans-Italic.css in Resources */ = {isa = PBXBuildFile; fileRef = 16EA973E2555F12C00DFFC5F /* BloggerSans-Italic.css */; };
+		16EA97842555F12C00DFFC5F /* BloggerSans-Italic.svg in Resources */ = {isa = PBXBuildFile; fileRef = 16EA973F2555F12C00DFFC5F /* BloggerSans-Italic.svg */; };
+		16EA97852555F12C00DFFC5F /* BloggerSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97402555F12C00DFFC5F /* BloggerSans-BoldItalic.ttf */; };
+		16EA97862555F12C00DFFC5F /* BloggerSans-Italic.woff in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97412555F12C00DFFC5F /* BloggerSans-Italic.woff */; };
+		16EA97872555F12C00DFFC5F /* BloggerSans-Bold.woff in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97422555F12C00DFFC5F /* BloggerSans-Bold.woff */; };
+		16EA97882555F12C00DFFC5F /* BloggerSans.eot in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97432555F12C00DFFC5F /* BloggerSans.eot */; };
+		16EA97892555F12C00DFFC5F /* BloggerSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97442555F12C00DFFC5F /* BloggerSans-Bold.ttf */; };
+		16EA978A2555F12C00DFFC5F /* BloggerSans.html in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97452555F12C00DFFC5F /* BloggerSans.html */; };
+		16EA978B2555F12C00DFFC5F /* BloggerSans-BoldItalic.eot in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97462555F12C00DFFC5F /* BloggerSans-BoldItalic.eot */; };
+		16EA978C2555F12C00DFFC5F /* BloggerSans-BoldItalic.woff in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97472555F12C00DFFC5F /* BloggerSans-BoldItalic.woff */; };
+		16EA978D2555F12C00DFFC5F /* BloggerSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97482555F12C00DFFC5F /* BloggerSans-Italic.ttf */; };
+		16EA978E2555F12C00DFFC5F /* BloggerSans-BoldItalic.svg in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97492555F12C00DFFC5F /* BloggerSans-BoldItalic.svg */; };
+		16EA978F2555F12C00DFFC5F /* BloggerSans-BoldItalic.html in Resources */ = {isa = PBXBuildFile; fileRef = 16EA974A2555F12C00DFFC5F /* BloggerSans-BoldItalic.html */; };
+		16EA97902555F12C00DFFC5F /* BloggerSans.css in Resources */ = {isa = PBXBuildFile; fileRef = 16EA974B2555F12C00DFFC5F /* BloggerSans.css */; };
+		16EA97912555F12C00DFFC5F /* BloggerSans.svg in Resources */ = {isa = PBXBuildFile; fileRef = 16EA974C2555F12C00DFFC5F /* BloggerSans.svg */; };
+		16EA97922555F12C00DFFC5F /* BloggerSans.woff in Resources */ = {isa = PBXBuildFile; fileRef = 16EA974D2555F12C00DFFC5F /* BloggerSans.woff */; };
+		16EA97932555F12C00DFFC5F /* BloggerSans-Bold.html in Resources */ = {isa = PBXBuildFile; fileRef = 16EA974E2555F12C00DFFC5F /* BloggerSans-Bold.html */; };
+		16EA97942555F12C00DFFC5F /* BloggerSans-BoldItalic.css in Resources */ = {isa = PBXBuildFile; fileRef = 16EA974F2555F12C00DFFC5F /* BloggerSans-BoldItalic.css */; };
+		16EA97952555F12C00DFFC5F /* BloggerSans-Italic.eot in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97502555F12C00DFFC5F /* BloggerSans-Italic.eot */; };
+		16EA97962555F12C00DFFC5F /* BloggerSans-Italic.html in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97512555F12C00DFFC5F /* BloggerSans-Italic.html */; };
+		16EA97972555F12C00DFFC5F /* BloggerSans-Bold.css in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97522555F12C00DFFC5F /* BloggerSans-Bold.css */; };
+		16EA97982555F12C00DFFC5F /* BloggerSans-Bold.svg in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97532555F12C00DFFC5F /* BloggerSans-Bold.svg */; };
+		16EA97992555F12C00DFFC5F /* BloggerSans-LightItalic.eot in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97552555F12C00DFFC5F /* BloggerSans-LightItalic.eot */; };
+		16EA979A2555F12C00DFFC5F /* BloggerSans-LightItalic.woff in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97562555F12C00DFFC5F /* BloggerSans-LightItalic.woff */; };
+		16EA979B2555F12C00DFFC5F /* BloggerSans-Light.svg in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97572555F12C00DFFC5F /* BloggerSans-Light.svg */; };
+		16EA979C2555F12C00DFFC5F /* BloggerSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97582555F12C00DFFC5F /* BloggerSans-LightItalic.ttf */; };
+		16EA979D2555F12C00DFFC5F /* BloggerSans-Light.woff in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97592555F12C00DFFC5F /* BloggerSans-Light.woff */; };
+		16EA979E2555F12C00DFFC5F /* BloggerSans-Light.css in Resources */ = {isa = PBXBuildFile; fileRef = 16EA975A2555F12C00DFFC5F /* BloggerSans-Light.css */; };
+		16EA979F2555F12C00DFFC5F /* BloggerSans-Light.html in Resources */ = {isa = PBXBuildFile; fileRef = 16EA975B2555F12C00DFFC5F /* BloggerSans-Light.html */; };
+		16EA97A02555F12C00DFFC5F /* BloggerSans-Light.eot in Resources */ = {isa = PBXBuildFile; fileRef = 16EA975C2555F12C00DFFC5F /* BloggerSans-Light.eot */; };
+		16EA97A12555F12C00DFFC5F /* BloggerSans-LightItalic.svg in Resources */ = {isa = PBXBuildFile; fileRef = 16EA975D2555F12C00DFFC5F /* BloggerSans-LightItalic.svg */; };
+		16EA97A22555F12C00DFFC5F /* BloggerSans-LightItalic.html in Resources */ = {isa = PBXBuildFile; fileRef = 16EA975E2555F12C00DFFC5F /* BloggerSans-LightItalic.html */; };
+		16EA97A32555F12C00DFFC5F /* BloggerSans-LightItalic.css in Resources */ = {isa = PBXBuildFile; fileRef = 16EA975F2555F12C00DFFC5F /* BloggerSans-LightItalic.css */; };
+		16EA97A42555F12C00DFFC5F /* BloggerSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97602555F12C00DFFC5F /* BloggerSans-Light.ttf */; };
+		16EA97A52555F12C00DFFC5F /* BloggerSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97622555F12C00DFFC5F /* BloggerSans-MediumItalic.ttf */; };
+		16EA97A62555F12C00DFFC5F /* BloggerSans-Medium.eot in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97632555F12C00DFFC5F /* BloggerSans-Medium.eot */; };
+		16EA97A72555F12C00DFFC5F /* BloggerSans-MediumItalic.woff in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97642555F12C00DFFC5F /* BloggerSans-MediumItalic.woff */; };
+		16EA97A82555F12C00DFFC5F /* BloggerSans-Medium.html in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97652555F12C00DFFC5F /* BloggerSans-Medium.html */; };
+		16EA97A92555F12C00DFFC5F /* BloggerSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97662555F12C00DFFC5F /* BloggerSans-Medium.ttf */; };
+		16EA97AA2555F12C00DFFC5F /* BloggerSans-MediumItalic.eot in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97672555F12C00DFFC5F /* BloggerSans-MediumItalic.eot */; };
+		16EA97AB2555F12C00DFFC5F /* BloggerSans-MediumItalic.css in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97682555F12C00DFFC5F /* BloggerSans-MediumItalic.css */; };
+		16EA97AC2555F12C00DFFC5F /* BloggerSans-MediumItalic.svg in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97692555F12C00DFFC5F /* BloggerSans-MediumItalic.svg */; };
+		16EA97AD2555F12C00DFFC5F /* BloggerSans-Medium.css in Resources */ = {isa = PBXBuildFile; fileRef = 16EA976A2555F12C00DFFC5F /* BloggerSans-Medium.css */; };
+		16EA97AE2555F12C00DFFC5F /* BloggerSans-Medium.woff in Resources */ = {isa = PBXBuildFile; fileRef = 16EA976B2555F12C00DFFC5F /* BloggerSans-Medium.woff */; };
+		16EA97AF2555F12C00DFFC5F /* BloggerSans-Medium.svg in Resources */ = {isa = PBXBuildFile; fileRef = 16EA976C2555F12C00DFFC5F /* BloggerSans-Medium.svg */; };
+		16EA97B02555F12C00DFFC5F /* BloggerSans-MediumItalic.html in Resources */ = {isa = PBXBuildFile; fileRef = 16EA976D2555F12C00DFFC5F /* BloggerSans-MediumItalic.html */; };
+		16EA97B12555F12C00DFFC5F /* Blogger Sans-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA976F2555F12C00DFFC5F /* Blogger Sans-Italic.otf */; };
+		16EA97B22555F12C00DFFC5F /* Blogger Sans.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97702555F12C00DFFC5F /* Blogger Sans.otf */; };
+		16EA97B32555F12C00DFFC5F /* Blogger Sans-Light Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97712555F12C00DFFC5F /* Blogger Sans-Light Italic.otf */; };
+		16EA97B42555F12C00DFFC5F /* Blogger Sans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97722555F12C00DFFC5F /* Blogger Sans-Bold.otf */; };
+		16EA97B52555F12C00DFFC5F /* Blogger Sans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97732555F12C00DFFC5F /* Blogger Sans-Light.otf */; };
+		16EA97B62555F12C00DFFC5F /* Blogger Sans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97742555F12C00DFFC5F /* Blogger Sans-Medium.otf */; };
+		16EA97B72555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97752555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf */; };
+		16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */; };
 		89663370254B371D00EBF5DF /* PausePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966336F254B371D00EBF5DF /* PausePopUpView.swift */; };
 		89663375254B379700EBF5DF /* LevelCompletePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */; };
 		BD87B5F225474D1A00F38CE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B5F125474D1A00F38CE1 /* AppDelegate.swift */; };
@@ -51,10 +118,77 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		165E1A002554958700BA72CA /* UserDefaultCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultCommands.swift; sourceTree = "<group>"; };
+		165E1A112555C2F600BA72CA /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		16A747D6254B2F8500D59C71 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
 		16A747DB254B2F9100D59C71 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
-		16CA95CC2549EAEA003038C9 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		16CA95D12549EAF8003038C9 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		16EA972E2555F12B00DFFC5F /* Even-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Even-Regular.ttf"; sourceTree = "<group>"; };
+		16EA97302555F12B00DFFC5F /* blogger-sans-ot-guide.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "blogger-sans-ot-guide.pdf"; sourceTree = "<group>"; };
+		16EA97322555F12B00DFFC5F /* Blogger Sans-Light Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Light Italic.ttf"; sourceTree = "<group>"; };
+		16EA97332555F12B00DFFC5F /* Blogger Sans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Bold.ttf"; sourceTree = "<group>"; };
+		16EA97342555F12B00DFFC5F /* Blogger Sans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans.ttf"; sourceTree = "<group>"; };
+		16EA97352555F12B00DFFC5F /* Blogger Sans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Italic.ttf"; sourceTree = "<group>"; };
+		16EA97362555F12B00DFFC5F /* Blogger Sans-Medium Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Medium Italic.ttf"; sourceTree = "<group>"; };
+		16EA97372555F12B00DFFC5F /* Blogger Sans-Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Bold Italic.ttf"; sourceTree = "<group>"; };
+		16EA97382555F12B00DFFC5F /* Blogger Sans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Light.ttf"; sourceTree = "<group>"; };
+		16EA97392555F12B00DFFC5F /* Blogger Sans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Medium.ttf"; sourceTree = "<group>"; };
+		16EA973C2555F12B00DFFC5F /* BloggerSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BloggerSans.ttf; sourceTree = "<group>"; };
+		16EA973D2555F12B00DFFC5F /* BloggerSans-Bold.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-Bold.eot"; sourceTree = "<group>"; };
+		16EA973E2555F12C00DFFC5F /* BloggerSans-Italic.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "BloggerSans-Italic.css"; sourceTree = "<group>"; };
+		16EA973F2555F12C00DFFC5F /* BloggerSans-Italic.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "BloggerSans-Italic.svg"; sourceTree = "<group>"; };
+		16EA97402555F12C00DFFC5F /* BloggerSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		16EA97412555F12C00DFFC5F /* BloggerSans-Italic.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-Italic.woff"; sourceTree = "<group>"; };
+		16EA97422555F12C00DFFC5F /* BloggerSans-Bold.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-Bold.woff"; sourceTree = "<group>"; };
+		16EA97432555F12C00DFFC5F /* BloggerSans.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = BloggerSans.eot; sourceTree = "<group>"; };
+		16EA97442555F12C00DFFC5F /* BloggerSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-Bold.ttf"; sourceTree = "<group>"; };
+		16EA97452555F12C00DFFC5F /* BloggerSans.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BloggerSans.html; sourceTree = "<group>"; };
+		16EA97462555F12C00DFFC5F /* BloggerSans-BoldItalic.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-BoldItalic.eot"; sourceTree = "<group>"; };
+		16EA97472555F12C00DFFC5F /* BloggerSans-BoldItalic.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-BoldItalic.woff"; sourceTree = "<group>"; };
+		16EA97482555F12C00DFFC5F /* BloggerSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-Italic.ttf"; sourceTree = "<group>"; };
+		16EA97492555F12C00DFFC5F /* BloggerSans-BoldItalic.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "BloggerSans-BoldItalic.svg"; sourceTree = "<group>"; };
+		16EA974A2555F12C00DFFC5F /* BloggerSans-BoldItalic.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "BloggerSans-BoldItalic.html"; sourceTree = "<group>"; };
+		16EA974B2555F12C00DFFC5F /* BloggerSans.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = BloggerSans.css; sourceTree = "<group>"; };
+		16EA974C2555F12C00DFFC5F /* BloggerSans.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BloggerSans.svg; sourceTree = "<group>"; };
+		16EA974D2555F12C00DFFC5F /* BloggerSans.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = BloggerSans.woff; sourceTree = "<group>"; };
+		16EA974E2555F12C00DFFC5F /* BloggerSans-Bold.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "BloggerSans-Bold.html"; sourceTree = "<group>"; };
+		16EA974F2555F12C00DFFC5F /* BloggerSans-BoldItalic.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "BloggerSans-BoldItalic.css"; sourceTree = "<group>"; };
+		16EA97502555F12C00DFFC5F /* BloggerSans-Italic.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-Italic.eot"; sourceTree = "<group>"; };
+		16EA97512555F12C00DFFC5F /* BloggerSans-Italic.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "BloggerSans-Italic.html"; sourceTree = "<group>"; };
+		16EA97522555F12C00DFFC5F /* BloggerSans-Bold.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "BloggerSans-Bold.css"; sourceTree = "<group>"; };
+		16EA97532555F12C00DFFC5F /* BloggerSans-Bold.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "BloggerSans-Bold.svg"; sourceTree = "<group>"; };
+		16EA97552555F12C00DFFC5F /* BloggerSans-LightItalic.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-LightItalic.eot"; sourceTree = "<group>"; };
+		16EA97562555F12C00DFFC5F /* BloggerSans-LightItalic.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-LightItalic.woff"; sourceTree = "<group>"; };
+		16EA97572555F12C00DFFC5F /* BloggerSans-Light.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "BloggerSans-Light.svg"; sourceTree = "<group>"; };
+		16EA97582555F12C00DFFC5F /* BloggerSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		16EA97592555F12C00DFFC5F /* BloggerSans-Light.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-Light.woff"; sourceTree = "<group>"; };
+		16EA975A2555F12C00DFFC5F /* BloggerSans-Light.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "BloggerSans-Light.css"; sourceTree = "<group>"; };
+		16EA975B2555F12C00DFFC5F /* BloggerSans-Light.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "BloggerSans-Light.html"; sourceTree = "<group>"; };
+		16EA975C2555F12C00DFFC5F /* BloggerSans-Light.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-Light.eot"; sourceTree = "<group>"; };
+		16EA975D2555F12C00DFFC5F /* BloggerSans-LightItalic.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "BloggerSans-LightItalic.svg"; sourceTree = "<group>"; };
+		16EA975E2555F12C00DFFC5F /* BloggerSans-LightItalic.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "BloggerSans-LightItalic.html"; sourceTree = "<group>"; };
+		16EA975F2555F12C00DFFC5F /* BloggerSans-LightItalic.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "BloggerSans-LightItalic.css"; sourceTree = "<group>"; };
+		16EA97602555F12C00DFFC5F /* BloggerSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-Light.ttf"; sourceTree = "<group>"; };
+		16EA97622555F12C00DFFC5F /* BloggerSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		16EA97632555F12C00DFFC5F /* BloggerSans-Medium.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-Medium.eot"; sourceTree = "<group>"; };
+		16EA97642555F12C00DFFC5F /* BloggerSans-MediumItalic.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-MediumItalic.woff"; sourceTree = "<group>"; };
+		16EA97652555F12C00DFFC5F /* BloggerSans-Medium.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "BloggerSans-Medium.html"; sourceTree = "<group>"; };
+		16EA97662555F12C00DFFC5F /* BloggerSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-Medium.ttf"; sourceTree = "<group>"; };
+		16EA97672555F12C00DFFC5F /* BloggerSans-MediumItalic.eot */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-MediumItalic.eot"; sourceTree = "<group>"; };
+		16EA97682555F12C00DFFC5F /* BloggerSans-MediumItalic.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "BloggerSans-MediumItalic.css"; sourceTree = "<group>"; };
+		16EA97692555F12C00DFFC5F /* BloggerSans-MediumItalic.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "BloggerSans-MediumItalic.svg"; sourceTree = "<group>"; };
+		16EA976A2555F12C00DFFC5F /* BloggerSans-Medium.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "BloggerSans-Medium.css"; sourceTree = "<group>"; };
+		16EA976B2555F12C00DFFC5F /* BloggerSans-Medium.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BloggerSans-Medium.woff"; sourceTree = "<group>"; };
+		16EA976C2555F12C00DFFC5F /* BloggerSans-Medium.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "BloggerSans-Medium.svg"; sourceTree = "<group>"; };
+		16EA976D2555F12C00DFFC5F /* BloggerSans-MediumItalic.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "BloggerSans-MediumItalic.html"; sourceTree = "<group>"; };
+		16EA976F2555F12C00DFFC5F /* Blogger Sans-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Italic.otf"; sourceTree = "<group>"; };
+		16EA97702555F12C00DFFC5F /* Blogger Sans.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans.otf"; sourceTree = "<group>"; };
+		16EA97712555F12C00DFFC5F /* Blogger Sans-Light Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Light Italic.otf"; sourceTree = "<group>"; };
+		16EA97722555F12C00DFFC5F /* Blogger Sans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Bold.otf"; sourceTree = "<group>"; };
+		16EA97732555F12C00DFFC5F /* Blogger Sans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Light.otf"; sourceTree = "<group>"; };
+		16EA97742555F12C00DFFC5F /* Blogger Sans-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Medium.otf"; sourceTree = "<group>"; };
+		16EA97752555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Medium Italic.otf"; sourceTree = "<group>"; };
+		16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Bold Italic.otf"; sourceTree = "<group>"; };
 		8966336F254B371D00EBF5DF /* PausePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausePopUpView.swift; sourceTree = "<group>"; };
 		89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCompletePopUpView.swift; sourceTree = "<group>"; };
 		BD87B5EE25474D1A00F38CE1 /* GameEven.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameEven.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +245,7 @@
 		16CA95CA2549EAC9003038C9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				16CA95CC2549EAEA003038C9 /* Map.storyboard */,
+				165E1A112555C2F600BA72CA /* Map.storyboard */,
 				16A747D6254B2F8500D59C71 /* Instruction.storyboard */,
 			);
 			path = Storyboards;
@@ -122,8 +256,138 @@
 			children = (
 				16CA95D12549EAF8003038C9 /* Map.swift */,
 				16A747DB254B2F9100D59C71 /* Instruction.swift */,
+				165E1A002554958700BA72CA /* UserDefaultCommands.swift */,
 			);
 			path = "Source Code";
+			sourceTree = "<group>";
+		};
+		16EA972D2555F00300DFFC5F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				16EA972F2555F12B00DFFC5F /* Blogger Sans */,
+				16EA972E2555F12B00DFFC5F /* Even-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		16EA972F2555F12B00DFFC5F /* Blogger Sans */ = {
+			isa = PBXGroup;
+			children = (
+				16EA97302555F12B00DFFC5F /* blogger-sans-ot-guide.pdf */,
+				16EA97312555F12B00DFFC5F /* OT-tt */,
+				16EA973A2555F12B00DFFC5F /* Web */,
+				16EA976E2555F12C00DFFC5F /* OT-ps */,
+			);
+			path = "Blogger Sans";
+			sourceTree = "<group>";
+		};
+		16EA97312555F12B00DFFC5F /* OT-tt */ = {
+			isa = PBXGroup;
+			children = (
+				16EA97322555F12B00DFFC5F /* Blogger Sans-Light Italic.ttf */,
+				16EA97332555F12B00DFFC5F /* Blogger Sans-Bold.ttf */,
+				16EA97342555F12B00DFFC5F /* Blogger Sans.ttf */,
+				16EA97352555F12B00DFFC5F /* Blogger Sans-Italic.ttf */,
+				16EA97362555F12B00DFFC5F /* Blogger Sans-Medium Italic.ttf */,
+				16EA97372555F12B00DFFC5F /* Blogger Sans-Bold Italic.ttf */,
+				16EA97382555F12B00DFFC5F /* Blogger Sans-Light.ttf */,
+				16EA97392555F12B00DFFC5F /* Blogger Sans-Medium.ttf */,
+			);
+			path = "OT-tt";
+			sourceTree = "<group>";
+		};
+		16EA973A2555F12B00DFFC5F /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				16EA973B2555F12B00DFFC5F /* Blogger Sans */,
+				16EA97542555F12C00DFFC5F /* Blogger Sans Light */,
+				16EA97612555F12C00DFFC5F /* Blogger Sans Medium */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		16EA973B2555F12B00DFFC5F /* Blogger Sans */ = {
+			isa = PBXGroup;
+			children = (
+				16EA973C2555F12B00DFFC5F /* BloggerSans.ttf */,
+				16EA973D2555F12B00DFFC5F /* BloggerSans-Bold.eot */,
+				16EA973E2555F12C00DFFC5F /* BloggerSans-Italic.css */,
+				16EA973F2555F12C00DFFC5F /* BloggerSans-Italic.svg */,
+				16EA97402555F12C00DFFC5F /* BloggerSans-BoldItalic.ttf */,
+				16EA97412555F12C00DFFC5F /* BloggerSans-Italic.woff */,
+				16EA97422555F12C00DFFC5F /* BloggerSans-Bold.woff */,
+				16EA97432555F12C00DFFC5F /* BloggerSans.eot */,
+				16EA97442555F12C00DFFC5F /* BloggerSans-Bold.ttf */,
+				16EA97452555F12C00DFFC5F /* BloggerSans.html */,
+				16EA97462555F12C00DFFC5F /* BloggerSans-BoldItalic.eot */,
+				16EA97472555F12C00DFFC5F /* BloggerSans-BoldItalic.woff */,
+				16EA97482555F12C00DFFC5F /* BloggerSans-Italic.ttf */,
+				16EA97492555F12C00DFFC5F /* BloggerSans-BoldItalic.svg */,
+				16EA974A2555F12C00DFFC5F /* BloggerSans-BoldItalic.html */,
+				16EA974B2555F12C00DFFC5F /* BloggerSans.css */,
+				16EA974C2555F12C00DFFC5F /* BloggerSans.svg */,
+				16EA974D2555F12C00DFFC5F /* BloggerSans.woff */,
+				16EA974E2555F12C00DFFC5F /* BloggerSans-Bold.html */,
+				16EA974F2555F12C00DFFC5F /* BloggerSans-BoldItalic.css */,
+				16EA97502555F12C00DFFC5F /* BloggerSans-Italic.eot */,
+				16EA97512555F12C00DFFC5F /* BloggerSans-Italic.html */,
+				16EA97522555F12C00DFFC5F /* BloggerSans-Bold.css */,
+				16EA97532555F12C00DFFC5F /* BloggerSans-Bold.svg */,
+			);
+			path = "Blogger Sans";
+			sourceTree = "<group>";
+		};
+		16EA97542555F12C00DFFC5F /* Blogger Sans Light */ = {
+			isa = PBXGroup;
+			children = (
+				16EA97552555F12C00DFFC5F /* BloggerSans-LightItalic.eot */,
+				16EA97562555F12C00DFFC5F /* BloggerSans-LightItalic.woff */,
+				16EA97572555F12C00DFFC5F /* BloggerSans-Light.svg */,
+				16EA97582555F12C00DFFC5F /* BloggerSans-LightItalic.ttf */,
+				16EA97592555F12C00DFFC5F /* BloggerSans-Light.woff */,
+				16EA975A2555F12C00DFFC5F /* BloggerSans-Light.css */,
+				16EA975B2555F12C00DFFC5F /* BloggerSans-Light.html */,
+				16EA975C2555F12C00DFFC5F /* BloggerSans-Light.eot */,
+				16EA975D2555F12C00DFFC5F /* BloggerSans-LightItalic.svg */,
+				16EA975E2555F12C00DFFC5F /* BloggerSans-LightItalic.html */,
+				16EA975F2555F12C00DFFC5F /* BloggerSans-LightItalic.css */,
+				16EA97602555F12C00DFFC5F /* BloggerSans-Light.ttf */,
+			);
+			path = "Blogger Sans Light";
+			sourceTree = "<group>";
+		};
+		16EA97612555F12C00DFFC5F /* Blogger Sans Medium */ = {
+			isa = PBXGroup;
+			children = (
+				16EA97622555F12C00DFFC5F /* BloggerSans-MediumItalic.ttf */,
+				16EA97632555F12C00DFFC5F /* BloggerSans-Medium.eot */,
+				16EA97642555F12C00DFFC5F /* BloggerSans-MediumItalic.woff */,
+				16EA97652555F12C00DFFC5F /* BloggerSans-Medium.html */,
+				16EA97662555F12C00DFFC5F /* BloggerSans-Medium.ttf */,
+				16EA97672555F12C00DFFC5F /* BloggerSans-MediumItalic.eot */,
+				16EA97682555F12C00DFFC5F /* BloggerSans-MediumItalic.css */,
+				16EA97692555F12C00DFFC5F /* BloggerSans-MediumItalic.svg */,
+				16EA976A2555F12C00DFFC5F /* BloggerSans-Medium.css */,
+				16EA976B2555F12C00DFFC5F /* BloggerSans-Medium.woff */,
+				16EA976C2555F12C00DFFC5F /* BloggerSans-Medium.svg */,
+				16EA976D2555F12C00DFFC5F /* BloggerSans-MediumItalic.html */,
+			);
+			path = "Blogger Sans Medium";
+			sourceTree = "<group>";
+		};
+		16EA976E2555F12C00DFFC5F /* OT-ps */ = {
+			isa = PBXGroup;
+			children = (
+				16EA976F2555F12C00DFFC5F /* Blogger Sans-Italic.otf */,
+				16EA97702555F12C00DFFC5F /* Blogger Sans.otf */,
+				16EA97712555F12C00DFFC5F /* Blogger Sans-Light Italic.otf */,
+				16EA97722555F12C00DFFC5F /* Blogger Sans-Bold.otf */,
+				16EA97732555F12C00DFFC5F /* Blogger Sans-Light.otf */,
+				16EA97742555F12C00DFFC5F /* Blogger Sans-Medium.otf */,
+				16EA97752555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf */,
+				16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */,
+			);
+			path = "OT-ps";
 			sourceTree = "<group>";
 		};
 		BD87B5E525474D1A00F38CE1 = {
@@ -149,10 +413,11 @@
 		BD87B5F025474D1A00F38CE1 /* GameEven */ = {
 			isa = PBXGroup;
 			children = (
+				16EA972D2555F00300DFFC5F /* Fonts */,
 				16CA95CB2549EAD4003038C9 /* Source Code */,
 				16CA95CA2549EAC9003038C9 /* Storyboards */,
-				8966336F254B371D00EBF5DF /* PausePopUpView.swift */,
 				BD87B5F125474D1A00F38CE1 /* AppDelegate.swift */,
+				8966336F254B371D00EBF5DF /* PausePopUpView.swift */,
 				BD87B5F525474D1A00F38CE1 /* Actions.sks */,
 				BD87B62E2548A5D000F38CE1 /* Gameplay */,
 				BD87B5F925474D1B00F38CE1 /* GameViewController.swift */,
@@ -312,14 +577,80 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16EA97782555F12C00DFFC5F /* blogger-sans-ot-guide.pdf in Resources */,
+				16EA97AD2555F12C00DFFC5F /* BloggerSans-Medium.css in Resources */,
+				16EA97A02555F12C00DFFC5F /* BloggerSans-Light.eot in Resources */,
+				16EA97B72555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf in Resources */,
+				16EA97862555F12C00DFFC5F /* BloggerSans-Italic.woff in Resources */,
+				16EA97AC2555F12C00DFFC5F /* BloggerSans-MediumItalic.svg in Resources */,
+				16EA979B2555F12C00DFFC5F /* BloggerSans-Light.svg in Resources */,
+				16EA978A2555F12C00DFFC5F /* BloggerSans.html in Resources */,
+				16EA97B12555F12C00DFFC5F /* Blogger Sans-Italic.otf in Resources */,
+				16EA97922555F12C00DFFC5F /* BloggerSans.woff in Resources */,
+				16EA97972555F12C00DFFC5F /* BloggerSans-Bold.css in Resources */,
+				16EA97B22555F12C00DFFC5F /* Blogger Sans.otf in Resources */,
+				16EA97832555F12C00DFFC5F /* BloggerSans-Italic.css in Resources */,
+				16EA97A12555F12C00DFFC5F /* BloggerSans-LightItalic.svg in Resources */,
+				16EA97842555F12C00DFFC5F /* BloggerSans-Italic.svg in Resources */,
+				16EA979E2555F12C00DFFC5F /* BloggerSans-Light.css in Resources */,
+				16EA97A42555F12C00DFFC5F /* BloggerSans-Light.ttf in Resources */,
+				16EA979D2555F12C00DFFC5F /* BloggerSans-Light.woff in Resources */,
+				16EA977F2555F12C00DFFC5F /* Blogger Sans-Light.ttf in Resources */,
+				16EA97772555F12C00DFFC5F /* Even-Regular.ttf in Resources */,
+				16EA97A92555F12C00DFFC5F /* BloggerSans-Medium.ttf in Resources */,
 				BD87B5FD25474D1B00F38CE1 /* Main.storyboard in Resources */,
+				16EA97952555F12C00DFFC5F /* BloggerSans-Italic.eot in Resources */,
+				16EA97A62555F12C00DFFC5F /* BloggerSans-Medium.eot in Resources */,
+				16EA97912555F12C00DFFC5F /* BloggerSans.svg in Resources */,
+				16EA97A82555F12C00DFFC5F /* BloggerSans-Medium.html in Resources */,
+				16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */,
+				16EA97AA2555F12C00DFFC5F /* BloggerSans-MediumItalic.eot in Resources */,
+				16EA97AF2555F12C00DFFC5F /* BloggerSans-Medium.svg in Resources */,
+				16EA978C2555F12C00DFFC5F /* BloggerSans-BoldItalic.woff in Resources */,
+				16EA97932555F12C00DFFC5F /* BloggerSans-Bold.html in Resources */,
+				16EA977E2555F12C00DFFC5F /* Blogger Sans-Bold Italic.ttf in Resources */,
+				16EA97792555F12C00DFFC5F /* Blogger Sans-Light Italic.ttf in Resources */,
+				16EA97B02555F12C00DFFC5F /* BloggerSans-MediumItalic.html in Resources */,
+				16EA97AE2555F12C00DFFC5F /* BloggerSans-Medium.woff in Resources */,
+				16EA97AB2555F12C00DFFC5F /* BloggerSans-MediumItalic.css in Resources */,
+				16EA979F2555F12C00DFFC5F /* BloggerSans-Light.html in Resources */,
 				BDE1E34525533E84001566AD /* lvl2.json in Resources */,
+				16EA97B52555F12C00DFFC5F /* Blogger Sans-Light.otf in Resources */,
+				16EA97892555F12C00DFFC5F /* BloggerSans-Bold.ttf in Resources */,
+				16EA97822555F12C00DFFC5F /* BloggerSans-Bold.eot in Resources */,
 				16A747D7254B2F8500D59C71 /* Instruction.storyboard in Resources */,
+				16EA97B42555F12C00DFFC5F /* Blogger Sans-Bold.otf in Resources */,
+				16EA97812555F12C00DFFC5F /* BloggerSans.ttf in Resources */,
+				16EA97A52555F12C00DFFC5F /* BloggerSans-MediumItalic.ttf in Resources */,
+				16EA97872555F12C00DFFC5F /* BloggerSans-Bold.woff in Resources */,
+				16EA979A2555F12C00DFFC5F /* BloggerSans-LightItalic.woff in Resources */,
+				16EA97802555F12C00DFFC5F /* Blogger Sans-Medium.ttf in Resources */,
+				16EA977A2555F12C00DFFC5F /* Blogger Sans-Bold.ttf in Resources */,
+				16EA978E2555F12C00DFFC5F /* BloggerSans-BoldItalic.svg in Resources */,
+				16EA977B2555F12C00DFFC5F /* Blogger Sans.ttf in Resources */,
+				16EA97A22555F12C00DFFC5F /* BloggerSans-LightItalic.html in Resources */,
+				16EA97942555F12C00DFFC5F /* BloggerSans-BoldItalic.css in Resources */,
+				16EA977D2555F12C00DFFC5F /* Blogger Sans-Medium Italic.ttf in Resources */,
+				165E1A122555C2F600BA72CA /* Map.storyboard in Resources */,
+				16EA97902555F12C00DFFC5F /* BloggerSans.css in Resources */,
+				16EA97852555F12C00DFFC5F /* BloggerSans-BoldItalic.ttf in Resources */,
+				16EA97882555F12C00DFFC5F /* BloggerSans.eot in Resources */,
+				16EA978B2555F12C00DFFC5F /* BloggerSans-BoldItalic.eot in Resources */,
+				16EA97982555F12C00DFFC5F /* BloggerSans-Bold.svg in Resources */,
+				16EA978F2555F12C00DFFC5F /* BloggerSans-BoldItalic.html in Resources */,
+				16EA97B62555F12C00DFFC5F /* Blogger Sans-Medium.otf in Resources */,
 				BD87B5F425474D1A00F38CE1 /* GameScene.sks in Resources */,
 				BDE1E2F62551D277001566AD /* lvl1.json in Resources */,
-				16CA95CD2549EAEA003038C9 /* Map.storyboard in Resources */,
+				16EA979C2555F12C00DFFC5F /* BloggerSans-LightItalic.ttf in Resources */,
+				16EA97992555F12C00DFFC5F /* BloggerSans-LightItalic.eot in Resources */,
+				16EA97A32555F12C00DFFC5F /* BloggerSans-LightItalic.css in Resources */,
 				BD87B5FF25474D1D00F38CE1 /* Assets.xcassets in Resources */,
+				16EA97962555F12C00DFFC5F /* BloggerSans-Italic.html in Resources */,
+				16EA97A72555F12C00DFFC5F /* BloggerSans-MediumItalic.woff in Resources */,
+				16EA978D2555F12C00DFFC5F /* BloggerSans-Italic.ttf in Resources */,
 				BD87B5F625474D1A00F38CE1 /* Actions.sks in Resources */,
+				16EA977C2555F12C00DFFC5F /* Blogger Sans-Italic.ttf in Resources */,
+				16EA97B32555F12C00DFFC5F /* Blogger Sans-Light Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +689,7 @@
 				16A747DC254B2F9100D59C71 /* Instruction.swift in Sources */,
 				BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */,
 				BD87B5F225474D1A00F38CE1 /* AppDelegate.swift in Sources */,
+				165E1A012554958700BA72CA /* UserDefaultCommands.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +860,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HKSJLM4DRR;
+				DEVELOPMENT_TEAM = YHY9LU893D;
 				INFOPLIST_FILE = GameEven/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -547,7 +879,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HKSJLM4DRR;
+				DEVELOPMENT_TEAM = YHY9LU893D;
 				INFOPLIST_FILE = GameEven/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -23,6 +23,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     private var pause: SKSpriteNode!
     
+    var viewControllerDelegate: PopViewControllerDelegate?
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
@@ -130,11 +132,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }
         }
     }
-    
+    let maxDistActiveMove: CGFloat = 100
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let node = touchedNode else {
+            return
+        }
         let touch = touches.first!
         let location = touch.location(in: self)
-        touchPoint = location
+        if euclideanDist(distance: node.position, distance: location) < maxDistActiveMove {
+            touchPoint = location
+        }
     }
     
     
@@ -148,8 +155,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 i += 1
             }
         }
-        if(i == draggablesList.count){ //se todas estiverem dentro ele executa o codigo
-            win = true
+        if(i == 2){ //se todas estiverem dentro ele executa o codigo
+            //draggablesList ==
+            endGame()
         }
     }
     
@@ -288,9 +296,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func endGame() {
-        let endGame = LevelCompletePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.8))
+        let endGame = LevelCompletePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.8), level: level)
         endGame.levelCompleteDelegate = self
-        self.isPaused = true
         endGame.zPosition = 1
         endGame.alpha = 0
         addChild(endGame)
@@ -300,6 +307,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         pause.run(  .fadeAlpha(to: 0, duration: 0.5)) {
             self.isPaused = true
         }
+        
+        let maxLvl = UserDefaults.standard.loadPlayerLevel()
+        
+        if maxLvl < level {
+            UserDefaults.standard.savePlayerLevel(playerLevel: level)
+        }
+    }
+    
+    private func euclideanDist(distance a: CGPoint, distance b: CGPoint) -> CGFloat {
+        let x = abs(a.x - b.x)
+        let y = abs(a.y - b.y)
+        return sqrt(x * x + y * y)
     }
 }
 
@@ -309,21 +328,30 @@ extension GameScene: PauseMenuDelegate {
             self.pause.isHidden = false
         }
         self.isPaused = false
-        pause.isHidden = false
     }
     
     func resetLevel() {
-        print("Reset nao implementado")
+        changeLevel(changeTo: level)
     }
     
     func exitLevel() {
-        print("Exit nao implementado")
+        popView()
     }
 }
 
 extension GameScene: LevelCompleteMenuDelegate {
     func nextLevel() {
-        print("Next nao implementado")
+        self.viewControllerDelegate?.changeLevel(changeTo: level + 1)
+    }
+}
+
+extension GameScene: PopViewControllerDelegate {
+    func changeLevel(changeTo level: Int) {
+        self.viewControllerDelegate?.changeLevel(changeTo: level)
+    }
+    
+    func popView() {
+        self.viewControllerDelegate?.popView()
     }
 }
 

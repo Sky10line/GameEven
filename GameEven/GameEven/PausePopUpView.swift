@@ -138,13 +138,16 @@ class PausePopUpView: SKSpriteNode {
     
     private func exit(){
         pauseDelegate?.exitLevel()
+        print("Pause Exit func")
     }
     
     private func reset(){
         pauseDelegate?.resetLevel()
+        print("Pause Reset func")
     }
     
     private func resume(){
+        print("Pause Resume func")
         pauseDelegate?.resumeLevel()
         self.run(  .fadeAlpha(to: 0, duration: 0.3)) {
             self.removeFromParent()
