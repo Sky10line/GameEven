@@ -67,7 +67,13 @@ class MapViewController: UIViewController {
         
         let image = UIImage(named: "BackG_Mapa")!
         
-        let scaled = UIImage(cgImage: image.cgImage!, scale: UIScreen.main.scale*(image.size.width/(UIScreen.main.bounds.width*2)), orientation: image.imageOrientation)
+        print(UIScreen.main.scale)
+        print(image.size.width)
+        print(UIScreen.main.bounds.width)
+        
+        //scale: UIScreen.main.scale*(image.size.width/(UIScreen.main.bounds.width*UIScreen.main.scale)),
+        
+        let scaled = UIImage(cgImage: image.cgImage!, scale: UIScreen.main.scale * (image.size.width / (UIScreen.main.bounds.width * UIScreen.main.scale)), orientation: image.imageOrientation)
         
         backgroundScrollView.backgroundColor = UIColor(patternImage: scaled)
         
