@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="XkC-GW-OoV">
-                                <rect key="frame" x="0.0" y="-4" width="414" height="906"/>
+                            <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="XkC-GW-OoV">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                 </accessibility>
@@ -26,10 +26,10 @@
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="XkC-GW-OoV" secondAttribute="bottom" constant="-6" id="60t-PG-ByJ"/>
-                            <constraint firstItem="XkC-GW-OoV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="AYT-Aq-5p7"/>
-                            <constraint firstItem="XkC-GW-OoV" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-4" id="BAv-8Z-I1o"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XkC-GW-OoV" secondAttribute="trailing" constant="-20" id="vzy-l3-7TK"/>
+                            <constraint firstItem="XkC-GW-OoV" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="6Ta-3U-sLf"/>
+                            <constraint firstItem="XkC-GW-OoV" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="8tV-9M-54D"/>
+                            <constraint firstItem="XkC-GW-OoV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="BqQ-5r-uMu"/>
+                            <constraint firstItem="XkC-GW-OoV" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="oWW-Qh-OrR"/>
                         </constraints>
                     </view>
                 </viewController>
