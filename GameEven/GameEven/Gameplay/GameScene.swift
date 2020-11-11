@@ -11,10 +11,11 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate{
 
     private var touchedNode: SKSpriteNode?
+    private var touchNode: SKNode?
     private var draggablesList: [DraggableProtocol] = []
     private var backImage: SKSpriteNode?
     private var win = false
-    public var level: Int = 1
+    public var level: Int = 2
     
     private var touching = false
     private var touchPoint: CGPoint?
@@ -85,18 +86,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             self.addChild(part.spriteNode!)
         }
         
-        for triangle in lvl.triangles{
+        for triangle in lvl.triangles {
             let size = CGSize(width: CGFloat(triangle.size[0]), height: CGFloat(triangle.size[1]))
             let pos = CGPoint(x: CGFloat(triangle.pos[0]), y: CGFloat(triangle.pos[1]))
             let rot = CGFloat(triangle.rotation)
             let part = Triangle(image: triangle.sprite, size: size, pos: pos, rotation: rot)
+            part.setThirdPoint(Point: CGPoint(x: CGFloat(triangle.thirdPoint[0]), y: CGFloat(triangle.thirdPoint[1])))
             
             part.insertCollider()
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
         }
         
-        for circle in lvl.circles{
+        for circle in lvl.circles {
             let size = CGSize(width: CGFloat(circle.size[0]), height: CGFloat(circle.size[1]))
             let pos = CGPoint(x: CGFloat(circle.pos[0]), y: CGFloat(circle.pos[1]))
             let rot = CGFloat(circle.rotation)
@@ -105,34 +107,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             part.insertCollider()
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
-            
         }
     }
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let location = touch.location(in: self)
         let touchNodes = self.nodes(at: location)
+        
         for node in touchNodes.reversed() {
-            if node.name == "draggable" {
-                if let pb = node.physicsBody{
-                    pb.categoryBitMask = UInt32(10780)
-                    pb.collisionBitMask = UInt32(10780)
-                    pb.contactTestBitMask = 1
+            if self.touchedNode == nil {
+                if node.name == "draggable" {
+                    self.touchedNode = node as? SKSpriteNode
+                    if let pb = self.touchedNode!.physicsBody{
+                        pb.categoryBitMask = UInt32(10780)
+                        pb.collisionBitMask = UInt32(10780)
+                        pb.contactTestBitMask = 1
+                    }
+                    self.touchPoint = location
+                    self.touchDistToCenter = CGPoint(x: (self.touchedNode?.position.x)!-self.touchPoint!.x, y: (self.touchedNode?.position.y)!-self.touchPoint!.y)
+                    self.touching = true
+                    print("achou")
+                    
                 }
-                self.touchedNode = node as? SKSpriteNode
-                self.touchPoint = location
-                self.touchDistToCenter = CGPoint(x: (self.touchedNode?.position.x)!-self.touchPoint!.x, y: (self.touchedNode?.position.y)!-self.touchPoint!.y)
-                self.touching = true
-                
-            }
-            if node.name == "pause" {
-                pauseGame()
+                if node.name == "pause" {
+                    pauseGame()
+                }
             }
         }
     }
+    
     let maxDistActiveMove: CGFloat = 100
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let node = touchedNode else {
             return
@@ -144,21 +150,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
     }
     
-    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touching = false
         touchedNode?.physicsBody?.collisionBitMask = 1
         touchedNode?.physicsBody?.categoryBitMask = 1
-        var i = 0
-        for part in draggablesList{ //checa quantas pecas estão na silhueta
-            if(part.checkInside(back: backImage!)){
-                i += 1
-            }
-        }
-        if(i == 2){ //se todas estiverem dentro ele executa o codigo
-            //draggablesList ==
-            endGame()
-        }
+        touching = false
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -169,6 +164,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     override func update(_ currentTime: CFTimeInterval) {
         if touching { //executa o movimento da peca movida pelo usuario
+            
 //            if touchPoint != self.touchedNode?.position
 //            {
             
@@ -176,13 +172,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             
             let distance = CGVector(dx: (touchPoint!.x+touchDistToCenter!.x)-(self.touchedNode?.position.x)!, dy: (touchPoint!.y+touchDistToCenter!.y)-(self.touchedNode?.position.y)!)
             
-            let dtX = insideBorder(value: (touchPoint!.x+touchDistToCenter!.x), min: -frame.width/2 + self.touchedNode!.size.width/2, max: frame.width/2 - self.touchedNode!.size.width/2)
-
-            let dtY = insideBorder(value: (touchPoint!.y+touchDistToCenter!.y), min: -frame.height/2 + self.touchedNode!.size.height/2, max: frame.height/2 - self.touchedNode!.size.height/2)
+//            let dtX = insideBorder(value: (touchPoint!.x+touchDistToCenter!.x), min: -frame.width/2 + self.touchedNode!.size.width/2, max: frame.width/2 - self.touchedNode!.size.width/2)
+//
+//            let dtY = insideBorder(value: (touchPoint!.y+touchDistToCenter!.y), min: -frame.height/2 + self.touchedNode!.size.height/2, max: frame.height/2 - self.touchedNode!.size.height/2)
             
-            print("\(dtX), \(dtY)")
+//            print("\(dtX), \(dtY)")
                 
-            let vel = CGVector(dx: (distance.dx*dtX)/dt, dy: (distance.dy*dtY)/dt)
+            let vel = CGVector(dx: (distance.dx/*dtX)*/)/dt, dy: (distance.dy/*dtY)*/)/dt)
             self.touchedNode!.physicsBody!.velocity = vel
             
             print("\(vel)")
@@ -191,6 +187,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         else { // para o movimento da peca quando o usuario tira o dedo
             self.touchedNode?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             self.touchedNode = nil
+            
+            var i = 0
+            for part in draggablesList{ //checa quantas pecas estão na silhueta
+                if(part.checkInside(back: backImage!)){
+                    i += 1
+                }
+            }
+            if(i == draggablesList.count){ //se todas estiverem dentro ele executa o codigo
+                //draggablesList ==
+                endGame()
+            }
         }
     }
     
@@ -222,7 +229,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
         bodyA.velocity = CGVector(dx: 0, dy: 0)
         bodyB.velocity = CGVector(dx: 0, dy: 0)
-    
     }
     
     func insertEdgeColliders(){

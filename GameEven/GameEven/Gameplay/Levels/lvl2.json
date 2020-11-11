@@ -1,27 +1,26 @@
 {
- "id": 0,
- "squares": [
-     {
-         "sprite": "testeSpriteDrag",
-         "size": [150, 150],
-         "pos": [0, 0],
-         "rotation": 0
-     },
- ],
+ "silhouette": {
+     "sprite": "fase2/silhouette",
+     "size": [310, 310],
+     "pos": [0, 150],
+     "rotation": 0
+ },
+ "squares": [],
  "triangles": [
      {
-         "sprite": "triangleSprite",
-         "size": [150, 150],
-         "pos": [0, 0],
-         "rotation": 0
+         "sprite": "fase2/part1",
+         "size": [300, 300],
+         "pos": [-100, -150],
+         "thirdPoint": [0,300],
+         "rotation": -1.5708
      },
      {
-         "sprite": "triangleSprite",
-         "size": [100, 150],
-         "pos": [0, 0],
-         "rotation": 0
+         "sprite": "fase2/part2",
+         "size": [300, 300],
+         "pos": [100, -300],
+         "thirdPoint": [0,300],
+         "rotation": 1.5708
      }
  ],
- "circles": [
- ]
+ "circles": []
 }

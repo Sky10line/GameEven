@@ -8,9 +8,8 @@
 import Foundation
 
 struct lvlReader: Codable{
-    let id: Int
     let silhouette: PartsReader
     let squares: [PartsReader]
-    let triangles: [PartsReader]
+    let triangles: [TrianglePartsReader]
     let circles: [PartsReader]
 }

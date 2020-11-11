@@ -11,6 +11,7 @@ import GameplayKit
 class Triangle: Draggable, DraggableProtocol{
     private var path: CGPath?
     private var points: [CGPoint] = []
+    private var thirdPoint: CGPoint = CGPoint(x: 0, y: 0)
     
     func getName() -> String {
         return self.spriteNode!.name!
@@ -20,15 +21,22 @@ class Triangle: Draggable, DraggableProtocol{
         return self.spriteNode!.position
     }
     
+    func setThirdPoint(Point: CGPoint){
+        self.thirdPoint = Point
+    }
+    
     func insertCollider(){
         let width = self.spriteNode!.size.width
         let height = self.spriteNode!.size.height
         
-        let offsetX = -width/2;
-        let offsetY = -height/2;
+        self.spriteNode?.anchorPoint = CGPoint(x: width/1000, y:height/1000)
+        
+        let offsetX = -width/3.35;
+        let offsetY = -height/3.35;
         
         points.insert(CGPoint(x: offsetX, y: offsetY), at: 0)
-        points.insert(CGPoint(x: width/2 + offsetX, y: height + offsetY), at: 1)
+        points.insert(CGPoint(x: thirdPoint.x + offsetX, y: thirdPoint.y + offsetY), at: 1)
+//        CGPoint(x: width/2 + offsetX, y: height + offsetY)
         points.insert(CGPoint(x: width + offsetX, y: offsetY), at: 2)
         
         let path = CGMutablePath();
