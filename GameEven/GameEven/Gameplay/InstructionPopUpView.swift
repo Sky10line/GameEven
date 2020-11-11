@@ -12,13 +12,11 @@ class InstructionPopUpView: SKSpriteNode {
     
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
-
-    init(size: CGSize){
-        
-        super.init(texture: nil, color: .orange, size: size)
-        
-        self.color = .gray
-//        texture = SKTexture(imageNamed: "Backgroud-PopUp")
+    var menssage: String
+    
+    init(size: CGSize, _ menssage: String){
+        self.menssage = menssage
+        super.init(texture: nil, color: .clear, size: size)
         
         isUserInteractionEnabled = true
         
@@ -38,7 +36,7 @@ class InstructionPopUpView: SKSpriteNode {
         
         //Text
         let labelText = SKLabelNode()
-        labelText.text = "Puxar do arquivo ahfihafoi fjafojp ojaspfoj jajfpo  jaspfoj jaspfoj jaspfoj jaspfoj"
+        labelText.text = menssage
         labelText.zPosition = 1
         labelText.fontSize = fontSize
         labelText.fontColor = .black
@@ -46,8 +44,8 @@ class InstructionPopUpView: SKSpriteNode {
         labelText.numberOfLines = 10
         labelText.preferredMaxLayoutWidth = ballon.size.width - 32
         labelText.lineBreakMode = .byCharWrapping
-        labelText.verticalAlignmentMode = .top
-        labelText.position.y = ballon.position.y + 32
+        labelText.verticalAlignmentMode = .center
+        labelText.position.y = ballon.position.y
         ballon.addChild(labelText)
         print(labelText.frame)
         
@@ -60,7 +58,7 @@ class InstructionPopUpView: SKSpriteNode {
         //X Btt
         let xBtt = SKSpriteNode(
             color: .red,
-            size: CGSize(width: 46, height: 46)
+            size: CGSize(width: 44, height: 44)
         )
         xBtt.name = "back"
         xBtt.texture = SKTexture(imageNamed: "Button-X")
@@ -86,7 +84,7 @@ class InstructionPopUpView: SKSpriteNode {
         labelOk.fontColor = .white
         labelOk.fontName = "Even"
         labelOk.verticalAlignmentMode = .center
-       
+        
         okBtt.addChild(labelOk)
         
         //Even
@@ -129,9 +127,7 @@ class InstructionPopUpView: SKSpriteNode {
                 switch node.name {
                 case "exit":
                     exit()
-                case "reset":
-                    reset()
-                case "resume":
+                case "ok":
                     resume()
                 default:
                     break
@@ -145,14 +141,7 @@ class InstructionPopUpView: SKSpriteNode {
         print("Pause Exit func")
     }
     
-    private func reset(){
-        
-        print("Pause Reset func")
-    }
-    
     private func resume(){
-        print("Pause Resume func")
-
         self.run(  .fadeAlpha(to: 0, duration: 0.3)) {
             self.removeFromParent()
         }
