@@ -39,6 +39,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        let i = InstructionPopUpView(size: size)
+            i.zPosition = 1
+        addChild(i)
         self.physicsWorld.contactDelegate = self
         
         //Pause Btn
