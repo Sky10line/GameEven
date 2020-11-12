@@ -10,7 +10,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
-    public var level: Int = 3
+    public var level: Int = 2
     
     private var touchedNode: SKSpriteNode?
     private var touchNode: SKNode?
@@ -119,6 +119,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
         }
+        
+        print(draggablesList.count)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -179,8 +181,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         i = 0
         for part in draggablesList { // check how many parts is in the silhouette
-            if part.checkInside(back: backImage!) {
+            print("peca")
+            if part.checkInside(back: backImage!, scene: scene! as SKNode) {
                 i += 1
+                print(i)
             }
         }
         if i == draggablesList.count { // check if all the parts is inside

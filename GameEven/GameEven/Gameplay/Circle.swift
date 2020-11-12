@@ -9,15 +9,38 @@ import UIKit
 import GameplayKit
 
 class Circle: Draggable, DraggableProtocol {
-    func getPos() -> CGPoint {
-        return self.spriteNode!.position
-    }
+    private var bBPointUp = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
+    private var bBPointDown = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
+    private var bBPointLeft = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
+    private var bBPointRight = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
+    
+    private var pU: CGPoint!
+    private var pD: CGPoint!
+    private var pL: CGPoint!
+    private var pR: CGPoint!
     
     func getName() -> String {
         return self.spriteNode!.name!
     }
     
-    func insertCollider() {
+    func getPos() -> CGPoint {
+        return self.spriteNode!.position
+    }
+    
+    func insertCollider(){
+        let node = self.spriteNode!
+        
+        node.addChild(bBPointUp)
+        node.addChild(bBPointDown)
+        node.addChild(bBPointLeft)
+        node.addChild(bBPointRight)
+        
+        //create points on node
+        bBPointUp.position = CGPoint(x:0, y: node.size.height/2)
+        bBPointDown.position = CGPoint(x: 0, y:-node.size.height/2)
+        bBPointLeft.position = CGPoint(x: -node.size.width/2, y:0)
+        bBPointRight.position = CGPoint(x: node.size.width/2, y:0)
+        
         self.spriteNode?.physicsBody = SKPhysicsBody(circleOfRadius: self.spriteNode!.size.width/2)
         
         if let pb = self.spriteNode!.physicsBody{
@@ -31,22 +54,18 @@ class Circle: Draggable, DraggableProtocol {
         }
     }
     
-    func checkInside(back: SKNode) -> Bool{
-        let nodeSize = self.spriteNode!.size
-        let nodePos = self.spriteNode!.position
+    func checkInside(back: SKNode, scene: SKNode) -> Bool{
+        //convert points of the node to view points 
+        pU = scene.convert(bBPointUp.position, from: self.spriteNode!)
+        pD = scene.convert(bBPointDown.position, from: self.spriteNode!)
+        pL = scene.convert(bBPointLeft.position, from: self.spriteNode!)
+        pR = scene.convert(bBPointRight.position, from: self.spriteNode!)
         
-        let bBPointUp = CGPoint(x:nodePos.x, y:(nodePos.y + (nodeSize.height/2))) //monta um ponto na aresta de cima da sprite que está sendo encaixada
-        let bBPointDown = CGPoint(x: nodePos.x, y:(nodePos.y - (nodeSize.height/2)))//monta um ponto na aresta de baixo da sprite que está sendo encaixada
-        let bBPointLeft = CGPoint(x: (nodePos.x - (nodeSize.width/2)), y:nodePos.y)//monta um ponto na aresta da esquerda da sprite que está sendo encaixada
-        let bBPointRight = CGPoint(x: (nodePos.x + (nodeSize.width/2)), y:nodePos.y)//monta um ponto na aresta da direita da sprite que está sendo encaixada
-        
-        if(back.contains(bBPointUp) && back.contains(bBPointDown)){ //checa primeiro em cima e embaixo
-            if(back.contains(bBPointLeft) && back.contains(bBPointRight)){//depois os lados
+        if(back.contains(pU) && back.contains(pD)){ //checa primeiro em cima e embaixo
+            if(back.contains(pL) && back.contains(pR)){//depois os lados
                 return true
             }
         }
         return false
     }
-    
-    
 }
