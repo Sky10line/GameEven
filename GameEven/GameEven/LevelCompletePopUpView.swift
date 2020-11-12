@@ -72,7 +72,7 @@ class LevelCompletePopUpView: SKSpriteNode {
         )
         next.name = "next"
         if level >= maxLvl {
-//            next.texture = SKTexture(imageNamed: "Button-Next")
+            next.texture = SKTexture(imageNamed: "Button-Next-Disable")
             next.color = .gray
             next.name = ""
         } else {
