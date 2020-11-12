@@ -140,9 +140,9 @@ class MapViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "goToInstruction") {
-            guard let instructionView = segue.destination as? InstructionViewController else { return }
+            guard let instructionView = segue.destination as? GameViewController else { return }
             
-            instructionView.selectedPhase = sender as! Int
+            instructionView.level = sender as! Int
         }
     }
     
