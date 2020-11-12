@@ -60,7 +60,7 @@ class LevelCompletePopUpView: SKSpriteNode {
         text.position = CGPoint(x: 0, y: size.height / 2 - text.fontSize / 2 - scale(64))
         text.fontSize = fontSize * 1.7
         text.fontColor = #colorLiteral(red: 0.06604217738, green: 0.6873383522, blue: 0.7892531753, alpha: 1)
-        text.fontName = "AvenirNext-Bold"
+        text.fontName = "Even"
         text.verticalAlignmentMode = .center
         text.zPosition = 1
         self.addChild(text)
