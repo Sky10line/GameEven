@@ -9,7 +9,14 @@ import UIKit
 import GameplayKit
 
 class Square: Draggable, DraggableProtocol{
-   
+    
+    func getName() -> String {
+        return self.spriteNode!.name!
+    }
+    
+    func getPos() -> CGPoint {
+        return self.spriteNode!.position
+    }
     
     func insertCollider(){
         self.spriteNode?.physicsBody = SKPhysicsBody(rectangleOf: self.spriteNode!.size)

@@ -11,4 +11,6 @@ import GameplayKit
 protocol DraggableProtocol {
     func insertCollider()
     func checkInside(back: SKNode) -> Bool
+    func getName() -> String
+    func getPos() -> CGPoint
 }

@@ -9,6 +9,14 @@ import UIKit
 import GameplayKit
 
 class Circle: Draggable, DraggableProtocol {
+    func getPos() -> CGPoint {
+        return self.spriteNode!.position
+    }
+    
+    func getName() -> String {
+        return self.spriteNode!.name!
+    }
+    
     func insertCollider() {
         self.spriteNode?.physicsBody = SKPhysicsBody(circleOfRadius: self.spriteNode!.size.width/2)
         

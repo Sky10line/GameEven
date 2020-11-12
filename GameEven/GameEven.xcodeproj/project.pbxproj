@@ -97,6 +97,8 @@
 		BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B63C254A0C5700F38CE1 /* Draggable.swift */; };
 		BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */; };
 		BD87B647254B354100F38CE1 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B646254B354100F38CE1 /* Circle.swift */; };
+		BDD18D58255B2E25002EA912 /* TrianglePartsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD18D57255B2E25002EA912 /* TrianglePartsReader.swift */; };
+		BDD18D5D255B36E0002EA912 /* lvl3.json in Resources */ = {isa = PBXBuildFile; fileRef = BDD18D5C255B36E0002EA912 /* lvl3.json */; };
 		BDE1E2F62551D277001566AD /* lvl1.json in Resources */ = {isa = PBXBuildFile; fileRef = BDE1E2F52551D277001566AD /* lvl1.json */; };
 		BDE1E3062551D8E3001566AD /* lvlReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E3052551D8E3001566AD /* lvlReader.swift */; };
 		BDE1E30B2551DA80001566AD /* PartsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E30A2551DA80001566AD /* PartsReader.swift */; };
@@ -217,6 +219,8 @@
 		BD87B63C254A0C5700F38CE1 /* Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draggable.swift; sourceTree = "<group>"; };
 		BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableProtocol.swift; sourceTree = "<group>"; };
 		BD87B646254B354100F38CE1 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		BDD18D57255B2E25002EA912 /* TrianglePartsReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrianglePartsReader.swift; sourceTree = "<group>"; };
+		BDD18D5C255B36E0002EA912 /* lvl3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lvl3.json; sourceTree = "<group>"; };
 		BDE1E2F52551D277001566AD /* lvl1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lvl1.json; sourceTree = "<group>"; };
 		BDE1E3052551D8E3001566AD /* lvlReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lvlReader.swift; sourceTree = "<group>"; };
 		BDE1E30A2551DA80001566AD /* PartsReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsReader.swift; sourceTree = "<group>"; };
@@ -468,6 +472,7 @@
 				BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */,
 				BDE1E3052551D8E3001566AD /* lvlReader.swift */,
 				BDE1E30A2551DA80001566AD /* PartsReader.swift */,
+				BDD18D57255B2E25002EA912 /* TrianglePartsReader.swift */,
 				89A3A36A2559DD070049132F /* InstructionPopUpView.swift */,
 			);
 			path = Gameplay;
@@ -478,6 +483,7 @@
 			children = (
 				BDE1E2F52551D277001566AD /* lvl1.json */,
 				BDE1E34425533E84001566AD /* lvl2.json */,
+				BDD18D5C255B36E0002EA912 /* lvl3.json */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -593,6 +599,7 @@
 				16EA97862555F12C00DFFC5F /* BloggerSans-Italic.woff in Resources */,
 				16EA97AC2555F12C00DFFC5F /* BloggerSans-MediumItalic.svg in Resources */,
 				16EA979B2555F12C00DFFC5F /* BloggerSans-Light.svg in Resources */,
+				BDD18D5D255B36E0002EA912 /* lvl3.json in Resources */,
 				16EA978A2555F12C00DFFC5F /* BloggerSans.html in Resources */,
 				16EA97B12555F12C00DFFC5F /* Blogger Sans-Italic.otf in Resources */,
 				16EA97922555F12C00DFFC5F /* BloggerSans.woff in Resources */,
@@ -694,6 +701,7 @@
 				BD87B6382549E8B800F38CE1 /* Triangle.swift in Sources */,
 				89A3A36B2559DD070049132F /* InstructionPopUpView.swift in Sources */,
 				BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */,
+				BDD18D58255B2E25002EA912 /* TrianglePartsReader.swift in Sources */,
 				BDE1E30B2551DA80001566AD /* PartsReader.swift in Sources */,
 				BDE1E3062551D8E3001566AD /* lvlReader.swift in Sources */,
 				BD87B5FA25474D1B00F38CE1 /* GameViewController.swift in Sources */,
@@ -872,7 +880,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YHY9LU893D;
+				DEVELOPMENT_TEAM = HKSJLM4DRR;
 				INFOPLIST_FILE = GameEven/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -891,7 +899,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YHY9LU893D;
+				DEVELOPMENT_TEAM = HKSJLM4DRR;
 				INFOPLIST_FILE = GameEven/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
