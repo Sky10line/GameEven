@@ -1,24 +1,24 @@
 {
- "silhouette": {
-     "sprite": "fase1/silhouette",
-     "size": [310, 310],
-     "pos": [0, 150],
-     "rotation": 0
- },
- "squares": [
-     {
-         "sprite": "fase1/part1",
-         "size": [150, 300],
-         "pos": [100, -200],
-         "rotation": 0
-     },
-     {
-         "sprite": "fase1/part2",
-         "size": [150, 300],
-         "pos": [-100, -200],
-         "rotation": 0
-     }
- ],
- "triangles": [],
- "circles": []
+    "silhouette": {
+        "sprite": "fase1/silhouette",
+        "size": [310, 310],
+        "pos": [0, 150],
+        "rotation": 0
+    },
+    "squares": [
+        {
+            "sprite": "fase1/part1",
+            "size": [150, 300],
+            "pos": [100, -200],
+            "rotation": 0
+        },
+        {
+            "sprite": "fase1/part2",
+            "size": [150, 300],
+            "pos": [-100, -200],
+            "rotation": 0
+        }
+    ],
+    "triangles": [],
+    "circles": []
 }

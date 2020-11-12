@@ -10,7 +10,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
-    public var level: Int = 2
+    public var level: Int = 3
     
     private var touchedNode: SKSpriteNode?
     private var touchNode: SKNode?
@@ -39,7 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        let i = InstructionPopUpView(size: size)
+        let i = InstructionPopUpView(size: size, "oie")
             i.zPosition = 1
         addChild(i)
         self.physicsWorld.contactDelegate = self

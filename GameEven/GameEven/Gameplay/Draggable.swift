@@ -15,7 +15,7 @@ class Draggable{
         self.spriteNode = SKSpriteNode(imageNamed: image)
         
         if let node = self.spriteNode{
-            node.zRotation = rotation
+            node.zRotation = CGFloat(GLKMathDegreesToRadians(Float(rotation)))
             node.size = size
             node.position = pos
             node.name = "draggable"
