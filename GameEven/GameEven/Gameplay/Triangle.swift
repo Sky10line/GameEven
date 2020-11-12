@@ -29,10 +29,10 @@ class Triangle: Draggable, DraggableProtocol{
         let width = self.spriteNode!.size.width
         let height = self.spriteNode!.size.height
         
-        self.spriteNode?.anchorPoint = CGPoint(x: width/1000, y:height/1000)
+//        self.spriteNode?.anchorPoint = CGPoint(x: width/1000, y:height/1000)
         
-        let offsetX = -width/3.35;
-        let offsetY = -height/3.35;
+        let offsetX = -width/2;
+        let offsetY = -height/2;
         
         points.insert(CGPoint(x: offsetX, y: offsetY), at: 0)
         points.insert(CGPoint(x: thirdPoint.x + offsetX, y: thirdPoint.y + offsetY), at: 1)
