@@ -429,8 +429,8 @@
 			isa = PBXGroup;
 			children = (
 				16EA972D2555F00300DFFC5F /* Fonts */,
-				16CA95CB2549EAD4003038C9 /* Source Code */,
 				16CA95CA2549EAC9003038C9 /* Storyboards */,
+				16CA95CB2549EAD4003038C9 /* Source Code */,
 				BD87B5F125474D1A00F38CE1 /* AppDelegate.swift */,
 				8966336F254B371D00EBF5DF /* PausePopUpView.swift */,
 				BD87B5F525474D1A00F38CE1 /* Actions.sks */,
