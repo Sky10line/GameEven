@@ -2,6 +2,15 @@
   Localizable.strings
   GameEven
 
-  Created by Rodrigo Ryo Aoki on 04/11/20.
+  Created by Rodrigo Ryo Aoki on 13/11/20.
   
 */
+//aparentemente podemos fazer o app em uma linguagem, pois caso ele nao ache uma chave correspondente ele coloca a string que passamos como chave
+
+//"OK" = "OK";
+//"Continue" = "Continue";
+//"CONGRATULATIONS!" = "";
+
+"fase1Instruction" = "";
+"fase2Instruction" = "";
+"fase3Instruction" = "";

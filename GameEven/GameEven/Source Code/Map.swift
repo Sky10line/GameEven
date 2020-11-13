@@ -67,7 +67,13 @@ class MapViewController: UIViewController {
         
         let image = UIImage(named: "BackG_Mapa")!
         
-        let scaled = UIImage(cgImage: image.cgImage!, scale: UIScreen.main.scale*(image.size.width/(UIScreen.main.bounds.width*2)), orientation: image.imageOrientation)
+        print(UIScreen.main.scale)
+        print(image.size.width)
+        print(UIScreen.main.bounds.width)
+        
+        //scale: UIScreen.main.scale*(image.size.width/(UIScreen.main.bounds.width*UIScreen.main.scale)),
+        
+        let scaled = UIImage(cgImage: image.cgImage!, scale: UIScreen.main.scale * (image.size.width / (UIScreen.main.bounds.width * UIScreen.main.scale)), orientation: image.imageOrientation)
         
         backgroundScrollView.backgroundColor = UIColor(patternImage: scaled)
         
@@ -118,7 +124,7 @@ class MapViewController: UIViewController {
     // Método que anima a movimentação do scroll até chegar ao nível atual.
     func animateScroll(position: CGFloat) {
         
-        UIView.animate(withDuration: 1.25, delay: 0.0, animations: {
+        UIView.animate(withDuration: 1.00, delay: 0.0, animations: {
             self.backgroundScrollView.contentOffset.y = position
         })
     }
@@ -134,9 +140,9 @@ class MapViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "goToInstruction") {
-            guard let instructionView = segue.destination as? InstructionViewController else { return }
+            guard let instructionView = segue.destination as? GameViewController else { return }
             
-            instructionView.selectedPhase = sender as! Int
+            instructionView.level = sender as! Int
         }
     }
     

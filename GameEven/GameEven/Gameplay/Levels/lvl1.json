@@ -1,45 +1,25 @@
 {
- "id": 0,
- "squares": [
-     {
-         "sprite": "testeSpriteDrag",
-         "size": [150, 150],
-         "pos": [0, 0],
-         "rotation": 0
-     },
-     {
-         "sprite": "testeSpriteDrag",
-         "size": [150, 150],
-         "pos": [0, 0],
-         "rotation": 0
-     },
-     {
-         "sprite": "testeSpriteDrag",
-         "size": [150, 150],
-         "pos": [0, 0],
-         "rotation": 0
-     }
- ],
- "triangles": [
-     {
-         "sprite": "triangleSprite",
-         "size": [150, 150],
-         "pos": [0, 0],
-         "rotation": 0
-     },
-     {
-         "sprite": "triangleSprite",
-         "size": [100, 150],
-         "pos": [0, 0],
-         "rotation": 0
-     }
- ],
- "circles": [
-     {
-         "sprite": "circleSprite",
-         "size": [150, 150],
-         "pos": [0, 0],
-         "rotation": 0
-     }
- ]
+    "instruction": "fase1Instruction",
+    "silhouette": {
+        "sprite": "fase1/silhouette",
+        "size": [310, 310],
+        "pos": [0, 150],
+        "rotation": 0
+    },
+    "squares": [
+        {
+            "sprite": "fase1/part1",
+            "size": [150, 300],
+            "pos": [100, -200],
+            "rotation": 0
+        },
+        {
+            "sprite": "fase1/part2",
+            "size": [150, 300],
+            "pos": [-100, -200],
+            "rotation": 0
+        }
+    ],
+    "triangles": [],
+    "circles": []
 }

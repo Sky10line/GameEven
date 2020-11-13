@@ -20,8 +20,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kR0-Wm-fzj">
+                            <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" id="kR0-Wm-fzj">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ue-Ik-J14">
                                         <rect key="frame" x="0.0" y="88" width="414" height="1022"/>
@@ -88,7 +89,7 @@
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circleSprite" translatesAutoresizingMaskIntoConstraints="NO" id="a7L-qW-sGF">
                                                 <rect key="frame" x="-117" y="974" width="658" height="463"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ib-a0-Asj" userLabel="Button_9">
                                                 <rect key="frame" x="72" y="123" width="68" height="91"/>
@@ -116,6 +117,7 @@
                         <viewLayoutGuide key="safeArea" id="56B-M0-r6p"/>
                         <color key="backgroundColor" red="0.094117647060000004" green="0.027450980390000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="kR0-Wm-fzj" firstAttribute="centerX" secondItem="56B-M0-r6p" secondAttribute="centerX" id="AVw-Iu-wwb"/>
                             <constraint firstItem="kR0-Wm-fzj" firstAttribute="leading" secondItem="fZe-Of-GoB" secondAttribute="leading" id="aaJ-Xj-JrG"/>
                             <constraint firstAttribute="bottom" secondItem="kR0-Wm-fzj" secondAttribute="bottom" id="lRp-8M-aaO"/>
                             <constraint firstItem="kR0-Wm-fzj" firstAttribute="top" secondItem="fZe-Of-GoB" secondAttribute="top" id="vwg-S6-gcY"/>
@@ -144,10 +146,10 @@
             </objects>
             <point key="canvasLocation" x="1281.1594202898552" y="151.33928571428569"/>
         </scene>
-        <!--InstructionView-->
+        <!--Main-->
         <scene sceneID="k0O-iG-abR">
             <objects>
-                <viewControllerPlaceholder storyboardName="Instruction" referencedIdentifier="InstructionView" id="0VT-2y-car" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Main" id="0VT-2y-car" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="8Yf-aS-bWf"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChP-r0-1Ri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -66,6 +66,8 @@ class PausePopUpView: SKSpriteNode {
         self.addChild(xBtt)
     
         //Resume Btt
+        let cont = NSLocalizedString("Continue", comment: "continue btn")
+        
         let resume = SKSpriteNode(
             color: .green,
             size: CGSize(width: buttonSize * 2 + scale(32), height: buttonSize * 0.75 * 0.719)
@@ -77,10 +79,10 @@ class PausePopUpView: SKSpriteNode {
         resume.zPosition = 1
         self.addChild(resume)
 
-        let txtLabel = SKLabelNode(text: "CONTINUAR")
+        let txtLabel = SKLabelNode(text: cont)
         txtLabel.fontSize = fontSize
         txtLabel.fontColor = .white
-        txtLabel.fontName = "AvenirNext-Bold"
+        txtLabel.fontName = "Even"
         txtLabel.verticalAlignmentMode = .center
         txtLabel.zPosition = 1
         resume.addChild(txtLabel)
