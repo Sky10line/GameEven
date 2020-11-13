@@ -80,12 +80,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         //Create level
         let lvl: lvlReader = load("lvl\(level).json")
         
-        let intruction = NSLocalizedString(lvl.instruction, comment: "intruction text")
-        
-        let i = InstructionPopUpView(size: size, intruction)
-            i.zPosition = 1
-        addChild(i)
-        
         //create the silhouette
         let silhouette = lvl.silhouette
         let back = SKSpriteNode(imageNamed: silhouette.sprite)
