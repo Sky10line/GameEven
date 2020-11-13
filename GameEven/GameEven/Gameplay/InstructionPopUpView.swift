@@ -24,6 +24,12 @@ class InstructionPopUpView: SKSpriteNode {
         buttonSize = scale(90)
         fontSize = scale(28)
         
+        let bg = SKSpriteNode()
+        bg.texture = SKTexture(imageNamed: "Background-Fases")
+        bg.size = size
+        bg.position = position
+        self.addChild(bg)
+        
         let offset = scale(100)
         let ballon = SKSpriteNode(
             color: .red,
