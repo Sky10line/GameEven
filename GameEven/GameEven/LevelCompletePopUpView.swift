@@ -56,7 +56,7 @@ class LevelCompletePopUpView: SKSpriteNode {
         self.addChild(map)
         
         //EXCELENTE!
-        let congrats = NSLocalizedString("CONGRATULATIONS!", comment: "Complete level title")
+        let congrats = NSLocalizedString("YEAH!", comment: "Complete level title")
         
         let text = SKLabelNode(text: congrats)
         text.position = CGPoint(x: 0, y: size.height / 2 - text.fontSize / 2 - scale(64))

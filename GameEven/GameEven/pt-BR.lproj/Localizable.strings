@@ -9,7 +9,7 @@
 //for btns
 "OK" = "Entendi";
 "Continue" = "Continuar";
-"CONGRATULATIONS!" = "EXCELENTE!";
+"YEAH!" = "EXCELENTE!";
 
 //levels instructions
 "fase1Instruction" = "";
