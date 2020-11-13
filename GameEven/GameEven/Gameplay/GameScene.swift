@@ -39,9 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        let i = InstructionPopUpView(size: size, "oie")
-            i.zPosition = 1
-        addChild(i)
+        
         self.physicsWorld.contactDelegate = self
         
         //Pause Btn
@@ -71,8 +69,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
         addChild(self.touchNode!)
         
-        //make Sprites
+        //Create level
         let lvl: lvlReader = load("lvl\(level).json")
+        
+        let intruction = NSLocalizedString(lvl.instruction, comment: "intruction text")
+        
+        let i = InstructionPopUpView(size: size, intruction)
+            i.zPosition = 1
+        addChild(i)
         
         //create the silhouette
         let silhouette = lvl.silhouette

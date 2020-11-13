@@ -2,7 +2,16 @@
   Localizable.strings
   GameEven
 
-  Created by Rodrigo Ryo Aoki on 04/11/20.
+  Created by Rodrigo Ryo Aoki on 13/11/20.
   
 */
- 
+
+//for btns
+"OK" = "Entendi";
+"Continue" = "Continuar";
+"CONGRATULATIONS!" = "EXCELENTE!";
+
+//levels instructions
+"fase1Instruction" = "";
+"fase2Instruction" = "";
+"fase3Instruction" = "";
