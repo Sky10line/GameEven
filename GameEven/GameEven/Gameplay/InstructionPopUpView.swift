@@ -68,9 +68,11 @@ class InstructionPopUpView: SKSpriteNode {
         ballon.addChild(xBtt)
         
         //Ok Btt
+        let ok = NSLocalizedString("OK", comment: "OK btn")
+        
         let okBtt = SKSpriteNode(
             color: .red,
-            size: CGSize(width: scale(100), height: scale(50))
+            size: CGSize(width: scale(150), height: scale(50))
         )
         okBtt.name = "ok"
         okBtt.texture = SKTexture(imageNamed: "Button-Resume")
@@ -79,7 +81,7 @@ class InstructionPopUpView: SKSpriteNode {
         ballon.addChild(okBtt)
         
         let labelOk = SKLabelNode()
-        labelOk.text = "Ok"
+        labelOk.text = ok
         labelOk.zPosition = 1
         labelOk.fontSize = fontSize
         labelOk.fontColor = .white

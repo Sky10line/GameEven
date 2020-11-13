@@ -97,6 +97,7 @@
 		BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B63C254A0C5700F38CE1 /* Draggable.swift */; };
 		BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */; };
 		BD87B647254B354100F38CE1 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B646254B354100F38CE1 /* Circle.swift */; };
+		BDA32C4E255F046800A98D5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDA32C50255F046800A98D5F /* Localizable.strings */; };
 		BDD18D58255B2E25002EA912 /* TrianglePartsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD18D57255B2E25002EA912 /* TrianglePartsReader.swift */; };
 		BDD18D5D255B36E0002EA912 /* lvl3.json in Resources */ = {isa = PBXBuildFile; fileRef = BDD18D5C255B36E0002EA912 /* lvl3.json */; };
 		BDE1E2F62551D277001566AD /* lvl1.json in Resources */ = {isa = PBXBuildFile; fileRef = BDE1E2F52551D277001566AD /* lvl1.json */; };
@@ -219,6 +220,8 @@
 		BD87B63C254A0C5700F38CE1 /* Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draggable.swift; sourceTree = "<group>"; };
 		BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableProtocol.swift; sourceTree = "<group>"; };
 		BD87B646254B354100F38CE1 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
+		BDA32C4F255F046800A98D5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BDA32C54255F046C00A98D5F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		BDD18D57255B2E25002EA912 /* TrianglePartsReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrianglePartsReader.swift; sourceTree = "<group>"; };
 		BDD18D5C255B36E0002EA912 /* lvl3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lvl3.json; sourceTree = "<group>"; };
 		BDE1E2F52551D277001566AD /* lvl1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lvl1.json; sourceTree = "<group>"; };
@@ -255,6 +258,7 @@
 		16CA95CA2549EAC9003038C9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				BD87B5FB25474D1B00F38CE1 /* Main.storyboard */,
 				168AE0272559C1840089CBBC /* Launch Screen.storyboard */,
 				165E1A112555C2F600BA72CA /* Map.storyboard */,
 				16A747D6254B2F8500D59C71 /* Instruction.storyboard */,
@@ -433,10 +437,10 @@
 				168AE0372559C39A0089CBBC /* launch.png */,
 				BD87B62E2548A5D000F38CE1 /* Gameplay */,
 				BD87B5F925474D1B00F38CE1 /* GameViewController.swift */,
-				BD87B5FB25474D1B00F38CE1 /* Main.storyboard */,
 				BD87B5FE25474D1D00F38CE1 /* Assets.xcassets */,
 				BD87B60025474D1D00F38CE1 /* Info.plist */,
 				89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */,
+				BDA32C50255F046800A98D5F /* Localizable.strings */,
 			);
 			path = GameEven;
 			sourceTree = "<group>";
@@ -653,6 +657,7 @@
 				16EA97902555F12C00DFFC5F /* BloggerSans.css in Resources */,
 				16EA97852555F12C00DFFC5F /* BloggerSans-BoldItalic.ttf in Resources */,
 				16EA97882555F12C00DFFC5F /* BloggerSans.eot in Resources */,
+				BDA32C4E255F046800A98D5F /* Localizable.strings in Resources */,
 				16EA978B2555F12C00DFFC5F /* BloggerSans-BoldItalic.eot in Resources */,
 				16EA97982555F12C00DFFC5F /* BloggerSans-Bold.svg in Resources */,
 				16EA978F2555F12C00DFFC5F /* BloggerSans-BoldItalic.html in Resources */,
@@ -751,6 +756,15 @@
 				BD87B5FC25474D1B00F38CE1 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BDA32C50255F046800A98D5F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BDA32C4F255F046800A98D5F /* en */,
+				BDA32C54255F046C00A98D5F /* pt-BR */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

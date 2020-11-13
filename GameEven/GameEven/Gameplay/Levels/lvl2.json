@@ -1,4 +1,5 @@
 {
+    "instruction": "fase2Instruction",
     "silhouette": {
         "sprite": "fase2/silhouette",
         "size": [310, 310],
