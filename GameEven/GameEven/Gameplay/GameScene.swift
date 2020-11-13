@@ -42,16 +42,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         self.physicsWorld.contactDelegate = self
         
+        //Background
+        let bg = SKSpriteNode()
+        bg.texture = SKTexture(imageNamed: "Background-Fases")
+        bg.size = size
+        bg.position = self.position
+        bg.zPosition = 0
+        addChild(bg)
+        
         //Pause Btn
         pause = SKSpriteNode(
             color: .red,
             size: CGSize(width: 46, height: 46)
         )
-        
         pause.name = "pause"
         pause.texture = SKTexture(imageNamed: "Button-Pause")
         pause.position.x = UIScreen.main.bounds.maxX / 2 - pause.size.width / 2 - 32
         pause.position.y = UIScreen.main.bounds.maxY / 2 - pause.size.height / 2 - ( safeAreaInsets().top == .zero ? 32 : safeAreaInsets().top)
+        pause.zPosition = 4
         self.addChild(pause)
         
         self.insertEdgeColliders() // create edge colliders to parts don't leave the screen
@@ -85,6 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         back.position = CGPoint(x: CGFloat(silhouette.pos[0]), y: CGFloat(silhouette.pos[1]))
         back.zRotation = CGFloat(silhouette.rotation)
         self.backImage = back
+        back.zPosition = 2
         self.addChild(back)
         
         //create squares
@@ -95,6 +104,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let part = Square(image: square.sprite, size: size, pos: pos, rotation: rot)
             
             part.insertCollider()
+            part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
         }
@@ -108,6 +118,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             part.setThirdPoint(Point: CGPoint(x: CGFloat(triangle.thirdPoint[0]), y: CGFloat(triangle.thirdPoint[1])))
             
             part.insertCollider()
+            part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
         }
@@ -120,11 +131,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let part = Circle(image: circle.sprite, size: size, pos: pos, rotation: rot)
             
             part.insertCollider()
+            part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
         }
         
         print(draggablesList.count)
+        
+        // Show Instructions
+        let mensage: String = "Teste"
+        let i = InstructionPopUpView(size: size, mensage)
+            i.zPosition = 4
+        addChild(i)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -296,7 +314,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     func pauseGame(){
         let pauseMenu = PausePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.75))
         pauseMenu.pauseDelegate = self
-        pauseMenu.zPosition = 1
+        pauseMenu.zPosition = 4
         pauseMenu.alpha = 0
         addChild(pauseMenu)
         
@@ -312,7 +330,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     func endGame() {
         let endGame = LevelCompletePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.8), level: level)
         endGame.levelCompleteDelegate = self
-        endGame.zPosition = 1
+        endGame.zPosition = 4
         endGame.alpha = 0
         addChild(endGame)
         
