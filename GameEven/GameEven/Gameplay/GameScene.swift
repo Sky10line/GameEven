@@ -59,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         pause.texture = SKTexture(imageNamed: "Button-Pause")
         pause.position.x = UIScreen.main.bounds.maxX / 2 - pause.size.width / 2 - 32
         pause.position.y = UIScreen.main.bounds.maxY / 2 - pause.size.height / 2 - ( safeAreaInsets().top == .zero ? 32 : safeAreaInsets().top)
-        pause.zPosition = 2
+        pause.zPosition = 4
         self.addChild(pause)
         
         self.insertEdgeColliders() // create edge colliders to parts don't leave the screen
