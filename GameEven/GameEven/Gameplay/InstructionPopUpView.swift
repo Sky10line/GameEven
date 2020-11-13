@@ -15,6 +15,8 @@ class InstructionPopUpView: SKSpriteNode {
     
     var menssage: String
     
+    var myScene: GameScene?
+    
     init(size: CGSize, _ menssage: String){
         self.menssage = menssage
         super.init(texture: nil, color: .clear, size: size)
@@ -143,6 +145,9 @@ class InstructionPopUpView: SKSpriteNode {
     }
     
     private func resume(){
+        if let scene = myScene {
+            scene.activeEffect(false)
+        }
         self.run(  .fadeAlpha(to: 0, duration: 0.3)) {
             self.removeFromParent()
         }

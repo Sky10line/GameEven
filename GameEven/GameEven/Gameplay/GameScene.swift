@@ -35,6 +35,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     private var pause: SKSpriteNode!
     
+    //Blur Effect
+    let effectNode = SKEffectNode()
+    let blurFilter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius": 20])
+    
     var viewControllerDelegate: PopViewControllerDelegate?
     
     override func didMove(to view: SKView) {
@@ -42,13 +46,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         self.physicsWorld.contactDelegate = self
         
+        
+        addChild(effectNode)
+        
         //Background
         let bg = SKSpriteNode()
         bg.texture = SKTexture(imageNamed: "Background-Fases")
         bg.size = size
         bg.position = self.position
         bg.zPosition = 0
-        addChild(bg)
+        effectNode.addChild(bg)
         
         //Pause Btn
         pause = SKSpriteNode(
@@ -60,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         pause.position.x = UIScreen.main.bounds.maxX / 2 - pause.size.width / 2 - 32
         pause.position.y = UIScreen.main.bounds.maxY / 2 - pause.size.height / 2 - ( safeAreaInsets().top == .zero ? 32 : safeAreaInsets().top)
         pause.zPosition = 2
-        self.addChild(pause)
+        effectNode.addChild(pause)
         
         self.insertEdgeColliders() // create edge colliders to parts don't leave the screen
         self.touchNode = SKNode() // create a node called touchNode to represent touch
@@ -88,7 +95,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         back.zRotation = CGFloat(silhouette.rotation)
         self.backImage = back
         back.zPosition = 2
-        self.addChild(back)
+        effectNode.addChild(back)
         
         //create squares
         for square in lvl.squares{
@@ -100,7 +107,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             part.insertCollider()
             part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
-            self.addChild(part.spriteNode!)
+            effectNode.addChild(part.spriteNode!)
         }
         
         //create triangles
@@ -114,7 +121,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             part.insertCollider()
             part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
-            self.addChild(part.spriteNode!)
+            effectNode.addChild(part.spriteNode!)
         }
         
         //create circles
@@ -127,7 +134,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             part.insertCollider()
             part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
-            self.addChild(part.spriteNode!)
+            effectNode.addChild(part.spriteNode!)
         }
         
         print(draggablesList.count)
@@ -135,8 +142,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         // Show Instructions
         let mensage: String = "Teste"
         let i = InstructionPopUpView(size: size, mensage)
+        i.myScene = self
             i.zPosition = 4
         addChild(i)
+        
+        activeEffect(true)
+    }
+    
+    func activeEffect(_ flag: Bool){
+        if flag {
+            return  self.effectNode.filter = blurFilter
+        }
+        self.effectNode.filter = nil
+       
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
