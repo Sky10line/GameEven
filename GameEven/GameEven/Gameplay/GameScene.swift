@@ -306,7 +306,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func pauseGame(){
-        let pauseMenu = PausePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.75))
+        let pauseMenu = PausePopUpView(size: CGSize(width: size.width, height: size.height))
         pauseMenu.pauseDelegate = self
         pauseMenu.zPosition = 4
         pauseMenu.alpha = 0

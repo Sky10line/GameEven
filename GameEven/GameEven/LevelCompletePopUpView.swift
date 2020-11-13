@@ -32,6 +32,12 @@ class LevelCompletePopUpView: SKSpriteNode {
         buttonSize = scale(90)
         fontSize = scale(28)
         
+        let bg = SKSpriteNode()
+        bg.texture = SKTexture(imageNamed: "Background-Fases")
+        bg.size = size
+        bg.position = position
+        self.addChild(bg)
+        
         //Reset Btt
         let resetLevel = SKSpriteNode(
             color: .red,
