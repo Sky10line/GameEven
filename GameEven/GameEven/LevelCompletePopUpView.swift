@@ -26,17 +26,18 @@ class LevelCompletePopUpView: SKSpriteNode {
         self.level = level
         
         super.init(texture: nil, color: .orange, size: size)
-        texture = SKTexture(imageNamed: "Backgroud-PopUp")
+        texture = SKTexture(imageNamed: "Background-Fases")
         isUserInteractionEnabled = true
         
         buttonSize = scale(90)
-        fontSize = scale(28)
+        fontSize = scale(40)
         
-        let bg = SKSpriteNode()
-        bg.texture = SKTexture(imageNamed: "Background-Fases")
-        bg.size = size
-        bg.position = position
-        self.addChild(bg)
+        let balloon = SKSpriteNode()
+        balloon.texture =  SKTexture(imageNamed: "Backgroud-PopUp")
+        balloon.size = CGSize(width: size.width * 0.85, height: size.height * 0.80)
+        balloon.position = position
+        balloon.zPosition = 1
+        self.addChild(balloon)
         
         //Reset Btt
         let resetLevel = SKSpriteNode(
@@ -45,10 +46,10 @@ class LevelCompletePopUpView: SKSpriteNode {
         )
         resetLevel.name = "reset"
         resetLevel.texture = SKTexture(imageNamed: "Button-Reset")
-        var y: CGFloat = size.height / 2 - resetLevel.size.height / 2 - scale(64)
+        var y: CGFloat = balloon.size.height / 2 - resetLevel.size.height / 2 - scale(64)
         resetLevel.position = CGPoint(x: resetLevel.size.width / 2 + scale(16), y: -y)
         resetLevel.zPosition = 1
-        self.addChild(resetLevel)
+        balloon.addChild(resetLevel)
         
         //Exit to Map Btt
         let map = SKSpriteNode(
@@ -59,19 +60,19 @@ class LevelCompletePopUpView: SKSpriteNode {
         map.name = "exit"
         map.position = CGPoint(x: -map.size.width / 2 - scale(16), y: -y)
         map.zPosition = 1
-        self.addChild(map)
+        balloon.addChild(map)
         
         //EXCELENTE!
         let congrats = NSLocalizedString("YEAH!", comment: "Complete level title")
         
         let text = SKLabelNode(text: congrats)
-        text.position = CGPoint(x: 0, y: size.height / 2 - text.fontSize / 2 - scale(64))
+        text.position = CGPoint(x: 0, y: balloon.size.height / 2 - text.fontSize / 2 - scale(64))
         text.fontSize = fontSize * 1.7
         text.fontColor = #colorLiteral(red: 0.06604217738, green: 0.6873383522, blue: 0.7892531753, alpha: 1)
         text.fontName = "Even"
         text.verticalAlignmentMode = .center
         text.zPosition = 1
-        self.addChild(text)
+        balloon.addChild(text)
     
         //Next Btt
         let next = SKSpriteNode(
@@ -89,7 +90,7 @@ class LevelCompletePopUpView: SKSpriteNode {
         y = resetLevel.position.y + resetLevel.size.height / 2 + next.size.height / 2
         next.position = CGPoint(x: 0, y: y + scale(32))
         next.zPosition = 1
-        self.addChild(next)
+        balloon.addChild(next)
         
         //Even
         let even = SKSpriteNode(
@@ -100,7 +101,7 @@ class LevelCompletePopUpView: SKSpriteNode {
         even.texture = SKTexture(imageNamed: "Even-Next")
         even.position = CGPoint(x: 0, y: next.position.y + next.size.height / 2 + even.size.height / 2 + scale(60))
         even.zPosition = 1
-        self.addChild(even)
+        balloon.addChild(even)
         
     }
     
