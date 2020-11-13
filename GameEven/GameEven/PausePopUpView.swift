@@ -80,7 +80,7 @@ class PausePopUpView: SKSpriteNode {
         let txtLabel = SKLabelNode(text: "CONTINUAR")
         txtLabel.fontSize = fontSize
         txtLabel.fontColor = .white
-        txtLabel.fontName = "AvenirNext-Bold"
+        txtLabel.fontName = "Even"
         txtLabel.verticalAlignmentMode = .center
         txtLabel.zPosition = 1
         resume.addChild(txtLabel)

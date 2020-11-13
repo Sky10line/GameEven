@@ -12,6 +12,7 @@ class InstructionPopUpView: SKSpriteNode {
     
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
+    
     var menssage: String
     
     init(size: CGSize, _ menssage: String){
