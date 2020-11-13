@@ -336,8 +336,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         let maxLvl = UserDefaults.standard.loadPlayerLevel()
         
-        if maxLvl < level {
-            UserDefaults.standard.savePlayerLevel(playerLevel: level)
+        if maxLvl < level + 1 {
+            UserDefaults.standard.savePlayerLevel(playerLevel: level + 1)
         }
     }
 }
