@@ -1,0 +1,27 @@
+{
+    "instruction": "fase2Instruction",
+    "silhouette": {
+        "sprite": "fase2/silhouette",
+        "size": [310, 310],
+        "pos": [0, 150],
+        "rotation": 0
+    },
+    "squares": [],
+    "triangles": [
+        {
+            "sprite": "fase2/part1",
+            "size": [300, 300],
+            "pos": [-100, -150],
+            "thirdPoint": [0,300],
+            "rotation": -90
+        },
+        {
+            "sprite": "fase2/part2",
+            "size": [300, 300],
+            "pos": [100, -300],
+            "thirdPoint": [0,300],
+            "rotation": 90
+        }
+    ],
+    "circles": []
+}

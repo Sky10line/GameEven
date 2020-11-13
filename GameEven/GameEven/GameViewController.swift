@@ -9,23 +9,27 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
+protocol PopViewControllerDelegate {
+    func popView()
+    func changeLevel(changeTo level: Int)
+}
 
+class GameViewController: UIViewController {
+    
+    var level: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
+            guard let lvl = level else {
+                fatalError("Level nao definido")
             }
             
-            view.ignoresSiblingOrder = true
+            changeLevel(changeTo: lvl)
             
+            view.ignoresSiblingOrder = true
+            view.showsPhysics = true
             view.showsFPS = true
             view.showsNodeCount = true
         }
@@ -45,5 +49,35 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+}
+
+extension GameViewController: PopViewControllerDelegate {
+    
+    func changeLevel(changeTo level: Int) {
+        print("GameViewController ChangeLevel")
+        guard let scene = SKScene(fileNamed: "GameScene") else {
+            fatalError("Scene nao encontrada")
+        }
+        guard let s = scene as? GameScene else {
+            fatalError("Scene nao e uma GameScene")
+        }
+        s.viewControllerDelegate = self
+        s.level = level
+        
+        s.scaleMode = .aspectFill
+        s.size = UIScreen.main.bounds.size
+        //TRANSICAO COM PROBLEMA
+//            let transition = SKTransition.fade(withDuration: 1.0)
+
+        guard let view = self.view as? SKView else {
+            fatalError("view nao e uma SKView")
+        }
+        
+        view.presentScene(s)
+    }
+    
+    func popView() {
+        self.navigationController!.popViewController(animated: true)
     }
 }
