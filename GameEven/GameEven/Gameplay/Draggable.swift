@@ -16,7 +16,14 @@ class Draggable{
         
         if let node = self.spriteNode{
             node.zRotation = CGFloat(GLKMathDegreesToRadians(Float(rotation)))
-            node.size = size
+            
+            //node.size = size
+            
+            print(self.spriteNode!.size.height)
+            
+            node.size.height = self.spriteNode!.size.height * 0.319
+            node.size.width = self.spriteNode!.size.width * 0.319
+            
             node.position = pos
             node.name = "draggable"
         }

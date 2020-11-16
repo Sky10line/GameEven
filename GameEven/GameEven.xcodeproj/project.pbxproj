@@ -80,6 +80,7 @@
 		16EA97B62555F12C00DFFC5F /* Blogger Sans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97742555F12C00DFFC5F /* Blogger Sans-Medium.otf */; };
 		16EA97B72555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97752555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf */; };
 		16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */; };
+		16FBCD6F255F1AE500DE5997 /* lvl4.json in Resources */ = {isa = PBXBuildFile; fileRef = 16FBCD6E255F1AE500DE5997 /* lvl4.json */; };
 		89663370254B371D00EBF5DF /* PausePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966336F254B371D00EBF5DF /* PausePopUpView.swift */; };
 		89663375254B379700EBF5DF /* LevelCompletePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */; };
 		89A3A36B2559DD070049132F /* InstructionPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3A36A2559DD070049132F /* InstructionPopUpView.swift */; };
@@ -196,6 +197,7 @@
 		16EA97742555F12C00DFFC5F /* Blogger Sans-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Medium.otf"; sourceTree = "<group>"; };
 		16EA97752555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Medium Italic.otf"; sourceTree = "<group>"; };
 		16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Bold Italic.otf"; sourceTree = "<group>"; };
+		16FBCD6E255F1AE500DE5997 /* lvl4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lvl4.json; sourceTree = "<group>"; };
 		8966336F254B371D00EBF5DF /* PausePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausePopUpView.swift; sourceTree = "<group>"; };
 		89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCompletePopUpView.swift; sourceTree = "<group>"; };
 		89A3A36A2559DD070049132F /* InstructionPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPopUpView.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				BDE1E2F52551D277001566AD /* lvl1.json */,
 				BDE1E34425533E84001566AD /* lvl2.json */,
 				BDD18D5C255B36E0002EA912 /* lvl3.json */,
+				16FBCD6E255F1AE500DE5997 /* lvl4.json */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				16EA97812555F12C00DFFC5F /* BloggerSans.ttf in Resources */,
 				16EA97A52555F12C00DFFC5F /* BloggerSans-MediumItalic.ttf in Resources */,
 				168AE0282559C1840089CBBC /* Launch Screen.storyboard in Resources */,
+				16FBCD6F255F1AE500DE5997 /* lvl4.json in Resources */,
 				16EA97872555F12C00DFFC5F /* BloggerSans-Bold.woff in Resources */,
 				16EA979A2555F12C00DFFC5F /* BloggerSans-LightItalic.woff in Resources */,
 				16EA97802555F12C00DFFC5F /* Blogger Sans-Medium.ttf in Resources */,

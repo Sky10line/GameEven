@@ -36,17 +36,10 @@ class Triangle: Draggable, DraggableProtocol{
     func insertCollider(){
         let width = self.spriteNode!.size.width
         let height = self.spriteNode!.size.height
-        
-//        self.spriteNode?.anchorPoint = CGPoint(x: width/1000, y:height/1000)
-        
+
         let offsetX = -width/2;
         let offsetY = -height/2;
-        
-        points.insert(CGPoint(x: offsetX, y: offsetY), at: 0)
-        points.insert(CGPoint(x: thirdPoint.x + offsetX, y: thirdPoint.y + offsetY), at: 1)
-//        CGPoint(x: width/2 + offsetX, y: height + offsetY)
-        points.insert(CGPoint(x: width + offsetX, y: offsetY), at: 2)
-        
+
         let node = self.spriteNode!
         
         node.addChild(firstPoint)
@@ -54,20 +47,11 @@ class Triangle: Draggable, DraggableProtocol{
         node.addChild(thirdPoint1)
         
         //create points on node
-        firstPoint.position = CGPoint(x: points[0].x, y: points[0].y)
-        secondPoint.position = CGPoint(x: points[1].x, y: points[1].y)
-        thirdPoint1.position = CGPoint(x: points[2].x, y: points[2].y)
+        firstPoint.position = CGPoint(x: offsetX, y: offsetY)
+        secondPoint.position = CGPoint(x: offsetX, y: offsetY * (-1))
+        thirdPoint1.position = CGPoint(x: offsetX * (-1), y: offsetY)
         
-        let path = CGMutablePath();
-
-        path.move(to: points[0])
-        path.addLine(to: points[1])
-        path.addLine(to: points[2])
-
-        path.closeSubpath()
-        self.path = path
-        
-        self.spriteNode?.physicsBody = SKPhysicsBody(polygonFrom: path)
+        self.spriteNode?.physicsBody = SKPhysicsBody(texture: self.spriteNode!.texture!, size: self.spriteNode!.size)
         
         if let pb = self.spriteNode?.physicsBody {
             pb.categoryBitMask = 1
@@ -81,6 +65,7 @@ class Triangle: Draggable, DraggableProtocol{
     }
     
     func checkInside(back: SKNode, scene: SKNode) -> Bool{
+        
         //convert points of the node to view points 
         p1 = scene.convert(firstPoint.position, from: self.spriteNode!)
         p2 = scene.convert(secondPoint.position, from: self.spriteNode!)

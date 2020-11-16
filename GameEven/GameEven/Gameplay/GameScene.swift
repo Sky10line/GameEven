@@ -10,7 +10,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
-    public var level: Int = 2
+    public var level: Int = 4
     
     private var touchedNode: SKSpriteNode?
     private var touchNode: SKNode?
