@@ -19,15 +19,7 @@ class Circle: Draggable, DraggableProtocol {
     private var pL: CGPoint!
     private var pR: CGPoint!
     
-    func getName() -> String {
-        return self.spriteNode!.name!
-    }
-    
-    func getPos() -> CGPoint {
-        return self.spriteNode!.position
-    }
-    
-    func insertCollider(){
+    override func insertCollider(pw: SKPhysicsWorld){
         let node = self.spriteNode!
         
         node.addChild(bBPointUp)
@@ -54,7 +46,7 @@ class Circle: Draggable, DraggableProtocol {
         }
     }
     
-    func checkInside(back: SKNode, scene: SKNode) -> Bool{
+    override func checkInside(back: SKNode, scene: SKNode) -> Bool{
         //convert points of the node to view points 
         pU = scene.convert(bBPointUp.position, from: self.spriteNode!)
         pD = scene.convert(bBPointDown.position, from: self.spriteNode!)

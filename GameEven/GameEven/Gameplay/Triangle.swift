@@ -21,23 +21,15 @@ class Triangle: Draggable, DraggableProtocol{
     private var p2: CGPoint!
     private var p3: CGPoint!
     
-    func getName() -> String {
-        return self.spriteNode!.name!
-    }
-    
-    func getPos() -> CGPoint {
-        return self.spriteNode!.position
-    }
-    
     func setThirdPoint(Point: CGPoint){
         self.thirdPoint = Point
     }
     
-    func insertCollider(){
+    override func insertCollider(pw: SKPhysicsWorld){
         let width = self.spriteNode!.size.width
         let height = self.spriteNode!.size.height
         
-//        self.spriteNode?.anchorPoint = CGPoint(x: width/1000, y:height/1000)
+        //        self.override spriteNode?.anchorPoint = CGPoint(x: width/1000, y:height/1000)
         
         let offsetX = -width/2;
         let offsetY = -height/2;
@@ -80,7 +72,7 @@ class Triangle: Draggable, DraggableProtocol{
         }
     }
     
-    func checkInside(back: SKNode, scene: SKNode) -> Bool{
+    override func checkInside(back: SKNode, scene: SKNode) -> Bool{
         //convert points of the node to view points 
         p1 = scene.convert(firstPoint.position, from: self.spriteNode!)
         p2 = scene.convert(secondPoint.position, from: self.spriteNode!)

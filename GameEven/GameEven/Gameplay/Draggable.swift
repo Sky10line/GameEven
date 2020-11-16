@@ -21,4 +21,21 @@ class Draggable{
             node.name = "draggable"
         }
     }
+    
+    func correctPointPos(){
+    }
+    
+    func insertCollider(pw: SKPhysicsWorld){
+        
+    }
+    func checkInside(back: SKNode, scene: SKNode) -> Bool{
+        return false
+    }
+    func getName() -> String{
+        return (self.spriteNode?.name)!
+    }
+    func getPos() -> CGPoint
+    {
+        return self.spriteNode!.position
+    }
 }

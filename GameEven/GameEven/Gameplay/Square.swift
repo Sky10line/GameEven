@@ -15,20 +15,20 @@ class Square: Draggable, DraggableProtocol{
     private var bBPointLeft = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
     private var bBPointRight = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
     
-    private var pU: CGPoint!
-    private var pD: CGPoint!
-    private var pL: CGPoint!
-    private var pR: CGPoint!
+    private var pU: SKPhysicsBody!
+    private var pD: SKPhysicsBody!
+    private var pL: SKPhysicsBody!
+    private var pR: SKPhysicsBody!
     
-    func getName() -> String {
+    override func getName() -> String {
         return self.spriteNode!.name!
     }
     
-    func getPos() -> CGPoint {
+    override func getPos() -> CGPoint {
         return self.spriteNode!.position
     }
     
-    func insertCollider(){
+    override func insertCollider(pw: SKPhysicsWorld){
         let node = self.spriteNode!
         
         node.addChild(bBPointUp)
@@ -42,12 +42,33 @@ class Square: Draggable, DraggableProtocol{
         bBPointLeft.position = CGPoint(x: -node.size.width/2, y:0)
         bBPointRight.position = CGPoint(x: node.size.width/2, y:0)
         
+        
+        
         self.spriteNode?.physicsBody = SKPhysicsBody(rectangleOf: self.spriteNode!.size)
         
         if let pb = self.spriteNode!.physicsBody{
-            pb.categoryBitMask = 1
-            pb.collisionBitMask = 1
-            pb.contactTestBitMask = 1
+            pb.categoryBitMask = UInt32(1)
+            pb.collisionBitMask = UInt32(1)
+            pb.contactTestBitMask = UInt32(1)
+            pb.affectedByGravity = false
+            pb.isDynamic = true
+            pb.allowsRotation = false
+            pb.usesPreciseCollisionDetection = true
+        }
+        
+        insertPointColider(sprite: bBPointUp, parent: node, pw: pw)
+        insertPointColider(sprite: bBPointDown, parent: node, pw: pw)
+        insertPointColider(sprite: bBPointLeft, parent: node, pw: pw)
+        insertPointColider(sprite: bBPointRight, parent: node, pw: pw)
+    }
+    
+    private func insertPointColider(sprite: SKNode,  parent: SKNode, pw: SKPhysicsWorld) {
+        sprite.physicsBody = SKPhysicsBody(circleOfRadius: 2)
+        
+        if let pb = sprite.physicsBody{
+            pb.categoryBitMask = UInt32(16)
+            pb.collisionBitMask = UInt32(16)
+            pb.contactTestBitMask = UInt32(16)
             pb.affectedByGravity = false
             pb.isDynamic = true
             pb.allowsRotation = false
@@ -55,16 +76,28 @@ class Square: Draggable, DraggableProtocol{
         }
     }
     
-    func checkInside(back: SKNode, scene: SKNode) -> Bool{
+    override func correctPointPos(){
+        bBPointUp.position = CGPoint(x:0, y: self.spriteNode!.size.height/2)
+        bBPointDown.position = CGPoint(x: 0, y:-self.spriteNode!.size.height/2)
+        bBPointLeft.position = CGPoint(x: -self.spriteNode!.size.width/2, y:0)
+        bBPointRight.position = CGPoint(x: self.spriteNode!.size.width/2, y:0)
+    }
+    
+    override func checkInside(back: SKNode, scene: SKNode) -> Bool{
         //convert points of the node to view points
-        pU = scene.convert(bBPointUp.position, from: self.spriteNode!)
-        pD = scene.convert(bBPointDown.position, from: self.spriteNode!)
-        pL = scene.convert(bBPointLeft.position, from: self.spriteNode!)
-        pR = scene.convert(bBPointRight.position, from: self.spriteNode!)
+        pU = bBPointUp.physicsBody
+        pD = bBPointDown.physicsBody
+        pL = bBPointLeft.physicsBody
+        pR = bBPointRight.physicsBody
         
-        if(back.contains(pU) && back.contains(pD)){ //checa primeiro em cima e embaixo
-            if(back.contains(pL) && back.contains(pR)){//depois os lados
-                return true
+        
+        if let backbodies = back.physicsBody?.allContactedBodies(){
+            print(backbodies)
+            if(backbodies.contains(pU) && backbodies.contains(pD)){ //checa primeiro em cima e embaixo
+                print("Ponto em cima e baixo em contato")
+                if(backbodies.contains(pL) && backbodies.contains(pR)){//depois os lados
+                    return true
+                }
             }
         }
         return false
