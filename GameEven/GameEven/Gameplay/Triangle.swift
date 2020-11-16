@@ -17,9 +17,9 @@ class Triangle: Draggable, DraggableProtocol{
     private let secondPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
     private let thirdPoint1 = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
     
-    private var p1: CGPoint!
-    private var p2: CGPoint!
-    private var p3: CGPoint!
+    private var p1: SKPhysicsBody!
+    private var p2: SKPhysicsBody!
+    private var p3: SKPhysicsBody!
     
     func setThirdPoint(Point: CGPoint){
         self.thirdPoint = Point
@@ -70,16 +70,40 @@ class Triangle: Draggable, DraggableProtocol{
             pb.allowsRotation = false
             pb.usesPreciseCollisionDetection = true
         }
+        
+        insertPointColider(sprite: firstPoint, parent: node, pw: pw)
+        insertPointColider(sprite: secondPoint, parent: node, pw: pw)
+        insertPointColider(sprite: thirdPoint1, parent: node, pw: pw)
+    }
+    
+    private func insertPointColider(sprite: SKNode,  parent: SKNode, pw: SKPhysicsWorld) {
+        sprite.physicsBody = SKPhysicsBody(circleOfRadius: 2)
+        
+        if let pb = sprite.physicsBody{
+            pb.categoryBitMask = UInt32(16)
+            pb.collisionBitMask = UInt32(16)
+            pb.contactTestBitMask = UInt32(16)
+            pb.affectedByGravity = false
+            pb.isDynamic = true
+            pb.allowsRotation = false
+            pb.usesPreciseCollisionDetection = true
+        }
+    }
+    
+    override func correctPointPos(){
+
     }
     
     override func checkInside(back: SKNode, scene: SKNode) -> Bool{
         //convert points of the node to view points 
-        p1 = scene.convert(firstPoint.position, from: self.spriteNode!)
-        p2 = scene.convert(secondPoint.position, from: self.spriteNode!)
-        p3 = scene.convert(thirdPoint1.position, from: self.spriteNode!)
+        p1 = firstPoint.physicsBody
+        p2 = secondPoint.physicsBody
+        p3 = thirdPoint1.physicsBody
         
-        if(back.contains(p1) && back.contains(p2) && back.contains(p3)) { //checa primeiro em cima e embaixo
-                return true
+        if let backbodies = back.physicsBody?.allContactedBodies(){
+            if(backbodies.contains(p1) && backbodies.contains(p2) && backbodies.contains(p3)) { //checa primeiro em cima e embaixo
+                    return true
+            }
         }
         return false
     }

@@ -8,7 +8,7 @@
 import UIKit
 import GameplayKit
 
-class Square: Draggable, DraggableProtocol{
+class Square: Draggable{
     
     private var bBPointUp = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
     private var bBPointDown = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
@@ -19,14 +19,6 @@ class Square: Draggable, DraggableProtocol{
     private var pD: SKPhysicsBody!
     private var pL: SKPhysicsBody!
     private var pR: SKPhysicsBody!
-    
-    override func getName() -> String {
-        return self.spriteNode!.name!
-    }
-    
-    override func getPos() -> CGPoint {
-        return self.spriteNode!.position
-    }
     
     override func insertCollider(pw: SKPhysicsWorld){
         let node = self.spriteNode!
@@ -41,8 +33,6 @@ class Square: Draggable, DraggableProtocol{
         bBPointDown.position = CGPoint(x: 0, y:-node.size.height/2)
         bBPointLeft.position = CGPoint(x: -node.size.width/2, y:0)
         bBPointRight.position = CGPoint(x: node.size.width/2, y:0)
-        
-        
         
         self.spriteNode?.physicsBody = SKPhysicsBody(rectangleOf: self.spriteNode!.size)
         
