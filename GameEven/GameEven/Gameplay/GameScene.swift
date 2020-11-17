@@ -136,6 +136,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let mensage: String = "Teste"
         let i = InstructionPopUpView(size: size, mensage)
             i.zPosition = 4
+            i.delegate = self
         addChild(i)
     }
     

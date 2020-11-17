@@ -30,7 +30,7 @@ class LevelCompletePopUpView: SKSpriteNode {
         isUserInteractionEnabled = true
         
         buttonSize = scale(90)
-        fontSize = scale(40)
+        fontSize = scale(30)
         
         let balloon = SKSpriteNode()
         balloon.texture =  SKTexture(imageNamed: "Backgroud-PopUp")
