@@ -7,6 +7,7 @@
 
 import UIKit
 import GameplayKit
+import Foundation
 
 class Triangle: Draggable, DraggableProtocol{
     private var path: CGPath?
@@ -48,8 +49,49 @@ class Triangle: Draggable, DraggableProtocol{
         
         //create points on node
         firstPoint.position = CGPoint(x: offsetX, y: offsetY)
-        secondPoint.position = CGPoint(x: offsetX, y: offsetY * (-1))
-        thirdPoint1.position = CGPoint(x: offsetX * (-1), y: offsetY)
+        secondPoint.position = CGPoint(x: offsetX * (-1), y: offsetY)
+        
+        
+        //====================
+        
+        // Recorta a primeira linha de pixels do topo da imagem.
+        let topPixelLine = self.spriteNode?.texture?.cgImage().cropping(to: CGRect(x: 0, y: 0, width: (self.spriteNode?.texture?.cgImage().width)!, height: 1))
+
+        // Transforma em data a primeira linha de pixels.
+        let dataOfLine = CFDataGetBytePtr(topPixelLine?.dataProvider?.data)
+        
+        var thirdTrianglePoint = 0
+
+        var i = 0
+            
+        // Testa de forma bruta toda a sequência de pixels.
+            for x in 0..<Int((self.spriteNode?.texture?.cgImage().width)!) {
+                let pixelIndex = (((Int((self.spriteNode?.texture?.cgImage().width)!) * 1) + x) * 4)
+
+                i+=1
+                print(i)
+                
+                // Se o valor em pixelIndex+3 (posição em que fica o Alpha do pixel) for diferente de 0.
+                if dataOfLine![pixelIndex+3] != 0 {
+                    
+                    // Então encontrou o X do ponto.
+                    thirdTrianglePoint = x
+
+                    print(" - - - - X do ThirdPoint: \(x) - - - - ")
+                    break
+                }
+        }
+        
+        // Acha a escala comparando o tamanho da imagem com o tamanho do spriteNode.
+        let scale = Float(self.spriteNode!.size.height) / Float(self.spriteNode!.texture!.cgImage().height)
+        
+        // Encontra o terceiro ponto, aplicando a escala no X do ponto.
+        let thirdPointScaled = CGPoint(x: CGFloat(Float(thirdTrianglePoint) * scale) + offsetX, y: offsetY * (-1))
+        
+        // Define a posição do spriteNode para a posição do terceiro ponto escalonado.
+        thirdPoint1.position = thirdPointScaled
+        
+        //====================
         
         self.spriteNode?.physicsBody = SKPhysicsBody(texture: self.spriteNode!.texture!, size: self.spriteNode!.size)
         

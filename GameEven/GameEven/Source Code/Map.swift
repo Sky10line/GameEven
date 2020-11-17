@@ -38,7 +38,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        UserDefaults.standard.resetPlayerLevel()
+        //UserDefaults.standard.resetPlayerLevel()
         
         repeatingBackground()
         
@@ -56,8 +56,8 @@ class MapViewController: UIViewController {
     // Método que carrega em que nível está o jogador baseado no userDefault, define como 1 caso não encontre nada.
     func loadingPlayerLevel() {
         
-        currentPlayerLevel = UserDefaults.standard.loadPlayerLevel()
-        currentPlayerLevel == 0 ? currentPlayerLevel = 1 : ()
+        currentPlayerLevel = 4
+        currentPlayerLevel == 0 ? currentPlayerLevel = 4 : ()
     }
     
     //MARK: Métodos de Definição do Layout

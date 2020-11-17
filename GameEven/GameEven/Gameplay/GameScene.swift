@@ -97,11 +97,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         //create triangles
         for triangle in lvl.triangles {
-            let size = CGSize(width: CGFloat(triangle.size[0]), height: CGFloat(triangle.size[1]))
+            //let size = CGSize(width: CGFloat(triangle.size[0]), height: CGFloat(triangle.size[1]))
             let pos = CGPoint(x: CGFloat(triangle.pos[0]), y: CGFloat(triangle.pos[1]))
             let rot = CGFloat(triangle.rotation)
             let part = Triangle(image: triangle.sprite, size: size, pos: pos, rotation: rot)
-            part.setThirdPoint(Point: CGPoint(x: CGFloat(triangle.thirdPoint[0]), y: CGFloat(triangle.thirdPoint[1])))
+            //part.setThirdPoint(Point: CGPoint(x: CGFloat(triangle.thirdPoint[0]), y: CGFloat(triangle.thirdPoint[1])))
             
             part.insertCollider()
             self.draggablesList.append(part)
