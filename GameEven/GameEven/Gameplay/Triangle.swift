@@ -8,14 +8,14 @@
 import UIKit
 import GameplayKit
 
-class Triangle: Draggable, DraggableProtocol{
+class Triangle: Draggable{
     private var path: CGPath?
     private var points: [CGPoint] = []
     private var thirdTrianglePoint: CGFloat = 0
     
-    private let firstPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
-    private let secondPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
-    private let thirdPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
+    private let firstPoint = SKSpriteNode(color: .red, size: CGSize(width: 8, height: 8))
+    private let secondPoint = SKSpriteNode(color: .red, size: CGSize(width: 8, height: 8))
+    private let thirdPoint = SKSpriteNode(color: .red, size: CGSize(width: 8, height: 8))
     
     private var p1: SKPhysicsBody!
     private var p2: SKPhysicsBody!
@@ -72,7 +72,7 @@ class Triangle: Draggable, DraggableProtocol{
         
         insertPointColider(sprite: firstPoint, parent: node, pw: pw)
         insertPointColider(sprite: secondPoint, parent: node, pw: pw)
-        insertPointColider(sprite: thirdPoint1, parent: node, pw: pw)
+        insertPointColider(sprite: thirdPoint, parent: node, pw: pw)
     }
     
     private func insertPointColider(sprite: SKNode,  parent: SKNode, pw: SKPhysicsWorld) {
@@ -90,14 +90,17 @@ class Triangle: Draggable, DraggableProtocol{
     }
     
     override func correctPointPos(){
-
+        //create points on node
+        firstPoint.position = CGPoint(x: points[0].x, y: points[0].y)
+        secondPoint.position = CGPoint(x: points[1].x, y: points[1].y)
+        thirdPoint.position = CGPoint(x: points[2].x, y: points[2].y)
     }
     
     override func checkInside(back: SKNode, scene: SKNode) -> Bool{
         //convert points of the node to view points 
         p1 = firstPoint.physicsBody
         p2 = secondPoint.physicsBody
-        p3 = thirdPoint1.physicsBody
+        p3 = thirdPoint.physicsBody
         
         if let backbodies = back.physicsBody?.allContactedBodies(){
             if(backbodies.contains(p1) && backbodies.contains(p2) && backbodies.contains(p3)) { //checa primeiro em cima e embaixo

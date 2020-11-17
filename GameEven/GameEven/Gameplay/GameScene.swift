@@ -10,7 +10,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
-    public var level: Int = 1
+    public var level: Int = 4
     
     private var touchedNode: SKSpriteNode?
     private var touchedDrag: Draggable?
@@ -186,9 +186,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                                 }
                             }
                             if let pb = self.touchedNode!.physicsBody{ //change bitmasks to drag without any trouble
-                                pb.categoryBitMask = UInt32(8)
-                                pb.collisionBitMask = UInt32(8)
-                                pb.contactTestBitMask = UInt32(8)
+//                                pb.categoryBitMask = UInt32(8)
+//                                pb.collisionBitMask = UInt32(8)
+//                                pb.contactTestBitMask = UInt32(8)
                             }
                             self.touchPoint = location
                             self.touchDistToCenter = CGPoint(x: (self.touchedNode?.position.x)!-self.touchPoint!.x, y: (self.touchedNode?.position.y)!-self.touchPoint!.y)
