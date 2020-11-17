@@ -11,6 +11,6 @@ struct TrianglePartsReader: Codable {
     let sprite: String
     let size: [Float]
     let pos: [Float]
-    let thirdPoint: [Float]
+    let thirdPoint: Float
     let rotation: Float
 }

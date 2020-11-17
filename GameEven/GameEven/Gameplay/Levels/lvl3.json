@@ -12,28 +12,28 @@
             "sprite": "fase3/part1",
             "size": [300, 150],
             "pos": [-20, -200],
-            "thirdPoint": [150,150],
+            "thirdPoint": 469,
             "rotation": -180
         },
         {
             "sprite": "fase3/part2",
             "size": [300, 150],
             "pos": [-20, -200],
-            "thirdPoint": [150,150],
+            "thirdPoint": 469,
             "rotation": -90
         },
         {
             "sprite": "fase3/part3",
             "size": [300, 150],
             "pos": [-20, -200],
-            "thirdPoint": [150,150],
+            "thirdPoint": 469,
             "rotation": 90
         },
         {
             "sprite": "fase3/part4",
             "size": [300, 150],
             "pos": [-20, -200],
-            "thirdPoint": [150,150],
+            "thirdPoint": 469,
             "rotation": 0
         },
     ],

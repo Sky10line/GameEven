@@ -89,10 +89,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.backImage = back
         back.zPosition = 2
         self.addChild(back)
-        
+
         //create squares
         for square in lvl.squares{
-            let size = CGSize(width: CGFloat(square.size[0]), height: CGFloat(square.size[1]))
+            //let size = CGSize(width: CGFloat(square.size[0]), height: CGFloat(square.size[1]))
             let pos = CGPoint(x: CGFloat(square.pos[0]), y: CGFloat(square.pos[1]))
             let rot = CGFloat(square.rotation)
             let part = Square(image: square.sprite, size: size, pos: pos, rotation: rot)
@@ -105,12 +105,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         //create triangles
         for triangle in lvl.triangles {
-            let size = CGSize(width: CGFloat(triangle.size[0]), height: CGFloat(triangle.size[1]))
+            //let size = CGSize(width: CGFloat(triangle.size[0]), height: CGFloat(triangle.size[1]))
             let pos = CGPoint(x: CGFloat(triangle.pos[0]), y: CGFloat(triangle.pos[1]))
             let rot = CGFloat(triangle.rotation)
             let part = Triangle(image: triangle.sprite, size: size, pos: pos, rotation: rot)
-            part.setThirdPoint(Point: CGPoint(x: CGFloat(triangle.thirdPoint[0]), y: CGFloat(triangle.thirdPoint[1])))
-            
+            part.setThirdPoint(Point: CGFloat(triangle.thirdPoint))
+        
             part.insertCollider()
             part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
@@ -119,7 +119,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         //create circles
         for circle in lvl.circles {
-            let size = CGSize(width: CGFloat(circle.size[0]), height: CGFloat(circle.size[1]))
+            //let size = CGSize(width: CGFloat(circle.size[0]), height: CGFloat(circle.size[1]))
             let pos = CGPoint(x: CGFloat(circle.pos[0]), y: CGFloat(circle.pos[1]))
             let rot = CGFloat(circle.rotation)
             let part = Circle(image: circle.sprite, size: size, pos: pos, rotation: rot)
