@@ -10,11 +10,12 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
-    public var level: Int = 2
+    public var level: Int = 1
     
     private var touchedNode: SKSpriteNode?
+    private var touchedDrag: Draggable?
     private var touchNode: SKNode?
-    private var draggablesList: [DraggableProtocol] = []
+    private var draggablesList: [Draggable] = []
     private var backImage: SKSpriteNode?
     
     private var touch: UITouch?
@@ -67,8 +68,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.touchNode?.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(30)) // create collider to this node
         
         if let pb = touchNode?.physicsBody {
-            pb.categoryBitMask = UInt32(6)
-            pb.collisionBitMask = UInt32(6)
+            pb.categoryBitMask = UInt32(4)
+            pb.collisionBitMask = UInt32(4)
             pb.contactTestBitMask = 1
             pb.affectedByGravity = false
             pb.isDynamic = true
@@ -88,6 +89,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         back.position = CGPoint(x: CGFloat(silhouette.pos[0]), y: CGFloat(silhouette.pos[1]))
         back.zRotation = CGFloat(silhouette.rotation)
         self.backImage = back
+        back.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: silhouette.sprite), size: back.size)
+        
+        if let pb = back.physicsBody{
+            pb.categoryBitMask = UInt32(2)
+            pb.collisionBitMask = UInt32(2)
+            pb.contactTestBitMask = UInt32(16)
+            pb.affectedByGravity = false
+            pb.isDynamic = true
+            pb.allowsRotation = false
+            pb.usesPreciseCollisionDetection = true
+        }
         back.zPosition = 2
         self.addChild(back)
 
@@ -98,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let rot = CGFloat(square.rotation)
             let part = Square(image: square.sprite, size: size, pos: pos, rotation: rot)
             
-            part.insertCollider()
+            part.insertCollider(pw: self.physicsWorld)
             part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
@@ -111,21 +123,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let rot = CGFloat(triangle.rotation)
             let part = Triangle(image: triangle.sprite, size: size, pos: pos, rotation: rot)
             part.setThirdPoint(Point: CGFloat((triangle.thirdPoint)))
-        
-            part.insertCollider()
+            
+            part.insertCollider(pw: self.physicsWorld)
             part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
         }
         
-        //create circles
+//        create circles
         for circle in lvl.circles {
             //let size = CGSize(width: CGFloat(circle.size[0]), height: CGFloat(circle.size[1]))
             let pos = CGPoint(x: CGFloat(circle.pos[0]), y: CGFloat(circle.pos[1]))
             let rot = CGFloat(circle.rotation)
             let part = Circle(image: circle.sprite, size: size, pos: pos, rotation: rot)
-            
-            part.insertCollider()
+
+            part.insertCollider(pw: self.physicsWorld)
             part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
@@ -167,10 +179,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                     if node.physicsBody != nil {
                         if contacteds!.contains(node.physicsBody!) {
                             self.touchedNode = node as? SKSpriteNode
+                            for drag in draggablesList{
+                                if(drag.spriteNode == self.touchedNode){
+                                    touchedDrag = drag
+                                    break
+                                }
+                            }
                             if let pb = self.touchedNode!.physicsBody{ //change bitmasks to drag without any trouble
                                 pb.categoryBitMask = UInt32(8)
                                 pb.collisionBitMask = UInt32(8)
-                                pb.contactTestBitMask = 1
+                                pb.contactTestBitMask = UInt32(8)
                             }
                             self.touchPoint = location
                             self.touchDistToCenter = CGPoint(x: (self.touchedNode?.position.x)!-self.touchPoint!.x, y: (self.touchedNode?.position.y)!-self.touchPoint!.y)
@@ -183,7 +201,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }
         }
         
-        guard let node = touchedNode else {
+        guard touchedNode != nil else {
             return
         }
         if self.touchedNode != nil { //check if touchedNode is not nil
@@ -192,16 +210,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchedNode?.physicsBody?.collisionBitMask = 1
-        touchedNode?.physicsBody?.categoryBitMask = 1
+        touchedNode?.physicsBody?.collisionBitMask = UInt32(1)
+        touchedNode?.physicsBody?.categoryBitMask = UInt32(1)
+        touchedNode?.physicsBody?.contactTestBitMask = UInt32(1)
         touching = false
         
         i = 0
         for part in draggablesList { // check how many parts is in the silhouette
-            print("peca")
             if part.checkInside(back: backImage!, scene: scene! as SKNode) {
                 i += 1
-                print(i)
             }
         }
         if i == draggablesList.count { // check if all the parts is inside
@@ -211,8 +228,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         touching = false
-        touchedNode?.physicsBody?.collisionBitMask = 1
-        touchedNode?.physicsBody?.categoryBitMask = 1
+        touchedNode?.physicsBody?.collisionBitMask = UInt32(1)
+        touchedNode?.physicsBody?.categoryBitMask = UInt32(1)
+        touchedNode?.physicsBody?.contactTestBitMask = UInt32(1)
     }
     
     override func update(_ currentTime: CFTimeInterval) {
@@ -222,10 +240,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             
             vel = CGVector(dx: (distance?.dx ?? 0)/dt, dy: (distance?.dy ?? 0)/dt) //create a velocity to move part to touch location
             self.touchedNode!.physicsBody!.velocity = vel ?? CGVector(dx: 0, dy: 0) //move part with velocity
+            
+            for child in self.touchedNode!.children{
+                distance = CGVector(dx: (touchPoint!.x+touchDistToCenter!.x)-(child.position.x), dy: (touchPoint!.y+touchDistToCenter!.y)-(child.position.y))
+                
+                child.physicsBody?.velocity = vel ?? CGVector(dx: 0, dy: 0)
+            }
         }
         else { //stop movement when user is not touching anymore
-            self.touchedNode?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            self.touchedNode = nil
+            self.touchedDrag?.correctPointPos()
+            if(touchedNode != nil){
+                self.touchedNode?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                for child in self.touchedNode!.children{
+                    child.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                }
+                self.touchedNode = nil
+                self.touchedDrag = nil
+            }
         }
     }
     private func euclideanDist(distance a: CGPoint, distance b: CGPoint) -> CGFloat { //func to calculate euclidean distance of two points
@@ -265,9 +296,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         edge.position = CGPoint(x: posX, y: posY)
         
         if let pb = edge.physicsBody{
-            pb.categoryBitMask = 1
-            pb.collisionBitMask = 1
-            pb.contactTestBitMask = 1
             pb.affectedByGravity = false
             pb.isDynamic = false
             pb.allowsRotation = false
