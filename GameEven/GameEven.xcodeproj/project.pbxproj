@@ -12,6 +12,7 @@
 		165E1A122555C2F600BA72CA /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165E1A112555C2F600BA72CA /* Map.storyboard */; };
 		168AE0282559C1840089CBBC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AE0272559C1840089CBBC /* Launch Screen.storyboard */; };
 		168AE0382559C39A0089CBBC /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 168AE0372559C39A0089CBBC /* launch.png */; };
+		169B3413256488B2009568E7 /* lvl5.json in Resources */ = {isa = PBXBuildFile; fileRef = 169B3412256488B2009568E7 /* lvl5.json */; };
 		16A747D7254B2F8500D59C71 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A747D6254B2F8500D59C71 /* Instruction.storyboard */; };
 		16A747DC254B2F9100D59C71 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A747DB254B2F9100D59C71 /* Instruction.swift */; };
 		16CA95D22549EAF8003038C9 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA95D12549EAF8003038C9 /* Map.swift */; };
@@ -130,6 +131,7 @@
 		165E1A112555C2F600BA72CA /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		168AE0272559C1840089CBBC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "GameEven/Source Code/Launch Screen.storyboard"; sourceTree = SOURCE_ROOT; };
 		168AE0372559C39A0089CBBC /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
+		169B3412256488B2009568E7 /* lvl5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lvl5.json; sourceTree = "<group>"; };
 		16A747D6254B2F8500D59C71 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
 		16A747DB254B2F9100D59C71 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
 		16CA95D12549EAF8003038C9 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 				BDE1E34425533E84001566AD /* lvl2.json */,
 				BDD18D5C255B36E0002EA912 /* lvl3.json */,
 				1636F2092564630A00AB4D3F /* lvl4.json */,
+				169B3412256488B2009568E7 /* lvl5.json */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				16EA97872555F12C00DFFC5F /* BloggerSans-Bold.woff in Resources */,
 				16EA979A2555F12C00DFFC5F /* BloggerSans-LightItalic.woff in Resources */,
 				16EA97802555F12C00DFFC5F /* Blogger Sans-Medium.ttf in Resources */,
+				169B3413256488B2009568E7 /* lvl5.json in Resources */,
 				16EA977A2555F12C00DFFC5F /* Blogger Sans-Bold.ttf in Resources */,
 				16EA978E2555F12C00DFFC5F /* BloggerSans-BoldItalic.svg in Resources */,
 				16EA977B2555F12C00DFFC5F /* Blogger Sans.ttf in Resources */,

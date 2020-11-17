@@ -110,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let pos = CGPoint(x: CGFloat(triangle.pos[0]), y: CGFloat(triangle.pos[1]))
             let rot = CGFloat(triangle.rotation)
             let part = Triangle(image: triangle.sprite, size: size, pos: pos, rotation: rot)
-            part.setThirdPoint(Point: CGFloat((triangle.thirdPoint)))
+            part.setThirdPoint(Point: CGFloat(triangle.thirdPoint))
         
             part.insertCollider()
             part.spriteNode!.zPosition = 3
@@ -201,7 +201,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             print("peca")
             if part.checkInside(back: backImage!, scene: scene! as SKNode) {
                 i += 1
-                print(i)
+                print(i ?? "")
             }
         }
         if i == draggablesList.count { // check if all the parts is inside
