@@ -43,16 +43,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         self.physicsWorld.contactDelegate = self
         
+        //Background
+        let bg = SKSpriteNode()
+        bg.texture = SKTexture(imageNamed: "Background-Fases")
+        bg.size = size
+        bg.position = self.position
+        bg.zPosition = 0
+        addChild(bg)
+        
         //Pause Btn
         pause = SKSpriteNode(
             color: .red,
             size: CGSize(width: 46, height: 46)
         )
-        
         pause.name = "pause"
         pause.texture = SKTexture(imageNamed: "Button-Pause")
         pause.position.x = UIScreen.main.bounds.maxX / 2 - pause.size.width / 2 - 32
         pause.position.y = UIScreen.main.bounds.maxY / 2 - pause.size.height / 2 - ( safeAreaInsets().top == .zero ? 32 : safeAreaInsets().top)
+        pause.zPosition = 4
         self.addChild(pause)
         
         self.insertEdgeColliders() // create edge colliders to parts don't leave the screen
@@ -73,16 +81,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         //Create level
         let lvl: lvlReader = load("lvl\(level).json")
         
-        let intruction = NSLocalizedString(lvl.instruction, comment: "intruction text")
-        
-        let i = InstructionPopUpView(size: size, intruction)
-            i.zPosition = 1
-        addChild(i)
-        
         //create the silhouette
         let silhouette = lvl.silhouette
         let back = SKSpriteNode(imageNamed: silhouette.sprite)
-        back.size = CGSize(width: CGFloat(silhouette.size[0]), height: CGFloat(silhouette.size[1]))
+        back.size = CGSize(width: back.size.width * 0.35 , height: back.size.height * 0.35)
+        //back.size = CGSize(width: CGFloat(silhouette.size[0]), height: CGFloat(silhouette.size[1]))
         back.position = CGPoint(x: CGFloat(silhouette.pos[0]), y: CGFloat(silhouette.pos[1]))
         back.zRotation = CGFloat(silhouette.rotation)
         self.backImage = back
@@ -97,46 +100,56 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             pb.allowsRotation = false
             pb.usesPreciseCollisionDetection = true
         }
+        back.zPosition = 2
         self.addChild(back)
-        
+
         //create squares
         for square in lvl.squares{
-            let size = CGSize(width: CGFloat(square.size[0]), height: CGFloat(square.size[1]))
+            //let size = CGSize(width: CGFloat(square.size[0]), height: CGFloat(square.size[1]))
             let pos = CGPoint(x: CGFloat(square.pos[0]), y: CGFloat(square.pos[1]))
             let rot = CGFloat(square.rotation)
             let part = Square(image: square.sprite, size: size, pos: pos, rotation: rot)
             
             part.insertCollider(pw: self.physicsWorld)
+            part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
         }
         
         //create triangles
         for triangle in lvl.triangles {
-            let size = CGSize(width: CGFloat(triangle.size[0]), height: CGFloat(triangle.size[1]))
+            //let size = CGSize(width: CGFloat(triangle.size[0]), height: CGFloat(triangle.size[1]))
             let pos = CGPoint(x: CGFloat(triangle.pos[0]), y: CGFloat(triangle.pos[1]))
             let rot = CGFloat(triangle.rotation)
             let part = Triangle(image: triangle.sprite, size: size, pos: pos, rotation: rot)
-            part.setThirdPoint(Point: CGPoint(x: CGFloat(triangle.thirdPoint[0]), y: CGFloat(triangle.thirdPoint[1])))
-
+            part.setThirdPoint(Point: CGFloat((triangle.thirdPoint)))
+            
             part.insertCollider(pw: self.physicsWorld)
+            part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
         }
         
 //        create circles
         for circle in lvl.circles {
-            let size = CGSize(width: CGFloat(circle.size[0]), height: CGFloat(circle.size[1]))
+            //let size = CGSize(width: CGFloat(circle.size[0]), height: CGFloat(circle.size[1]))
             let pos = CGPoint(x: CGFloat(circle.pos[0]), y: CGFloat(circle.pos[1]))
             let rot = CGFloat(circle.rotation)
             let part = Circle(image: circle.sprite, size: size, pos: pos, rotation: rot)
 
             part.insertCollider(pw: self.physicsWorld)
+            part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
         }
         
         print(draggablesList.count)
+        
+        // Show Instructions
+        let mensage: String = "Teste"
+        let i = InstructionPopUpView(size: size, mensage)
+            i.zPosition = 4
+        addChild(i)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -322,9 +335,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func pauseGame(){
-        let pauseMenu = PausePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.75))
+        let pauseMenu = PausePopUpView(size: CGSize(width: size.width, height: size.height))
         pauseMenu.pauseDelegate = self
-        pauseMenu.zPosition = 1
+        pauseMenu.zPosition = 4
         pauseMenu.alpha = 0
         addChild(pauseMenu)
         
@@ -338,9 +351,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func endGame() {
-        let endGame = LevelCompletePopUpView(size: CGSize(width: size.width - 64, height: size.height * 0.8), level: level)
+        let endGame = LevelCompletePopUpView(size: CGSize(width: size.width, height: size.height), level: level)
         endGame.levelCompleteDelegate = self
-        endGame.zPosition = 1
+        endGame.zPosition = 4
         endGame.alpha = 0
         addChild(endGame)
         
@@ -352,8 +365,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         let maxLvl = UserDefaults.standard.loadPlayerLevel()
         
-        if maxLvl < level {
-            UserDefaults.standard.savePlayerLevel(playerLevel: level)
+        if maxLvl < level + 1 {
+            UserDefaults.standard.savePlayerLevel(playerLevel: level + 1)
         }
     }
 }

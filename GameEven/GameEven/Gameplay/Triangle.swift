@@ -11,44 +11,43 @@ import GameplayKit
 class Triangle: Draggable, DraggableProtocol{
     private var path: CGPath?
     private var points: [CGPoint] = []
-    private var thirdPoint: CGPoint = CGPoint(x: 0, y: 0)
+    private var thirdTrianglePoint: CGFloat = 0
     
     private let firstPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
     private let secondPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
-    private let thirdPoint1 = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
+    private let thirdPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
     
     private var p1: SKPhysicsBody!
     private var p2: SKPhysicsBody!
     private var p3: SKPhysicsBody!
     
-    func setThirdPoint(Point: CGPoint){
-        self.thirdPoint = Point
+    func setThirdPoint(Point: CGFloat){
+        self.thirdTrianglePoint = Point
     }
     
     override func insertCollider(pw: SKPhysicsWorld){
         let width = self.spriteNode!.size.width
         let height = self.spriteNode!.size.height
         
-        //        self.override spriteNode?.anchorPoint = CGPoint(x: width/1000, y:height/1000)
-        
+        let scale = Float(self.spriteNode!.size.height) / Float(self.spriteNode!.texture!.cgImage().height)
+
         let offsetX = -width/2;
         let offsetY = -height/2;
         
         points.insert(CGPoint(x: offsetX, y: offsetY), at: 0)
-        points.insert(CGPoint(x: thirdPoint.x + offsetX, y: thirdPoint.y + offsetY), at: 1)
-//        CGPoint(x: width/2 + offsetX, y: height + offsetY)
-        points.insert(CGPoint(x: width + offsetX, y: offsetY), at: 2)
-        
+        points.insert(CGPoint(x: offsetX * (-1), y: offsetY), at: 1)
+        points.insert(CGPoint(x: CGFloat(Float(thirdTrianglePoint) * scale) + offsetX, y: offsetY * (-1)), at: 2)
+
         let node = self.spriteNode!
         
         node.addChild(firstPoint)
         node.addChild(secondPoint)
-        node.addChild(thirdPoint1)
+        node.addChild(thirdPoint)
         
         //create points on node
         firstPoint.position = CGPoint(x: points[0].x, y: points[0].y)
         secondPoint.position = CGPoint(x: points[1].x, y: points[1].y)
-        thirdPoint1.position = CGPoint(x: points[2].x, y: points[2].y)
+        thirdPoint.position = CGPoint(x: points[2].x, y: points[2].y)
         
         let path = CGMutablePath();
 

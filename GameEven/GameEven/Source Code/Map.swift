@@ -38,7 +38,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        UserDefaults.standard.resetPlayerLevel()
+        //UserDefaults.standard.resetPlayerLevel()
         
         repeatingBackground()
         

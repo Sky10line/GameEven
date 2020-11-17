@@ -12,14 +12,14 @@
             "sprite": "fase2/part1",
             "size": [300, 300],
             "pos": [-100, -150],
-            "thirdPoint": [0,300],
+            "thirdPoint": 0,
             "rotation": -90
         },
         {
             "sprite": "fase2/part2",
             "size": [300, 300],
             "pos": [100, -300],
-            "thirdPoint": [0,300],
+            "thirdPoint": 0,
             "rotation": 90
         }
     ],
