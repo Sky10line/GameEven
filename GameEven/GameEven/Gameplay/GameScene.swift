@@ -83,7 +83,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         //create the silhouette
         let silhouette = lvl.silhouette
         let back = SKSpriteNode(imageNamed: silhouette.sprite)
-        back.size = CGSize(width: CGFloat(silhouette.size[0]), height: CGFloat(silhouette.size[1]))
+        back.size = CGSize(width: back.size.width * 0.35 , height: back.size.height * 0.35)
+        //back.size = CGSize(width: CGFloat(silhouette.size[0]), height: CGFloat(silhouette.size[1]))
         back.position = CGPoint(x: CGFloat(silhouette.pos[0]), y: CGFloat(silhouette.pos[1]))
         back.zRotation = CGFloat(silhouette.rotation)
         self.backImage = back
@@ -109,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let pos = CGPoint(x: CGFloat(triangle.pos[0]), y: CGFloat(triangle.pos[1]))
             let rot = CGFloat(triangle.rotation)
             let part = Triangle(image: triangle.sprite, size: size, pos: pos, rotation: rot)
-            part.setThirdPoint(Point: CGFloat(triangle.thirdPoint))
+            part.setThirdPoint(Point: CGFloat((triangle.thirdPoint)))
         
             part.insertCollider()
             part.spriteNode!.zPosition = 3
