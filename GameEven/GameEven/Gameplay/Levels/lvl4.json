@@ -13,7 +13,7 @@
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": [0,150],
-            "rotation": 0
+            "rotation": 90
         },
         {
             "sprite": "fase4/part2",
@@ -27,7 +27,7 @@
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": [150,150],
-            "rotation": 0
+            "rotation": -90
         },
         {
             "sprite": "fase4/part4",

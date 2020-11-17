@@ -62,15 +62,11 @@ class Triangle: Draggable, DraggableProtocol{
         
         var thirdTrianglePoint = 0
 
-        var i = 0
-            
         // Testa de forma bruta toda a sequência de pixels.
             for x in 0..<Int((self.spriteNode?.texture?.cgImage().width)!) {
                 let pixelIndex = (((Int((self.spriteNode?.texture?.cgImage().width)!) * 1) + x) * 4)
 
-                i+=1
-                print(i)
-                
+        
                 // Se o valor em pixelIndex+3 (posição em que fica o Alpha do pixel) for diferente de 0.
                 if dataOfLine![pixelIndex+3] != 0 {
                     

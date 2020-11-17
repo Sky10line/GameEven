@@ -21,8 +21,8 @@ class Draggable{
             
             print(self.spriteNode!.size.height)
             
-            node.size.height = self.spriteNode!.size.height * 0.319
-            node.size.width = self.spriteNode!.size.width * 0.319
+            node.size.height = self.spriteNode!.size.height * 0.32
+            node.size.width = self.spriteNode!.size.width * 0.32
             
             node.position = pos
             node.name = "draggable"
