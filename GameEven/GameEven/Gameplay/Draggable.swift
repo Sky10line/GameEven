@@ -30,7 +30,7 @@ class Draggable{
     func correctPointPos(){
     }
     
-    func insertCollider(pw: SKPhysicsWorld){
+    func insertCollider(){
         
     }
     func checkInside(back: SKNode, scene: SKNode) -> Bool{

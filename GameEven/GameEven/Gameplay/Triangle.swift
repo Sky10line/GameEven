@@ -25,7 +25,7 @@ class Triangle: Draggable, DraggableProtocol{
         self.thirdTrianglePoint = Point
     }
     
-    override func insertCollider(pw: SKPhysicsWorld){
+    override func insertCollider(){
         let width = self.spriteNode!.size.width
         let height = self.spriteNode!.size.height
         
@@ -45,9 +45,7 @@ class Triangle: Draggable, DraggableProtocol{
         node.addChild(thirdPoint)
         
         //create points on node
-        firstPoint.position = CGPoint(x: points[0].x, y: points[0].y)
-        secondPoint.position = CGPoint(x: points[1].x, y: points[1].y)
-        thirdPoint.position = CGPoint(x: points[2].x, y: points[2].y)
+        self.correctPointPos()
         
         let path = CGMutablePath();
 
@@ -62,26 +60,26 @@ class Triangle: Draggable, DraggableProtocol{
         
         if let pb = self.spriteNode?.physicsBody {
             pb.categoryBitMask = 1
-            pb.collisionBitMask = 1
-            pb.contactTestBitMask = 1
+            pb.collisionBitMask = 9
+            pb.contactTestBitMask = 9
             pb.affectedByGravity = false
             pb.isDynamic = true
             pb.allowsRotation = false
             pb.usesPreciseCollisionDetection = true
         }
         
-        insertPointColider(sprite: firstPoint, parent: node, pw: pw)
-        insertPointColider(sprite: secondPoint, parent: node, pw: pw)
-        insertPointColider(sprite: thirdPoint1, parent: node, pw: pw)
+        insertPointColider(sprite: firstPoint, parent: node)
+        insertPointColider(sprite: secondPoint, parent: node)
+        insertPointColider(sprite: thirdPoint, parent: node)
     }
     
-    private func insertPointColider(sprite: SKNode,  parent: SKNode, pw: SKPhysicsWorld) {
+    private func insertPointColider(sprite: SKNode,  parent: SKNode) {
         sprite.physicsBody = SKPhysicsBody(circleOfRadius: 2)
         
         if let pb = sprite.physicsBody{
-            pb.categoryBitMask = UInt32(16)
-            pb.collisionBitMask = UInt32(16)
-            pb.contactTestBitMask = UInt32(16)
+            pb.categoryBitMask = 2
+            pb.collisionBitMask = 0
+            pb.contactTestBitMask = 16
             pb.affectedByGravity = false
             pb.isDynamic = true
             pb.allowsRotation = false
@@ -90,14 +88,16 @@ class Triangle: Draggable, DraggableProtocol{
     }
     
     override func correctPointPos(){
-
+        firstPoint.position = CGPoint(x: points[0].x, y: points[0].y)
+        secondPoint.position = CGPoint(x: points[1].x, y: points[1].y)
+        thirdPoint.position = CGPoint(x: points[2].x, y: points[2].y)
     }
     
     override func checkInside(back: SKNode, scene: SKNode) -> Bool{
         //convert points of the node to view points 
         p1 = firstPoint.physicsBody
         p2 = secondPoint.physicsBody
-        p3 = thirdPoint1.physicsBody
+        p3 = thirdPoint.physicsBody
         
         if let backbodies = back.physicsBody?.allContactedBodies(){
             if(backbodies.contains(p1) && backbodies.contains(p2) && backbodies.contains(p3)) { //checa primeiro em cima e embaixo

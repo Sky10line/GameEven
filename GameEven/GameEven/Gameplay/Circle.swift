@@ -19,7 +19,7 @@ class Circle: Draggable, DraggableProtocol {
     private var pL: SKPhysicsBody!
     private var pR: SKPhysicsBody!
     
-    override func insertCollider(pw: SKPhysicsWorld){
+    override func insertCollider(){
         let node = self.spriteNode!
         
         node.addChild(bBPointUp)
@@ -28,36 +28,33 @@ class Circle: Draggable, DraggableProtocol {
         node.addChild(bBPointRight)
         
         //create points on node
-        bBPointUp.position = CGPoint(x:0, y: node.size.height/2)
-        bBPointDown.position = CGPoint(x: 0, y:-node.size.height/2)
-        bBPointLeft.position = CGPoint(x: -node.size.width/2, y:0)
-        bBPointRight.position = CGPoint(x: node.size.width/2, y:0)
+        self.correctPointPos()
         
         self.spriteNode?.physicsBody = SKPhysicsBody(circleOfRadius: self.spriteNode!.size.width/2)
         
         if let pb = self.spriteNode!.physicsBody{
             pb.categoryBitMask = 1
-            pb.collisionBitMask = 1
-            pb.contactTestBitMask = 1
+            pb.collisionBitMask = 9
+            pb.contactTestBitMask = 9
             pb.affectedByGravity = false
             pb.isDynamic = true
             pb.allowsRotation = false
             pb.usesPreciseCollisionDetection = true
         }
         
-        insertPointColider(sprite: bBPointUp, parent: node, pw: pw)
-        insertPointColider(sprite: bBPointDown, parent: node, pw: pw)
-        insertPointColider(sprite: bBPointLeft, parent: node, pw: pw)
-        insertPointColider(sprite: bBPointRight, parent: node, pw: pw)
+        insertPointColider(sprite: bBPointUp, parent: node)
+        insertPointColider(sprite: bBPointDown, parent: node)
+        insertPointColider(sprite: bBPointLeft, parent: node)
+        insertPointColider(sprite: bBPointRight, parent: node)
     }
     
-    private func insertPointColider(sprite: SKNode,  parent: SKNode, pw: SKPhysicsWorld) {
+    private func insertPointColider(sprite: SKNode,  parent: SKNode) {
         sprite.physicsBody = SKPhysicsBody(circleOfRadius: 2)
         
         if let pb = sprite.physicsBody{
-            pb.categoryBitMask = UInt32(16)
-            pb.collisionBitMask = UInt32(16)
-            pb.contactTestBitMask = UInt32(16)
+            pb.categoryBitMask = 2
+            pb.collisionBitMask = 0
+            pb.contactTestBitMask = 16
             pb.affectedByGravity = false
             pb.isDynamic = true
             pb.allowsRotation = false
