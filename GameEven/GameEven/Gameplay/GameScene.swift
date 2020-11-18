@@ -122,8 +122,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let pos = CGPoint(x: CGFloat(triangle.pos[0]), y: CGFloat(triangle.pos[1]))
             let rot = CGFloat(triangle.rotation)
             let part = Triangle(image: triangle.sprite, size: size, pos: pos, rotation: rot)
-            part.setThirdPoint(Point: CGFloat((triangle.thirdPoint)))
-            
+
+            part.setThirdPoint(Point: CGFloat(triangle.thirdPoint))
+
             part.insertCollider()
             part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
