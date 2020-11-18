@@ -35,6 +35,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>
+	<string>Onboarding</string>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
