@@ -21,7 +21,7 @@ class LevelCompletePopUpView: SKSpriteNode {
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
     private var level: Int!
-    private var maxLvl = 2
+    private var maxLvl = 7
     init(size: CGSize, level: Int){
         self.level = level
         

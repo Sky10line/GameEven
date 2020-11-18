@@ -14,7 +14,7 @@ class Draggable{
     init(image: String, size: CGSize, pos: CGPoint, rotation: CGFloat){
         self.spriteNode = SKSpriteNode(imageNamed: image)
         
-        let scale = 0.319
+        let scale = 0.32
         
         if let node = self.spriteNode{
             node.zRotation = CGFloat(GLKMathDegreesToRadians(Float(rotation)))
@@ -25,5 +25,22 @@ class Draggable{
             node.position = pos
             node.name = "draggable"
         }
+    }
+    
+    func correctPointPos(){
+    }
+    
+    func insertCollider(){
+        
+    }
+    func checkInside(back: SKNode, scene: SKNode) -> Bool{
+        return false
+    }
+    func getName() -> String{
+        return (self.spriteNode?.name)!
+    }
+    func getPos() -> CGPoint
+    {
+        return self.spriteNode!.position
     }
 }
