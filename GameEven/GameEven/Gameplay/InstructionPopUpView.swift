@@ -14,6 +14,7 @@ class InstructionPopUpView: SKSpriteNode {
     private var fontSize: CGFloat!
     
     var menssage: String
+    var delegate: PauseMenuDelegate?
     
     init(size: CGSize, _ menssage: String){
         self.menssage = menssage
@@ -134,7 +135,7 @@ class InstructionPopUpView: SKSpriteNode {
             let touchedNodes = self.nodes(at: location)
             for node in touchedNodes.reversed() {
                 switch node.name {
-                case "exit":
+                case "back":
                     exit()
                 case "ok":
                     resume()
@@ -146,7 +147,7 @@ class InstructionPopUpView: SKSpriteNode {
     }
     
     private func exit(){
-        
+        delegate?.exitLevel()
         print("Pause Exit func")
     }
     
