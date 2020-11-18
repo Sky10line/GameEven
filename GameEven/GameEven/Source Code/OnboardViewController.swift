@@ -24,6 +24,7 @@ class OnboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         label.sizeToFit()
         label.font = UIFont(name: "Even", size: fontSize)
         label.textColor = .black
@@ -34,8 +35,12 @@ class OnboardViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        typeWriter()
         
+        let save = UserDefaults.standard.loadPlayerLevel()
+        if save > 0 {
+            performSegue(withIdentifier: "Map", sender: self)
+        }
+        typeWriter()
     }
     
     @objc func typeWriter(){
@@ -65,14 +70,11 @@ class OnboardViewController: UIViewController {
                 auxText = ""
                 typeWriter()
             } else {
-                //muda tela
-                print("Acabou o texto")
+                performSegue(withIdentifier: "Map", sender: self)
             }
             
         } else {
             counter = str[index].count
         }
-       
     }
-    
 }
