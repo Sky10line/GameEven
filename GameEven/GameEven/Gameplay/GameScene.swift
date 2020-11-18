@@ -134,7 +134,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         print(draggablesList.count)
         
         // Show Instructions
-        let mensage: String = "Teste"
+        let mensage: String = lvl.instruction
         let i = InstructionPopUpView(size: size, mensage)
             i.zPosition = 4
         addChild(i)
