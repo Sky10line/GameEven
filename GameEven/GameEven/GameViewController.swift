@@ -22,11 +22,11 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            guard let lvl = level else {
-                fatalError("Level nao definido")
-            }
+//            guard let lvl = level else {
+//                fatalError("Level nao definido")
+//            }
             
-            changeLevel(changeTo: lvl)
+            changeLevel(changeTo: 1)
             
             view.ignoresSiblingOrder = true
             view.showsPhysics = true
