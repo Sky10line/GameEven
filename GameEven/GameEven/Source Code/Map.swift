@@ -46,8 +46,8 @@ class MapViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(autoScrollToLevel), userInfo: nil, repeats: false)
         
-        autoScrollToLevel()
         
     }
 
@@ -56,7 +56,7 @@ class MapViewController: UIViewController {
     // Método que carrega em que nível está o jogador baseado no userDefault, define como 1 caso não encontre nada.
     func loadingPlayerLevel() {
         
-        currentPlayerLevel = 9//UserDefaults.standard.loadPlayerLevel()
+        currentPlayerLevel = UserDefaults.standard.loadPlayerLevel()
         currentPlayerLevel == 0 ? currentPlayerLevel = 1 : ()
     }
     
@@ -96,7 +96,7 @@ class MapViewController: UIViewController {
     }
     
     // Método que faz a rolagem automática do scroll até centralizar no botão da nível atual, respeitando os limites do scrollView.
-    func autoScrollToLevel() {
+    @objc func autoScrollToLevel() {
         
         let screenSize = backgroundScrollView.frame.midY
         let scrollSize = backgroundScrollView.contentSize.height - (screenSize * 2)

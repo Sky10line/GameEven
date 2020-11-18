@@ -72,11 +72,22 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="dYK-QE-wqB" id="HiL-tW-i1x"/>
+                        <segue destination="xHn-IW-Xbw" kind="presentation" identifier="Map" modalPresentationStyle="fullScreen" id="OPM-Y2-fTK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgX-G7-LX4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-208.69565217391306" y="256.47321428571428"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="OIi-Cu-Q0w">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="xHn-IW-Xbw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="T0w-AZ-zgK"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HIg-uy-c3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="500" y="256"/>
         </scene>
     </scenes>
     <resources>
