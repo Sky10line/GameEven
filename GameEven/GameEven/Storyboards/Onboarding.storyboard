@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZuW-GH-yRk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uB6-Aw-REG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -8,6 +8,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Redirect View Controller-->
+        <scene sceneID="bco-t1-YMN">
+            <objects>
+                <viewController id="uB6-Aw-REG" customClass="RedirectViewController" customModule="GameEven" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r8h-pX-TcL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="pdq-SS-KE7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3wF-AW-egK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pdq-SS-KE7" firstAttribute="top" secondItem="r8h-pX-TcL" secondAttribute="top" id="MVj-2N-WcU"/>
+                            <constraint firstAttribute="trailing" secondItem="pdq-SS-KE7" secondAttribute="trailing" id="gIa-5e-9gk"/>
+                            <constraint firstAttribute="bottom" secondItem="pdq-SS-KE7" secondAttribute="bottom" id="jZ5-g8-D9W"/>
+                            <constraint firstItem="pdq-SS-KE7" firstAttribute="leading" secondItem="r8h-pX-TcL" secondAttribute="leading" id="lUg-YN-4m9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="xHn-IW-Xbw" kind="presentation" identifier="Map" modalPresentationStyle="fullScreen" id="Qn7-3u-bQN"/>
+                        <segue destination="ZuW-GH-yRk" kind="presentation" modalPresentationStyle="fullScreen" id="8vZ-gA-NYa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QvG-8A-Vo8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1110" y="256"/>
+        </scene>
         <!--Onboard View Controller-->
         <scene sceneID="h2A-xR-QbQ">
             <objects>
@@ -87,13 +117,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIg-uy-c3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="500" y="256"/>
+            <point key="canvasLocation" x="-668" y="678"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Qn7-3u-bQN"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Background" width="1916" height="4149"/>
         <image name="Even-Next" width="811" height="1190"/>
         <image name="InstructionBallon" width="1647" height="1930"/>
+        <image name="launch.png" width="509" height="1115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

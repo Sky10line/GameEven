@@ -35,11 +35,6 @@ class OnboardViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        let save = UserDefaults.standard.loadPlayerLevel()
-        if save > 0 {
-            performSegue(withIdentifier: "Map", sender: self)
-        }
         typeWriter()
     }
     
