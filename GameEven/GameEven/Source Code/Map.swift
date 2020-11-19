@@ -27,7 +27,7 @@ class MapViewController: UIViewController {
     // MARK: Ciclo de Vida da View
     
     override func viewWillAppear(_ animated: Bool) {
-        
+ 
         overrideUserInterfaceStyle = .dark
         
         loadingPlayerLevel()
@@ -37,16 +37,22 @@ class MapViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
-//        UserDefaults.standard.resetPlayerLevel()
+
+        UserDefaults.standard.resetPlayerLevel()
         
         repeatingBackground()
         
+        backgroundScrollView.contentOffset.y = 252
+        
         super.viewDidLoad()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(autoScrollToLevel), userInfo: nil, repeats: false)
+        
+        autoScrollToLevel()
+        
+        //Timer.scheduledTimer(timeInterval: 0, target: self, selector: #selector(autoScrollToLevel), userInfo: nil, repeats: false)
         
         
     }
@@ -96,7 +102,7 @@ class MapViewController: UIViewController {
     }
     
     // Método que faz a rolagem automática do scroll até centralizar no botão da nível atual, respeitando os limites do scrollView.
-    @objc func autoScrollToLevel() {
+    func autoScrollToLevel() {
         
         let screenSize = backgroundScrollView.frame.midY
         let scrollSize = backgroundScrollView.contentSize.height - (screenSize * 2)
@@ -105,8 +111,8 @@ class MapViewController: UIViewController {
         
         // Define a posição inicial da scroll para o final da scrollView, ocorre somente uma vez.
         if scrollFirstTime {
-            backgroundScrollView.contentInsetAdjustmentBehavior = .never
-            backgroundScrollView.contentOffset.y = scrollSize
+            //backgroundScrollView.contentInsetAdjustmentBehavior = .never
+            //backgroundScrollView.contentOffset.y = scrollSize
             scrollFirstTime = false
         }
         
@@ -123,10 +129,12 @@ class MapViewController: UIViewController {
     
     // Método que anima a movimentação do scroll até chegar ao nível atual.
     func animateScroll(position: CGFloat) {
-        
-        UIView.animate(withDuration: 1.00, delay: 0.0, animations: {
+        UIView.animate(withDuration: 1.00, delay: 0.10, animations: {
             self.backgroundScrollView.contentOffset.y = position
         })
+        
+        
+        
     }
     
     //MARK: Entrada e Saída da View
