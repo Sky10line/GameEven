@@ -57,6 +57,7 @@ class InstructionPopUpView: SKSpriteNode {
         ballon.addChild(labelText)
         print(labelText.frame)
         
+        //Ajusta para textos maiores
         if labelText.frame.height > 154 {
             let dif = labelText.frame.height - 154
             ballon.size.height = ballon.frame.height + dif
