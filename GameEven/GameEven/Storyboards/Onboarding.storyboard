@@ -31,7 +31,7 @@
                     </view>
                     <connections>
                         <segue destination="xHn-IW-Xbw" kind="presentation" identifier="Map" modalPresentationStyle="fullScreen" id="Qn7-3u-bQN"/>
-                        <segue destination="ZuW-GH-yRk" kind="presentation" modalPresentationStyle="fullScreen" id="8vZ-gA-NYa"/>
+                        <segue destination="ZuW-GH-yRk" kind="presentation" identifier="Onboarding" modalPresentationStyle="fullScreen" id="8vZ-gA-NYa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QvG-8A-Vo8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
