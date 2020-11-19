@@ -2,7 +2,7 @@
     "instruction": "O tempo passou tanto que nem sei para onde nós iríamos",
     "silhouette": {
         "sprite": "fase5/silhouette",
-        "size": [310, 310],
+        "size": [75, 75],
         "pos": [0, 150],
         "rotation": 0
     },

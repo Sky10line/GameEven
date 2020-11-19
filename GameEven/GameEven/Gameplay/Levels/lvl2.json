@@ -2,7 +2,7 @@
     "instruction": "É bom saber que uma caixinha pode ser feita de diferentes maneiras",
     "silhouette": {
         "sprite": "fase2/silhouette",
-        "size": [310, 310],
+        "size": [0, 0],
         "pos": [0, 150],
         "rotation": 0
     },
