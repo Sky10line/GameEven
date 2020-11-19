@@ -214,15 +214,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         touchedNode?.physicsBody?.collisionBitMask = 9
         touching = false
         
-        i = 0
-        for part in draggablesList { // check how many parts is in the silhouette
-            if part.checkInside(back: backImage!, scene: scene! as SKNode) {
-                i += 1
-            }
-        }
-        if i == draggablesList.count { // check if all the parts is inside
-            endGame()
-        }
+        perform(#selector(checkVitory), with: nil, afterDelay: 0.5)
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -259,6 +251,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }
         }
     }
+    
+    @objc func checkVitory(){
+        i = 0
+        for part in draggablesList { // check how many parts is in the silhouette
+            if part.checkInside(back: backImage!, scene: scene! as SKNode) {
+                i += 1
+            }
+        }
+        if i == draggablesList.count { // check if all the parts is inside
+            endGame()
+        }
+    }
+    
     private func euclideanDist(distance a: CGPoint, distance b: CGPoint) -> CGFloat { //func to calculate euclidean distance of two points
         let x = abs(a.x - b.x)
         let y = abs(a.y - b.y)
