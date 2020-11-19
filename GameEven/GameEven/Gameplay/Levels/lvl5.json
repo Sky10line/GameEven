@@ -1,0 +1,44 @@
+{
+    "instruction": "O tempo passou tanto que nem sei para onde nós iríamos",
+    "silhouette": {
+        "sprite": "fase5/silhouette",
+        "size": [75, 75],
+        "pos": [0, 150],
+        "rotation": 0
+    },
+    "squares": [
+        {
+            "sprite": "fase5/part2",
+            "size": [150, 300],
+            "pos": [100, -200],
+            "rotation": 56.13
+        },
+        {
+            "sprite": "fase5/part3",
+            "size": [150, 300],
+            "pos": [-100, -200],
+            "rotation": 56.13
+        },
+        {
+            "sprite": "fase5/part4",
+            "size": [150, 300],
+            "pos": [100, -200],
+            "rotation": 56.13
+        },
+        {
+            "sprite": "fase5/part5",
+            "size": [150, 300],
+            "pos": [100, -200],
+            "rotation": 56.13
+        },
+    ],
+    "triangles": [],
+    "circles": [
+        {
+            "sprite": "fase5/part1",
+            "size": [150, 300],
+            "pos": [100, -200],
+            "rotation": 0
+        },
+    ]
+}

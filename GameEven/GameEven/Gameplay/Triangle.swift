@@ -11,52 +11,43 @@ import GameplayKit
 class Triangle: Draggable, DraggableProtocol{
     private var path: CGPath?
     private var points: [CGPoint] = []
-    private var thirdPoint: CGPoint = CGPoint(x: 0, y: 0)
+    private var thirdTrianglePoint: CGFloat = 0
     
     private let firstPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
     private let secondPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
-    private let thirdPoint1 = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
+    private let thirdPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
     
-    private var p1: CGPoint!
-    private var p2: CGPoint!
-    private var p3: CGPoint!
+    private var p1: SKPhysicsBody!
+    private var p2: SKPhysicsBody!
+    private var p3: SKPhysicsBody!
     
-    func getName() -> String {
-        return self.spriteNode!.name!
+    func setThirdPoint(Point: CGFloat){
+        self.thirdTrianglePoint = Point
     }
     
-    func getPos() -> CGPoint {
-        return self.spriteNode!.position
-    }
-    
-    func setThirdPoint(Point: CGPoint){
-        self.thirdPoint = Point
-    }
-    
-    func insertCollider(){
+    override func insertCollider(){
         let width = self.spriteNode!.size.width
         let height = self.spriteNode!.size.height
         
-//        self.spriteNode?.anchorPoint = CGPoint(x: width/1000, y:height/1000)
-        
+        let scale = Float(self.spriteNode!.size.height) / Float(self.spriteNode!.texture!.cgImage().height)
+
         let offsetX = -width/2;
         let offsetY = -height/2;
         
         points.insert(CGPoint(x: offsetX, y: offsetY), at: 0)
-        points.insert(CGPoint(x: thirdPoint.x + offsetX, y: thirdPoint.y + offsetY), at: 1)
-//        CGPoint(x: width/2 + offsetX, y: height + offsetY)
-        points.insert(CGPoint(x: width + offsetX, y: offsetY), at: 2)
-        
+        points.insert(CGPoint(x: offsetX * (-1), y: offsetY), at: 1)
+        points.insert(CGPoint(x: CGFloat(Float(thirdTrianglePoint) * scale) + offsetX, y: offsetY * (-1)), at: 2)
+
         let node = self.spriteNode!
         
         node.addChild(firstPoint)
         node.addChild(secondPoint)
-        node.addChild(thirdPoint1)
+        node.addChild(thirdPoint)
+        
+        //findThirdPoint()
         
         //create points on node
-        firstPoint.position = CGPoint(x: points[0].x, y: points[0].y)
-        secondPoint.position = CGPoint(x: points[1].x, y: points[1].y)
-        thirdPoint1.position = CGPoint(x: points[2].x, y: points[2].y)
+        self.correctPointPos()
         
         let path = CGMutablePath();
 
@@ -71,8 +62,26 @@ class Triangle: Draggable, DraggableProtocol{
         
         if let pb = self.spriteNode?.physicsBody {
             pb.categoryBitMask = 1
-            pb.collisionBitMask = 1
-            pb.contactTestBitMask = 1
+            pb.collisionBitMask = 9
+            pb.contactTestBitMask = 9
+            pb.affectedByGravity = false
+            pb.isDynamic = true
+            pb.allowsRotation = false
+            pb.usesPreciseCollisionDetection = true
+        }
+        
+        insertPointColider(sprite: firstPoint, parent: node)
+        insertPointColider(sprite: secondPoint, parent: node)
+        insertPointColider(sprite: thirdPoint, parent: node)
+    }
+    
+    private func insertPointColider(sprite: SKNode,  parent: SKNode) {
+        sprite.physicsBody = SKPhysicsBody(circleOfRadius: 2)
+        
+        if let pb = sprite.physicsBody{
+            pb.categoryBitMask = 2
+            pb.collisionBitMask = 0
+            pb.contactTestBitMask = 16
             pb.affectedByGravity = false
             pb.isDynamic = true
             pb.allowsRotation = false
@@ -80,15 +89,56 @@ class Triangle: Draggable, DraggableProtocol{
         }
     }
     
-    func checkInside(back: SKNode, scene: SKNode) -> Bool{
+    override func correctPointPos(){
+        firstPoint.position = CGPoint(x: points[0].x, y: points[0].y)
+        secondPoint.position = CGPoint(x: points[1].x, y: points[1].y)
+        thirdPoint.position = CGPoint(x: points[2].x, y: points[2].y)
+    }
+    
+    override func checkInside(back: SKNode, scene: SKNode) -> Bool{
         //convert points of the node to view points 
-        p1 = scene.convert(firstPoint.position, from: self.spriteNode!)
-        p2 = scene.convert(secondPoint.position, from: self.spriteNode!)
-        p3 = scene.convert(thirdPoint1.position, from: self.spriteNode!)
+        p1 = firstPoint.physicsBody
+        p2 = secondPoint.physicsBody
+        p3 = thirdPoint.physicsBody
         
-        if(back.contains(p1) && back.contains(p2) && back.contains(p3)) { //checa primeiro em cima e embaixo
-                return true
+        if let backbodies = back.physicsBody?.allContactedBodies(){
+            if(backbodies.contains(p1) && backbodies.contains(p2) && backbodies.contains(p3)) { //checa primeiro em cima e embaixo
+                    return true
+            }
         }
         return false
+    }
+    
+    //MARK: Função de definição do terceiro ponto, não usar no programa
+    func findThirdPoint(){
+        //====================
+        
+        // Recorta a primeira linha de pixels do topo da imagem.
+        let topPixelLine = self.spriteNode?.texture?.cgImage().cropping(to: CGRect(x: 0, y: 0, width: (self.spriteNode?.texture?.cgImage().width)!, height: 1))
+
+        // Transforma em data a primeira linha de pixels.
+        let dataOfLine = CFDataGetBytePtr(topPixelLine?.dataProvider?.data)
+        
+        var thirdTrianglePoint = 0
+        
+        var i = 0
+
+        // Testa de forma bruta toda a sequência de pixels.
+            for x in 0..<Int((self.spriteNode?.texture?.cgImage().width)!) {
+                let pixelIndex = (((Int((self.spriteNode?.texture?.cgImage().width)!) * 1) + x) * 4)
+
+                //i+=1
+                //print(i)
+                
+                // Se o valor em pixelIndex+3 (posição em que fica o Alpha do pixel) for diferente de 0.
+                if dataOfLine![pixelIndex+3] != 0 {
+                    
+                    // Então encontrou o X do ponto.
+                    thirdTrianglePoint = x
+
+                    print(" - - - - X do ThirdPoint: \(x) - - - - ")
+                    break
+            }
+        }
     }
 }

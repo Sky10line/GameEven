@@ -1,0 +1,55 @@
+{
+    "instruction": "Ótima ideia, que tal vermos o que o satélite esconde?",
+    "silhouette": {
+        "sprite": "fase6/silhouette",
+        "size": [0, 0],
+        "pos": [0, 150],
+        "rotation": 0
+    },
+    "squares": [],
+    "triangles": [
+        {
+            "sprite": "fase6/part1",
+            "size": [300, 150],
+            "pos": [-20, -200],
+            "thirdPoint": 230,
+            "rotation": -10.16
+        },
+        {
+            "sprite": "fase6/part2",
+            "size": [300, 150],
+            "pos": [-20, -200],
+            "thirdPoint": 500,
+            "rotation": -109.66
+        },
+        {
+            "sprite": "fase6/part3",
+            "size": [300, 150],
+            "pos": [-20, -200],
+            "thirdPoint": 347,
+            "rotation": -139.38
+        },
+        {
+            "sprite": "fase6/part4",
+            "size": [300, 150],
+            "pos": [-20, -200],
+            "thirdPoint": 230,
+            "rotation": -190.01
+        },
+        {
+            "sprite": "fase6/part5",
+            "size": [300, 150],
+            "pos": [-20, -200],
+            "thirdPoint": 498,
+            "rotation": -289.64
+        },
+        {
+            "sprite": "fase6/part6",
+            "size": [300, 150],
+            "pos": [-20, -200],
+            "thirdPoint": 347,
+            "rotation": -319.4
+        },
+    ],
+    "circles": []
+}

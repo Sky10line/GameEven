@@ -27,7 +27,7 @@ class MapViewController: UIViewController {
     // MARK: Ciclo de Vida da View
     
     override func viewWillAppear(_ animated: Bool) {
-        
+ 
         overrideUserInterfaceStyle = .dark
         
         loadingPlayerLevel()
@@ -36,18 +36,29 @@ class MapViewController: UIViewController {
         
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         
+
         UserDefaults.standard.resetPlayerLevel()
         
         repeatingBackground()
         
+        backgroundScrollView.contentOffset.y = 252
+        
         super.viewDidLoad()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
         autoScrollToLevel()
+        
+        //Timer.scheduledTimer(timeInterval: 0, target: self, selector: #selector(autoScrollToLevel), userInfo: nil, repeats: false)
+        
         
     }
 
@@ -56,7 +67,7 @@ class MapViewController: UIViewController {
     // Método que carrega em que nível está o jogador baseado no userDefault, define como 1 caso não encontre nada.
     func loadingPlayerLevel() {
         
-        currentPlayerLevel = UserDefaults.standard.loadPlayerLevel()
+        currentPlayerLevel = 9//UserDefaults.standard.loadPlayerLevel()
         currentPlayerLevel == 0 ? currentPlayerLevel = 1 : ()
     }
     
@@ -105,8 +116,8 @@ class MapViewController: UIViewController {
         
         // Define a posição inicial da scroll para o final da scrollView, ocorre somente uma vez.
         if scrollFirstTime {
-            backgroundScrollView.contentInsetAdjustmentBehavior = .never
-            backgroundScrollView.contentOffset.y = scrollSize
+            //backgroundScrollView.contentInsetAdjustmentBehavior = .never
+            //backgroundScrollView.contentOffset.y = scrollSize
             scrollFirstTime = false
         }
         
@@ -123,10 +134,12 @@ class MapViewController: UIViewController {
     
     // Método que anima a movimentação do scroll até chegar ao nível atual.
     func animateScroll(position: CGFloat) {
-        
-        UIView.animate(withDuration: 1.00, delay: 0.0, animations: {
+        UIView.animate(withDuration: 1.00, delay: 0.10, animations: {
             self.backgroundScrollView.contentOffset.y = position
         })
+        
+        
+        
     }
     
     //MARK: Entrada e Saída da View

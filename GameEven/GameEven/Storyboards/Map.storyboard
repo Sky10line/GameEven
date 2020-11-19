@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YKp-G2-hJf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qMo-12-xPL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +15,7 @@
         <!--Map View Controller-->
         <scene sceneID="dS1-u3-sAn">
             <objects>
-                <viewController storyboardIdentifier="MapView" title="Map View Controller" interfaceStyle="dark" id="wSQ-re-Tlh" customClass="MapViewController" customModule="GameEven" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapView" title="Map View Controller" id="wSQ-re-Tlh" customClass="MapViewController" customModule="GameEven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fZe-Of-GoB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,10 +87,6 @@
                                                 <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="5" backgroundImage="GrayMapButton"/>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="circleSprite" translatesAutoresizingMaskIntoConstraints="NO" id="a7L-qW-sGF">
-                                                <rect key="frame" x="-117" y="974" width="658" height="463"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                            </imageView>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ib-a0-Asj" userLabel="Button_9">
                                                 <rect key="frame" x="72" y="123" width="68" height="91"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -125,8 +121,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Aty-Jk-koF"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="414" height="1100"/>
                     <connections>
                         <outlet property="backgroundScrollView" destination="kR0-Wm-fzj" id="CQw-nf-qWe"/>
@@ -144,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ge8-4Q-Cil" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1281.1594202898552" y="151.33928571428569"/>
+            <point key="canvasLocation" x="2191.304347826087" y="151.33928571428569"/>
         </scene>
         <!--Main-->
         <scene sceneID="k0O-iG-abR">
@@ -154,31 +148,30 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ChP-r0-1Ri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1833" y="-342"/>
+            <point key="canvasLocation" x="2836" y="122"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="GzN-hO-IN9">
+        <scene sceneID="Lyu-ib-jJx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="YKp-G2-hJf" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="qMo-12-xPL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XZh-5Z-BBo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vxu-Wv-uDy">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wSQ-re-Tlh" kind="relationship" relationship="rootViewController" id="dX3-Sx-w2e"/>
+                        <segue destination="wSQ-re-Tlh" kind="relationship" relationship="rootViewController" id="exl-hL-c1Y"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LKh-Ij-KGg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EW4-nb-fh4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="107" y="151"/>
+            <point key="canvasLocation" x="1281.1594202898552" y="151.33928571428569"/>
         </scene>
     </scenes>
     <resources>
         <image name="GrayMapButton" width="378" height="506"/>
         <image name="LinhaMapa" width="1458" height="3409"/>
-        <image name="circleSprite" width="225" height="225"/>
     </resources>
 </document>
