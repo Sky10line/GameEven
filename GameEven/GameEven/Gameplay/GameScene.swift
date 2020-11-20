@@ -301,10 +301,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func insertEdgeColliders(){
-        createEdgeCollider(width: frame.width, height: frame.height, posX: 0, posY: frame.height) //create up limit collider
-        createEdgeCollider(width: frame.width, height: frame.height, posX: 0, posY: -frame.height) //create down limit collider
-        createEdgeCollider(width: frame.width, height: frame.height, posX: -frame.width, posY: 0) //create left limit collider
-        createEdgeCollider(width: frame.width, height: frame.height, posX: frame.width, posY: 0) //create right limite collider
+        createEdgeCollider(width: frame.width*3, height: frame.height, posX: 0, posY: frame.height) //create up limit collider
+        createEdgeCollider(width: frame.width*3, height: frame.height, posX: 0, posY: -frame.height) //create down limit collider
+        createEdgeCollider(width: frame.width, height: frame.height*3, posX: -frame.width, posY: 0) //create left limit collider
+        createEdgeCollider(width: frame.width, height: frame.height*3, posX: frame.width, posY: 0) //create right limite collider
     }
     
     func createEdgeCollider(width: CGFloat, height: CGFloat, posX: CGFloat, posY: CGFloat) { //create all edge colliders
@@ -315,6 +315,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if let pb = edge.physicsBody{
             pb.categoryBitMask = 8
             pb.affectedByGravity = false
+//            pb.pinned = true
             pb.isDynamic = false
             pb.allowsRotation = false
             pb.usesPreciseCollisionDetection = true
