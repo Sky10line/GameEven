@@ -226,15 +226,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         touchedNode?.physicsBody?.collisionBitMask = 9
         touching = false
         
-        i = 0
-        for part in draggablesList { // check how many parts is in the silhouette
-            if part.checkInside(back: backImage!, scene: scene! as SKNode) {
-                i += 1
-            }
-        }
-        if i == draggablesList.count { // check if all the parts is inside
-            endGame()
-        }
+        perform(#selector(checkVitory), with: nil, afterDelay: 0.5)
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -271,6 +263,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }
         }
     }
+    
+    @objc func checkVitory(){
+        i = 0
+        for part in draggablesList { // check how many parts is in the silhouette
+            if part.checkInside(back: backImage!, scene: scene! as SKNode) {
+                i += 1
+            }
+        }
+        if i == draggablesList.count { // check if all the parts is inside
+            endGame()
+        }
+    }
+    
     private func euclideanDist(distance a: CGPoint, distance b: CGPoint) -> CGFloat { //func to calculate euclidean distance of two points
         let x = abs(a.x - b.x)
         let y = abs(a.y - b.y)
@@ -296,10 +301,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func insertEdgeColliders(){
-        createEdgeCollider(width: frame.width, height: frame.height, posX: 0, posY: frame.height) //create up limit collider
-        createEdgeCollider(width: frame.width, height: frame.height, posX: 0, posY: -frame.height) //create down limit collider
-        createEdgeCollider(width: frame.width, height: frame.height, posX: -frame.width, posY: 0) //create left limit collider
-        createEdgeCollider(width: frame.width, height: frame.height, posX: frame.width, posY: 0) //create right limite collider
+        createEdgeCollider(width: frame.width*3, height: frame.height, posX: 0, posY: frame.height) //create up limit collider
+        createEdgeCollider(width: frame.width*3, height: frame.height, posX: 0, posY: -frame.height) //create down limit collider
+        createEdgeCollider(width: frame.width, height: frame.height*3, posX: -frame.width, posY: 0) //create left limit collider
+        createEdgeCollider(width: frame.width, height: frame.height*3, posX: frame.width, posY: 0) //create right limite collider
     }
     
     func createEdgeCollider(width: CGFloat, height: CGFloat, posX: CGFloat, posY: CGFloat) { //create all edge colliders
@@ -310,6 +315,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if let pb = edge.physicsBody{
             pb.categoryBitMask = 8
             pb.affectedByGravity = false
+//            pb.pinned = true
             pb.isDynamic = false
             pb.allowsRotation = false
             pb.usesPreciseCollisionDetection = true
