@@ -73,11 +73,21 @@ extension GameViewController: PopViewControllerDelegate {
         guard let view = self.view as? SKView else {
             fatalError("view nao e uma SKView")
         }
+        guard let oldScene = view.scene as? GameScene else {
+            fatalError("Problema de....")
+        }
+        oldScene.viewControllerDelegate = nil
         
         view.presentScene(s)
     }
     
     func popView() {
+        if let view = self.view as! SKView? {
+            guard let scene = view.scene as? GameScene else {
+                fatalError("Problema de....")
+            }
+            scene.viewControllerDelegate = nil
+        }
         self.navigationController!.popViewController(animated: true)
     }
 }
