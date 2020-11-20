@@ -16,7 +16,7 @@ protocol PopViewControllerDelegate {
 
 class GameViewController: UIViewController {
     
-    var level: Int?
+    var level: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class GameViewController: UIViewController {
 //                fatalError("Level nao definido")
 //            }
             
-            changeLevel(changeTo: 1)
+            changeLevel(changeTo: level)
             
             view.ignoresSiblingOrder = true
             view.showsPhysics = true

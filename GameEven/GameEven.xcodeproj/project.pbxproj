@@ -87,6 +87,9 @@
 		89663370254B371D00EBF5DF /* PausePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966336F254B371D00EBF5DF /* PausePopUpView.swift */; };
 		89663375254B379700EBF5DF /* LevelCompletePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */; };
 		89A3A36B2559DD070049132F /* InstructionPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3A36A2559DD070049132F /* InstructionPopUpView.swift */; };
+		89B39C3025645C02001D0E8C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B39C2F25645C02001D0E8C /* Onboarding.storyboard */; };
+		89B39C38256463CA001D0E8C /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B39C37256463CA001D0E8C /* OnboardViewController.swift */; };
+		89FDDCD92566E536000A3F15 /* RedirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FDDCD82566E536000A3F15 /* RedirectViewController.swift */; };
 		BD87B5F225474D1A00F38CE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B5F125474D1A00F38CE1 /* AppDelegate.swift */; };
 		BD87B5F425474D1A00F38CE1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD87B5F325474D1A00F38CE1 /* GameScene.sks */; };
 		BD87B5F625474D1A00F38CE1 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BD87B5F525474D1A00F38CE1 /* Actions.sks */; };
@@ -208,6 +211,9 @@
 		8966336F254B371D00EBF5DF /* PausePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausePopUpView.swift; sourceTree = "<group>"; };
 		89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCompletePopUpView.swift; sourceTree = "<group>"; };
 		89A3A36A2559DD070049132F /* InstructionPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPopUpView.swift; sourceTree = "<group>"; };
+		89B39C2F25645C02001D0E8C /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		89B39C37256463CA001D0E8C /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		89FDDCD82566E536000A3F15 /* RedirectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedirectViewController.swift; sourceTree = "<group>"; };
 		BD87B5EE25474D1A00F38CE1 /* GameEven.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameEven.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD87B5F125474D1A00F38CE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD87B5F325474D1A00F38CE1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -270,6 +276,7 @@
 				168AE0272559C1840089CBBC /* Launch Screen.storyboard */,
 				165E1A112555C2F600BA72CA /* Map.storyboard */,
 				16A747D6254B2F8500D59C71 /* Instruction.storyboard */,
+				89B39C2F25645C02001D0E8C /* Onboarding.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -277,9 +284,11 @@
 		16CA95CB2549EAD4003038C9 /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
+				89B39C37256463CA001D0E8C /* OnboardViewController.swift */,
 				16CA95D12549EAF8003038C9 /* Map.swift */,
 				16A747DB254B2F9100D59C71 /* Instruction.swift */,
 				165E1A002554958700BA72CA /* UserDefaultCommands.swift */,
+				89FDDCD82566E536000A3F15 /* RedirectViewController.swift */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -681,6 +690,7 @@
 				BDE1E2F62551D277001566AD /* lvl1.json in Resources */,
 				16EA979C2555F12C00DFFC5F /* BloggerSans-LightItalic.ttf in Resources */,
 				16EA97992555F12C00DFFC5F /* BloggerSans-LightItalic.eot in Resources */,
+				89B39C3025645C02001D0E8C /* Onboarding.storyboard in Resources */,
 				16EA97A32555F12C00DFFC5F /* BloggerSans-LightItalic.css in Resources */,
 				BD87B5FF25474D1D00F38CE1 /* Assets.xcassets in Resources */,
 				16EA97962555F12C00DFFC5F /* BloggerSans-Italic.html in Resources */,
@@ -714,6 +724,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89B39C38256463CA001D0E8C /* OnboardViewController.swift in Sources */,
 				89663370254B371D00EBF5DF /* PausePopUpView.swift in Sources */,
 				89663375254B379700EBF5DF /* LevelCompletePopUpView.swift in Sources */,
 				BD87B6302548A63C00F38CE1 /* Square.swift in Sources */,
@@ -724,6 +735,7 @@
 				BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */,
 				BDD18D58255B2E25002EA912 /* TrianglePartsReader.swift in Sources */,
 				BDE1E30B2551DA80001566AD /* PartsReader.swift in Sources */,
+				89FDDCD92566E536000A3F15 /* RedirectViewController.swift in Sources */,
 				BDE1E3062551D8E3001566AD /* lvlReader.swift in Sources */,
 				BD87B5FA25474D1B00F38CE1 /* GameViewController.swift in Sources */,
 				16CA95D22549EAF8003038C9 /* Map.swift in Sources */,

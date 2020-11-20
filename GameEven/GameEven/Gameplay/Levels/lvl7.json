@@ -1,9 +1,9 @@
 {
-    "instruction": "fase7Instruction",
+    "instruction": "É isso ai! Acho que agora só falta mais uma coisinha...",
     "silhouette": {
         "sprite": "fase7/silhouette",
-        "size": [310, 310],
-        "pos": [0, 150],
+        "size": [20, 0],
+        "pos": [0, 135],
         "rotation": 0
     },
     "squares": [
@@ -11,13 +11,13 @@
             "sprite": "fase7/part9",
             "size": [150, 300],
             "pos": [100, -200],
-            "rotation": 0
+            "rotation": 45
         },
         {
             "sprite": "fase7/part10",
             "size": [150, 300],
             "pos": [100, -200],
-            "rotation": 0
+            "rotation": 45
         },
     ],
     "triangles": [
@@ -26,56 +26,56 @@
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 184,
-            "rotation": 0
+            "rotation": 45
         },
         {
             "sprite": "fase7/part3",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 1,
-            "rotation": 0
+            "rotation": 45
         },
         {
             "sprite": "fase7/part4",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 163,
-            "rotation": 0
+            "rotation": 45
         },
         {
             "sprite": "fase7/part7",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 0,
-            "rotation": 0
+            "rotation": 45
         },
         {
             "sprite": "fase7/part1",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 150,
-            "rotation": -319.07
+            "rotation": -274.07
         },
         {
             "sprite": "fase7/part5",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 149,
-            "rotation": -270
+            "rotation": -225
         },
         {
             "sprite": "fase7/part6",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 106,
-            "rotation": -90
+            "rotation": -45
         },
         {
             "sprite": "fase7/part8",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 132,
-            "rotation": -43.8
+            "rotation": 1.2
         },
     ],
     "circles": []

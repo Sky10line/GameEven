@@ -14,6 +14,7 @@ class InstructionPopUpView: SKSpriteNode {
     private var fontSize: CGFloat!
     
     var menssage: String
+    var delegate: PauseMenuDelegate?
     
     init(size: CGSize, _ menssage: String){
         self.menssage = menssage
@@ -52,10 +53,11 @@ class InstructionPopUpView: SKSpriteNode {
         labelText.preferredMaxLayoutWidth = ballon.size.width - 32
         labelText.lineBreakMode = .byCharWrapping
         labelText.verticalAlignmentMode = .center
-        labelText.position.y = ballon.position.y
+        labelText.position.y = ballon.position.y - 32
         ballon.addChild(labelText)
         print(labelText.frame)
         
+        //Ajusta para textos maiores
         if labelText.frame.height > 154 {
             let dif = labelText.frame.height - 154
             ballon.size.height = ballon.frame.height + dif
@@ -134,7 +136,7 @@ class InstructionPopUpView: SKSpriteNode {
             let touchedNodes = self.nodes(at: location)
             for node in touchedNodes.reversed() {
                 switch node.name {
-                case "exit":
+                case "back":
                     exit()
                 case "ok":
                     resume()
@@ -146,7 +148,7 @@ class InstructionPopUpView: SKSpriteNode {
     }
     
     private func exit(){
-        
+        delegate?.exitLevel()
         print("Pause Exit func")
     }
     

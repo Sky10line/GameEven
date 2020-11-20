@@ -1,8 +1,8 @@
 {
-    "instruction": "fase3Instruction",
+    "instruction": "É legal quando tudo vai se encaixando, entendeu? Encaixando",
     "silhouette": {
         "sprite": "fase3/silhouette",
-        "size": [310, 310],
+        "size": [0, 0],
         "pos": [0, 150],
         "rotation": 0
     },

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uB6-Aw-REG">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Redirect View Controller-->
+        <scene sceneID="bco-t1-YMN">
+            <objects>
+                <viewController id="uB6-Aw-REG" customClass="RedirectViewController" customModule="GameEven" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r8h-pX-TcL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="pdq-SS-KE7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3wF-AW-egK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pdq-SS-KE7" firstAttribute="top" secondItem="r8h-pX-TcL" secondAttribute="top" id="MVj-2N-WcU"/>
+                            <constraint firstAttribute="trailing" secondItem="pdq-SS-KE7" secondAttribute="trailing" id="gIa-5e-9gk"/>
+                            <constraint firstAttribute="bottom" secondItem="pdq-SS-KE7" secondAttribute="bottom" id="jZ5-g8-D9W"/>
+                            <constraint firstItem="pdq-SS-KE7" firstAttribute="leading" secondItem="r8h-pX-TcL" secondAttribute="leading" id="lUg-YN-4m9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="xHn-IW-Xbw" kind="presentation" identifier="Map" modalPresentationStyle="fullScreen" id="Qn7-3u-bQN"/>
+                        <segue destination="ZuW-GH-yRk" kind="presentation" identifier="Onboarding" modalPresentationStyle="fullScreen" id="8vZ-gA-NYa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QvG-8A-Vo8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1110" y="256"/>
+        </scene>
+        <!--Onboard View Controller-->
+        <scene sceneID="h2A-xR-QbQ">
+            <objects>
+                <viewController id="ZuW-GH-yRk" customClass="OnboardViewController" customModule="GameEven" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WI2-xd-Ojx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="4YI-tJ-eIh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="928"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J4T-eq-x1Y">
+                                <rect key="frame" x="32" y="108" width="350" height="690"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rj-bJ-1uL" userLabel="ContainerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="390"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InstructionBallon" translatesAutoresizingMaskIntoConstraints="NO" id="ccD-P5-z3E">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="390"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dYK-QE-wqB">
+                                                <rect key="frame" x="32" y="32" width="286" height="228"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ccD-P5-z3E" secondAttribute="bottom" id="2h3-ZI-7ob"/>
+                                            <constraint firstItem="dYK-QE-wqB" firstAttribute="leading" secondItem="4rj-bJ-1uL" secondAttribute="leading" constant="32" id="Efb-ry-6ET"/>
+                                            <constraint firstAttribute="trailing" secondItem="dYK-QE-wqB" secondAttribute="trailing" constant="32" id="Ffn-eE-qsl"/>
+                                            <constraint firstAttribute="bottom" secondItem="dYK-QE-wqB" secondAttribute="bottom" multiplier="1.5" id="MZf-J3-Aap"/>
+                                            <constraint firstAttribute="trailing" secondItem="ccD-P5-z3E" secondAttribute="trailing" id="dCV-eF-1sR"/>
+                                            <constraint firstAttribute="height" constant="390" id="fkl-8y-KqS"/>
+                                            <constraint firstItem="ccD-P5-z3E" firstAttribute="leading" secondItem="4rj-bJ-1uL" secondAttribute="leading" id="iCZ-XH-fDs"/>
+                                            <constraint firstItem="dYK-QE-wqB" firstAttribute="top" secondItem="4rj-bJ-1uL" secondAttribute="top" constant="32" id="oic-M8-e1f"/>
+                                            <constraint firstItem="ccD-P5-z3E" firstAttribute="top" secondItem="4rj-bJ-1uL" secondAttribute="top" id="pmR-gd-X0I"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Even-Next" translatesAutoresizingMaskIntoConstraints="NO" id="xhi-09-Weq">
+                                        <rect key="frame" x="0.0" y="390" width="350" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="F5H-S3-t0n"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="16X-VZ-ZNO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4YI-tJ-eIh" secondAttribute="bottom" constant="-32" id="Ddy-HA-Dcb"/>
+                            <constraint firstItem="4YI-tJ-eIh" firstAttribute="top" secondItem="WI2-xd-Ojx" secondAttribute="top" id="H1i-NC-prv"/>
+                            <constraint firstItem="J4T-eq-x1Y" firstAttribute="top" secondItem="16X-VZ-ZNO" secondAttribute="top" constant="64" id="LXN-G6-fr2"/>
+                            <constraint firstItem="16X-VZ-ZNO" firstAttribute="trailing" secondItem="J4T-eq-x1Y" secondAttribute="trailing" constant="32" id="PQb-SU-IEh"/>
+                            <constraint firstItem="J4T-eq-x1Y" firstAttribute="leading" secondItem="16X-VZ-ZNO" secondAttribute="leading" constant="32" id="XnT-ge-qZC"/>
+                            <constraint firstItem="4YI-tJ-eIh" firstAttribute="leading" secondItem="WI2-xd-Ojx" secondAttribute="leading" id="drf-mY-ORx"/>
+                            <constraint firstAttribute="trailing" secondItem="4YI-tJ-eIh" secondAttribute="trailing" id="lxV-i7-mXB"/>
+                            <constraint firstItem="16X-VZ-ZNO" firstAttribute="bottom" secondItem="J4T-eq-x1Y" secondAttribute="bottom" constant="64" id="nFd-0h-sW6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="dYK-QE-wqB" id="HiL-tW-i1x"/>
+                        <segue destination="xHn-IW-Xbw" kind="presentation" identifier="Map" modalPresentationStyle="fullScreen" id="OPM-Y2-fTK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mgX-G7-LX4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-208.69565217391306" y="256.47321428571428"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="OIi-Cu-Q0w">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="xHn-IW-Xbw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="T0w-AZ-zgK"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HIg-uy-c3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-668" y="678"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Qn7-3u-bQN"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="Background" width="1916" height="4149"/>
+        <image name="Even-Next" width="811" height="1190"/>
+        <image name="InstructionBallon" width="1647" height="1930"/>
+        <image name="launch.png" width="509" height="1115"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

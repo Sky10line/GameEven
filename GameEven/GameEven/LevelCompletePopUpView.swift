@@ -21,7 +21,7 @@ class LevelCompletePopUpView: SKSpriteNode {
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
     private var level: Int!
-    private var maxLvl = 2
+    private var maxLvl = 7
     init(size: CGSize, level: Int){
         self.level = level
         
@@ -30,7 +30,7 @@ class LevelCompletePopUpView: SKSpriteNode {
         isUserInteractionEnabled = true
         
         buttonSize = scale(90)
-        fontSize = scale(40)
+        fontSize = scale(30)
         
         let balloon = SKSpriteNode()
         balloon.texture =  SKTexture(imageNamed: "Backgroud-PopUp")
