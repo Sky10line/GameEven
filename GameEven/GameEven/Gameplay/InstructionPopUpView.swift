@@ -52,8 +52,8 @@ class InstructionPopUpView: SKSpriteNode {
         labelText.numberOfLines = 10
         labelText.preferredMaxLayoutWidth = ballon.size.width - 32
         labelText.lineBreakMode = .byCharWrapping
-        labelText.verticalAlignmentMode = .center
-        labelText.position.y = ballon.position.y - 32
+        labelText.verticalAlignmentMode = .bottom
+        labelText.position.y = ballon.position.y - 32 - fontSize
         ballon.addChild(labelText)
         print(labelText.frame)
         
