@@ -83,6 +83,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         //Create level
         let lvl: lvlReader = load("lvl\(level).json")
         
+        // Show Instructions
+        let i = InstructionPopUpView(size: size, lvl.instruction)
+            i.zPosition = 4
+            i.delegate = self
+        addChild(i)
+        
         //create the silhouette
         let silhouette = lvl.silhouette
         let back = SKSpriteNode(imageNamed: silhouette.sprite)
@@ -154,15 +160,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             self.draggablesList.append(part)
             self.addChild(part.spriteNode!)
         }
-        
-        print(draggablesList.count)
-        
-        // Show Instructions
-        let mensage: String = lvl.instruction
-        let i = InstructionPopUpView(size: size, mensage)
-            i.zPosition = 4
-            i.delegate = self
-        addChild(i)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

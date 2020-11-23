@@ -13,11 +13,10 @@ class InstructionPopUpView: SKSpriteNode {
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
     
-    var menssage: String
     var delegate: PauseMenuDelegate?
     
-    init(size: CGSize, _ menssage: String){
-        self.menssage = menssage
+    init(size: CGSize, _ message: String){
+
         super.init(texture: nil, color: .clear, size: size)
         
         isUserInteractionEnabled = true
@@ -42,9 +41,11 @@ class InstructionPopUpView: SKSpriteNode {
         ballon.color = .green
         self.addChild(ballon)
         
+        let message = NSLocalizedString(message, comment: "initial instruction")
+        
         //Text
         let labelText = SKLabelNode()
-        labelText.text = menssage
+        labelText.text = message
         labelText.zPosition = 1
         labelText.fontSize = fontSize
         labelText.fontColor = .black

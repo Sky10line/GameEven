@@ -1,5 +1,5 @@
 {
-    "instruction": "É bom saber que uma caixinha pode ser feita de diferentes maneiras",
+    "instruction": "fase2Instruction",
     "silhouette": {
         "sprite": "fase2/silhouette",
         "size": [0, 0],

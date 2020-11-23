@@ -12,6 +12,10 @@
 "YEAH!" = "EXCELENTE!";
 
 //levels instructions
-"fase1Instruction" = "";
-"fase2Instruction" = "";
-"fase3Instruction" = "";
+"fase1Instruction" = "Para pensar fora da caixinha, primeiro você precisa fazê-la!";
+"fase2Instruction" = "É bom saber que uma caixinha pode ser feita de diferentes maneiras";
+"fase3Instruction" = "É legal quando tudo vai se encaixando, entendeu? Encaixando";
+"fase4Instruction" = "Chega de caixas! Tic Tac! O tempo está passando...";
+"fase5Instruction" = "O tempo passou tanto que nem sei para onde nós iríamos";
+"fase6Instruction" = "Ótima ideia, que tal vermos o que o satélite esconde?";
+"fase7Instruction" = "É isso ai! Acho que agora só falta mais uma coisinha...";
