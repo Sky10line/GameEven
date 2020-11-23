@@ -68,7 +68,7 @@ extension GameViewController: PopViewControllerDelegate {
         s.scaleMode = .aspectFill
         s.size = UIScreen.main.bounds.size
         //TRANSICAO COM PROBLEMA
-//            let transition = SKTransition.fade(withDuration: 1.0)
+            let transition = SKTransition.fade(withDuration: 1.0)
 
         guard let view = self.view as? SKView else {
             fatalError("view nao e uma SKView")
@@ -78,7 +78,7 @@ extension GameViewController: PopViewControllerDelegate {
         }
         
         
-        view.presentScene(s)
+        view.presentScene(s, transition: transition)
     }
     
     func popView() {
