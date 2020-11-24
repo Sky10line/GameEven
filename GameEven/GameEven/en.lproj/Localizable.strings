@@ -12,10 +12,10 @@
 //"YEAH!" = "";
 
 //levels instructions
-"fase1Instruction" = "To think outside the box, first you need to make it";
-"fase2Instruction" = "It's good to know that a box can be made in different ways";
-"fase3Instruction" = "It's nice when all the parts fits together";
-"fase4Instruction" = "Enough boxes! Tic Tac! Clock is ticking ...";
-"fase5Instruction" = "Time has passed so much that I don't even know where we would go";
-"fase6Instruction" = "Great idea, how about we see what the satellite hides?";
-"fase7Instruction" = "That's it! I guess now just one more thing is missing ...";
+"fase1Instruction" = "\nTo think outside the box, first you need to make it";
+"fase2Instruction" = "\nIt's good to know that a box can be made in different ways";
+"fase3Instruction" = "\nIt's nice when all the parts fits together";
+"fase4Instruction" = "\nEnough boxes! Tic Tac! Clock is ticking ...";
+"fase5Instruction" = "\nTime has passed so much that I don't even know where we would go";
+"fase6Instruction" = "\nGreat idea, how about we see what the satellite hides?";
+"fase7Instruction" = "\nThat's it! I guess now just one more thing is missing ...";
