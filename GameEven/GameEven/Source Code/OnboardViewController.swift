@@ -15,7 +15,7 @@ class OnboardViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     private var txt = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-    private var str:[String] = ["Lorem Ipsum is simply dummy text of Primeira parte is simply dummy text of the printing","printing and typesetting industry. is simply dummy text of the printing Lorem Segunda parte", "is simply dummy text of the printing It has survived not only five centuries, but also the leap Terceira parte", "is simply dummy text of the printing It has survived not only five centuries, but also the leap Terceira parte", "is simply dummy text of the printing It has survived not only five centuries, but also the leap Terceira parte", "is simply dummy text of the printing It has survived not only five centuries, but also the leap Terceira parte", "is simply dummy text of the printing It has survived not only five centuries, but also the leap Terceira parte", "is simply dummy text of the printing It has survived not only five centuries, but also the leap Terceira parte", "is simply dummy text of the printing It has survived not only five centuries, but also the leap Terceira parte", "is simply dummy text of the printing It has survived not only five centuries, but also the leap Terceira parte", "is simply dummy text of the printing It has survived not only five centuries, but also the leap Terceira parte"]
+    private var str:[String] = []
     private var index = 0
     private var counter = 0
     private var speed: Double = 60
@@ -32,6 +32,10 @@ class OnboardViewController: UIViewController {
         label.text = ""
         label.isEditable = false
         imageView.image = UIImage(named: "Onboard-\(index + 1)")
+        
+        for i in 1...20 {
+            str.append(NSLocalizedString("Parte \(i)", comment: ""))
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
