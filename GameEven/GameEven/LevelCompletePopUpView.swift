@@ -18,12 +18,18 @@ class LevelCompletePopUpView: SKSpriteNode {
     
     var levelCompleteDelegate: LevelCompleteMenuDelegate?
     
+    private var balloon: SKSpriteNode!
+    private var text: SKLabelNode!
+    
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
     private var level: Int!
     private var maxLvl = 7
-    init(size: CGSize, level: Int){
+    private var time: Int!
+    
+    init(size: CGSize, level: Int, time: Int){
         self.level = level
+        self.time = time
         
         super.init(texture: nil, color: .orange, size: size)
         texture = SKTexture(imageNamed: "Background-Fases")
@@ -32,12 +38,9 @@ class LevelCompletePopUpView: SKSpriteNode {
         buttonSize = scale(90)
         fontSize = scale(30)
         
-        let balloon = SKSpriteNode()
-        balloon.texture =  SKTexture(imageNamed: "Backgroud-PopUp")
-        balloon.size = CGSize(width: size.width * 0.85, height: size.height * 0.80)
-        balloon.position = position
-        balloon.zPosition = 1
-        self.addChild(balloon)
+        createBalloon()
+        
+        
         
         //Reset Btt
         let resetLevel = SKSpriteNode(
@@ -65,7 +68,7 @@ class LevelCompletePopUpView: SKSpriteNode {
         //EXCELENTE!
         let congrats = NSLocalizedString("YEAH!", comment: "Complete level title")
         
-        let text = SKLabelNode(text: congrats)
+        text = SKLabelNode(text: congrats)
         text.position = CGPoint(x: 0, y: balloon.size.height / 2 - text.fontSize / 2 - scale(64))
         text.fontSize = fontSize * 1.7
         text.fontColor = #colorLiteral(red: 0.06604217738, green: 0.6873383522, blue: 0.7892531753, alpha: 1)
@@ -73,7 +76,9 @@ class LevelCompletePopUpView: SKSpriteNode {
         text.verticalAlignmentMode = .center
         text.zPosition = 1
         balloon.addChild(text)
-    
+        
+        createTime()
+        
         //Next Btt
         let next = SKSpriteNode(
             color: .green,
@@ -95,7 +100,7 @@ class LevelCompletePopUpView: SKSpriteNode {
         //Even
         let even = SKSpriteNode(
             color: .blue,
-            size: CGSize(width: scale(300) * 0.68, height: scale(300))
+            size: CGSize(width: scale(200) * 0.68, height: scale(200))
         )
         even.name = "even"
         even.texture = SKTexture(imageNamed: "Even-Next")
@@ -109,6 +114,31 @@ class LevelCompletePopUpView: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Elementos
+    
+    func createBalloon() {
+        balloon = SKSpriteNode()
+        balloon.texture =  SKTexture(imageNamed: "Backgroud-PopUp")
+        balloon.size = CGSize(width: size.width * 0.85, height: size.height * 0.80)
+        balloon.position = position
+        balloon.zPosition = 1
+        self.addChild(balloon)
+    }
+    
+    func createTime(){
+        let time = SKLabelNode(text: intToTime(time: self.time))
+        let y = text.position.y - text.fontSize / 2 - time.fontSize / 2
+        time.position = CGPoint(x: 0, y: y - scale(32))
+        time.fontSize = fontSize * 1.0
+        time.fontColor = .black
+        time.fontName = "Even"
+        time.verticalAlignmentMode = .center
+        time.zPosition = 1
+        balloon.addChild(time)
+        
+    }
+    
+    //MARK: Auxiliares
     //Ajusta para fazer percetual ao tamanho original - Base iphone 11
     private func scale(_ valueToScale: CGFloat) -> CGFloat {
         let base: CGFloat = 414
@@ -123,7 +153,16 @@ class LevelCompletePopUpView: SKSpriteNode {
         return valueToScale * scale
     }
     
-    //Interacoes
+    private func intToTime(time: Int) -> String {
+        let (h,m,s) = secondsToHoursMinutesSeconds(seconds: time)
+        return "\(m) min \(s) sec"
+    }
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+    //MARK: Interaçoes
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
