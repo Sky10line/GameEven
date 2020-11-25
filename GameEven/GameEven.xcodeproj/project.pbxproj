@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		162C42652568432100225029 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C42642568432100225029 /* AudioManager.swift */; };
+		162C42702568535000225029 /* NotOfficialMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 162C426F2568535000225029 /* NotOfficialMusic.mp3 */; };
 		1636F20A2564630A00AB4D3F /* lvl4.json in Resources */ = {isa = PBXBuildFile; fileRef = 1636F2092564630A00AB4D3F /* lvl4.json */; };
 		165E1A012554958700BA72CA /* UserDefaultCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E1A002554958700BA72CA /* UserDefaultCommands.swift */; };
 		165E1A122555C2F600BA72CA /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165E1A112555C2F600BA72CA /* Map.storyboard */; };
@@ -84,6 +86,9 @@
 		16EA97B62555F12C00DFFC5F /* Blogger Sans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97742555F12C00DFFC5F /* Blogger Sans-Medium.otf */; };
 		16EA97B72555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97752555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf */; };
 		16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */; };
+		16EC8952256DA82B008BF787 /* place.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16EC8951256DA82B008BF787 /* place.mp3 */; };
+		16EC8958256ECF3B008BF787 /* NotOfficialWin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16EC8956256ECF3B008BF787 /* NotOfficialWin.mp3 */; };
+		16EC8959256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16EC8957256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 */; };
 		89663370254B371D00EBF5DF /* PausePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966336F254B371D00EBF5DF /* PausePopUpView.swift */; };
 		89663375254B379700EBF5DF /* LevelCompletePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */; };
 		89A3A36B2559DD070049132F /* InstructionPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3A36A2559DD070049132F /* InstructionPopUpView.swift */; };
@@ -131,6 +136,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		162C42642568432100225029 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		162C426F2568535000225029 /* NotOfficialMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NotOfficialMusic.mp3; sourceTree = "<group>"; };
 		1636F2092564630A00AB4D3F /* lvl4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lvl4.json; sourceTree = "<group>"; };
 		165E1A002554958700BA72CA /* UserDefaultCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultCommands.swift; sourceTree = "<group>"; };
 		165E1A112555C2F600BA72CA /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
@@ -208,6 +215,9 @@
 		16EA97742555F12C00DFFC5F /* Blogger Sans-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Medium.otf"; sourceTree = "<group>"; };
 		16EA97752555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Medium Italic.otf"; sourceTree = "<group>"; };
 		16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Bold Italic.otf"; sourceTree = "<group>"; };
+		16EC8951256DA82B008BF787 /* place.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = place.mp3; sourceTree = "<group>"; };
+		16EC8956256ECF3B008BF787 /* NotOfficialWin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NotOfficialWin.mp3; sourceTree = "<group>"; };
+		16EC8957256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NotOfficialPlacePiece.mp3; sourceTree = "<group>"; };
 		8966336F254B371D00EBF5DF /* PausePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausePopUpView.swift; sourceTree = "<group>"; };
 		89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCompletePopUpView.swift; sourceTree = "<group>"; };
 		89A3A36A2559DD070049132F /* InstructionPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPopUpView.swift; sourceTree = "<group>"; };
@@ -269,6 +279,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		162C426C2568524E00225029 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				162C426E2568527B00225029 /* Sounds */,
+				162C426D2568526A00225029 /* Music */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		162C426D2568526A00225029 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				16EC8957256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 */,
+				16EC8956256ECF3B008BF787 /* NotOfficialWin.mp3 */,
+				16EC8951256DA82B008BF787 /* place.mp3 */,
+				162C426F2568535000225029 /* NotOfficialMusic.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		162C426E2568527B00225029 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		16CA95CA2549EAC9003038C9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +326,7 @@
 				16A747DB254B2F9100D59C71 /* Instruction.swift */,
 				165E1A002554958700BA72CA /* UserDefaultCommands.swift */,
 				89FDDCD82566E536000A3F15 /* RedirectViewController.swift */,
+				162C42642568432100225029 /* AudioManager.swift */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -445,6 +483,7 @@
 		BD87B5F025474D1A00F38CE1 /* GameEven */ = {
 			isa = PBXGroup;
 			children = (
+				162C426C2568524E00225029 /* Audio */,
 				16EA972D2555F00300DFFC5F /* Fonts */,
 				16CA95CA2549EAC9003038C9 /* Storyboards */,
 				16CA95CB2549EAD4003038C9 /* Source Code */,
@@ -618,6 +657,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16EA97782555F12C00DFFC5F /* blogger-sans-ot-guide.pdf in Resources */,
+				16EC8959256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 in Resources */,
 				16EA97AD2555F12C00DFFC5F /* BloggerSans-Medium.css in Resources */,
 				16EA97A02555F12C00DFFC5F /* BloggerSans-Light.eot in Resources */,
 				16EA97B72555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf in Resources */,
@@ -629,6 +669,7 @@
 				16EA97B12555F12C00DFFC5F /* Blogger Sans-Italic.otf in Resources */,
 				16EA97922555F12C00DFFC5F /* BloggerSans.woff in Resources */,
 				16EA97972555F12C00DFFC5F /* BloggerSans-Bold.css in Resources */,
+				16EC8952256DA82B008BF787 /* place.mp3 in Resources */,
 				16EA97B22555F12C00DFFC5F /* Blogger Sans.otf in Resources */,
 				16EA97832555F12C00DFFC5F /* BloggerSans-Italic.css in Resources */,
 				16EA97A12555F12C00DFFC5F /* BloggerSans-LightItalic.svg in Resources */,
@@ -645,6 +686,7 @@
 				16EA97912555F12C00DFFC5F /* BloggerSans.svg in Resources */,
 				16EA97A82555F12C00DFFC5F /* BloggerSans-Medium.html in Resources */,
 				16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */,
+				162C42702568535000225029 /* NotOfficialMusic.mp3 in Resources */,
 				16EA97AA2555F12C00DFFC5F /* BloggerSans-MediumItalic.eot in Resources */,
 				16EA97AF2555F12C00DFFC5F /* BloggerSans-Medium.svg in Resources */,
 				16EA978C2555F12C00DFFC5F /* BloggerSans-BoldItalic.woff in Resources */,
@@ -681,6 +723,7 @@
 				16EA97852555F12C00DFFC5F /* BloggerSans-BoldItalic.ttf in Resources */,
 				16EA97882555F12C00DFFC5F /* BloggerSans.eot in Resources */,
 				BDA32C4E255F046800A98D5F /* Localizable.strings in Resources */,
+				16EC8958256ECF3B008BF787 /* NotOfficialWin.mp3 in Resources */,
 				16EA978B2555F12C00DFFC5F /* BloggerSans-BoldItalic.eot in Resources */,
 				16EA97982555F12C00DFFC5F /* BloggerSans-Bold.svg in Resources */,
 				16EA978F2555F12C00DFFC5F /* BloggerSans-BoldItalic.html in Resources */,
@@ -742,6 +785,7 @@
 				16A747DC254B2F9100D59C71 /* Instruction.swift in Sources */,
 				BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */,
 				BD87B5F225474D1A00F38CE1 /* AppDelegate.swift in Sources */,
+				162C42652568432100225029 /* AudioManager.swift in Sources */,
 				165E1A012554958700BA72CA /* UserDefaultCommands.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -922,7 +966,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HKSJLM4DRR;
+				DEVELOPMENT_TEAM = YHY9LU893D;
 				INFOPLIST_FILE = GameEven/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -942,7 +986,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HKSJLM4DRR;
+				DEVELOPMENT_TEAM = YHY9LU893D;
 				INFOPLIST_FILE = GameEven/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
