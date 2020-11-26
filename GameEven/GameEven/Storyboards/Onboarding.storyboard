@@ -84,6 +84,17 @@
                                     <constraint firstItem="ccD-P5-z3E" firstAttribute="top" secondItem="4rj-bJ-1uL" secondAttribute="top" id="vAa-Rs-Up6"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qqq-Z6-Px3">
+                                <rect key="frame" x="354" y="60" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="B8n-NM-XyB"/>
+                                    <constraint firstAttribute="width" constant="44" id="hRO-Rw-I2Q"/>
+                                </constraints>
+                                <state key="normal" image="Button-X"/>
+                                <connections>
+                                    <action selector="skipBtt:" destination="ZuW-GH-yRk" eventType="touchUpInside" id="gga-wl-6QO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="16X-VZ-ZNO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -95,6 +106,8 @@
                             <constraint firstItem="4YI-tJ-eIh" firstAttribute="leading" secondItem="WI2-xd-Ojx" secondAttribute="leading" id="drf-mY-ORx"/>
                             <constraint firstItem="16X-VZ-ZNO" firstAttribute="bottom" secondItem="4rj-bJ-1uL" secondAttribute="bottom" constant="32" id="ldT-i7-8CZ"/>
                             <constraint firstAttribute="trailing" secondItem="4YI-tJ-eIh" secondAttribute="trailing" id="lxV-i7-mXB"/>
+                            <constraint firstItem="Qqq-Z6-Px3" firstAttribute="top" secondItem="16X-VZ-ZNO" secondAttribute="top" constant="16" id="mYH-a5-0It"/>
+                            <constraint firstItem="16X-VZ-ZNO" firstAttribute="trailing" secondItem="Qqq-Z6-Px3" secondAttribute="trailing" constant="16" id="xdm-CD-sLC"/>
                         </constraints>
                     </view>
                     <connections>
@@ -123,6 +136,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="1125" height="2437"/>
+        <image name="Button-X" width="126" height="125"/>
         <image name="Caixa" width="952" height="497"/>
         <image name="Seta" width="71" height="45"/>
         <image name="launch.png" width="509" height="1115"/>
