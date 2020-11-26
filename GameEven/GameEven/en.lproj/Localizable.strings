@@ -5,15 +5,20 @@
   Created by Rodrigo Ryo Aoki on 13/11/20.
   
 */
-//aparentemente podemos fazer o app em uma linguagem, pois caso ele nao ache uma chave correspondente ele coloca a string que passamos como chave
 
+//for btns
 //"OK" = "OK";
 //"Continue" = "Continue";
-//"CONGRATULATIONS!" = "";
+//"YEAH!" = "";
 
-"fase1Instruction" = "";
-"fase2Instruction" = "";
-"fase3Instruction" = "";
+//levels instructions
+"fase1Instruction" = "\nTo think outside the box, first you need to make it";
+"fase2Instruction" = "\nIt's good to know that a box can be made in different ways";
+"fase3Instruction" = "\nIt's nice when all the parts fits together";
+"fase4Instruction" = "\nEnough boxes! Tic Tac! Clock is ticking ...";
+"fase5Instruction" = "\nTime has passed so much that I don't even know where we would go";
+"fase6Instruction" = "\nGreat idea, how about we see what the satellite hides?";
+"fase7Instruction" = "\nThat's it! I guess now just one more thing is missing ...";
 
 
 //Estoria
@@ -38,3 +43,4 @@
 "Parte 18" = "Mas antes de você me ajudar a consertar a nave.";
 "Parte 19" = "Nós vamos treinar a cachola para pensar fora da caixinha.";
 "Parte 20" = "Topa o desafio?";
+

@@ -12,9 +12,13 @@
 "YEAH!" = "EXCELENTE!";
 
 //levels instructions
-"fase1Instruction" = "";
-"fase2Instruction" = "";
-"fase3Instruction" = "";
+"fase1Instruction" = "\nPara pensar fora da caixinha, primeiro você precisa fazê-la!";
+"fase2Instruction" = "\nÉ bom saber que uma caixinha pode ser feita de diferentes maneiras";
+"fase3Instruction" = "\nÉ legal quando tudo vai se encaixando, entendeu? Encaixando";
+"fase4Instruction" = "\nChega de caixas! Tic Tac! O tempo está passando...";
+"fase5Instruction" = "\nO tempo passou tanto que nem sei para onde nós iríamos";
+"fase6Instruction" = "\nÓtima ideia, que tal vermos o que o satélite esconde?";
+"fase7Instruction" = "\nÉ isso ai! Acho que agora só falta mais uma coisinha...";
 
 //Estoria
 "Parte 1" = "Bip Bip! Chamando Terra?";

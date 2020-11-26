@@ -107,6 +107,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         //Create level
         let lvl: lvlReader = load("lvl\(level).json")
         
+        // Show Instructions
+        let i = InstructionPopUpView(size: size, lvl.instruction)
+        i.zPosition = 4
+        i.delegate = self
+        addChild(i)
+        
         //create the silhouette
         let silhouette = lvl.silhouette
         let back = SKSpriteNode(imageNamed: silhouette.sprite)
@@ -137,18 +143,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
         back.zPosition = 2
         self.addChild(back)
-
+        
         //create squares
         for square in lvl.squares{
             //let size = CGSize(width: CGFloat(square.size[0]), height: CGFloat(square.size[1]))
             let pos = CGPoint(x: CGFloat(square.pos[0]), y: CGFloat(square.pos[1]))
             let rot = CGFloat(square.rotation)
-            let part = Square(image: square.sprite, size: size, pos: pos, rotation: rot, imageScale: levelScaleSize)
+            let part = Square(drag: createDragSprite(image: square.sprite, pos: pos, rot: rot, scale: levelScaleSize))
             
             part.insertCollider()
-            part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
-            self.addChild(part.spriteNode!)
         }
         
         //create triangles
@@ -156,37 +160,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             //let size = CGSize(width: CGFloat(triangle.size[0]), height: CGFloat(triangle.size[1]))
             let pos = CGPoint(x: CGFloat(triangle.pos[0]), y: CGFloat(triangle.pos[1]))
             let rot = CGFloat(triangle.rotation)
-            let part = Triangle(image: triangle.sprite, size: size, pos: pos, rotation: rot, imageScale: levelScaleSize)
-
+            let part = Triangle(drag: createDragSprite(image: triangle.sprite, pos: pos, rot: rot, scale: levelScaleSize))
+            
             part.setThirdPoint(Point: CGFloat(triangle.thirdPoint))
-
+            
             part.insertCollider()
-            part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
-            self.addChild(part.spriteNode!)
         }
         
-//        create circles
+        //        create circles
         for circle in lvl.circles {
             //let size = CGSize(width: CGFloat(circle.size[0]), height: CGFloat(circle.size[1]))
             let pos = CGPoint(x: CGFloat(circle.pos[0]), y: CGFloat(circle.pos[1]))
             let rot = CGFloat(circle.rotation)
-            let part = Circle(image: circle.sprite, size: size, pos: pos, rotation: rot, imageScale: levelScaleSize)
-
+            let part = Circle(drag: createDragSprite(image: circle.sprite, pos: pos, rot: rot, scale: levelScaleSize))
+            
             part.insertCollider()
-            part.spriteNode!.zPosition = 3
             self.draggablesList.append(part)
-            self.addChild(part.spriteNode!)
         }
         
         print(draggablesList.count)
-        
-        // Show Instructions
-        let mensage: String = lvl.instruction
-        let i = InstructionPopUpView(size: size, mensage)
-            i.zPosition = 4
-            i.delegate = self
-        addChild(i)
         
         activeTimer()
     }
@@ -211,38 +204,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         location = touch?.location(in: self)
         
         contacteds = self.touchNode?.physicsBody?.allContactedBodies() //get physics bodies in contact with touchNode
-
+        
         //check contacts and select part to drag
         if contacteds!.count > 0 {
             let touchedNodes = self.nodes(at: self.touchNode!.position)
             for node in touchedNodes.reversed() {
-                if touchedNode == nil {
-                    if node.physicsBody != nil {
-                        if contacteds!.contains(node.physicsBody!) {
-                            self.touchedNode = node as? SKSpriteNode
-                            for drag in draggablesList{
-                                if(drag.spriteNode == self.touchedNode){
-                                    touchedDrag = drag
-                                    break
-                                }
-                            }
-                            if let pb = self.touchedNode?.physicsBody{ //change bitmasks to drag without any trouble
-                                pb.categoryBitMask = 0
-                                pb.collisionBitMask = 0
-                            }
-                            self.touchPoint = location
-                            self.touchDistToCenter = CGPoint(x: (self.touchedNode?.position.x)!-self.touchPoint!.x, y: (self.touchedNode?.position.y)!-self.touchPoint!.y)
-                            
-                            self.touching = true //set var to let the part move in update func
-                            
+                if touchedNode == nil && node.physicsBody != nil && contacteds!.contains(node.physicsBody!) {
+                    self.touchedNode = node as? SKSpriteNode
+                    for drag in draggablesList{
+                        if(drag.spriteNode == self.touchedNode){
+                            touchedDrag = drag
+                            break
                         }
                     }
+                    if let pb = self.touchedNode?.physicsBody{ //change bitmasks to drag without any trouble
+                        pb.categoryBitMask = 0
+                        pb.collisionBitMask = 0
+                    }
+                    self.touchPoint = location
+                    self.touchDistToCenter = CGPoint(x: (self.touchedNode?.position.x)!-self.touchPoint!.x, y: (self.touchedNode?.position.y)!-self.touchPoint!.y)
+                    
+                    self.touching = true //set var to let the part move in update func
                 }
             }
-        }
-        
-        guard touchedNode != nil else {
-            return
         }
         if self.touchedNode != nil { //check if touchedNode is not nil
             touchPoint = location
@@ -254,7 +238,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         touchedNode?.physicsBody?.collisionBitMask = 9
         touching = false
         
-        perform(#selector(checkVitory), with: nil, afterDelay: 0.5)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+            if checkVitory() == true {
+                endGame()
+            }
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -269,12 +257,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             distance = CGVector(dx: (touchPoint!.x+touchDistToCenter!.x)-(self.touchedNode?.position.x)!, dy: (touchPoint!.y+touchDistToCenter!.y)-(self.touchedNode?.position.y)!) //calculate the dist from part to touch location
             
             vel = CGVector(dx: (distance?.dx ?? 0)/dt, dy: (distance?.dy ?? 0)/dt) //create a velocity to move part to touch location
-            self.touchedNode!.physicsBody!.velocity = vel ?? CGVector(dx: 0, dy: 0) //move part with velocity
             
+            moveNode(node: self.touchedNode!)
             for child in self.touchedNode!.children{
                 distance = CGVector(dx: (touchPoint!.x+touchDistToCenter!.x)-(child.position.x), dy: (touchPoint!.y+touchDistToCenter!.y)-(child.position.y))
-                        
-                child.physicsBody?.velocity = vel ?? CGVector(dx: 0, dy: 0)
+                
+                moveNode(node: child)
             }
         }
         else { //stop movement when user is not touching anymore
@@ -282,9 +270,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 drag.correctPointPos()
             }
             if(touchedNode != nil){
-                self.touchedNode?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                vel = nil
+                moveNode(node: self.touchedNode!)
                 for child in self.touchedNode!.children{
-                    child.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                    moveNode(node: child)
                 }
                 self.touchedNode = nil
                 self.touchedDrag = nil
@@ -292,7 +281,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
     }
     
-    @objc func checkVitory(){
+    @objc func checkVitory() -> Bool {
         i = 0
         for part in draggablesList { // check how many parts is in the silhouette
             if part.checkInside(back: backImage!, scene: scene! as SKNode) {
@@ -300,32 +289,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }
         }
         if i == draggablesList.count { // check if all the parts is inside
-            endGame()
+            return true
         }
+        return false
     }
     
-    private func euclideanDist(distance a: CGPoint, distance b: CGPoint) -> CGFloat { //func to calculate euclidean distance of two points
-        let x = abs(a.x - b.x)
-        let y = abs(a.y - b.y)
-        return sqrt(x * x + y * y)
-    }
-    
-    func resetScene(_ lvl: Int){ // func to reset scene to required level
-        if let scene = SKScene(fileNamed: "GameScene") {
-            (scene as? GameScene)?.level = lvl
-            scene.scaleMode = .aspectFill
-            scene.size = UIScreen.main.bounds.size
-            //            let transition = SKTransition.fade(withDuration: 1.0)
-            view!.presentScene(scene)
-        }
+    func moveNode(node: SKNode) {
+        node.physicsBody!.velocity = vel ?? CGVector.zero //move part with velocity
     }
     
     func didEnd(_ contact: SKPhysicsContact) { // stop movement of any part that end contact with other
         let bodyA = contact.bodyA
         let bodyB = contact.bodyB
-
+        
         bodyA.velocity = CGVector(dx: 0, dy: 0)
         bodyB.velocity = CGVector(dx: 0, dy: 0)
+    }
+    
+    func createDragSprite(image: String, pos: CGPoint, rot: CGFloat, scale: CGFloat) -> Draggable {
+        let part = Draggable(image: image, pos: pos, rotation: rot, imageScale: scale)
+        
+        part.spriteNode!.zPosition = 3
+        self.addChild(part.spriteNode!)
+        
+        return part
     }
     
     func insertEdgeColliders(){
@@ -343,7 +330,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if let pb = edge.physicsBody{
             pb.categoryBitMask = 8
             pb.affectedByGravity = false
-//            pb.pinned = true
+            //            pb.pinned = true
             pb.isDynamic = false
             pb.allowsRotation = false
             pb.usesPreciseCollisionDetection = true
