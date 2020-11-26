@@ -140,7 +140,7 @@ class PausePopUpView: SKSpriteNode {
             size: CGSize(width: 46, height: 46)
         )
         musicBtt.name = "music"
-        musicBtt.texture = SKTexture(imageNamed: "Musica")
+        musicBtt.texture = SKTexture(imageNamed: UserDefaults.standard.seeMuteMusic() ? "Musica" : "MusicaMuda")
         musicBtt.position.y = soundBtt.position.y
         musicBtt.position.x = musicBtt.size.width + 8
         musicBtt.zPosition = 1
@@ -175,11 +175,30 @@ class PausePopUpView: SKSpriteNode {
                     reset()
                 case "resume":
                     resume()
+                case "music":
+                    toggleMusic()
+                case "sound":
+                    toggleSound()
                 default:
                     break
                 }
             }
         }
+    }
+    
+    private func toggleMusic(){
+        let userDefalts = UserDefaults.standard
+        userDefalts.setMuteMusic()
+        
+        if userDefalts.seeMuteMusic() {
+            musicBtt.texture = SKTexture(imageNamed: "Musica")
+        } else {
+            musicBtt.texture = SKTexture(imageNamed: "MusicaMuda")
+        }
+    }
+    
+    private func toggleSound(){
+        fatalError("Implementar")
     }
     
     private func exit(){
