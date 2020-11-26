@@ -26,17 +26,7 @@ class Triangle: Draggable, DraggableProtocol{
     }
     
     override func insertCollider(){
-        let width = self.spriteNode!.size.width
-        let height = self.spriteNode!.size.height
-        
-        let scale = Float(self.spriteNode!.size.height) / Float(self.spriteNode!.texture!.cgImage().height)
-
-        let offsetX = -width/2;
-        let offsetY = -height/2;
-        
-        points.insert(CGPoint(x: offsetX, y: offsetY), at: 0)
-        points.insert(CGPoint(x: offsetX * (-1), y: offsetY), at: 1)
-        points.insert(CGPoint(x: CGFloat(Float(thirdTrianglePoint) * scale) + offsetX, y: offsetY * (-1)), at: 2)
+        correctArrayPoints()
 
         let node = self.spriteNode!
         
@@ -49,6 +39,14 @@ class Triangle: Draggable, DraggableProtocol{
         //create points on node
         self.correctPointPos()
         
+        insertPartCollider()
+        
+        insertPointColider(sprite: firstPoint, parent: node)
+        insertPointColider(sprite: secondPoint, parent: node)
+        insertPointColider(sprite: thirdPoint, parent: node)
+    }
+    
+    override func insertPartCollider(){
         let path = CGMutablePath();
 
         path.move(to: points[0])
@@ -69,10 +67,21 @@ class Triangle: Draggable, DraggableProtocol{
             pb.allowsRotation = false
             pb.usesPreciseCollisionDetection = true
         }
+    }
+    
+    func correctArrayPoints(){
+        let width = self.spriteNode!.size.width
+        let height = self.spriteNode!.size.height
         
-        insertPointColider(sprite: firstPoint, parent: node)
-        insertPointColider(sprite: secondPoint, parent: node)
-        insertPointColider(sprite: thirdPoint, parent: node)
+        let scale = Float(self.spriteNode!.size.height) / Float(self.spriteNode!.texture!.cgImage().height)
+
+        let offsetX = -width/2;
+        let offsetY = -height/2;
+        points.removeAll()
+        
+        points.insert(CGPoint(x: offsetX, y: offsetY), at: 0)
+        points.insert(CGPoint(x: offsetX * (-1), y: offsetY), at: 1)
+        points.insert(CGPoint(x: CGFloat(Float(thirdTrianglePoint) * scale) + offsetX, y: offsetY * (-1)), at: 2)
     }
     
     private func insertPointColider(sprite: SKNode,  parent: SKNode) {
@@ -93,6 +102,26 @@ class Triangle: Draggable, DraggableProtocol{
         firstPoint.position = CGPoint(x: points[0].x, y: points[0].y)
         secondPoint.position = CGPoint(x: points[1].x, y: points[1].y)
         thirdPoint.position = CGPoint(x: points[2].x, y: points[2].y)
+    }
+    
+    override func decrease(){
+        if let node = self.spriteNode{
+            node.size.height = self.spriteNode!.size.height * CGFloat(self.scale)
+            node.size.width = self.spriteNode!.size.width * CGFloat(self.scale)
+            correctArrayPoints()
+            insertPartCollider()
+            decreased = true
+        }
+    }
+    
+    override func increase(){
+        if let node = self.spriteNode{
+            node.size.height = self.spriteNode!.size.height / CGFloat(self.scale)
+            node.size.width = self.spriteNode!.size.width / CGFloat(self.scale)
+            correctArrayPoints()
+            insertPartCollider()
+            decreased = false
+        }
     }
     
     override func checkInside(back: SKNode, scene: SKNode) -> Bool{

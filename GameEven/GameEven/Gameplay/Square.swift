@@ -31,6 +31,15 @@ class Square: Draggable{
         //create points on node
         self.correctPointPos()
         
+        self.insertPartCollider()
+        
+        insertPointColider(sprite: bBPointUp, parent: node)
+        insertPointColider(sprite: bBPointDown, parent: node)
+        insertPointColider(sprite: bBPointLeft, parent: node)
+        insertPointColider(sprite: bBPointRight, parent: node)
+    }
+    
+    override func insertPartCollider(){
         self.spriteNode?.physicsBody = SKPhysicsBody(rectangleOf: self.spriteNode!.size)
         
         if let pb = self.spriteNode!.physicsBody{
@@ -42,11 +51,6 @@ class Square: Draggable{
             pb.allowsRotation = false
             pb.usesPreciseCollisionDetection = true
         }
-        
-        insertPointColider(sprite: bBPointUp, parent: node)
-        insertPointColider(sprite: bBPointDown, parent: node)
-        insertPointColider(sprite: bBPointLeft, parent: node)
-        insertPointColider(sprite: bBPointRight, parent: node)
     }
     
     private func insertPointColider(sprite: SKNode,  parent: SKNode) {
@@ -68,6 +72,26 @@ class Square: Draggable{
         bBPointDown.position = CGPoint(x: 0, y:-self.spriteNode!.size.height/2)
         bBPointLeft.position = CGPoint(x: -self.spriteNode!.size.width/2, y:0)
         bBPointRight.position = CGPoint(x: self.spriteNode!.size.width/2, y:0)
+    }
+    
+    override func decrease(){
+        if let node = self.spriteNode{
+            node.size.height = self.spriteNode!.size.height * CGFloat(self.scale)
+            node.size.width = self.spriteNode!.size.width * CGFloat(self.scale)
+            insertPartCollider()
+            
+            self.decreased = true
+        }
+    }
+    
+    override func increase(){
+        if let node = self.spriteNode{
+            node.size.height = self.spriteNode!.size.height / CGFloat(self.scale)
+            node.size.width = self.spriteNode!.size.width / CGFloat(self.scale)
+            insertPartCollider()
+            
+            self.decreased = false
+        }
     }
     
     override func checkInside(back: SKNode, scene: SKNode) -> Bool{

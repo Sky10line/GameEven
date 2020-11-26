@@ -152,6 +152,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let part = Square(drag: createDragSprite(image: square.sprite, pos: pos, rot: rot, scale: levelScaleSize))
             
             part.insertCollider()
+            part.decrease()
             self.draggablesList.append(part)
         }
         
@@ -165,6 +166,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             part.setThirdPoint(Point: CGFloat(triangle.thirdPoint))
             
             part.insertCollider()
+            part.decrease()
             self.draggablesList.append(part)
         }
         
@@ -176,10 +178,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             let part = Circle(drag: createDragSprite(image: circle.sprite, pos: pos, rot: rot, scale: levelScaleSize))
             
             part.insertCollider()
+            part.decrease()
             self.draggablesList.append(part)
         }
         
-        print(draggablesList.count)
+        let division = SKShapeNode(rect: CGRect(x: -UIScreen.main.bounds.maxX, y: -100, width: UIScreen.main.bounds.maxY, height: 1))
+        division.zPosition = 4
+//        division.position = CGPoint(x: 0, y: -200)
+        self.addChild(division)
         
         activeTimer()
     }
@@ -214,6 +220,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                     for drag in draggablesList{
                         if(drag.spriteNode == self.touchedNode){
                             touchedDrag = drag
+                            if(touchedDrag!.isDecreased()){
+                                touchedDrag?.increase()
+                            }
                             break
                         }
                     }
@@ -234,6 +243,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if touchedNode?.position.y ?? 0 < -150 && touchedDrag!.isDecreased() == false{
+            touchedDrag?.decrease()
+        }
+        
         touchedNode?.physicsBody?.categoryBitMask = 1
         touchedNode?.physicsBody?.collisionBitMask = 9
         touching = false
@@ -259,11 +273,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             vel = CGVector(dx: (distance?.dx ?? 0)/dt, dy: (distance?.dy ?? 0)/dt) //create a velocity to move part to touch location
             
             moveNode(node: self.touchedNode!)
-            for child in self.touchedNode!.children{
-                distance = CGVector(dx: (touchPoint!.x+touchDistToCenter!.x)-(child.position.x), dy: (touchPoint!.y+touchDistToCenter!.y)-(child.position.y))
-                
-                moveNode(node: child)
-            }
+            touchedDrag?.correctPointPos()
         }
         else { //stop movement when user is not touching anymore
             for drag in draggablesList{
