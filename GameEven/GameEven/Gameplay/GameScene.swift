@@ -38,7 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     private var levelTimerLabel: SKLabelNode!
     private var levelTimer: Int = 0 {
-        didSet { levelTimerLabel?.text = "Tempo: \(levelTimer)"}
+        didSet { levelTimerLabel?.text = levelTimer.intToTime()}
     }
     var levelTimerSequence: SKAction?
 
@@ -396,7 +396,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func endGame() {
-        let endGame = LevelCompletePopUpView(size: CGSize(width: size.width, height: size.height), level: level)
+        let endGame = LevelCompletePopUpView(size: CGSize(width: size.width, height: size.height), level: level, time: levelTimer)
         endGame.levelCompleteDelegate = self
         endGame.zPosition = 4
         endGame.alpha = 0
