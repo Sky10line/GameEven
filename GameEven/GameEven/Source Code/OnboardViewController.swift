@@ -75,11 +75,19 @@ class OnboardViewController: UIViewController {
                 }, completion: nil)
                 print(index + 1)
             } else {
-                performSegue(withIdentifier: "Map", sender: self)
+                goToMap()
             }
             
         } else {
             counter = str[index].count
         }
+    }
+    
+    @IBAction func skipBtt(_ sender: Any) {
+        goToMap()
+    }
+    
+    private func goToMap(){
+        performSegue(withIdentifier: "Map", sender: self)
     }
 }
