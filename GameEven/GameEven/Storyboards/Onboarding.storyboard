@@ -46,7 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="4YI-tJ-eIh">
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Onboard-1" translatesAutoresizingMaskIntoConstraints="NO" id="4YI-tJ-eIh">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="928"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rj-bJ-1uL" userLabel="ContainerView">
@@ -135,9 +135,9 @@
         <segue reference="OPM-Y2-fTK"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="1" width="1125" height="2437"/>
         <image name="Button-X" width="126" height="125"/>
         <image name="Caixa" width="952" height="497"/>
+        <image name="Onboard-1" width="1125" height="2437"/>
         <image name="Seta" width="71" height="45"/>
         <image name="launch.png" width="509" height="1115"/>
         <systemColor name="labelColor">
