@@ -36,8 +36,12 @@ class MapViewController: UIViewController {
         
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
-
+        
         UserDefaults.standard.resetPlayerLevel()
         
         repeatingBackground()

@@ -36,13 +36,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     private var pause: SKSpriteNode!
     
-    //Timer
     private var levelTimerLabel: SKLabelNode!
     private var levelTimer: Int = 0 {
         didSet { levelTimerLabel?.text = "Tempo: \(levelTimer)"}
     }
     var levelTimerSequence: SKAction?
-    
+
+    private var maxSilhouetteSize = CGFloat(330) // Determina até quanto a imagem pode ser escalonada em pixels, nos eixos X e Y.
+
     var viewControllerDelegate: PopViewControllerDelegate?
     
     override func didMove(to view: SKView) {
@@ -109,9 +110,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         //create the silhouette
         let silhouette = lvl.silhouette
         let back = SKSpriteNode(imageNamed: silhouette.sprite)
-        back.size = CGSize(width: back.size.width * 0.35 , height: back.size.height * 0.35)
-        //back.size = CGSize(width: CGFloat(silhouette.size[0]), height: CGFloat(silhouette.size[1]))
-        back.position = CGPoint(x: CGFloat(silhouette.pos[0]), y: CGFloat(silhouette.pos[1]))
+        
+        print(UIScreen.main.bounds.maxY)
+        
+        func deviceScale (v: CGFloat) -> CGFloat {
+            return CGFloat(UIScreen.main.bounds.maxY * v / 896)
+        }
+        
+        let levelScaleSize = (deviceScale(v: (maxSilhouetteSize + CGFloat(silhouette.size[0]))) / max(back.size.width,back.size.height))
+        
+        back.size = CGSize(width: back.size.width * levelScaleSize , height: back.size.height * levelScaleSize)
+        
+        back.position = CGPoint(x: CGFloat(silhouette.pos[0]), y: deviceScale(v: CGFloat(silhouette.pos[1])))
         back.zRotation = CGFloat(silhouette.rotation)
         self.backImage = back
         back.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: silhouette.sprite), size: back.size)
@@ -133,7 +143,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             //let size = CGSize(width: CGFloat(square.size[0]), height: CGFloat(square.size[1]))
             let pos = CGPoint(x: CGFloat(square.pos[0]), y: CGFloat(square.pos[1]))
             let rot = CGFloat(square.rotation)
-            let part = Square(image: square.sprite, size: size, pos: pos, rotation: rot)
+            let part = Square(image: square.sprite, size: size, pos: pos, rotation: rot, imageScale: levelScaleSize)
             
             part.insertCollider()
             part.spriteNode!.zPosition = 3
@@ -146,7 +156,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             //let size = CGSize(width: CGFloat(triangle.size[0]), height: CGFloat(triangle.size[1]))
             let pos = CGPoint(x: CGFloat(triangle.pos[0]), y: CGFloat(triangle.pos[1]))
             let rot = CGFloat(triangle.rotation)
-            let part = Triangle(image: triangle.sprite, size: size, pos: pos, rotation: rot)
+            let part = Triangle(image: triangle.sprite, size: size, pos: pos, rotation: rot, imageScale: levelScaleSize)
 
             part.setThirdPoint(Point: CGFloat(triangle.thirdPoint))
 
@@ -161,7 +171,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             //let size = CGSize(width: CGFloat(circle.size[0]), height: CGFloat(circle.size[1]))
             let pos = CGPoint(x: CGFloat(circle.pos[0]), y: CGFloat(circle.pos[1]))
             let rot = CGFloat(circle.rotation)
-            let part = Circle(image: circle.sprite, size: size, pos: pos, rotation: rot)
+            let part = Circle(image: circle.sprite, size: size, pos: pos, rotation: rot, imageScale: levelScaleSize)
 
             part.insertCollider()
             part.spriteNode!.zPosition = 3
@@ -244,15 +254,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         touchedNode?.physicsBody?.collisionBitMask = 9
         touching = false
         
-        i = 0
-        for part in draggablesList { // check how many parts is in the silhouette
-            if part.checkInside(back: backImage!, scene: scene! as SKNode) {
-                i += 1
-            }
-        }
-        if i == draggablesList.count { // check if all the parts is inside
-            endGame()
-        }
+        perform(#selector(checkVitory), with: nil, afterDelay: 0.5)
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -289,6 +291,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }
         }
     }
+    
+    @objc func checkVitory(){
+        i = 0
+        for part in draggablesList { // check how many parts is in the silhouette
+            if part.checkInside(back: backImage!, scene: scene! as SKNode) {
+                i += 1
+            }
+        }
+        if i == draggablesList.count { // check if all the parts is inside
+            endGame()
+        }
+    }
+    
     private func euclideanDist(distance a: CGPoint, distance b: CGPoint) -> CGFloat { //func to calculate euclidean distance of two points
         let x = abs(a.x - b.x)
         let y = abs(a.y - b.y)
@@ -314,10 +329,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func insertEdgeColliders(){
-        createEdgeCollider(width: frame.width, height: frame.height, posX: 0, posY: frame.height) //create up limit collider
-        createEdgeCollider(width: frame.width, height: frame.height, posX: 0, posY: -frame.height) //create down limit collider
-        createEdgeCollider(width: frame.width, height: frame.height, posX: -frame.width, posY: 0) //create left limit collider
-        createEdgeCollider(width: frame.width, height: frame.height, posX: frame.width, posY: 0) //create right limite collider
+        createEdgeCollider(width: frame.width*3, height: frame.height, posX: 0, posY: frame.height) //create up limit collider
+        createEdgeCollider(width: frame.width*3, height: frame.height, posX: 0, posY: -frame.height) //create down limit collider
+        createEdgeCollider(width: frame.width, height: frame.height*3, posX: -frame.width, posY: 0) //create left limit collider
+        createEdgeCollider(width: frame.width, height: frame.height*3, posX: frame.width, posY: 0) //create right limite collider
     }
     
     func createEdgeCollider(width: CGFloat, height: CGFloat, posX: CGFloat, posY: CGFloat) { //create all edge colliders
@@ -328,6 +343,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if let pb = edge.physicsBody{
             pb.categoryBitMask = 8
             pb.affectedByGravity = false
+//            pb.pinned = true
             pb.isDynamic = false
             pb.allowsRotation = false
             pb.usesPreciseCollisionDetection = true

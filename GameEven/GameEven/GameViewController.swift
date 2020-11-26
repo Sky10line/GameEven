@@ -68,16 +68,26 @@ extension GameViewController: PopViewControllerDelegate {
         s.scaleMode = .aspectFill
         s.size = UIScreen.main.bounds.size
         //TRANSICAO COM PROBLEMA
-//            let transition = SKTransition.fade(withDuration: 1.0)
+            let transition = SKTransition.fade(withDuration: 1.0)
 
         guard let view = self.view as? SKView else {
             fatalError("view nao e uma SKView")
         }
+        if let oldScene = view.scene as? GameScene {
+            oldScene.viewControllerDelegate = nil
+        }
         
-        view.presentScene(s)
+        
+        view.presentScene(s, transition: transition)
     }
     
     func popView() {
+        if let view = self.view as! SKView? {
+            guard let scene = view.scene as? GameScene else {
+                fatalError("Problema de....")
+            }
+            scene.viewControllerDelegate = nil
+        }
         self.navigationController!.popViewController(animated: true)
     }
 }

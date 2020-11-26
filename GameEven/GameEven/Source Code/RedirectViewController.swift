@@ -16,6 +16,10 @@ class RedirectViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        redirect()
+    }
+    
+    private func redirect() {
         let save = UserDefaults.standard.loadPlayerLevel()
         if save > 0 {
             performSegue(withIdentifier: "Map", sender: self)

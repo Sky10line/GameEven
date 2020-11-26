@@ -2,7 +2,7 @@
     "instruction": "Chega de caixas! Tic Tac! O tempo está passando...",
     "silhouette": {
         "sprite": "fase4/silhouette",
-        "size": [310, 310],
+        "size": [0, 0],
         "pos": [0, 150],
         "rotation": 0
     },
