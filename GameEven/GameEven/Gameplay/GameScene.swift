@@ -36,8 +36,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     private var pause: SKSpriteNode!
     
+    private var levelTimerLabel: SKLabelNode!
+    private var levelTimer: Int = 0 {
+        didSet { levelTimerLabel?.text = "Tempo: \(levelTimer)"}
+    }
+    var levelTimerSequence: SKAction?
+
     private var maxSilhouetteSize = CGFloat(330) // Determina até quanto a imagem pode ser escalonada em pixels, nos eixos X e Y.
-    
+
     var viewControllerDelegate: PopViewControllerDelegate?
     
     override func didMove(to view: SKView) {
@@ -52,6 +58,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         bg.position = self.position
         bg.zPosition = 0
         addChild(bg)
+        
+        //Timer
+        levelTimerLabel = SKLabelNode()
+        levelTimerLabel.position.x = UIScreen.main.bounds.minX / 2 - 128
+        levelTimerLabel.position.y = UIScreen.main.bounds.maxY / 2 - levelTimerLabel.fontSize - ( safeAreaInsets().top == .zero ? 32 : safeAreaInsets().top)
+        levelTimerLabel.color = .white
+        levelTimerLabel.horizontalAlignmentMode = .left
+        levelTimerLabel.text = "Time left: \(levelTimer)"
+        levelTimerLabel.fontName = "Even"
+        levelTimerLabel.zPosition = 2
+        addChild(levelTimerLabel)
+
+        let wait = SKAction.wait(forDuration: 1.0)
+        let block = SKAction.run({
+                [unowned self] in
+                    self.levelTimer += 1
+            })
+        levelTimerSequence = SKAction.sequence([wait,block])
         
         //Pause Btn
         pause = SKSpriteNode(
@@ -163,7 +187,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             i.zPosition = 4
             i.delegate = self
         addChild(i)
+        
+        activeTimer()
     }
+    
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         touch = touches.first!
@@ -365,8 +393,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         pause.run(  .fadeAlpha(to: 0, duration: 0.5)) {
             self.isPaused = true
         }
-        
-        
     }
     
     func endGame() {
@@ -388,7 +414,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             UserDefaults.standard.savePlayerLevel(playerLevel: level + 1)
         }
     }
+    
+    private func pauseTimer() {
+        if action(forKey: "countdown") != nil {removeAction(forKey: "countdown")}
+    }
+    
+    private func activeTimer() {
+        run(SKAction.repeatForever(levelTimerSequence!), withKey: "countdown")
+    }
+    
 }
+
+//MARK: - Delegates, extensions
 
 extension GameScene: PauseMenuDelegate {
     func resumeLevel() {
