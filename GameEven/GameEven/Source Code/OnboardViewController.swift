@@ -84,10 +84,38 @@ class OnboardViewController: UIViewController {
     }
     
     @IBAction func skipBtt(_ sender: Any) {
-        goToMap()
+        let XibView = ConfirmationView.instanceFromNib()
+        
+        UIView.transition(with: self.view, duration: 1, options: .transitionFlipFromRight, animations: {
+            self.view.addSubview(XibView)
+        }, completion: nil)
+        
+        if let confirmeView: ConfirmationView = XibView as? ConfirmationView {
+            confirmeView.delegate = self
+            confirmeView.mensage = "Tem certeza que deseja pular a introdução?"
+        }
     }
     
     private func goToMap(){
         performSegue(withIdentifier: "Map", sender: self)
     }
+}
+
+extension OnboardViewController: ConfirmeDelegate {
+    func confirme() {
+        goToMap()
+    }
+    
+    func cancel(sender: Any) {
+        guard let sender = sender as? UIView else {
+            fatalError("Sender")
+        }
+        
+        UIView.transition(with: self.view, duration: 1, options: .transitionFlipFromLeft, animations: {
+            sender.removeFromSuperview()
+        }, completion: nil)
+        
+    }
+    
+    
 }

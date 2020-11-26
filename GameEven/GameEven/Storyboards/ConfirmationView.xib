@@ -19,8 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="xty-Fn-B0R">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="xty-Fn-B0R">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="928"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Backgroud-PopUp" translatesAutoresizingMaskIntoConstraints="NO" id="KE4-pl-iJs">
                     <rect key="frame" x="32" y="108" width="350" height="722"/>
@@ -95,7 +95,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xty-Fn-B0R" secondAttribute="trailing" id="tTx-kO-0GA"/>
                 <constraint firstItem="KE4-pl-iJs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="v60-SX-gC4"/>
                 <constraint firstItem="7FM-QU-mtl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="80" id="yl7-eu-ght"/>
-                <constraint firstAttribute="bottom" secondItem="xty-Fn-B0R" secondAttribute="bottom" id="ypE-Hk-wMi"/>
+                <constraint firstAttribute="bottom" secondItem="xty-Fn-B0R" secondAttribute="bottom" constant="-32" id="ypE-Hk-wMi"/>
             </constraints>
             <connections>
                 <outlet property="label" destination="ClL-d2-ID3" id="7Mz-YU-bzi"/>
