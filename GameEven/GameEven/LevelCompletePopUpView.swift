@@ -24,8 +24,8 @@ class LevelCompletePopUpView: SKSpriteNode {
     private var stars: SKSpriteNode!
     private var even: SKSpriteNode!
     private var nextBtt: SKSpriteNode!
-    private var resetLevel: SKSpriteNode!
-    private var map: SKSpriteNode!
+    private var resetBtt: SKSpriteNode!
+    private var mapBtt: SKSpriteNode!
     
     
     private var buttonSize: CGFloat!
@@ -78,12 +78,12 @@ class LevelCompletePopUpView: SKSpriteNode {
         self.addChild(balloon)
     }
     
-    func createTime(){
-        let time = SKLabelNode(text: intToTime(time: self.time))
+    func createTime() {
+        let time = SKLabelNode(text: self.time.intToTime())
         let y = text.position.y - text.fontSize / 2 - time.fontSize / 2
         time.position = CGPoint(x: 0, y: y - scale(32))
         time.fontSize = fontSize * 1.0
-        time.fontColor = .black
+        time.fontColor = #colorLiteral(red: 0.04709532857, green: 0.04772982746, blue: 0.04688558728, alpha: 1)
         time.fontName = "Even"
         time.verticalAlignmentMode = .center
         time.zPosition = 1
@@ -146,28 +146,28 @@ class LevelCompletePopUpView: SKSpriteNode {
     }
     
     private func createResetBtt(){
-        resetLevel = SKSpriteNode(
+        resetBtt = SKSpriteNode(
             color: .red,
             size: CGSize(width: buttonSize, height: buttonSize * 0.719)
         )
-        resetLevel.name = "reset"
-        resetLevel.texture = SKTexture(imageNamed: "Button-Reset")
-        let y: CGFloat = balloon.size.height / 2 - resetLevel.size.height / 2 - scale(64)
-        resetLevel.position = CGPoint(x: resetLevel.size.width / 2 + scale(16), y: -y)
-        resetLevel.zPosition = 1
-        balloon.addChild(resetLevel)
+        resetBtt.name = "reset"
+        resetBtt.texture = SKTexture(imageNamed: "Button-Reset")
+        let y: CGFloat = balloon.size.height / 2 - resetBtt.size.height / 2 - scale(64)
+        resetBtt.position = CGPoint(x: resetBtt.size.width / 2 + scale(16), y: -y)
+        resetBtt.zPosition = 1
+        balloon.addChild(resetBtt)
     }
     
     private func createMapBtt(){
-        map = SKSpriteNode(
+        mapBtt = SKSpriteNode(
             color: .blue,
             size: CGSize(width: buttonSize, height: buttonSize * 0.719)
         )
-        map.texture = SKTexture(imageNamed: "Button-Map")
-        map.name = "exit"
-        map.position = CGPoint(x: -map.size.width / 2 - scale(16), y: resetLevel.position.y)
-        map.zPosition = 1
-        balloon.addChild(map)
+        mapBtt.texture = SKTexture(imageNamed: "Button-Map")
+        mapBtt.name = "exit"
+        mapBtt.position = CGPoint(x: -mapBtt.size.width / 2 - scale(16), y: resetBtt.position.y)
+        mapBtt.zPosition = 1
+        balloon.addChild(mapBtt)
     }
     
     private func createNextBtt(){
@@ -183,7 +183,7 @@ class LevelCompletePopUpView: SKSpriteNode {
         } else {
             nextBtt.texture = SKTexture(imageNamed: "Button-Next")
         }
-        let y = resetLevel.position.y + resetLevel.size.height / 2 + nextBtt.size.height / 2
+        let y = resetBtt.position.y + resetBtt.size.height / 2 + nextBtt.size.height / 2
         nextBtt.position = CGPoint(x: 0, y: y + scale(32))
         nextBtt.zPosition = 1
         balloon.addChild(nextBtt)
@@ -202,15 +202,6 @@ class LevelCompletePopUpView: SKSpriteNode {
             scale = 2
         }
         return valueToScale * scale
-    }
-    
-    private func intToTime(time: Int) -> String {
-        let (_,m,s) = secondsToHoursMinutesSeconds(seconds: time)
-        return "\(m) min \(s) sec"
-    }
-    
-    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
-      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
     //MARK: Interaçoes
@@ -244,16 +235,5 @@ class LevelCompletePopUpView: SKSpriteNode {
     
     private func next(){
         levelCompleteDelegate?.nextLevel()
-    }
-    
-}
-
-extension SKSpriteNode {
-    func drawBorder(color: UIColor, width: CGFloat) {
-        let shapeNode = SKShapeNode(rect: frame)
-        shapeNode.fillColor = .clear
-        shapeNode.strokeColor = color
-        shapeNode.lineWidth = width
-        addChild(shapeNode)
     }
 }
