@@ -91,6 +91,8 @@
 		89663370254B371D00EBF5DF /* PausePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966336F254B371D00EBF5DF /* PausePopUpView.swift */; };
 		89663375254B379700EBF5DF /* LevelCompletePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */; };
 		899980ED25702C10008E86FC /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899980EC25702C10008E86FC /* Int.swift */; };
+		899980F8257044B0008E86FC /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899980F7257044B0008E86FC /* ConfirmationViewController.swift */; };
+		899980FD257044CE008E86FC /* ConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 899980FC257044CE008E86FC /* ConfirmationView.xib */; };
 		89A3A36B2559DD070049132F /* InstructionPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3A36A2559DD070049132F /* InstructionPopUpView.swift */; };
 		89B39C3025645C02001D0E8C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B39C2F25645C02001D0E8C /* Onboarding.storyboard */; };
 		89B39C38256463CA001D0E8C /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B39C37256463CA001D0E8C /* OnboardViewController.swift */; };
@@ -220,6 +222,8 @@
 		8966336F254B371D00EBF5DF /* PausePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausePopUpView.swift; sourceTree = "<group>"; };
 		89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCompletePopUpView.swift; sourceTree = "<group>"; };
 		899980EC25702C10008E86FC /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		899980F7257044B0008E86FC /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		899980FC257044CE008E86FC /* ConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmationView.xib; sourceTree = "<group>"; };
 		89A3A36A2559DD070049132F /* InstructionPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPopUpView.swift; sourceTree = "<group>"; };
 		89B39C2F25645C02001D0E8C /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		89B39C37256463CA001D0E8C /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +317,7 @@
 				165E1A112555C2F600BA72CA /* Map.storyboard */,
 				16A747D6254B2F8500D59C71 /* Instruction.storyboard */,
 				89B39C2F25645C02001D0E8C /* Onboarding.storyboard */,
+				899980FC257044CE008E86FC /* ConfirmationView.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				89FDDCD82566E536000A3F15 /* RedirectViewController.swift */,
 				899980EC25702C10008E86FC /* Int.swift */,
 				162C42642568432100225029 /* AudioManager.swift */,
+				899980F7257044B0008E86FC /* ConfirmationViewController.swift */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -683,6 +689,7 @@
 				16EA97952555F12C00DFFC5F /* BloggerSans-Italic.eot in Resources */,
 				16EA97A62555F12C00DFFC5F /* BloggerSans-Medium.eot in Resources */,
 				16EA97912555F12C00DFFC5F /* BloggerSans.svg in Resources */,
+				899980FD257044CE008E86FC /* ConfirmationView.xib in Resources */,
 				16EA97A82555F12C00DFFC5F /* BloggerSans-Medium.html in Resources */,
 				16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */,
 				162C42702568535000225029 /* NotOfficialMusic.mp3 in Resources */,
@@ -777,6 +784,7 @@
 				89A3A36B2559DD070049132F /* InstructionPopUpView.swift in Sources */,
 				BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */,
 				BDD18D58255B2E25002EA912 /* TrianglePartsReader.swift in Sources */,
+				899980F8257044B0008E86FC /* ConfirmationViewController.swift in Sources */,
 				BDE1E30B2551DA80001566AD /* PartsReader.swift in Sources */,
 				89FDDCD92566E536000A3F15 /* RedirectViewController.swift in Sources */,
 				BDE1E3062551D8E3001566AD /* lvlReader.swift in Sources */,
