@@ -88,6 +88,8 @@
 		16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */; };
 		16EC8958256ECF3B008BF787 /* NotOfficialWin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16EC8956256ECF3B008BF787 /* NotOfficialWin.mp3 */; };
 		16EC8959256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16EC8957256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 */; };
+		16EC8988256EEDC5008BF787 /* Configurations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16EC8987256EEDC5008BF787 /* Configurations.storyboard */; };
+		16EC898D256EF11F008BF787 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC898C256EF11F008BF787 /* ConfigurationViewController.swift */; };
 		89663370254B371D00EBF5DF /* PausePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966336F254B371D00EBF5DF /* PausePopUpView.swift */; };
 		89663375254B379700EBF5DF /* LevelCompletePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */; };
 		899980ED25702C10008E86FC /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899980EC25702C10008E86FC /* Int.swift */; };
@@ -219,6 +221,8 @@
 		16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Bold Italic.otf"; sourceTree = "<group>"; };
 		16EC8956256ECF3B008BF787 /* NotOfficialWin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NotOfficialWin.mp3; sourceTree = "<group>"; };
 		16EC8957256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NotOfficialPlacePiece.mp3; sourceTree = "<group>"; };
+		16EC8987256EEDC5008BF787 /* Configurations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Configurations.storyboard; sourceTree = "<group>"; };
+		16EC898C256EF11F008BF787 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		8966336F254B371D00EBF5DF /* PausePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausePopUpView.swift; sourceTree = "<group>"; };
 		89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCompletePopUpView.swift; sourceTree = "<group>"; };
 		899980EC25702C10008E86FC /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
@@ -295,8 +299,6 @@
 		162C426D2568526A00225029 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				16EC8957256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 */,
-				16EC8956256ECF3B008BF787 /* NotOfficialWin.mp3 */,
 				162C426F2568535000225029 /* NotOfficialMusic.mp3 */,
 			);
 			path = Music;
@@ -305,6 +307,8 @@
 		162C426E2568527B00225029 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				16EC8957256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 */,
+				16EC8956256ECF3B008BF787 /* NotOfficialWin.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -318,6 +322,7 @@
 				165E1A112555C2F600BA72CA /* Map.storyboard */,
 				16A747D6254B2F8500D59C71 /* Instruction.storyboard */,
 				89B39C2F25645C02001D0E8C /* Onboarding.storyboard */,
+				16EC8987256EEDC5008BF787 /* Configurations.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -332,6 +337,7 @@
 				89FDDCD82566E536000A3F15 /* RedirectViewController.swift */,
 				899980EC25702C10008E86FC /* Int.swift */,
 				162C42642568432100225029 /* AudioManager.swift */,
+				16EC898C256EF11F008BF787 /* ConfigurationViewController.swift */,
 				899980F7257044B0008E86FC /* ConfirmationView.swift */,
 			);
 			path = "Source Code";
@@ -718,6 +724,7 @@
 				16EA979A2555F12C00DFFC5F /* BloggerSans-LightItalic.woff in Resources */,
 				16EA97802555F12C00DFFC5F /* Blogger Sans-Medium.ttf in Resources */,
 				169B3413256488B2009568E7 /* lvl5.json in Resources */,
+				16EC8988256EEDC5008BF787 /* Configurations.storyboard in Resources */,
 				16EA977A2555F12C00DFFC5F /* Blogger Sans-Bold.ttf in Resources */,
 				16EA978E2555F12C00DFFC5F /* BloggerSans-BoldItalic.svg in Resources */,
 				16EA977B2555F12C00DFFC5F /* Blogger Sans.ttf in Resources */,
@@ -786,6 +793,7 @@
 				BDD18D58255B2E25002EA912 /* TrianglePartsReader.swift in Sources */,
 				899980F8257044B0008E86FC /* ConfirmationView.swift in Sources */,
 				BDE1E30B2551DA80001566AD /* PartsReader.swift in Sources */,
+				16EC898D256EF11F008BF787 /* ConfigurationViewController.swift in Sources */,
 				89FDDCD92566E536000A3F15 /* RedirectViewController.swift in Sources */,
 				BDE1E3062551D8E3001566AD /* lvlReader.swift in Sources */,
 				BD87B5FA25474D1B00F38CE1 /* GameViewController.swift in Sources */,

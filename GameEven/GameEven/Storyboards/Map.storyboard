@@ -109,6 +109,30 @@
                                     <constraint firstAttribute="bottom" secondItem="5ue-Ik-J14" secondAttribute="bottom" constant="-10" id="mX3-bv-T2z"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ifH-s5-ULk">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="161"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="HeaderMap" translatesAutoresizingMaskIntoConstraints="NO" id="KTI-qG-cke">
+                                        <rect key="frame" x="-39" y="-13" width="493" height="186"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRh-Oa-ine" userLabel="Config">
+                                        <rect key="frame" x="331" y="78" width="46" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="BotaoConfig"/>
+                                        <connections>
+                                            <segue destination="K0B-Uh-ZFY" kind="show" id="SSH-SM-bbm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIV-Rs-tsP" userLabel="Story">
+                                        <rect key="frame" x="37" y="78" width="46" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="BotaoHistoria"/>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="OkY-ik-XVF"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="56B-M0-r6p"/>
                         <color key="backgroundColor" red="0.094117647060000004" green="0.027450980390000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -139,6 +163,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ge8-4Q-Cil" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2191.304347826087" y="151.33928571428569"/>
+        </scene>
+        <!--Configurations-->
+        <scene sceneID="u86-tQ-2GD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Configurations" id="K0B-Uh-ZFY" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="vQL-Jm-TlT"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bct-pf-IQv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2742" y="-177"/>
         </scene>
         <!--Main-->
         <scene sceneID="k0O-iG-abR">
@@ -171,7 +205,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BotaoConfig" width="320" height="320"/>
+        <image name="BotaoHistoria" width="229" height="292"/>
         <image name="GrayMapButton" width="378" height="506"/>
+        <image name="HeaderMap" width="1196" height="1196"/>
         <image name="LinhaMapa" width="1458" height="3409"/>
     </resources>
 </document>

@@ -16,67 +16,61 @@ enum Sounds: String {
 
 class AudioManager {
     
-    var musicPlayer: AVAudioPlayer?
-    var soundPlayer: AVAudioPlayer?
-
-    init() {
+    private init() {
         initMusic()
     }
     
-    // Função para saber se há música tocando no momento
-    func statusMusic() -> Bool {
-        return musicPlayer?.isPlaying ?? false
+//    static var sharedInstance: AudioManager = {
+//        let instance = AudioManager()
+//
+//        return instance
+//    }
+    
+    static let sharedInstance: AudioManager = { AudioManager() }()
+    
+    var musicPlayer: AVAudioPlayer?
+    var soundPlayer: AVAudioPlayer?
+    
+    func playSound(SoundType: Sounds) {
+        if seeSoundOption() {
+            soundPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: SoundType.rawValue, ofType: "mp3")!))
+            soundPlayer?.play()
+        }
+    }
+    
+    func turnSoundOnOff() {
+        if soundPlayer?.isPlaying == true {
+            soundPlayer?.stop()
+        }
+        UserDefaults.standard.changeSoundOption()
+    }
+    
+    func seeSoundOption() -> Bool {
+        return UserDefaults.standard.isSoundOption()
+    }
+    
+    func initMusic() {
+        try? AVAudioSession.sharedInstance().setMode(.default)
+        try? AVAudioSession.sharedInstance().setActive(true)
     }
     
     func playMusic() {
-        guard let safePlayer = musicPlayer else { return }
-        //Manda ele tocar a música
-        safePlayer.currentTime = 0
-        safePlayer.play()
-    }
-    
-    // Método que desliga/liga a música sempre que chamada
-    
-    func playStopMusic() {
-        
-        UserDefaults.standard.setMuteMusic()
-        
-        if statusMusic() == true {
-            
-            musicPlayer?.stop()
-            
-        } else {
-            
-            playMusic()
-            
-        }
-    }
-    
-    func initMusic(){
-        // Caminho até o áudio e tipo de arquivo
-        let musicUrlString = Bundle.main.path(forResource: Sounds.music.rawValue, ofType: "mp3")
-        
-        do {
-            //Não entendi direito isso, mas pelo visto é útil
-            try AVAudioSession.sharedInstance().setMode(.default)
-            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-            
-            guard let safeUrlString = musicUrlString else { return }
-            
-            //Passa o áudio para o player
-            musicPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: safeUrlString))
-            
-            //Toca infinitamente
+        if seeMusicOption() {
+            musicPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: Sounds.music.rawValue, ofType: "mp3")!))
             musicPlayer?.numberOfLoops = -1
-            
-            
-        } catch {
-            print("Erro na música")
+            musicPlayer?.play()
         }
     }
     
-    func playSound(SoundType: Sounds) {
-        soundPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: SoundType.rawValue, ofType: "mp3")!))
-        soundPlayer?.play()
+    func turnMusicOnOff() {
+        musicPlayer?.stop()
+        if musicPlayer?.isPlaying == true {
+            musicPlayer?.stop()
+        }
+        UserDefaults.standard.changeMusicOption()
+    }
+    
+    func seeMusicOption() -> Bool {
+        return UserDefaults.standard.isMusicOption()
     }
 }
