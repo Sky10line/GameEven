@@ -218,7 +218,7 @@ class PausePopUpView: SKSpriteNode {
             soundBtt.texture = SKTexture(imageNamed: "SomMudo")
         }
     }
-    
+    //Delegate
     private func exit(){
         pauseDelegate?.exitLevel()
         print("Pause Exit func")
