@@ -1,5 +1,5 @@
 {
-    "instruction": "Chega de caixas! Tic Tac! O tempo está passando...",
+    "instruction": "fase4Instruction",
     "silhouette": {
         "sprite": "fase4/silhouette",
         "size": [0, 0],

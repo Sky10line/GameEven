@@ -11,7 +11,7 @@ import GameplayKit
 class Draggable{
     var spriteNode: SKSpriteNode?
     
-    init(image: String, size: CGSize, pos: CGPoint, rotation: CGFloat, imageScale: CGFloat){
+    init(image: String, pos: CGPoint, rotation: CGFloat, imageScale: CGFloat){
         self.spriteNode = SKSpriteNode(imageNamed: image)
         
         let percentageScaleAdjust = CGFloat(0.925) // Porcentagem de quanto vai diminuir a peça além da escala já atribuída.
@@ -32,6 +32,10 @@ class Draggable{
             node.position = pos
             node.name = "draggable"
         }
+    }
+    
+    init(drag: Draggable) {
+        self.spriteNode = drag.spriteNode
     }
     
     func correctPointPos(){

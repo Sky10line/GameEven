@@ -12,9 +12,10 @@ import AVFoundation
 class OnboardViewController: UIViewController {
     
     @IBOutlet weak var label: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
     
     private var txt = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-    private var str:[String] = ["Lorem Ipsum is simply dummy text of Primeira parte is simply dummy text of the printing","printing and typesetting industry. is simply dummy text of the printing Lorem Segunda parte", "is simply dummy text of the printing It has survived not only five centuries, but also the leap Terceira parte"]
+    private var str:[String] = []
     private var index = 0
     private var counter = 0
     private var speed: Double = 60
@@ -30,7 +31,11 @@ class OnboardViewController: UIViewController {
         label.textColor = .black
         label.text = ""
         label.isEditable = false
+        imageView.image = UIImage(named: "Onboard-\(index + 1)")
         
+        for i in 1...20 {
+            str.append(NSLocalizedString("Parte \(i)", comment: ""))
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,12 +69,53 @@ class OnboardViewController: UIViewController {
                 label.text = ""
                 auxText = ""
                 typeWriter()
+                
+                UIView.transition(with: imageView, duration: 1.0, options: .curveEaseInOut, animations: {
+                    self.imageView.image = UIImage(named: "Onboard-\(self.index + 1)")
+                }, completion: nil)
+                print(index + 1)
             } else {
-                performSegue(withIdentifier: "Map", sender: self)
+                goToMap()
             }
             
         } else {
             counter = str[index].count
         }
     }
+    
+    @IBAction func skipBtt(_ sender: Any) {
+        let XibView = ConfirmationView.instanceFromNib()
+        
+        UIView.transition(with: self.view, duration: 1, options: .transitionFlipFromRight, animations: {
+            self.view.addSubview(XibView)
+        }, completion: nil)
+        
+        if let confirmeView: ConfirmationView = XibView as? ConfirmationView {
+            confirmeView.delegate = self
+            confirmeView.mensage = "Tem certeza que deseja pular a introdução?"
+        }
+    }
+    
+    private func goToMap(){
+        performSegue(withIdentifier: "Map", sender: self)
+    }
+}
+
+extension OnboardViewController: ConfirmeDelegate {
+    func confirme() {
+        goToMap()
+    }
+    
+    func cancel(sender: Any) {
+        guard let sender = sender as? UIView else {
+            fatalError("Sender")
+        }
+        
+        UIView.transition(with: self.view, duration: 1, options: .transitionFlipFromLeft, animations: {
+            sender.removeFromSuperview()
+        }, completion: nil)
+        
+    }
+    
+    
 }
