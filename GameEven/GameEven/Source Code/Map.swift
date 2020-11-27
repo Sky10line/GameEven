@@ -15,7 +15,7 @@ class MapViewController: UIViewController {
     // Objetos da ViewController
     
     @IBOutlet var buttonWay: [UIButton]! // Array com todos os botões da fase.
-    
+    @IBOutlet var onboardBtn: UIButton!
     @IBOutlet weak var backgroundScrollView: UIScrollView!
     
     // Variáveis Lógicas
@@ -102,6 +102,7 @@ class MapViewController: UIViewController {
                 button.removeTarget(nil, action: nil, for: .allEvents)
             }
         }
+        onboardBtn.addTarget(self, action: #selector(goToOnboard), for: .touchUpInside)
     }
     
     // Método que faz a rolagem automática do scroll até centralizar no botão da nível atual, respeitando os limites do scrollView.
@@ -141,7 +142,11 @@ class MapViewController: UIViewController {
     }
     
     //MARK: Entrada e Saída da View
-    
+    @objc func goToOnboard(sender: UIButton!) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Onboard") as! OnboardViewController
+                self.present(newViewController, animated: true, completion: nil)
+    }
     // Método para o jogador entrar na fase referente a .tag do botão.
     @objc func enterInInstruction(sender: UIButton!) {
         performSegue(withIdentifier: "goToInstruction", sender: sender.tag)
