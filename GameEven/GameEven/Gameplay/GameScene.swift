@@ -67,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         levelTimerLabel.horizontalAlignmentMode = .left
         levelTimerLabel.text = "00 : 00 : 00"
         levelTimerLabel.fontName = "Even"
-        levelTimerLabel.zPosition = 2
+        levelTimerLabel.zPosition = 4
         addChild(levelTimerLabel)
 
         let wait = SKAction.wait(forDuration: 1.0)
@@ -317,7 +317,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func createEdgeCollider(width: CGFloat, height: CGFloat, posX: CGFloat, posY: CGFloat) { //create all edge colliders
-        let edge = SKShapeNode(rect: CGRect(x: -width/2, y: -height/2, width: width, height: height))
+        let edge = SKNode()
         edge.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: width, height: height))
         edge.position = CGPoint(x: posX, y: posY)
         

@@ -8,7 +8,7 @@
 import UIKit
 import GameplayKit
 
-class Circle: Draggable, DraggableProtocol {
+class Circle: Draggable{
     private var bBPointUp = SKNode()
     private var bBPointDown = SKNode()
     private var bBPointLeft = SKNode()
