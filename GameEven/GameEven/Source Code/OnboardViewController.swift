@@ -83,7 +83,6 @@ class OnboardViewController: UIViewController {
                 UIView.transition(with: imageView, duration: 1.0, options: .curveEaseInOut, animations: {
                     self.imageView.image = UIImage(named: "Onboard-\(self.index + 1)")
                 }, completion: nil)
-                print(index + 1)
             } else {
                 goToMap()
             }

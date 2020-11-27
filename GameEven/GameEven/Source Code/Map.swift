@@ -77,10 +77,6 @@ class MapViewController: UIViewController {
         
         let image = UIImage(named: "BackG_Mapa")!
         
-        print(UIScreen.main.scale)
-        print(image.size.width)
-        print(UIScreen.main.bounds.width)
-        
         //scale: UIScreen.main.scale*(image.size.width/(UIScreen.main.bounds.width*UIScreen.main.scale)),
         
         let scaled = UIImage(cgImage: image.cgImage!, scale: UIScreen.main.scale * (image.size.width / (UIScreen.main.bounds.width * UIScreen.main.scale)), orientation: image.imageOrientation)
@@ -157,7 +153,7 @@ class MapViewController: UIViewController {
         if (segue.identifier == "goToInstruction") {
             guard let instructionView = segue.destination as? GameViewController else { return }
             
-            instructionView.level = sender as! Int
+            instructionView.level = sender as? Int
         }
     }
     

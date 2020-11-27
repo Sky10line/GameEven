@@ -56,7 +56,6 @@ class InstructionPopUpView: SKSpriteNode {
         labelText.verticalAlignmentMode = .bottom
         labelText.position.y = ballon.position.y - 32 - fontSize
         ballon.addChild(labelText)
-        print(labelText.frame)
         
         //Ajusta para textos maiores
         if labelText.frame.height > 154 {
@@ -106,7 +105,7 @@ class InstructionPopUpView: SKSpriteNode {
         )
         even.name = "even"
         even.texture = SKTexture(imageNamed: "InstructionEven-1")
-        even.position = CGPoint(x: scale(68), y: -even.size.height / 2 - offset)
+        even.position = CGPoint(x: scale(48), y: -even.size.height / 2 - offset)
         even.zPosition = 2
         self.addChild(even)
     }
@@ -150,7 +149,6 @@ class InstructionPopUpView: SKSpriteNode {
     
     private func exit(){
         delegate?.exitLevel()
-        print("Pause Exit func")
     }
     
     private func resume(){

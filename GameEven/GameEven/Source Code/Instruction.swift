@@ -42,8 +42,6 @@ class InstructionViewController: UIViewController {
     // Método que abrirá a fase
     @objc func enterInPhase(sender: UIButton!) {
         
-        print("Entrando na fase \(selectedPhase)")
-        
         performSegue(withIdentifier: "Game", sender: sender.tag)
         
     }

@@ -111,7 +111,6 @@
 		BD87B6302548A63C00F38CE1 /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B62F2548A63C00F38CE1 /* Square.swift */; };
 		BD87B6382549E8B800F38CE1 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B6372549E8B800F38CE1 /* Triangle.swift */; };
 		BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B63C254A0C5700F38CE1 /* Draggable.swift */; };
-		BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */; };
 		BD87B647254B354100F38CE1 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B646254B354100F38CE1 /* Circle.swift */; };
 		BDA32C4E255F046800A98D5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDA32C50255F046800A98D5F /* Localizable.strings */; };
 		BDD18D58255B2E25002EA912 /* TrianglePartsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD18D57255B2E25002EA912 /* TrianglePartsReader.swift */; };
@@ -250,7 +249,6 @@
 		BD87B62F2548A63C00F38CE1 /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
 		BD87B6372549E8B800F38CE1 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		BD87B63C254A0C5700F38CE1 /* Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draggable.swift; sourceTree = "<group>"; };
-		BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableProtocol.swift; sourceTree = "<group>"; };
 		BD87B646254B354100F38CE1 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		BDA32C4F255F046800A98D5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BDA32C54255F046C00A98D5F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -541,7 +539,6 @@
 				BD87B646254B354100F38CE1 /* Circle.swift */,
 				BD87B6372549E8B800F38CE1 /* Triangle.swift */,
 				BD87B63C254A0C5700F38CE1 /* Draggable.swift */,
-				BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */,
 				BDE1E3052551D8E3001566AD /* lvlReader.swift */,
 				BDE1E30A2551DA80001566AD /* PartsReader.swift */,
 				BDD18D57255B2E25002EA912 /* TrianglePartsReader.swift */,
@@ -799,7 +796,6 @@
 				BD87B5FA25474D1B00F38CE1 /* GameViewController.swift in Sources */,
 				16CA95D22549EAF8003038C9 /* Map.swift in Sources */,
 				16A747DC254B2F9100D59C71 /* Instruction.swift in Sources */,
-				BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */,
 				BD87B5F225474D1A00F38CE1 /* AppDelegate.swift in Sources */,
 				162C42652568432100225029 /* AudioManager.swift in Sources */,
 				165E1A012554958700BA72CA /* UserDefaultCommands.swift in Sources */,

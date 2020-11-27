@@ -23,12 +23,6 @@ class Draggable{
             node.size.height = self.spriteNode!.size.height * CGFloat(scale)
             node.size.width = self.spriteNode!.size.width * CGFloat(scale)
             
-            
-            
-            if node.size.height <= 44 && node.size.width <= 44 {
-                print("ERRO \n ERRO \n \(node.size) \n ERRO \n ERRO")
-            }
-            
             node.position = pos
             node.name = "draggable"
         }
