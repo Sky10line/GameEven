@@ -145,7 +145,8 @@ class MapViewController: UIViewController {
     @objc func goToOnboard(sender: UIButton!) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Onboard") as! OnboardViewController
-                self.present(newViewController, animated: true, completion: nil)
+        newViewController.modalPresentationStyle = .fullScreen
+        self.present(newViewController, animated: true, completion: nil)
     }
     // Método para o jogador entrar na fase referente a .tag do botão.
     @objc func enterInInstruction(sender: UIButton!) {
@@ -164,9 +165,10 @@ class MapViewController: UIViewController {
     
     // Método retornar ao mapa.
     @IBAction func unwindToMap(_ sender: Any) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "Onboard") as! OnboardViewController
-        self.show(vc, sender: self)
+        //let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        //let vc = storyboard.instantiateViewController(withIdentifier: "Onboard") as! OnboardViewController
+        //self.show(vc, sender: self)
     }
+    
     
 }
