@@ -156,6 +156,7 @@ class InstructionPopUpView: SKSpriteNode {
     private func resume(){
         self.run(  .fadeAlpha(to: 0, duration: 0.3)) {
             self.removeFromParent()
+            self.delegate?.resumeLevel()
         }
     }
 }
