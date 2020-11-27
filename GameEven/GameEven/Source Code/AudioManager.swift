@@ -9,7 +9,7 @@ import AVFoundation
 import Foundation
 
 enum Sounds: String {
-    case music = "NotOfficialMusic"
+    case music = "breakdown"
     case placePiece = "NotOfficialPlacePiece"
     case win = "NotOfficialWin"
 }
@@ -55,7 +55,7 @@ class AudioManager {
     // Método pra tocar uma música
     func playMusic() {
         if seeMusicOption() {
-            musicPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: Sounds.music.rawValue, ofType: "mp3")!))
+            musicPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: Sounds.music.rawValue, ofType: "wav")!))
             musicPlayer?.numberOfLoops = -1
             musicPlayer?.play()
         }

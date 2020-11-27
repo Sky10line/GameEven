@@ -8,7 +8,8 @@
 import UIKit
 import GameplayKit
 
-class Triangle: Draggable{
+class Triangle: Draggable {
+
     private var path: CGPath?
     private var points: [CGPoint] = []
     private var thirdTrianglePoint: CGFloat = 0

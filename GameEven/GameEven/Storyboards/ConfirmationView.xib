@@ -50,8 +50,8 @@
                                 <constraint firstAttribute="height" constant="120" id="LAB-2V-6Tr"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Even-Regular" family="Even" pointSize="25"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="highlightedColor" systemColor="labelColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EvenResetar" translatesAutoresizingMaskIntoConstraints="NO" id="qN4-6v-APr">
                             <rect key="frame" x="0.0" y="226" width="286" height="224"/>
@@ -110,6 +110,9 @@
         <image name="Button-Resume" width="1136" height="391"/>
         <image name="Button-X" width="126" height="125"/>
         <image name="EvenResetar" width="848" height="974"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
