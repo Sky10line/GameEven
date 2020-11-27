@@ -163,6 +163,10 @@ class MapViewController: UIViewController {
     }
     
     // Método retornar ao mapa.
-    @IBAction func unwindToMap(_ sender: UIStoryboardSegue) {}
+    @IBAction func unwindToMap(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "Onboard") as! OnboardViewController
+        self.show(vc, sender: self)
+    }
     
 }
