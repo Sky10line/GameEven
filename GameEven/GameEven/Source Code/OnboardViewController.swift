@@ -23,6 +23,8 @@ class OnboardViewController: UIViewController {
     private var timer: Timer?
     private var auxText: String = ""
     
+    private var isPause: Bool = false
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -65,6 +67,10 @@ class OnboardViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isPause {
+            return
+        }
+        
         if counter > str[index].count {
             
             if index < str.count - 1{
@@ -88,6 +94,7 @@ class OnboardViewController: UIViewController {
     }
     
     @IBAction func skipBtt(_ sender: Any) {
+        isPause = true
         let XibView = ConfirmationView.instanceFromNib()
         
         UIView.transition(with: self.view, duration: 1, options: .transitionFlipFromRight, animations: {
@@ -117,7 +124,9 @@ extension OnboardViewController: ConfirmeDelegate {
         
         UIView.transition(with: self.view, duration: 1, options: .transitionFlipFromLeft, animations: {
             sender.removeFromSuperview()
-        }, completion: nil)
+        }, completion: { _ in
+             self.isPause = false
+        })
         
     }
     
