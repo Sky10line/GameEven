@@ -231,12 +231,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         touchedNode?.physicsBody?.categoryBitMask = 1
         touchedNode?.physicsBody?.collisionBitMask = 9
         touching = false
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
-            if checkVitory() == true {
-                endGame()
+
+            if checkVitory() {
+                pause.run(SKAction.fadeAlpha(to: 0, duration: 0.2)){
+                    self.pause.isHidden = true
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+                    if checkVitory() {
+                        endGame()
+                    } else{
+                        pause.run(SKAction.fadeAlpha(to: 1, duration: 0.2)) {
+                            self.pause.isHidden = false
+                        }
+                    }
+                }
             }
-        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -379,6 +388,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func endGame() {
+        
         let endGame = LevelCompletePopUpView(size: CGSize(width: size.width, height: size.height), level: level, time: levelTimer)
         endGame.levelCompleteDelegate = self
         endGame.zPosition = 4
