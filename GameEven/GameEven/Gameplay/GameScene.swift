@@ -65,7 +65,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         levelTimerLabel.position.y = UIScreen.main.bounds.maxY / 2 - levelTimerLabel.fontSize - ( safeAreaInsets().top == .zero ? 32 : safeAreaInsets().top)
         levelTimerLabel.color = .white
         levelTimerLabel.horizontalAlignmentMode = .left
-        levelTimerLabel.text = "Time left: \(levelTimer)"
+        levelTimerLabel.text = "00 : 00 : 00"
         levelTimerLabel.fontName = "Even"
         levelTimerLabel.zPosition = 2
         addChild(levelTimerLabel)
@@ -181,7 +181,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         print(draggablesList.count)
         
-        activeTimer()
     }
     
     
@@ -379,6 +378,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         pause.run(  .fadeAlpha(to: 0, duration: 0.5)) {
             self.isPaused = true
+            self.pauseTimer()
         }
     }
     
@@ -420,6 +420,7 @@ extension GameScene: PauseMenuDelegate {
             self.pause.isHidden = false
         }
         self.isPaused = false
+        activeTimer()
     }
     
     func resetLevel() {
