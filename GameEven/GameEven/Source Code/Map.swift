@@ -145,7 +145,8 @@ class MapViewController: UIViewController {
     @objc func goToOnboard(sender: UIButton!) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Onboard") as! OnboardViewController
-                self.show(newViewController, sender: nil)
+        newViewController.modalPresentationStyle = .fullScreen
+        self.present(newViewController, animated: true, completion: nil)
     }
     // Método para o jogador entrar na fase referente a .tag do botão.
     @objc func enterInInstruction(sender: UIButton!) {
