@@ -41,6 +41,7 @@ class ConfigurationViewController: UIViewController {
         
     }
     
+    // Método pra trocar a imagem do botão de som
     func changeSoundButtonImage() {
         if audioPlayer.seeSoundOption() {
             soundButton.setImage(UIImage.init(named: "Som"), for: .normal)
@@ -49,6 +50,7 @@ class ConfigurationViewController: UIViewController {
         }
     }
     
+    // Método pra trocar a imagem do botão de música
     func changeMusicButtonImage() {
         if audioPlayer.seeMusicOption() {
             musicButton.setImage(UIImage.init(named: "Musica"), for: .normal)

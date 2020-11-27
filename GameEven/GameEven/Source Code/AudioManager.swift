@@ -20,17 +20,13 @@ class AudioManager {
         initMusic()
     }
     
-//    static var sharedInstance: AudioManager = {
-//        let instance = AudioManager()
-//
-//        return instance
-//    }
-    
+    // Utilizar para sempre iniciar a mesma intância da classe
     static let sharedInstance: AudioManager = { AudioManager() }()
     
     var musicPlayer: AVAudioPlayer?
     var soundPlayer: AVAudioPlayer?
     
+    // Método pra tocar um som
     func playSound(SoundType: Sounds) {
         if seeSoundOption() {
             soundPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: SoundType.rawValue, ofType: "mp3")!))
@@ -38,6 +34,7 @@ class AudioManager {
         }
     }
     
+    // Método pra ligar ou desligar o som
     func turnSoundOnOff() {
         if soundPlayer?.isPlaying == true {
             soundPlayer?.stop()
@@ -45,6 +42,7 @@ class AudioManager {
         UserDefaults.standard.changeSoundOption()
     }
     
+    // Função para ver se o som está mutado ou não
     func seeSoundOption() -> Bool {
         return UserDefaults.standard.isSoundOption()
     }
@@ -54,6 +52,7 @@ class AudioManager {
         try? AVAudioSession.sharedInstance().setActive(true)
     }
     
+    // Método pra tocar uma música
     func playMusic() {
         if seeMusicOption() {
             musicPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: Sounds.music.rawValue, ofType: "mp3")!))
@@ -62,6 +61,7 @@ class AudioManager {
         }
     }
     
+    // Método pra ligar ou desligar a música
     func turnMusicOnOff() {
         musicPlayer?.stop()
         if musicPlayer?.isPlaying == true {
@@ -70,6 +70,7 @@ class AudioManager {
         UserDefaults.standard.changeMusicOption()
     }
     
+    // Função para ver se a música está mutada ou não
     func seeMusicOption() -> Bool {
         return UserDefaults.standard.isMusicOption()
     }
