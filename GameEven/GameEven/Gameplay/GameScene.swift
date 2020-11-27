@@ -215,9 +215,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                         pb.categoryBitMask = 0
                         pb.collisionBitMask = 0
                     }
+                    self.touchedNode?.zPosition = 3
                     self.touchPoint = location
                     self.touchDistToCenter = CGPoint(x: (self.touchedNode?.position.x)!-self.touchPoint!.x, y: (self.touchedNode?.position.y)!-self.touchPoint!.y)
-                    
                     self.touching = true //set var to let the part move in update func
                 }
             }
@@ -269,6 +269,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 for child in self.touchedNode!.children{
                     moveNode(node: child)
                 }
+                self.touchedNode?.zPosition = 0
                 self.touchedNode = nil
                 self.touchedDrag = nil
             }
