@@ -102,12 +102,12 @@ class InstructionPopUpView: SKSpriteNode {
         //Even
         let even = SKSpriteNode(
             color: .blue,
-            size: CGSize(width: scale(280) * 0.84, height: scale(280))
+            size: CGSize(width: scale(330) * 0.84, height: scale(330))
         )
         even.name = "even"
-        even.texture = SKTexture(imageNamed: "InstructionEven")
+        even.texture = SKTexture(imageNamed: "InstructionEven-1")
         even.position = CGPoint(x: scale(68), y: -even.size.height / 2 - offset)
-        even.zPosition = 1
+        even.zPosition = 2
         self.addChild(even)
     }
     
