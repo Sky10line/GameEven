@@ -42,7 +42,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        UserDefaults.standard.resetPlayerLevel()
+        //UserDefaults.standard.resetPlayerLevel()
         
         repeatingBackground()
         
@@ -101,6 +101,9 @@ class MapViewController: UIViewController {
                 
                 button.setBackgroundImage(UIImage.init(named: "BlueMapButton"), for: .normal)
                 button.addTarget(self, action: #selector(enterInInstruction), for: .touchUpInside)
+            } else  {
+                button.setBackgroundImage(UIImage.init(named: "GrayMapButton"), for: .normal)
+                button.removeTarget(nil, action: nil, for: .allEvents)
             }
         }
     }

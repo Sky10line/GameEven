@@ -27,6 +27,8 @@ class PausePopUpView: SKSpriteNode {
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
     
+    private var audioPlayer = AudioManager.sharedInstance
+    
     init(size: CGSize){
         
         super.init(texture: nil, color: .orange, size: size)
@@ -127,7 +129,7 @@ class PausePopUpView: SKSpriteNode {
             size: CGSize(width: 46, height: 46)
         )
         soundBtt.name = "sound"
-        soundBtt.texture = SKTexture(imageNamed: "Som")
+        toggleSound()
         soundBtt.position.y = xBtt.position.y - soundBtt.size.height * 2
         soundBtt.position.x = -soundBtt.size.width - 8
         soundBtt.zPosition = 1
@@ -140,7 +142,7 @@ class PausePopUpView: SKSpriteNode {
             size: CGSize(width: 46, height: 46)
         )
         musicBtt.name = "music"
-        musicBtt.texture = SKTexture(imageNamed: UserDefaults.standard.seeMuteMusic() ? "Musica" : "MusicaMuda")
+        toggleMusic()
         musicBtt.position.y = soundBtt.position.y
         musicBtt.position.x = musicBtt.size.width + 8
         musicBtt.zPosition = 1
@@ -176,9 +178,9 @@ class PausePopUpView: SKSpriteNode {
                 case "resume":
                     resume()
                 case "music":
-                    toggleMusic()
+                    turnMusicOnOff()
                 case "sound":
-                    toggleSound()
+                    turnSoundOnOff()
                 default:
                     break
                 }
@@ -186,19 +188,35 @@ class PausePopUpView: SKSpriteNode {
         }
     }
     
-    private func toggleMusic(){
-        let userDefalts = UserDefaults.standard
-        userDefalts.setMuteMusic()
-        
-        if userDefalts.seeMuteMusic() {
+    private func turnMusicOnOff() {
+        audioPlayer.turnMusicOnOff()
+        toggleMusic()
+        audioPlayer.playMusic()
+            
+    }
+    
+    private func turnSoundOnOff() {
+        audioPlayer.turnSoundOnOff()
+        toggleSound()
+        audioPlayer.playSound(SoundType: .win)
+    }
+    
+    // Método pra trocar a imagem do botão de música
+    private func toggleMusic() {
+        if audioPlayer.seeMusicOption() {
             musicBtt.texture = SKTexture(imageNamed: "Musica")
         } else {
             musicBtt.texture = SKTexture(imageNamed: "MusicaMuda")
         }
     }
     
+    // Método pra trocar a imagem do botão de som
     private func toggleSound(){
-        fatalError("Implementar")
+        if audioPlayer.seeSoundOption() {
+            soundBtt.texture = SKTexture(imageNamed: "Som")
+        } else {
+            soundBtt.texture = SKTexture(imageNamed: "SomMudo")
+        }
     }
     
     private func exit(){

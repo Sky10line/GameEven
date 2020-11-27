@@ -23,6 +23,10 @@ class OnboardViewController: UIViewController {
     private var timer: Timer?
     private var auxText: String = ""
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
