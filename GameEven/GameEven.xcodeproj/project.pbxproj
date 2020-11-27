@@ -13,7 +13,7 @@
 		165E1A012554958700BA72CA /* UserDefaultCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E1A002554958700BA72CA /* UserDefaultCommands.swift */; };
 		165E1A122555C2F600BA72CA /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165E1A112555C2F600BA72CA /* Map.storyboard */; };
 		168AE0282559C1840089CBBC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AE0272559C1840089CBBC /* Launch Screen.storyboard */; };
-		168AE0382559C39A0089CBBC /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 168AE0372559C39A0089CBBC /* launch.png */; };
+		168AE0382559C39A0089CBBC /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 168AE0372559C39A0089CBBC /* launchScreen.png */; };
 		169B3413256488B2009568E7 /* lvl5.json in Resources */ = {isa = PBXBuildFile; fileRef = 169B3412256488B2009568E7 /* lvl5.json */; };
 		169B342125648D0D009568E7 /* lvl6.json in Resources */ = {isa = PBXBuildFile; fileRef = 169B342025648D0D009568E7 /* lvl6.json */; };
 		169B342E2564B2D3009568E7 /* lvl7.json in Resources */ = {isa = PBXBuildFile; fileRef = 169B342D2564B2D3009568E7 /* lvl7.json */; };
@@ -146,7 +146,7 @@
 		165E1A002554958700BA72CA /* UserDefaultCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultCommands.swift; sourceTree = "<group>"; };
 		165E1A112555C2F600BA72CA /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		168AE0272559C1840089CBBC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "GameEven/Source Code/Launch Screen.storyboard"; sourceTree = SOURCE_ROOT; };
-		168AE0372559C39A0089CBBC /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
+		168AE0372559C39A0089CBBC /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreen.png; sourceTree = "<group>"; };
 		169B3412256488B2009568E7 /* lvl5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lvl5.json; sourceTree = "<group>"; };
 		169B342025648D0D009568E7 /* lvl6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lvl6.json; sourceTree = "<group>"; };
 		169B342D2564B2D3009568E7 /* lvl7.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lvl7.json; sourceTree = "<group>"; };
@@ -503,7 +503,7 @@
 				BD87B5F125474D1A00F38CE1 /* AppDelegate.swift */,
 				8966336F254B371D00EBF5DF /* PausePopUpView.swift */,
 				BD87B5F525474D1A00F38CE1 /* Actions.sks */,
-				168AE0372559C39A0089CBBC /* launch.png */,
+				168AE0372559C39A0089CBBC /* launchScreen.png */,
 				BD87B62E2548A5D000F38CE1 /* Gameplay */,
 				BD87B5F925474D1B00F38CE1 /* GameViewController.swift */,
 				BD87B5FE25474D1D00F38CE1 /* Assets.xcassets */,
@@ -712,7 +712,7 @@
 				BDE1E34525533E84001566AD /* lvl2.json in Resources */,
 				16EA97B52555F12C00DFFC5F /* Blogger Sans-Light.otf in Resources */,
 				16EA97892555F12C00DFFC5F /* BloggerSans-Bold.ttf in Resources */,
-				168AE0382559C39A0089CBBC /* launch.png in Resources */,
+				168AE0382559C39A0089CBBC /* launchScreen.png in Resources */,
 				16EA97822555F12C00DFFC5F /* BloggerSans-Bold.eot in Resources */,
 				16A747D7254B2F8500D59C71 /* Instruction.storyboard in Resources */,
 				16EA97B42555F12C00DFFC5F /* Blogger Sans-Bold.otf in Resources */,
