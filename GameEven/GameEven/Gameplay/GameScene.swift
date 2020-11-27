@@ -67,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         levelTimerLabel.horizontalAlignmentMode = .left
         levelTimerLabel.text = "00 : 00 : 00"
         levelTimerLabel.fontName = "Even"
-        levelTimerLabel.zPosition = 2
+        levelTimerLabel.zPosition = 4
         addChild(levelTimerLabel)
 
         let wait = SKAction.wait(forDuration: 1.0)
@@ -215,9 +215,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                         pb.categoryBitMask = 0
                         pb.collisionBitMask = 0
                     }
+                    self.touchedNode?.zPosition = 3
                     self.touchPoint = location
                     self.touchDistToCenter = CGPoint(x: (self.touchedNode?.position.x)!-self.touchPoint!.x, y: (self.touchedNode?.position.y)!-self.touchPoint!.y)
-                    
                     self.touching = true //set var to let the part move in update func
                 }
             }
@@ -269,6 +269,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 for child in self.touchedNode!.children{
                     moveNode(node: child)
                 }
+                self.touchedNode?.zPosition = 0
                 self.touchedNode = nil
                 self.touchedDrag = nil
             }
@@ -317,7 +318,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func createEdgeCollider(width: CGFloat, height: CGFloat, posX: CGFloat, posY: CGFloat) { //create all edge colliders
-        let edge = SKShapeNode(rect: CGRect(x: -width/2, y: -height/2, width: width, height: height))
+        let edge = SKNode()
         edge.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: width, height: height))
         edge.position = CGPoint(x: posX, y: posY)
         

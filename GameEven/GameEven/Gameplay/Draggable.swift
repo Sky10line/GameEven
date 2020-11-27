@@ -22,7 +22,7 @@ class Draggable{
             
             node.size.height = self.spriteNode!.size.height * CGFloat(scale)
             node.size.width = self.spriteNode!.size.width * CGFloat(scale)
-            
+            node.zPosition = 0
             node.position = pos
             node.name = "draggable"
         }
@@ -30,6 +30,8 @@ class Draggable{
     
     init(drag: Draggable) {
         self.spriteNode = drag.spriteNode
+        
+        self.spriteNode?.zPosition = 0
     }
     
     func correctPointPos(){
