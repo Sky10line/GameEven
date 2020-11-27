@@ -107,7 +107,6 @@
 		BDE1E3062551D8E3001566AD /* lvlReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E3052551D8E3001566AD /* lvlReader.swift */; };
 		BDE1E30B2551DA80001566AD /* PartsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E30A2551DA80001566AD /* PartsReader.swift */; };
 		BDE1E34525533E84001566AD /* lvl2.json in Resources */ = {isa = PBXBuildFile; fileRef = BDE1E34425533E84001566AD /* lvl2.json */; };
-		FDC7EF1925671B7500159FE8 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC7EF1825671B7500159FE8 /* launch.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,7 +234,6 @@
 		BDE1E3052551D8E3001566AD /* lvlReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lvlReader.swift; sourceTree = "<group>"; };
 		BDE1E30A2551DA80001566AD /* PartsReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartsReader.swift; sourceTree = "<group>"; };
 		BDE1E34425533E84001566AD /* lvl2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lvl2.json; sourceTree = "<group>"; };
-		FDC7EF1825671B7500159FE8 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch.png; path = "../../../../../Downloads/Criatividade App /Peças Programação/Refinamento - Neon/launch.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,7 +440,6 @@
 				BD87B5F125474D1A00F38CE1 /* AppDelegate.swift */,
 				8966336F254B371D00EBF5DF /* PausePopUpView.swift */,
 				BD87B5F525474D1A00F38CE1 /* Actions.sks */,
-				FDC7EF1825671B7500159FE8 /* launch.png */,
 				BD87B62E2548A5D000F38CE1 /* Gameplay */,
 				BD87B5F925474D1B00F38CE1 /* GameViewController.swift */,
 				BD87B5FE25474D1D00F38CE1 /* Assets.xcassets */,
@@ -634,7 +631,6 @@
 				16EA97952555F12C00DFFC5F /* BloggerSans-Italic.eot in Resources */,
 				16EA97A62555F12C00DFFC5F /* BloggerSans-Medium.eot in Resources */,
 				16EA97912555F12C00DFFC5F /* BloggerSans.svg in Resources */,
-				FDC7EF1925671B7500159FE8 /* launch.png in Resources */,
 				16EA97A82555F12C00DFFC5F /* BloggerSans-Medium.html in Resources */,
 				16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */,
 				16EA97AA2555F12C00DFFC5F /* BloggerSans-MediumItalic.eot in Resources */,
