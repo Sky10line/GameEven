@@ -117,8 +117,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let silhouette = lvl.silhouette
         let back = SKSpriteNode(imageNamed: silhouette.sprite)
         
-        print(UIScreen.main.bounds.maxY)
-        
         func deviceScale (v: CGFloat) -> CGFloat {
             return CGFloat(UIScreen.main.bounds.maxY * v / 896)
         }
@@ -178,9 +176,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             part.insertCollider()
             self.draggablesList.append(part)
         }
-        
-        print(draggablesList.count)
-        
     }
     
     

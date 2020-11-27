@@ -13,9 +13,9 @@ class Triangle: Draggable, DraggableProtocol{
     private var points: [CGPoint] = []
     private var thirdTrianglePoint: CGFloat = 0
     
-    private let firstPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
-    private let secondPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
-    private let thirdPoint = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
+    private let firstPoint = SKNode()
+    private let secondPoint = SKNode()
+    private let thirdPoint = SKNode()
     
     private var p1: SKPhysicsBody!
     private var p2: SKPhysicsBody!
@@ -119,24 +119,17 @@ class Triangle: Draggable, DraggableProtocol{
         // Transforma em data a primeira linha de pixels.
         let dataOfLine = CFDataGetBytePtr(topPixelLine?.dataProvider?.data)
         
-        var thirdTrianglePoint = 0
-        
-        var i = 0
 
         // Testa de forma bruta toda a sequência de pixels.
             for x in 0..<Int((self.spriteNode?.texture?.cgImage().width)!) {
                 let pixelIndex = (((Int((self.spriteNode?.texture?.cgImage().width)!) * 1) + x) * 4)
-
-                //i+=1
-                //print(i)
                 
                 // Se o valor em pixelIndex+3 (posição em que fica o Alpha do pixel) for diferente de 0.
                 if dataOfLine![pixelIndex+3] != 0 {
                     
                     // Então encontrou o X do ponto.
-                    thirdTrianglePoint = x
 
-                    print(" - - - - X do ThirdPoint: \(x) - - - - ")
+//                    print(" - - - - X do ThirdPoint: \(x) - - - - ")
                     break
             }
         }

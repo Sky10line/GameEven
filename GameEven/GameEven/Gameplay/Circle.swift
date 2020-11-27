@@ -9,10 +9,10 @@ import UIKit
 import GameplayKit
 
 class Circle: Draggable, DraggableProtocol {
-    private var bBPointUp = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
-    private var bBPointDown = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
-    private var bBPointLeft = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
-    private var bBPointRight = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
+    private var bBPointUp = SKNode()
+    private var bBPointDown = SKNode()
+    private var bBPointLeft = SKNode()
+    private var bBPointRight = SKNode()
     
     private var pU: SKPhysicsBody!
     private var pD: SKPhysicsBody!
@@ -78,9 +78,7 @@ class Circle: Draggable, DraggableProtocol {
         
         
         if let backbodies = back.physicsBody?.allContactedBodies(){
-            print(backbodies)
             if(backbodies.contains(pU) && backbodies.contains(pD)){ //checa primeiro em cima e embaixo
-                print("Ponto em cima e baixo em contato")
                 if(backbodies.contains(pL) && backbodies.contains(pR)){//depois os lados
                     return true
                 }
