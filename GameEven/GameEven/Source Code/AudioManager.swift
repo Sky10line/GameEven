@@ -9,22 +9,25 @@ import AVFoundation
 import Foundation
 
 enum Sounds: String {
-    case music = "breakdown"
-    case placePiece = "NotOfficialPlacePiece"
-    case win = "NotOfficialWin"
+    case music = "Music"
+    case placePiece = "PutPiece"
+    case button = "Buttons"
+    case victory = "Victory"
 }
 
 class AudioManager {
-    
-    private init() {
-        initMusic()
-    }
     
     // Utilizar para sempre iniciar a mesma intância da classe
     static let sharedInstance: AudioManager = { AudioManager() }()
     
     var musicPlayer: AVAudioPlayer?
     var soundPlayer: AVAudioPlayer?
+    
+    private init() {
+        musicPlayer?.prepareToPlay()
+        soundPlayer?.prepareToPlay()
+        initMusic()
+    }
     
     // Método pra tocar um som
     func playSound(SoundType: Sounds) {

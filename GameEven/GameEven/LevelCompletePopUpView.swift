@@ -35,6 +35,8 @@ class LevelCompletePopUpView: SKSpriteNode {
     private var time: Int!
     let nStars: Int = 1
     
+    private var audioPlayer = AudioManager.sharedInstance
+    
     init(size: CGSize, level: Int, time: Int){
         self.level = level
         self.time = time
@@ -226,14 +228,17 @@ class LevelCompletePopUpView: SKSpriteNode {
     }
     
     private func exit(){
+        audioPlayer.playSound(SoundType: .button)
         levelCompleteDelegate?.exitLevel()
     }
     
     private func reset(){
+        audioPlayer.playSound(SoundType: .button)
         levelCompleteDelegate?.resetLevel()
     }
     
     private func next(){
+        audioPlayer.playSound(SoundType: .button)
         levelCompleteDelegate?.nextLevel()
     }
 }

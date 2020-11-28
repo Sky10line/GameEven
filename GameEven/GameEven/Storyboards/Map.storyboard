@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qMo-12-xPL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qMo-12-xPL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,15 +17,15 @@
             <objects>
                 <viewController storyboardIdentifier="MapView" title="Map View Controller" id="wSQ-re-Tlh" customClass="MapViewController" customModule="GameEven" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fZe-Of-GoB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" id="kR0-Wm-fzj">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ue-Ik-J14">
-                                        <rect key="frame" x="0.0" y="88" width="414" height="1022"/>
+                                        <rect key="frame" x="0.0" y="266" width="414" height="1153"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LinhaMapa" translatesAutoresizingMaskIntoConstraints="NO" id="7Fg-df-ZG1">
                                                 <rect key="frame" x="8" y="52" width="398" height="1022"/>
@@ -73,13 +73,6 @@
                                                 <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="7" backgroundImage="GrayMapButton"/>
                                             </button>
-                                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4A0-3N-ITc" userLabel="Button_8">
-                                                <rect key="frame" x="252" y="178" width="68" height="91"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Even-Regular" family="Even" pointSize="46"/>
-                                                <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <state key="normal" title="8" backgroundImage="GrayMapButton"/>
-                                            </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iao-Ob-5Tw" userLabel="Button_5">
                                                 <rect key="frame" x="50" y="473" width="68" height="91"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -87,46 +80,44 @@
                                                 <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <state key="normal" title="5" backgroundImage="GrayMapButton"/>
                                             </button>
-                                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ib-a0-Asj" userLabel="Button_9">
-                                                <rect key="frame" x="72" y="123" width="68" height="91"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="EmBreve-15" translatesAutoresizingMaskIntoConstraints="NO" id="jib-EP-HsL">
+                                                <rect key="frame" x="36" y="-136" width="343" height="351"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Even-Regular" family="Even" pointSize="46"/>
-                                                <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <state key="normal" title="9" backgroundImage="GrayMapButton"/>
-                                            </button>
+                                            </imageView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1022" id="qa3-QI-DXp"/>
+                                            <constraint firstAttribute="height" constant="1153" id="qa3-QI-DXp"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.094117647060000004" green="0.027450980390000001" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="5ue-Ik-J14" firstAttribute="top" secondItem="kR0-Wm-fzj" secondAttribute="top" constant="88" id="44Y-Un-DEo"/>
+                                    <constraint firstItem="5ue-Ik-J14" firstAttribute="top" secondItem="kR0-Wm-fzj" secondAttribute="top" constant="266" id="44Y-Un-DEo"/>
                                     <constraint firstItem="5ue-Ik-J14" firstAttribute="centerX" secondItem="kR0-Wm-fzj" secondAttribute="centerX" id="BPQ-5t-eRs"/>
                                     <constraint firstAttribute="trailing" secondItem="5ue-Ik-J14" secondAttribute="trailing" id="Bs1-x1-DD4"/>
                                     <constraint firstItem="5ue-Ik-J14" firstAttribute="leading" secondItem="kR0-Wm-fzj" secondAttribute="leading" id="f3j-5e-IIp"/>
-                                    <constraint firstAttribute="bottom" secondItem="5ue-Ik-J14" secondAttribute="bottom" constant="-10" id="mX3-bv-T2z"/>
+                                    <constraint firstAttribute="bottom" secondItem="5ue-Ik-J14" secondAttribute="bottom" constant="-119" id="mX3-bv-T2z"/>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ifH-s5-ULk">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="161"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="HeaderMap" translatesAutoresizingMaskIntoConstraints="NO" id="KTI-qG-cke">
-                                        <rect key="frame" x="-39" y="-13" width="493" height="186"/>
+                                        <rect key="frame" x="-39" y="-16" width="493" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRh-Oa-ine" userLabel="Config">
-                                        <rect key="frame" x="331" y="78" width="46" height="44"/>
+                                        <rect key="frame" x="331" y="97" width="46" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="BotaoConfig"/>
                                         <connections>
+                                            <action selector="ConfigSoundBtn:" destination="wSQ-re-Tlh" eventType="touchUpInside" id="OdK-d8-SL1"/>
                                             <segue destination="K0B-Uh-ZFY" kind="show" id="SSH-SM-bbm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIV-Rs-tsP" userLabel="Story">
-                                        <rect key="frame" x="37" y="78" width="46" height="44"/>
+                                        <rect key="frame" x="37" y="97" width="46" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="BotaoHistoria"/>
                                     </button>
@@ -145,11 +136,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Aty-Jk-koF"/>
-                    <size key="freeformSize" width="414" height="1100"/>
+                    <size key="freeformSize" width="414" height="1300"/>
                     <connections>
                         <outlet property="backgroundScrollView" destination="kR0-Wm-fzj" id="CQw-nf-qWe"/>
                         <outlet property="onboardBtn" destination="DIV-Rs-tsP" id="QA8-X2-E1j"/>
-                        <outletCollection property="buttonWay" destination="4A0-3N-ITc" collectionClass="NSMutableArray" id="40q-4f-NC5"/>
                         <outletCollection property="buttonWay" destination="zHM-Gi-U9M" collectionClass="NSMutableArray" id="L7S-cc-IQe"/>
                         <outletCollection property="buttonWay" destination="eGs-uw-KzJ" collectionClass="NSMutableArray" id="bAb-Rw-uGj"/>
                         <outletCollection property="buttonWay" destination="7w1-a8-wIH" collectionClass="NSMutableArray" id="bO5-aN-MxX"/>
@@ -157,7 +147,6 @@
                         <outletCollection property="buttonWay" destination="Iao-Ob-5Tw" collectionClass="NSMutableArray" id="YcG-tg-bnS"/>
                         <outletCollection property="buttonWay" destination="eTm-Fp-QCT" collectionClass="NSMutableArray" id="dQO-JV-pFR"/>
                         <outletCollection property="buttonWay" destination="UiX-jZ-CAL" collectionClass="NSMutableArray" id="25o-4w-6gs"/>
-                        <outletCollection property="buttonWay" destination="9Ib-a0-Asj" collectionClass="NSMutableArray" id="v2f-dk-aVw"/>
                         <segue destination="0VT-2y-car" kind="show" identifier="goToInstruction" id="3Ql-lD-ytl"/>
                     </connections>
                 </viewController>
@@ -208,6 +197,7 @@
     <resources>
         <image name="BotaoConfig" width="320" height="320"/>
         <image name="BotaoHistoria" width="229" height="292"/>
+        <image name="EmBreve-15" width="1638" height="1677"/>
         <image name="GrayMapButton" width="378" height="506"/>
         <image name="HeaderMap" width="1196" height="1196"/>
         <image name="LinhaMapa" width="1458" height="3409"/>

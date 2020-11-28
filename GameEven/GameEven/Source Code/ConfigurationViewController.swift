@@ -28,6 +28,10 @@ class ConfigurationViewController: UIViewController {
         
     }
     
+    @IBAction func returnBtnSound(_ sender: Any) {
+        audioPlayer.playSound(SoundType: .button)
+    }
+    
     @IBAction func turnMusicOnOff(_ sender: Any) {
         audioPlayer.turnMusicOnOff()
         changeMusicButtonImage()
@@ -38,7 +42,7 @@ class ConfigurationViewController: UIViewController {
     @IBAction func turnSoundOnOff(_ sender: Any) {
         audioPlayer.turnSoundOnOff()
         changeSoundButtonImage()
-        audioPlayer.playSound(SoundType: .win)
+        audioPlayer.playSound(SoundType: .button)
     }
     
     // Método pra trocar a imagem do botão de som
@@ -60,6 +64,7 @@ class ConfigurationViewController: UIViewController {
     }
     
     @IBAction func resetProgress(_ sender: Any) {
+        audioPlayer.playSound(SoundType: .button)
         let XibView = ConfirmationView.instanceFromNib()
         
         UIView.transition(with: self.view, duration: 1, options: .transitionFlipFromRight, animations: {
