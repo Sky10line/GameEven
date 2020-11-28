@@ -136,7 +136,7 @@ class MapViewController: UIViewController {
             animateScroll(position: scrollSize)
             
         } else {
-            animateScroll(position: centralizedScreenPosition)
+            animateScroll(position: 0.0)
         }
     }
     
