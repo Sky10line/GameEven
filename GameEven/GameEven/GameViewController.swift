@@ -20,7 +20,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let view = self.view as! SKView? {
+        if (self.view as? SKView) != nil {
             // Load the SKScene from 'GameScene.sks'
 //            guard let lvl = level else {
 //                fatalError("Level nao definido")
@@ -28,11 +28,15 @@ class GameViewController: UIViewController {
             
             changeLevel(changeTo: level)
             
-            view.ignoresSiblingOrder = true
-            view.showsPhysics = true
-            view.showsFPS = true
-            view.showsNodeCount = true
+//            debugging(view: view)
         }
+    }
+    
+    func debugging(view: SKView){
+        view.ignoresSiblingOrder = true
+        view.showsPhysics = true
+        view.showsFPS = true
+        view.showsNodeCount = true
     }
 
     override var shouldAutorotate: Bool {
@@ -55,7 +59,6 @@ class GameViewController: UIViewController {
 extension GameViewController: PopViewControllerDelegate {
     
     func changeLevel(changeTo level: Int) {
-        print("GameViewController ChangeLevel")
         guard let scene = SKScene(fileNamed: "GameScene") else {
             fatalError("Scene nao encontrada")
         }
@@ -68,16 +71,26 @@ extension GameViewController: PopViewControllerDelegate {
         s.scaleMode = .aspectFill
         s.size = UIScreen.main.bounds.size
         //TRANSICAO COM PROBLEMA
-//            let transition = SKTransition.fade(withDuration: 1.0)
+            let transition = SKTransition.fade(withDuration: 1.0)
 
         guard let view = self.view as? SKView else {
             fatalError("view nao e uma SKView")
         }
+        if let oldScene = view.scene as? GameScene {
+            oldScene.viewControllerDelegate = nil
+        }
         
-        view.presentScene(s)
+        
+        view.presentScene(s, transition: transition)
     }
     
     func popView() {
+        if let view = self.view as! SKView? {
+            guard let scene = view.scene as? GameScene else {
+                fatalError("Problema de....")
+            }
+            scene.viewControllerDelegate = nil
+        }
         self.navigationController!.popViewController(animated: true)
     }
 }

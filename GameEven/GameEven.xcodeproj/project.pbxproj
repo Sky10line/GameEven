@@ -7,17 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		162C42652568432100225029 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C42642568432100225029 /* AudioManager.swift */; };
 		1636F20A2564630A00AB4D3F /* lvl4.json in Resources */ = {isa = PBXBuildFile; fileRef = 1636F2092564630A00AB4D3F /* lvl4.json */; };
 		165E1A012554958700BA72CA /* UserDefaultCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E1A002554958700BA72CA /* UserDefaultCommands.swift */; };
 		165E1A122555C2F600BA72CA /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165E1A112555C2F600BA72CA /* Map.storyboard */; };
 		168AE0282559C1840089CBBC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168AE0272559C1840089CBBC /* Launch Screen.storyboard */; };
-		168AE0382559C39A0089CBBC /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 168AE0372559C39A0089CBBC /* launch.png */; };
+		168AE0382559C39A0089CBBC /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 168AE0372559C39A0089CBBC /* launchScreen.png */; };
 		169B3413256488B2009568E7 /* lvl5.json in Resources */ = {isa = PBXBuildFile; fileRef = 169B3412256488B2009568E7 /* lvl5.json */; };
 		169B342125648D0D009568E7 /* lvl6.json in Resources */ = {isa = PBXBuildFile; fileRef = 169B342025648D0D009568E7 /* lvl6.json */; };
 		169B342E2564B2D3009568E7 /* lvl7.json in Resources */ = {isa = PBXBuildFile; fileRef = 169B342D2564B2D3009568E7 /* lvl7.json */; };
 		16A747D7254B2F8500D59C71 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A747D6254B2F8500D59C71 /* Instruction.storyboard */; };
 		16A747DC254B2F9100D59C71 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A747DB254B2F9100D59C71 /* Instruction.swift */; };
 		16CA95D22549EAF8003038C9 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA95D12549EAF8003038C9 /* Map.swift */; };
+		16CB6DD4257184FF0035D7DD /* Music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 16CB6DD3257184FF0035D7DD /* Music.wav */; };
+		16DAD0FC2571B7B4004EDC2A /* Buttons.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16DAD0FB2571B7B4004EDC2A /* Buttons.mp3 */; };
+		16DAD1012571B817004EDC2A /* PutPiece.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16DAD1002571B817004EDC2A /* PutPiece.mp3 */; };
+		16DAD1092571CB4E004EDC2A /* Victory.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16DAD1082571CB4E004EDC2A /* Victory.mp3 */; };
 		16EA97772555F12C00DFFC5F /* Even-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA972E2555F12B00DFFC5F /* Even-Regular.ttf */; };
 		16EA97782555F12C00DFFC5F /* blogger-sans-ot-guide.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97302555F12B00DFFC5F /* blogger-sans-ot-guide.pdf */; };
 		16EA97792555F12C00DFFC5F /* Blogger Sans-Light Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97322555F12B00DFFC5F /* Blogger Sans-Light Italic.ttf */; };
@@ -84,8 +89,13 @@
 		16EA97B62555F12C00DFFC5F /* Blogger Sans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97742555F12C00DFFC5F /* Blogger Sans-Medium.otf */; };
 		16EA97B72555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97752555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf */; };
 		16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */; };
+		16EC8988256EEDC5008BF787 /* Configurations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16EC8987256EEDC5008BF787 /* Configurations.storyboard */; };
+		16EC898D256EF11F008BF787 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC898C256EF11F008BF787 /* ConfigurationViewController.swift */; };
 		89663370254B371D00EBF5DF /* PausePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966336F254B371D00EBF5DF /* PausePopUpView.swift */; };
 		89663375254B379700EBF5DF /* LevelCompletePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */; };
+		899980ED25702C10008E86FC /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899980EC25702C10008E86FC /* Int.swift */; };
+		899980F8257044B0008E86FC /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899980F7257044B0008E86FC /* ConfirmationView.swift */; };
+		899980FD257044CE008E86FC /* ConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 899980FC257044CE008E86FC /* ConfirmationView.xib */; };
 		89A3A36B2559DD070049132F /* InstructionPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3A36A2559DD070049132F /* InstructionPopUpView.swift */; };
 		89B39C3025645C02001D0E8C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B39C2F25645C02001D0E8C /* Onboarding.storyboard */; };
 		89B39C38256463CA001D0E8C /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B39C37256463CA001D0E8C /* OnboardViewController.swift */; };
@@ -102,7 +112,6 @@
 		BD87B6302548A63C00F38CE1 /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B62F2548A63C00F38CE1 /* Square.swift */; };
 		BD87B6382549E8B800F38CE1 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B6372549E8B800F38CE1 /* Triangle.swift */; };
 		BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B63C254A0C5700F38CE1 /* Draggable.swift */; };
-		BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */; };
 		BD87B647254B354100F38CE1 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD87B646254B354100F38CE1 /* Circle.swift */; };
 		BDA32C4E255F046800A98D5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDA32C50255F046800A98D5F /* Localizable.strings */; };
 		BDD18D58255B2E25002EA912 /* TrianglePartsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD18D57255B2E25002EA912 /* TrianglePartsReader.swift */; };
@@ -131,17 +140,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		162C42642568432100225029 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		1636F2092564630A00AB4D3F /* lvl4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lvl4.json; sourceTree = "<group>"; };
 		165E1A002554958700BA72CA /* UserDefaultCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultCommands.swift; sourceTree = "<group>"; };
 		165E1A112555C2F600BA72CA /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		168AE0272559C1840089CBBC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "GameEven/Source Code/Launch Screen.storyboard"; sourceTree = SOURCE_ROOT; };
-		168AE0372559C39A0089CBBC /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
+		168AE0372559C39A0089CBBC /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchScreen.png; sourceTree = "<group>"; };
 		169B3412256488B2009568E7 /* lvl5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lvl5.json; sourceTree = "<group>"; };
 		169B342025648D0D009568E7 /* lvl6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lvl6.json; sourceTree = "<group>"; };
 		169B342D2564B2D3009568E7 /* lvl7.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lvl7.json; sourceTree = "<group>"; };
 		16A747D6254B2F8500D59C71 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
 		16A747DB254B2F9100D59C71 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
 		16CA95D12549EAF8003038C9 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		16CB6DD3257184FF0035D7DD /* Music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Music.wav; sourceTree = "<group>"; };
+		16DAD0FB2571B7B4004EDC2A /* Buttons.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Buttons.mp3; sourceTree = "<group>"; };
+		16DAD1002571B817004EDC2A /* PutPiece.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PutPiece.mp3; sourceTree = "<group>"; };
+		16DAD1082571CB4E004EDC2A /* Victory.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Victory.mp3; sourceTree = "<group>"; };
 		16EA972E2555F12B00DFFC5F /* Even-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Even-Regular.ttf"; sourceTree = "<group>"; };
 		16EA97302555F12B00DFFC5F /* blogger-sans-ot-guide.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "blogger-sans-ot-guide.pdf"; sourceTree = "<group>"; };
 		16EA97322555F12B00DFFC5F /* Blogger Sans-Light Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Light Italic.ttf"; sourceTree = "<group>"; };
@@ -208,8 +222,13 @@
 		16EA97742555F12C00DFFC5F /* Blogger Sans-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Medium.otf"; sourceTree = "<group>"; };
 		16EA97752555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Medium Italic.otf"; sourceTree = "<group>"; };
 		16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Bold Italic.otf"; sourceTree = "<group>"; };
+		16EC8987256EEDC5008BF787 /* Configurations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Configurations.storyboard; sourceTree = "<group>"; };
+		16EC898C256EF11F008BF787 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		8966336F254B371D00EBF5DF /* PausePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausePopUpView.swift; sourceTree = "<group>"; };
 		89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCompletePopUpView.swift; sourceTree = "<group>"; };
+		899980EC25702C10008E86FC /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		899980F7257044B0008E86FC /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		899980FC257044CE008E86FC /* ConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmationView.xib; sourceTree = "<group>"; };
 		89A3A36A2559DD070049132F /* InstructionPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPopUpView.swift; sourceTree = "<group>"; };
 		89B39C2F25645C02001D0E8C /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		89B39C37256463CA001D0E8C /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
@@ -232,7 +251,6 @@
 		BD87B62F2548A63C00F38CE1 /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
 		BD87B6372549E8B800F38CE1 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		BD87B63C254A0C5700F38CE1 /* Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draggable.swift; sourceTree = "<group>"; };
-		BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableProtocol.swift; sourceTree = "<group>"; };
 		BD87B646254B354100F38CE1 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		BDA32C4F255F046800A98D5F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BDA32C54255F046C00A98D5F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -269,14 +287,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		162C426C2568524E00225029 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				162C426E2568527B00225029 /* Sounds */,
+				162C426D2568526A00225029 /* Music */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		162C426D2568526A00225029 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				16CB6DD3257184FF0035D7DD /* Music.wav */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		162C426E2568527B00225029 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				16DAD1002571B817004EDC2A /* PutPiece.mp3 */,
+				16DAD0FB2571B7B4004EDC2A /* Buttons.mp3 */,
+				16DAD1082571CB4E004EDC2A /* Victory.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		16CA95CA2549EAC9003038C9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				899980FC257044CE008E86FC /* ConfirmationView.xib */,
 				BD87B5FB25474D1B00F38CE1 /* Main.storyboard */,
 				168AE0272559C1840089CBBC /* Launch Screen.storyboard */,
 				165E1A112555C2F600BA72CA /* Map.storyboard */,
 				16A747D6254B2F8500D59C71 /* Instruction.storyboard */,
 				89B39C2F25645C02001D0E8C /* Onboarding.storyboard */,
+				16EC8987256EEDC5008BF787 /* Configurations.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -289,6 +336,10 @@
 				16A747DB254B2F9100D59C71 /* Instruction.swift */,
 				165E1A002554958700BA72CA /* UserDefaultCommands.swift */,
 				89FDDCD82566E536000A3F15 /* RedirectViewController.swift */,
+				899980EC25702C10008E86FC /* Int.swift */,
+				162C42642568432100225029 /* AudioManager.swift */,
+				16EC898C256EF11F008BF787 /* ConfigurationViewController.swift */,
+				899980F7257044B0008E86FC /* ConfirmationView.swift */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -445,13 +496,14 @@
 		BD87B5F025474D1A00F38CE1 /* GameEven */ = {
 			isa = PBXGroup;
 			children = (
+				162C426C2568524E00225029 /* Audio */,
 				16EA972D2555F00300DFFC5F /* Fonts */,
 				16CA95CA2549EAC9003038C9 /* Storyboards */,
 				16CA95CB2549EAD4003038C9 /* Source Code */,
 				BD87B5F125474D1A00F38CE1 /* AppDelegate.swift */,
 				8966336F254B371D00EBF5DF /* PausePopUpView.swift */,
 				BD87B5F525474D1A00F38CE1 /* Actions.sks */,
-				168AE0372559C39A0089CBBC /* launch.png */,
+				168AE0372559C39A0089CBBC /* launchScreen.png */,
 				BD87B62E2548A5D000F38CE1 /* Gameplay */,
 				BD87B5F925474D1B00F38CE1 /* GameViewController.swift */,
 				BD87B5FE25474D1D00F38CE1 /* Assets.xcassets */,
@@ -490,7 +542,6 @@
 				BD87B646254B354100F38CE1 /* Circle.swift */,
 				BD87B6372549E8B800F38CE1 /* Triangle.swift */,
 				BD87B63C254A0C5700F38CE1 /* Draggable.swift */,
-				BD87B641254A0E7E00F38CE1 /* DraggableProtocol.swift */,
 				BDE1E3052551D8E3001566AD /* lvlReader.swift */,
 				BDE1E30A2551DA80001566AD /* PartsReader.swift */,
 				BDD18D57255B2E25002EA912 /* TrianglePartsReader.swift */,
@@ -643,6 +694,7 @@
 				16EA97952555F12C00DFFC5F /* BloggerSans-Italic.eot in Resources */,
 				16EA97A62555F12C00DFFC5F /* BloggerSans-Medium.eot in Resources */,
 				16EA97912555F12C00DFFC5F /* BloggerSans.svg in Resources */,
+				899980FD257044CE008E86FC /* ConfirmationView.xib in Resources */,
 				16EA97A82555F12C00DFFC5F /* BloggerSans-Medium.html in Resources */,
 				16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */,
 				16EA97AA2555F12C00DFFC5F /* BloggerSans-MediumItalic.eot in Resources */,
@@ -655,10 +707,12 @@
 				16EA97AE2555F12C00DFFC5F /* BloggerSans-Medium.woff in Resources */,
 				16EA97AB2555F12C00DFFC5F /* BloggerSans-MediumItalic.css in Resources */,
 				16EA979F2555F12C00DFFC5F /* BloggerSans-Light.html in Resources */,
+				16DAD0FC2571B7B4004EDC2A /* Buttons.mp3 in Resources */,
+				16DAD1092571CB4E004EDC2A /* Victory.mp3 in Resources */,
 				BDE1E34525533E84001566AD /* lvl2.json in Resources */,
 				16EA97B52555F12C00DFFC5F /* Blogger Sans-Light.otf in Resources */,
 				16EA97892555F12C00DFFC5F /* BloggerSans-Bold.ttf in Resources */,
-				168AE0382559C39A0089CBBC /* launch.png in Resources */,
+				168AE0382559C39A0089CBBC /* launchScreen.png in Resources */,
 				16EA97822555F12C00DFFC5F /* BloggerSans-Bold.eot in Resources */,
 				16A747D7254B2F8500D59C71 /* Instruction.storyboard in Resources */,
 				16EA97B42555F12C00DFFC5F /* Blogger Sans-Bold.otf in Resources */,
@@ -670,16 +724,19 @@
 				16EA979A2555F12C00DFFC5F /* BloggerSans-LightItalic.woff in Resources */,
 				16EA97802555F12C00DFFC5F /* Blogger Sans-Medium.ttf in Resources */,
 				169B3413256488B2009568E7 /* lvl5.json in Resources */,
+				16EC8988256EEDC5008BF787 /* Configurations.storyboard in Resources */,
 				16EA977A2555F12C00DFFC5F /* Blogger Sans-Bold.ttf in Resources */,
 				16EA978E2555F12C00DFFC5F /* BloggerSans-BoldItalic.svg in Resources */,
 				16EA977B2555F12C00DFFC5F /* Blogger Sans.ttf in Resources */,
 				16EA97A22555F12C00DFFC5F /* BloggerSans-LightItalic.html in Resources */,
+				16CB6DD4257184FF0035D7DD /* Music.wav in Resources */,
 				16EA97942555F12C00DFFC5F /* BloggerSans-BoldItalic.css in Resources */,
 				16EA977D2555F12C00DFFC5F /* Blogger Sans-Medium Italic.ttf in Resources */,
 				165E1A122555C2F600BA72CA /* Map.storyboard in Resources */,
 				16EA97902555F12C00DFFC5F /* BloggerSans.css in Resources */,
 				16EA97852555F12C00DFFC5F /* BloggerSans-BoldItalic.ttf in Resources */,
 				16EA97882555F12C00DFFC5F /* BloggerSans.eot in Resources */,
+				16DAD1012571B817004EDC2A /* PutPiece.mp3 in Resources */,
 				BDA32C4E255F046800A98D5F /* Localizable.strings in Resources */,
 				16EA978B2555F12C00DFFC5F /* BloggerSans-BoldItalic.eot in Resources */,
 				16EA97982555F12C00DFFC5F /* BloggerSans-Bold.svg in Resources */,
@@ -731,17 +788,20 @@
 				BD87B647254B354100F38CE1 /* Circle.swift in Sources */,
 				BD87B5F825474D1B00F38CE1 /* GameScene.swift in Sources */,
 				BD87B6382549E8B800F38CE1 /* Triangle.swift in Sources */,
+				899980ED25702C10008E86FC /* Int.swift in Sources */,
 				89A3A36B2559DD070049132F /* InstructionPopUpView.swift in Sources */,
 				BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */,
 				BDD18D58255B2E25002EA912 /* TrianglePartsReader.swift in Sources */,
+				899980F8257044B0008E86FC /* ConfirmationView.swift in Sources */,
 				BDE1E30B2551DA80001566AD /* PartsReader.swift in Sources */,
+				16EC898D256EF11F008BF787 /* ConfigurationViewController.swift in Sources */,
 				89FDDCD92566E536000A3F15 /* RedirectViewController.swift in Sources */,
 				BDE1E3062551D8E3001566AD /* lvlReader.swift in Sources */,
 				BD87B5FA25474D1B00F38CE1 /* GameViewController.swift in Sources */,
 				16CA95D22549EAF8003038C9 /* Map.swift in Sources */,
 				16A747DC254B2F9100D59C71 /* Instruction.swift in Sources */,
-				BD87B642254A0E7E00F38CE1 /* DraggableProtocol.swift in Sources */,
 				BD87B5F225474D1A00F38CE1 /* AppDelegate.swift in Sources */,
+				162C42652568432100225029 /* AudioManager.swift in Sources */,
 				165E1A012554958700BA72CA /* UserDefaultCommands.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -922,7 +982,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HKSJLM4DRR;
+				DEVELOPMENT_TEAM = YHY9LU893D;
 				INFOPLIST_FILE = GameEven/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -942,7 +1002,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HKSJLM4DRR;
+				DEVELOPMENT_TEAM = YHY9LU893D;
 				INFOPLIST_FILE = GameEven/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

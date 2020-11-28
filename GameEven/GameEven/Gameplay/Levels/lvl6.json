@@ -1,5 +1,5 @@
 {
-    "instruction": "Ótima ideia, que tal vermos o que o satélite esconde?",
+    "instruction": "fase6Instruction",
     "silhouette": {
         "sprite": "fase6/silhouette",
         "size": [0, 0],

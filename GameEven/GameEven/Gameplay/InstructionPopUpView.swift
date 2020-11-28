@@ -13,11 +13,12 @@ class InstructionPopUpView: SKSpriteNode {
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
     
-    var menssage: String
+    private var audioPlayer = AudioManager.sharedInstance
+    
     var delegate: PauseMenuDelegate?
     
-    init(size: CGSize, _ menssage: String){
-        self.menssage = menssage
+    init(size: CGSize, _ message: String){
+
         super.init(texture: nil, color: .clear, size: size)
         
         isUserInteractionEnabled = true
@@ -42,9 +43,11 @@ class InstructionPopUpView: SKSpriteNode {
         ballon.color = .green
         self.addChild(ballon)
         
+        let message = NSLocalizedString(message, comment: "initial instruction")
+        
         //Text
         let labelText = SKLabelNode()
-        labelText.text = menssage
+        labelText.text = message
         labelText.zPosition = 1
         labelText.fontSize = fontSize
         labelText.fontColor = .black
@@ -52,10 +55,9 @@ class InstructionPopUpView: SKSpriteNode {
         labelText.numberOfLines = 10
         labelText.preferredMaxLayoutWidth = ballon.size.width - 32
         labelText.lineBreakMode = .byCharWrapping
-        labelText.verticalAlignmentMode = .center
-        labelText.position.y = ballon.position.y - 32
+        labelText.verticalAlignmentMode = .bottom
+        labelText.position.y = ballon.position.y - 32 - fontSize
         ballon.addChild(labelText)
-        print(labelText.frame)
         
         //Ajusta para textos maiores
         if labelText.frame.height > 154 {
@@ -101,12 +103,12 @@ class InstructionPopUpView: SKSpriteNode {
         //Even
         let even = SKSpriteNode(
             color: .blue,
-            size: CGSize(width: scale(280) * 0.84, height: scale(280))
+            size: CGSize(width: scale(330) * 0.84, height: scale(330))
         )
         even.name = "even"
-        even.texture = SKTexture(imageNamed: "InstructionEven")
-        even.position = CGPoint(x: scale(68), y: -even.size.height / 2 - offset)
-        even.zPosition = 1
+        even.texture = SKTexture(imageNamed: "InstructionEven-1")
+        even.position = CGPoint(x: scale(48), y: -even.size.height / 2 - offset)
+        even.zPosition = 2
         self.addChild(even)
     }
     
@@ -148,13 +150,15 @@ class InstructionPopUpView: SKSpriteNode {
     }
     
     private func exit(){
+        audioPlayer.playSound(SoundType: .button)
         delegate?.exitLevel()
-        print("Pause Exit func")
     }
     
     private func resume(){
+        audioPlayer.playSound(SoundType: .button)
         self.run(  .fadeAlpha(to: 0, duration: 0.3)) {
             self.removeFromParent()
+            self.delegate?.resumeLevel()
         }
     }
 }

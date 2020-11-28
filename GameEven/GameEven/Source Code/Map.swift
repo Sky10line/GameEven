@@ -15,7 +15,7 @@ class MapViewController: UIViewController {
     // Objetos da ViewController
     
     @IBOutlet var buttonWay: [UIButton]! // Array com todos os botões da fase.
-    
+    @IBOutlet var onboardBtn: UIButton!
     @IBOutlet weak var backgroundScrollView: UIScrollView!
     
     // Variáveis Lógicas
@@ -23,6 +23,8 @@ class MapViewController: UIViewController {
     var currentPlayerLevel: Int = 1 // Int com o nível de fases atual do jogador
     
     var scrollFirstTime: Bool = true
+    
+    private var audioPlayer = AudioManager.sharedInstance
     
     // MARK: Ciclo de Vida da View
     
@@ -34,6 +36,10 @@ class MapViewController: UIViewController {
         
         initButtons()
         
+        if audioPlayer.musicPlayer?.isPlaying != true || audioPlayer.musicPlayer == nil {
+            audioPlayer.playMusic()
+        }
+        
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -42,8 +48,10 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         
-
-        UserDefaults.standard.resetPlayerLevel()
+        audioPlayer.musicPlayer?.prepareToPlay()
+        audioPlayer.soundPlayer?.prepareToPlay()
+        
+        //UserDefaults.standard.resetPlayerLevel()
         
         repeatingBackground()
         
@@ -67,7 +75,7 @@ class MapViewController: UIViewController {
     // Método que carrega em que nível está o jogador baseado no userDefault, define como 1 caso não encontre nada.
     func loadingPlayerLevel() {
         
-        currentPlayerLevel = 9//UserDefaults.standard.loadPlayerLevel()
+        currentPlayerLevel = UserDefaults.standard.loadPlayerLevel()
         currentPlayerLevel == 0 ? currentPlayerLevel = 1 : ()
     }
     
@@ -77,10 +85,6 @@ class MapViewController: UIViewController {
     func repeatingBackground() {
         
         let image = UIImage(named: "BackG_Mapa")!
-        
-        print(UIScreen.main.scale)
-        print(image.size.width)
-        print(UIScreen.main.bounds.width)
         
         //scale: UIScreen.main.scale*(image.size.width/(UIScreen.main.bounds.width*UIScreen.main.scale)),
         
@@ -102,8 +106,12 @@ class MapViewController: UIViewController {
                 
                 button.setBackgroundImage(UIImage.init(named: "BlueMapButton"), for: .normal)
                 button.addTarget(self, action: #selector(enterInInstruction), for: .touchUpInside)
+            } else  {
+                button.setBackgroundImage(UIImage.init(named: "GrayMapButton"), for: .normal)
+                button.removeTarget(nil, action: nil, for: .allEvents)
             }
         }
+        onboardBtn.addTarget(self, action: #selector(goToOnboard), for: .touchUpInside)
     }
     
     // Método que faz a rolagem automática do scroll até centralizar no botão da nível atual, respeitando os limites do scrollView.
@@ -128,7 +136,7 @@ class MapViewController: UIViewController {
             animateScroll(position: scrollSize)
             
         } else {
-            animateScroll(position: centralizedScreenPosition)
+            animateScroll(position: 0.0)
         }
     }
     
@@ -143,9 +151,16 @@ class MapViewController: UIViewController {
     }
     
     //MARK: Entrada e Saída da View
-    
+    @objc func goToOnboard(sender: UIButton!) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "Onboard") as! OnboardViewController
+        newViewController.modalPresentationStyle = .fullScreen
+        self.present(newViewController, animated: true, completion: nil)
+        audioPlayer.playSound(SoundType: .button)
+    }
     // Método para o jogador entrar na fase referente a .tag do botão.
     @objc func enterInInstruction(sender: UIButton!) {
+        audioPlayer.playSound(SoundType: .button)
         performSegue(withIdentifier: "goToInstruction", sender: sender.tag)
     }
     
@@ -155,11 +170,19 @@ class MapViewController: UIViewController {
         if (segue.identifier == "goToInstruction") {
             guard let instructionView = segue.destination as? GameViewController else { return }
             
-            instructionView.level = sender as! Int
+            instructionView.level = sender as? Int
         }
+    }
+    @IBAction func ConfigSoundBtn(_ sender: Any) {
+        audioPlayer.playSound(SoundType: .button)
     }
     
     // Método retornar ao mapa.
-    @IBAction func unwindToMap(_ sender: UIStoryboardSegue) {}
+    @IBAction func unwindToMap(_ sender: Any) {
+        //let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        //let vc = storyboard.instantiateViewController(withIdentifier: "Onboard") as! OnboardViewController
+        //self.show(vc, sender: self)
+    }
+    
     
 }

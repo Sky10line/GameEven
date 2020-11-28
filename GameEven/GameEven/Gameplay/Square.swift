@@ -10,10 +10,10 @@ import GameplayKit
 
 class Square: Draggable{
     
-    private var bBPointUp = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
-    private var bBPointDown = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
-    private var bBPointLeft = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
-    private var bBPointRight = SKSpriteNode(color: .red, size: CGSize(width: 4, height: 4))
+    private var bBPointUp = SKNode()
+    private var bBPointDown = SKNode()
+    private var bBPointLeft = SKNode()
+    private var bBPointRight = SKNode()
     
     private var pU: SKPhysicsBody!
     private var pD: SKPhysicsBody!

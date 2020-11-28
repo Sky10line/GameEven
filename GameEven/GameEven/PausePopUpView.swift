@@ -18,8 +18,16 @@ class PausePopUpView: SKSpriteNode {
     
     var pauseDelegate: PauseMenuDelegate?
     
+    private var balloon: SKSpriteNode!
+    
+    private var musicBtt: SKSpriteNode!
+    private var soundBtt: SKSpriteNode!
+    private var xBtt: SKSpriteNode!
+    
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
+    
+    private var audioPlayer = AudioManager.sharedInstance
     
     init(size: CGSize){
         
@@ -31,7 +39,7 @@ class PausePopUpView: SKSpriteNode {
         buttonSize = scale(90)
         fontSize = scale(40)
         
-        let balloon = SKSpriteNode()
+        balloon = SKSpriteNode()
         balloon.texture =  SKTexture(imageNamed: "Backgroud-PopUp")
         balloon.size = CGSize(width: size.width * 0.85, height: size.height * 0.75)
         balloon.position = position
@@ -62,9 +70,9 @@ class PausePopUpView: SKSpriteNode {
         balloon.addChild(map)
         
         //X Btt
-        let xBtt = SKSpriteNode(
+        xBtt = SKSpriteNode(
             color: .red,
-            size: CGSize(width: 46, height: 46)
+            size: CGSize(width: 44, height: 44)
         )
         xBtt.name = "resume"
         xBtt.texture = SKTexture(imageNamed: "Button-X")
@@ -97,17 +105,48 @@ class PausePopUpView: SKSpriteNode {
         //Even
         let even = SKSpriteNode(
             color: .blue,
-            size: CGSize(width: scale(280) * 0.84, height: scale(280))
+            size: CGSize(width: scale(220) * 0.857, height: scale(220))
         )
         even.name = "even"
         even.texture = SKTexture(imageNamed: "Even-Pause")
-        even.position = CGPoint(x: 0, y: scale(80))
+        even.position = CGPoint(x: 0, y: scale(30))
         even.zPosition = 1
         balloon.addChild(even)
+        
+        createSoundButtons()
+        createMusicButtons()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //Passar criaçao de elementos para funcs
+    //MARK: Elementos
+    private func createSoundButtons() {
+        soundBtt = SKSpriteNode(
+            color: .red,
+            size: CGSize(width: 46, height: 46)
+        )
+        soundBtt.name = "sound"
+        toggleSound()
+        soundBtt.position.y = xBtt.position.y - soundBtt.size.height * 2
+        soundBtt.position.x = -soundBtt.size.width - 8
+        soundBtt.zPosition = 1
+        balloon.addChild(soundBtt)
+    }
+    
+    private func createMusicButtons() {
+        musicBtt = SKSpriteNode(
+            color: .red,
+            size: CGSize(width: 46, height: 46)
+        )
+        musicBtt.name = "music"
+        toggleMusic()
+        musicBtt.position.y = soundBtt.position.y
+        musicBtt.position.x = musicBtt.size.width + 8
+        musicBtt.zPosition = 1
+        balloon.addChild(musicBtt)
     }
     
     //Ajusta para fazer percetual ao tamanho original - Base iphone 11
@@ -124,7 +163,7 @@ class PausePopUpView: SKSpriteNode {
         return valueToScale * scale
     }
     
-    //Interacoes
+    //MARK: Interacoes
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
@@ -138,6 +177,10 @@ class PausePopUpView: SKSpriteNode {
                     reset()
                 case "resume":
                     resume()
+                case "music":
+                    turnMusicOnOff()
+                case "sound":
+                    turnSoundOnOff()
                 default:
                     break
                 }
@@ -145,18 +188,49 @@ class PausePopUpView: SKSpriteNode {
         }
     }
     
+    private func turnMusicOnOff() {
+        audioPlayer.turnMusicOnOff()
+        toggleMusic()
+        audioPlayer.playMusic()
+            
+    }
+    
+    private func turnSoundOnOff() {
+        audioPlayer.turnSoundOnOff()
+        toggleSound()
+        audioPlayer.playSound(SoundType: .button)
+    }
+    
+    // Método pra trocar a imagem do botão de música
+    private func toggleMusic() {
+        if audioPlayer.seeMusicOption() {
+            musicBtt.texture = SKTexture(imageNamed: "Musica")
+        } else {
+            musicBtt.texture = SKTexture(imageNamed: "MusicaMuda")
+        }
+    }
+    
+    // Método pra trocar a imagem do botão de som
+    private func toggleSound(){
+        if audioPlayer.seeSoundOption() {
+            soundBtt.texture = SKTexture(imageNamed: "Som")
+        } else {
+            soundBtt.texture = SKTexture(imageNamed: "SomMudo")
+        }
+    }
+    //Delegate
     private func exit(){
+        audioPlayer.playSound(SoundType: .button)
         pauseDelegate?.exitLevel()
-        print("Pause Exit func")
     }
     
     private func reset(){
+        audioPlayer.playSound(SoundType: .button)
         pauseDelegate?.resetLevel()
-        print("Pause Reset func")
     }
     
     private func resume(){
-        print("Pause Resume func")
+        audioPlayer.playSound(SoundType: .button)
         pauseDelegate?.resumeLevel()
         self.run(  .fadeAlpha(to: 0, duration: 0.3)) {
             self.removeFromParent()
