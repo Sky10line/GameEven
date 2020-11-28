@@ -198,7 +198,7 @@ class PausePopUpView: SKSpriteNode {
     private func turnSoundOnOff() {
         audioPlayer.turnSoundOnOff()
         toggleSound()
-        audioPlayer.playSound(SoundType: .win)
+        audioPlayer.playSound(SoundType: .button)
     }
     
     // Método pra trocar a imagem do botão de música
@@ -220,14 +220,17 @@ class PausePopUpView: SKSpriteNode {
     }
     //Delegate
     private func exit(){
+        audioPlayer.playSound(SoundType: .button)
         pauseDelegate?.exitLevel()
     }
     
     private func reset(){
+        audioPlayer.playSound(SoundType: .button)
         pauseDelegate?.resetLevel()
     }
     
     private func resume(){
+        audioPlayer.playSound(SoundType: .button)
         pauseDelegate?.resumeLevel()
         self.run(  .fadeAlpha(to: 0, duration: 0.3)) {
             self.removeFromParent()

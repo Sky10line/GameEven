@@ -18,17 +18,22 @@ class ConfirmationView: UIView {
     
     weak var delegate: ConfirmeDelegate?
     
+    var audioPlayer = AudioManager.sharedInstance
+    
     var mensage: String = "" { didSet { label.text = mensage } }
     
     @IBAction func confirme(_ sender: Any) {
+        audioPlayer.playSound(SoundType: .button)
         delegate?.confirme()
     }
     
     @IBAction func cancel(_ sender: Any) {
+        audioPlayer.playSound(SoundType: .button)
         delegate?.cancel(sender: self)
     }
     
     @IBAction func exit(_ sender: Any) {
+        audioPlayer.playSound(SoundType: .button)
         delegate?.cancel(sender: self)
     }
     

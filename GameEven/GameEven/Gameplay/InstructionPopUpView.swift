@@ -13,6 +13,8 @@ class InstructionPopUpView: SKSpriteNode {
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
     
+    private var audioPlayer = AudioManager.sharedInstance
+    
     var delegate: PauseMenuDelegate?
     
     init(size: CGSize, _ message: String){
@@ -148,10 +150,12 @@ class InstructionPopUpView: SKSpriteNode {
     }
     
     private func exit(){
+        audioPlayer.playSound(SoundType: .button)
         delegate?.exitLevel()
     }
     
     private func resume(){
+        audioPlayer.playSound(SoundType: .button)
         self.run(  .fadeAlpha(to: 0, duration: 0.3)) {
             self.removeFromParent()
             self.delegate?.resumeLevel()

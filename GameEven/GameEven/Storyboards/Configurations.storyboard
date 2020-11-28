@@ -47,6 +47,7 @@
                                     <color key="titleShadowColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="returnBtnSound:" destination="TRB-2d-I56" eventType="touchUpInside" id="dn0-Aw-zv2"/>
                                     <segue destination="bbh-u3-7YB" kind="unwind" identifier="unwindToMap" unwindAction="unwindToMap:" id="SRc-63-F4t"/>
                                 </connections>
                             </button>

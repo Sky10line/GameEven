@@ -41,9 +41,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         didSet { levelTimerLabel?.text = levelTimer.intToTime()}
     }
     var levelTimerSequence: SKAction?
-
+    
+    private var audioPlayer = AudioManager.sharedInstance
+    
     private var maxSilhouetteSize = CGFloat(330) // Determina até quanto a imagem pode ser escalonada em pixels, nos eixos X e Y.
-
+    
     var viewControllerDelegate: PopViewControllerDelegate?
     
     override func didMove(to view: SKView) {
@@ -69,12 +71,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         levelTimerLabel.fontName = "Even"
         levelTimerLabel.zPosition = 4
         addChild(levelTimerLabel)
-
+        
         let wait = SKAction.wait(forDuration: 1.0)
         let block = SKAction.run({
-                [unowned self] in
-                    self.levelTimer += 1
-            })
+            [unowned self] in
+            self.levelTimer += 1
+        })
         levelTimerSequence = SKAction.sequence([wait,block])
         
         //Pause Btn
@@ -230,27 +232,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         touchedNode?.physicsBody?.categoryBitMask = 1
         touchedNode?.physicsBody?.collisionBitMask = 9
+        //        if touching {
+        //            audioPlayer.playSound(SoundType: .placePiece)
+        //        }
         touching = false
-
-            if checkVitory() {
-                pause.run(SKAction.fadeAlpha(to: 0, duration: 0.2)){
-                    self.pause.isHidden = true
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
-                    if checkVitory() {
-                        endGame()
-                    } else{
-                        pause.run(SKAction.fadeAlpha(to: 1, duration: 0.2)) {
-                            self.pause.isHidden = false
-                        }
+        
+        
+        if checkVitory() {
+            pause.run(SKAction.fadeAlpha(to: 0, duration: 0.2)){
+                self.pause.isHidden = true
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+                if checkVitory() {
+                    audioPlayer.playSound(SoundType: .victory)
+                    endGame()
+                } else{
+                    pause.run(SKAction.fadeAlpha(to: 1, duration: 0.2)) {
+                        self.pause.isHidden = false
                     }
                 }
             }
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         touchedNode?.physicsBody?.categoryBitMask = 1
         touchedNode?.physicsBody?.collisionBitMask = 9
+        //        if touching {
+        //            audioPlayer.playSound(SoundType: .placePiece)
+        //        }
         touching = false
     }
     
@@ -273,6 +283,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 drag.correctPointPos()
             }
             if(touchedNode != nil){
+                audioPlayer.playSound(SoundType: .placePiece)
                 vel = nil
                 moveNode(node: self.touchedNode!)
                 for child in self.touchedNode!.children{
@@ -373,6 +384,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func pauseGame(){
+        
+        audioPlayer.playSound(SoundType: .button)
+        
         let pauseMenu = PausePopUpView(size: CGSize(width: size.width, height: size.height))
         pauseMenu.pauseDelegate = self
         pauseMenu.zPosition = 4

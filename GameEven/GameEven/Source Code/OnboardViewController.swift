@@ -29,8 +29,13 @@ class OnboardViewController: UIViewController {
         return true
     }
     
+    private var audioPlayer = AudioManager.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        audioPlayer.musicPlayer?.prepareToPlay()
+        audioPlayer.soundPlayer?.prepareToPlay()
         
         label.sizeToFit()
         label.font = UIFont(name: "Even", size: fontSize)
@@ -45,9 +50,15 @@ class OnboardViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        if audioPlayer.musicPlayer?.isPlaying != true || audioPlayer.musicPlayer == nil {
+            audioPlayer.playMusic()
+        }
+        
         super.viewDidAppear(animated)
         typeWriter()
     }
+
     
     @objc func typeWriter(){
         if counter < str[index].count {
@@ -93,6 +104,7 @@ class OnboardViewController: UIViewController {
     }
     
     @IBAction func skipBtt(_ sender: Any) {
+        audioPlayer.playSound(SoundType: .button)
         isPause = true
         let XibView = ConfirmationView.instanceFromNib()
         

@@ -24,6 +24,8 @@ class MapViewController: UIViewController {
     
     var scrollFirstTime: Bool = true
     
+    private var audioPlayer = AudioManager.sharedInstance
+    
     // MARK: Ciclo de Vida da View
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +36,10 @@ class MapViewController: UIViewController {
         
         initButtons()
         
+        if audioPlayer.musicPlayer?.isPlaying != true || audioPlayer.musicPlayer == nil {
+            audioPlayer.playMusic()
+        }
+        
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -41,6 +47,9 @@ class MapViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
+        audioPlayer.musicPlayer?.prepareToPlay()
+        audioPlayer.soundPlayer?.prepareToPlay()
         
         //UserDefaults.standard.resetPlayerLevel()
         
@@ -127,7 +136,7 @@ class MapViewController: UIViewController {
             animateScroll(position: scrollSize)
             
         } else {
-            animateScroll(position: centralizedScreenPosition)
+            animateScroll(position: 0.0)
         }
     }
     
@@ -147,9 +156,11 @@ class MapViewController: UIViewController {
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "Onboard") as! OnboardViewController
         newViewController.modalPresentationStyle = .fullScreen
         self.present(newViewController, animated: true, completion: nil)
+        audioPlayer.playSound(SoundType: .button)
     }
     // Método para o jogador entrar na fase referente a .tag do botão.
     @objc func enterInInstruction(sender: UIButton!) {
+        audioPlayer.playSound(SoundType: .button)
         performSegue(withIdentifier: "goToInstruction", sender: sender.tag)
     }
     
@@ -161,6 +172,9 @@ class MapViewController: UIViewController {
             
             instructionView.level = sender as? Int
         }
+    }
+    @IBAction func ConfigSoundBtn(_ sender: Any) {
+        audioPlayer.playSound(SoundType: .button)
     }
     
     // Método retornar ao mapa.

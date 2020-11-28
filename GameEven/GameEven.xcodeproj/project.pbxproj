@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		162C42652568432100225029 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C42642568432100225029 /* AudioManager.swift */; };
-		162C42702568535000225029 /* NotOfficialMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 162C426F2568535000225029 /* NotOfficialMusic.mp3 */; };
 		1636F20A2564630A00AB4D3F /* lvl4.json in Resources */ = {isa = PBXBuildFile; fileRef = 1636F2092564630A00AB4D3F /* lvl4.json */; };
 		165E1A012554958700BA72CA /* UserDefaultCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E1A002554958700BA72CA /* UserDefaultCommands.swift */; };
 		165E1A122555C2F600BA72CA /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165E1A112555C2F600BA72CA /* Map.storyboard */; };
@@ -20,7 +19,10 @@
 		16A747D7254B2F8500D59C71 /* Instruction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A747D6254B2F8500D59C71 /* Instruction.storyboard */; };
 		16A747DC254B2F9100D59C71 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A747DB254B2F9100D59C71 /* Instruction.swift */; };
 		16CA95D22549EAF8003038C9 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA95D12549EAF8003038C9 /* Map.swift */; };
-		16CB6DD4257184FF0035D7DD /* breakdown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 16CB6DD3257184FF0035D7DD /* breakdown.wav */; };
+		16CB6DD4257184FF0035D7DD /* Music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 16CB6DD3257184FF0035D7DD /* Music.wav */; };
+		16DAD0FC2571B7B4004EDC2A /* Buttons.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16DAD0FB2571B7B4004EDC2A /* Buttons.mp3 */; };
+		16DAD1012571B817004EDC2A /* PutPiece.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16DAD1002571B817004EDC2A /* PutPiece.mp3 */; };
+		16DAD1092571CB4E004EDC2A /* Victory.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16DAD1082571CB4E004EDC2A /* Victory.mp3 */; };
 		16EA97772555F12C00DFFC5F /* Even-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA972E2555F12B00DFFC5F /* Even-Regular.ttf */; };
 		16EA97782555F12C00DFFC5F /* blogger-sans-ot-guide.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97302555F12B00DFFC5F /* blogger-sans-ot-guide.pdf */; };
 		16EA97792555F12C00DFFC5F /* Blogger Sans-Light Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97322555F12B00DFFC5F /* Blogger Sans-Light Italic.ttf */; };
@@ -87,8 +89,6 @@
 		16EA97B62555F12C00DFFC5F /* Blogger Sans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97742555F12C00DFFC5F /* Blogger Sans-Medium.otf */; };
 		16EA97B72555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97752555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf */; };
 		16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */; };
-		16EC8958256ECF3B008BF787 /* NotOfficialWin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16EC8956256ECF3B008BF787 /* NotOfficialWin.mp3 */; };
-		16EC8959256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16EC8957256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 */; };
 		16EC8988256EEDC5008BF787 /* Configurations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16EC8987256EEDC5008BF787 /* Configurations.storyboard */; };
 		16EC898D256EF11F008BF787 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC898C256EF11F008BF787 /* ConfigurationViewController.swift */; };
 		89663370254B371D00EBF5DF /* PausePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966336F254B371D00EBF5DF /* PausePopUpView.swift */; };
@@ -141,7 +141,6 @@
 
 /* Begin PBXFileReference section */
 		162C42642568432100225029 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
-		162C426F2568535000225029 /* NotOfficialMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NotOfficialMusic.mp3; sourceTree = "<group>"; };
 		1636F2092564630A00AB4D3F /* lvl4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lvl4.json; sourceTree = "<group>"; };
 		165E1A002554958700BA72CA /* UserDefaultCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultCommands.swift; sourceTree = "<group>"; };
 		165E1A112555C2F600BA72CA /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
@@ -153,7 +152,10 @@
 		16A747D6254B2F8500D59C71 /* Instruction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Instruction.storyboard; sourceTree = "<group>"; };
 		16A747DB254B2F9100D59C71 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
 		16CA95D12549EAF8003038C9 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
-		16CB6DD3257184FF0035D7DD /* breakdown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = breakdown.wav; sourceTree = "<group>"; };
+		16CB6DD3257184FF0035D7DD /* Music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Music.wav; sourceTree = "<group>"; };
+		16DAD0FB2571B7B4004EDC2A /* Buttons.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Buttons.mp3; sourceTree = "<group>"; };
+		16DAD1002571B817004EDC2A /* PutPiece.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PutPiece.mp3; sourceTree = "<group>"; };
+		16DAD1082571CB4E004EDC2A /* Victory.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Victory.mp3; sourceTree = "<group>"; };
 		16EA972E2555F12B00DFFC5F /* Even-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Even-Regular.ttf"; sourceTree = "<group>"; };
 		16EA97302555F12B00DFFC5F /* blogger-sans-ot-guide.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "blogger-sans-ot-guide.pdf"; sourceTree = "<group>"; };
 		16EA97322555F12B00DFFC5F /* Blogger Sans-Light Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Light Italic.ttf"; sourceTree = "<group>"; };
@@ -220,8 +222,6 @@
 		16EA97742555F12C00DFFC5F /* Blogger Sans-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Medium.otf"; sourceTree = "<group>"; };
 		16EA97752555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Medium Italic.otf"; sourceTree = "<group>"; };
 		16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Bold Italic.otf"; sourceTree = "<group>"; };
-		16EC8956256ECF3B008BF787 /* NotOfficialWin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NotOfficialWin.mp3; sourceTree = "<group>"; };
-		16EC8957256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NotOfficialPlacePiece.mp3; sourceTree = "<group>"; };
 		16EC8987256EEDC5008BF787 /* Configurations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Configurations.storyboard; sourceTree = "<group>"; };
 		16EC898C256EF11F008BF787 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		8966336F254B371D00EBF5DF /* PausePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausePopUpView.swift; sourceTree = "<group>"; };
@@ -299,8 +299,7 @@
 		162C426D2568526A00225029 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				16CB6DD3257184FF0035D7DD /* breakdown.wav */,
-				162C426F2568535000225029 /* NotOfficialMusic.mp3 */,
+				16CB6DD3257184FF0035D7DD /* Music.wav */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -308,8 +307,9 @@
 		162C426E2568527B00225029 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				16EC8957256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 */,
-				16EC8956256ECF3B008BF787 /* NotOfficialWin.mp3 */,
+				16DAD1002571B817004EDC2A /* PutPiece.mp3 */,
+				16DAD0FB2571B7B4004EDC2A /* Buttons.mp3 */,
+				16DAD1082571CB4E004EDC2A /* Victory.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -669,7 +669,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				16EA97782555F12C00DFFC5F /* blogger-sans-ot-guide.pdf in Resources */,
-				16EC8959256ECF3B008BF787 /* NotOfficialPlacePiece.mp3 in Resources */,
 				16EA97AD2555F12C00DFFC5F /* BloggerSans-Medium.css in Resources */,
 				16EA97A02555F12C00DFFC5F /* BloggerSans-Light.eot in Resources */,
 				16EA97B72555F12C00DFFC5F /* Blogger Sans-Medium Italic.otf in Resources */,
@@ -698,7 +697,6 @@
 				899980FD257044CE008E86FC /* ConfirmationView.xib in Resources */,
 				16EA97A82555F12C00DFFC5F /* BloggerSans-Medium.html in Resources */,
 				16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */,
-				162C42702568535000225029 /* NotOfficialMusic.mp3 in Resources */,
 				16EA97AA2555F12C00DFFC5F /* BloggerSans-MediumItalic.eot in Resources */,
 				16EA97AF2555F12C00DFFC5F /* BloggerSans-Medium.svg in Resources */,
 				16EA978C2555F12C00DFFC5F /* BloggerSans-BoldItalic.woff in Resources */,
@@ -709,6 +707,8 @@
 				16EA97AE2555F12C00DFFC5F /* BloggerSans-Medium.woff in Resources */,
 				16EA97AB2555F12C00DFFC5F /* BloggerSans-MediumItalic.css in Resources */,
 				16EA979F2555F12C00DFFC5F /* BloggerSans-Light.html in Resources */,
+				16DAD0FC2571B7B4004EDC2A /* Buttons.mp3 in Resources */,
+				16DAD1092571CB4E004EDC2A /* Victory.mp3 in Resources */,
 				BDE1E34525533E84001566AD /* lvl2.json in Resources */,
 				16EA97B52555F12C00DFFC5F /* Blogger Sans-Light.otf in Resources */,
 				16EA97892555F12C00DFFC5F /* BloggerSans-Bold.ttf in Resources */,
@@ -729,15 +729,15 @@
 				16EA978E2555F12C00DFFC5F /* BloggerSans-BoldItalic.svg in Resources */,
 				16EA977B2555F12C00DFFC5F /* Blogger Sans.ttf in Resources */,
 				16EA97A22555F12C00DFFC5F /* BloggerSans-LightItalic.html in Resources */,
-				16CB6DD4257184FF0035D7DD /* breakdown.wav in Resources */,
+				16CB6DD4257184FF0035D7DD /* Music.wav in Resources */,
 				16EA97942555F12C00DFFC5F /* BloggerSans-BoldItalic.css in Resources */,
 				16EA977D2555F12C00DFFC5F /* Blogger Sans-Medium Italic.ttf in Resources */,
 				165E1A122555C2F600BA72CA /* Map.storyboard in Resources */,
 				16EA97902555F12C00DFFC5F /* BloggerSans.css in Resources */,
 				16EA97852555F12C00DFFC5F /* BloggerSans-BoldItalic.ttf in Resources */,
 				16EA97882555F12C00DFFC5F /* BloggerSans.eot in Resources */,
+				16DAD1012571B817004EDC2A /* PutPiece.mp3 in Resources */,
 				BDA32C4E255F046800A98D5F /* Localizable.strings in Resources */,
-				16EC8958256ECF3B008BF787 /* NotOfficialWin.mp3 in Resources */,
 				16EA978B2555F12C00DFFC5F /* BloggerSans-BoldItalic.eot in Resources */,
 				16EA97982555F12C00DFFC5F /* BloggerSans-Bold.svg in Resources */,
 				16EA978F2555F12C00DFFC5F /* BloggerSans-BoldItalic.html in Resources */,
