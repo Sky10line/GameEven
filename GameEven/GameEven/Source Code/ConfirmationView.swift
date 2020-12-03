@@ -40,19 +40,19 @@ class ConfirmationView: UIView {
     //MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        commonInit()
+        commonInit()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-//        commonInit()
+        commonInit()
     }
     
     private func commonInit(){
-        let viewFromXib = Bundle.main.loadNibNamed("ConfirmationView", owner: self, options: nil)![0] as! ConfirmationView
-        viewFromXib.frame = self.bounds
-        viewFromXib.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        addSubview(viewFromXib)
+//        let viewFromXib = Bundle.main.loadNibNamed("ConfirmationView", owner: self, options: nil)![0] as! ConfirmationView
+        self.frame = self.bounds
+        autoresizingMask = [.flexibleHeight, .flexibleWidth]
+//        addSubview(viewFromXib)
     }
     
     class func instanceFromNib() -> UIView {

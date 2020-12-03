@@ -107,9 +107,9 @@ class OnboardViewController: UIViewController {
         audioPlayer.playSound(SoundType: .button)
         isPause = true
         let XibView = ConfirmationView.instanceFromNib()
-        
         UIView.transition(with: self.view, duration: 1, options: .transitionFlipFromRight, animations: {
             self.view.addSubview(XibView)
+            XibView.frame = self.view.bounds
         }, completion: nil)
         
         if let confirmeView: ConfirmationView = XibView as? ConfirmationView {
