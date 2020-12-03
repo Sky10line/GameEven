@@ -138,11 +138,11 @@ class LevelCompletePopUpView: SKSpriteNode {
     private func createEven() {
         let even = SKSpriteNode(
             color: .blue,
-            size: CGSize(width: scale(200) * 0.68, height: scale(200))
+            size: CGSize(width: scale(300) * 0.68, height: scale(300))
         )
         even.name = "even"
         even.texture = SKTexture(imageNamed: "Even-Next-2")
-        even.position = CGPoint(x: 0, y: nextBtt.position.y + nextBtt.size.height / 2 + even.size.height / 2 + scale(60))
+        even.position = CGPoint(x: 0, y: nextBtt.position.y + nextBtt.size.height / 2 + even.size.height / 2 + scale(20))
         even.zPosition = 1
         balloon.addChild(even)
     }
