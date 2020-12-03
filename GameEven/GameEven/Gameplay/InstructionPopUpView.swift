@@ -55,16 +55,16 @@ class InstructionPopUpView: SKSpriteNode {
         labelText.numberOfLines = 10
         labelText.preferredMaxLayoutWidth = ballon.size.width - 32
         labelText.lineBreakMode = .byCharWrapping
-        labelText.verticalAlignmentMode = .bottom
-        labelText.position.y = ballon.position.y - 32 - fontSize
+        labelText.verticalAlignmentMode = .center
+        labelText.position.y = ballon.position.y - fontSize
         ballon.addChild(labelText)
         
         //Ajusta para textos maiores
-        if labelText.frame.height > 154 {
-            let dif = labelText.frame.height - 154
-            ballon.size.height = ballon.frame.height + dif
-            labelText.position.y = ballon.position.y + 32 + dif / 2
-        }
+//        if labelText.frame.height > 154 {
+//            let dif = labelText.frame.height - 154
+//            ballon.size.height = ballon.frame.height + dif
+//            labelText.position.y = ballon.position.y + 32 + dif / 2
+//        }
         
         //X Btt
         let xBtt = SKSpriteNode(
