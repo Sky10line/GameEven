@@ -27,17 +27,19 @@ class PausePopUpView: SKSpriteNode {
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
     
+    private var scale: CGFloat! = 0
+    
     private var audioPlayer = AudioManager.sharedInstance
     
     init(size: CGSize){
         
         super.init(texture: nil, color: .orange, size: size)
         texture = SKTexture(imageNamed: "Background-Fases")
-        
+        scale = scaleValue()
         isUserInteractionEnabled = true
         
-        buttonSize = scale(90)
-        fontSize = scale(40)
+        buttonSize = 90
+        fontSize = 40 * scale
         
         balloon = SKSpriteNode()
         balloon.texture =  SKTexture(imageNamed: "Backgroud-PopUp")
@@ -52,10 +54,12 @@ class PausePopUpView: SKSpriteNode {
             size: CGSize(width: buttonSize, height: buttonSize * 0.719)
         )
         resetLevel.name = "reset"
-        var y: CGFloat = balloon.size.height / 2 - resetLevel.size.height / 2 - scale(64)
+        var y: CGFloat = (balloon.size.height / 2) - (resetLevel.size.height / 2)
+        y -= (64 * scale)
         resetLevel.texture = SKTexture(imageNamed: "Button-Reset")
-        resetLevel.position = CGPoint(x: resetLevel.size.width / 2 + scale(16), y: -y)
+        resetLevel.position = CGPoint(x: resetLevel.size.width / 2 + 16 * scale, y: -y)
         resetLevel.zPosition = 1
+        resetLevel.resizeble()
         balloon.addChild(resetLevel)
         
         //Exit to Map Btt
@@ -65,7 +69,7 @@ class PausePopUpView: SKSpriteNode {
         )
         map.name = "exit"
         map.texture = SKTexture(imageNamed: "Button-Map")
-        map.position = CGPoint(x: -map.size.width / 2 - scale(16), y: -y)
+        map.position = CGPoint(x: -map.size.width / 2 - 16 * scale, y: -y)
         map.zPosition = 1
         balloon.addChild(map)
         
@@ -85,13 +89,14 @@ class PausePopUpView: SKSpriteNode {
         
         let resume = SKSpriteNode(
             color: .green,
-            size: CGSize(width: buttonSize * 2 + scale(32), height: buttonSize * 0.75 * 0.719)
+            size: CGSize(width: buttonSize * 2 + 32, height: buttonSize * 0.75 * 0.719)
         )
         resume.name = "resume"
         resume.texture = SKTexture(imageNamed: "Button-Resume")
         y = resetLevel.position.y + resetLevel.size.height / 2 + resume.size.height / 2
-        resume.position = CGPoint(x: 0, y: y + scale(32))
+        resume.position = CGPoint(x: 0, y: y + 32 * scale)
         resume.zPosition = 1
+        resume.resizeble()
         balloon.addChild(resume)
 
         let txtLabel = SKLabelNode(text: cont)
@@ -105,12 +110,14 @@ class PausePopUpView: SKSpriteNode {
         //Even
         let even = SKSpriteNode(
             color: .blue,
-            size: CGSize(width: scale(220) * 0.857, height: scale(220))
+            size: CGSize(width: 220 * 0.857, height: 220)
         )
+        
         even.name = "even"
         even.texture = SKTexture(imageNamed: "Even-Pause")
-        even.position = CGPoint(x: 0, y: scale(30))
+        even.position = CGPoint(x: 0, y: 20)
         even.zPosition = 1
+        even.resizeble(true)
         balloon.addChild(even)
         
         createSoundButtons()
@@ -130,7 +137,7 @@ class PausePopUpView: SKSpriteNode {
         )
         soundBtt.name = "sound"
         toggleSound()
-        soundBtt.position.y = xBtt.position.y - soundBtt.size.height * 2
+        soundBtt.position.y = xBtt.position.y - soundBtt.size.height * (2 * scale)
         soundBtt.position.x = -soundBtt.size.width - 8
         soundBtt.zPosition = 1
         balloon.addChild(soundBtt)
@@ -149,19 +156,33 @@ class PausePopUpView: SKSpriteNode {
         balloon.addChild(musicBtt)
     }
     
-    //Ajusta para fazer percetual ao tamanho original - Base iphone 11
-    private func scale(_ valueToScale: CGFloat) -> CGFloat {
-        let base: CGFloat = 414
-        let screen = UIScreen.main.bounds
-        let newDimension: CGFloat = min(screen.height, screen.width)
-        
-        var scale: CGFloat = ((100 * newDimension) / base) / 100
-        
-        if scale > 2 {
-            scale = 2
-        }
-        return valueToScale * scale
-    }
+//    //Ajusta para fazer percetual ao tamanho original - Base iphone 11
+//    private func scale(_ valueToScale: CGFloat) -> CGFloat {
+//        let baseWidth: CGFloat = 414
+//        let baseHeight: CGFloat = 896
+//
+//        let screen = UIScreen.main.bounds
+//
+//        var newDimension: CGFloat = 0
+//        var scale: CGFloat = 0
+//
+//        if abs(baseWidth - screen.width) > abs(baseHeight - screen.height) {
+//            newDimension = screen.width
+//            scale = ((100 * newDimension) / baseWidth) / 100
+//        } else {
+//            newDimension = screen.height
+//            scale = ((100 * newDimension) / baseHeight) / 100
+//        }
+//
+//        print("New Dimension: \(newDimension)")
+//        print("Hewight: \(screen.height)")
+//
+//
+//        if scale > 2 {
+//            scale = 2
+//        }
+//        return valueToScale * scale
+//    }
     
     //MARK: Interacoes
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
