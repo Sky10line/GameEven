@@ -91,6 +91,7 @@
 		16EA97B82555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */; };
 		16EC8988256EEDC5008BF787 /* Configurations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16EC8987256EEDC5008BF787 /* Configurations.storyboard */; };
 		16EC898D256EF11F008BF787 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EC898C256EF11F008BF787 /* ConfigurationViewController.swift */; };
+		8916E2FB25796B53000F7281 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916E2FA25796B53000F7281 /* Node.swift */; };
 		89663370254B371D00EBF5DF /* PausePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966336F254B371D00EBF5DF /* PausePopUpView.swift */; };
 		89663375254B379700EBF5DF /* LevelCompletePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */; };
 		899980ED25702C10008E86FC /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899980EC25702C10008E86FC /* Int.swift */; };
@@ -224,6 +225,7 @@
 		16EA97762555F12C00DFFC5F /* Blogger Sans-Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blogger Sans-Bold Italic.otf"; sourceTree = "<group>"; };
 		16EC8987256EEDC5008BF787 /* Configurations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Configurations.storyboard; sourceTree = "<group>"; };
 		16EC898C256EF11F008BF787 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
+		8916E2FA25796B53000F7281 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		8966336F254B371D00EBF5DF /* PausePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PausePopUpView.swift; sourceTree = "<group>"; };
 		89663374254B379700EBF5DF /* LevelCompletePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCompletePopUpView.swift; sourceTree = "<group>"; };
 		899980EC25702C10008E86FC /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				162C42642568432100225029 /* AudioManager.swift */,
 				16EC898C256EF11F008BF787 /* ConfigurationViewController.swift */,
 				899980F7257044B0008E86FC /* ConfirmationView.swift */,
+				8916E2FA25796B53000F7281 /* Node.swift */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -790,6 +793,7 @@
 				BD87B6382549E8B800F38CE1 /* Triangle.swift in Sources */,
 				899980ED25702C10008E86FC /* Int.swift in Sources */,
 				89A3A36B2559DD070049132F /* InstructionPopUpView.swift in Sources */,
+				8916E2FB25796B53000F7281 /* Node.swift in Sources */,
 				BD87B63D254A0C5700F38CE1 /* Draggable.swift in Sources */,
 				BDD18D58255B2E25002EA912 /* TrianglePartsReader.swift in Sources */,
 				899980F8257044B0008E86FC /* ConfirmationView.swift in Sources */,

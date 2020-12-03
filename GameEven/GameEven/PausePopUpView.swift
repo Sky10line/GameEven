@@ -23,9 +23,15 @@ class PausePopUpView: SKSpriteNode {
     private var musicBtt: SKSpriteNode!
     private var soundBtt: SKSpriteNode!
     private var xBtt: SKSpriteNode!
+    private var even: SKSpriteNode!
+    private var resetLevel: SKSpriteNode!
+    private var map: SKSpriteNode!
+    private var resumeBtt: SKSpriteNode!
     
     private var buttonSize: CGFloat!
     private var fontSize: CGFloat!
+    
+    private var scale: CGFloat! = 0
     
     private var audioPlayer = AudioManager.sharedInstance
     
@@ -33,43 +39,44 @@ class PausePopUpView: SKSpriteNode {
         
         super.init(texture: nil, color: .orange, size: size)
         texture = SKTexture(imageNamed: "Background-Fases")
-        
+        scale = scaleValue()
         isUserInteractionEnabled = true
         
-        buttonSize = scale(90)
-        fontSize = scale(40)
+        buttonSize = 90
+        fontSize = 40 * scale
         
+        createBalloon()
+        
+        createXbutton()
+        
+        createResetBtt()
+        
+        createMapBtt()
+        
+        createResumeBtt()
+        
+        createEven()
+        
+        createSoundButtons()
+        
+        createMusicButtons()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: Elementos
+    private func createBalloon() {
         balloon = SKSpriteNode()
         balloon.texture =  SKTexture(imageNamed: "Backgroud-PopUp")
         balloon.size = CGSize(width: size.width * 0.85, height: size.height * 0.75)
         balloon.position = position
         balloon.zPosition = 1
         self.addChild(balloon)
-        
-        //Reset Btt
-        let resetLevel = SKSpriteNode(
-            color: .red,
-            size: CGSize(width: buttonSize, height: buttonSize * 0.719)
-        )
-        resetLevel.name = "reset"
-        var y: CGFloat = balloon.size.height / 2 - resetLevel.size.height / 2 - scale(64)
-        resetLevel.texture = SKTexture(imageNamed: "Button-Reset")
-        resetLevel.position = CGPoint(x: resetLevel.size.width / 2 + scale(16), y: -y)
-        resetLevel.zPosition = 1
-        balloon.addChild(resetLevel)
-        
-        //Exit to Map Btt
-        let map = SKSpriteNode(
-            color: .blue,
-            size: CGSize(width: buttonSize, height: buttonSize * 0.719)
-        )
-        map.name = "exit"
-        map.texture = SKTexture(imageNamed: "Button-Map")
-        map.position = CGPoint(x: -map.size.width / 2 - scale(16), y: -y)
-        map.zPosition = 1
-        balloon.addChild(map)
-        
-        //X Btt
+    }
+    
+    private func createXbutton() {
         xBtt = SKSpriteNode(
             color: .red,
             size: CGSize(width: 44, height: 44)
@@ -79,50 +86,8 @@ class PausePopUpView: SKSpriteNode {
         xBtt.position = CGPoint(x: balloon.size.width / 2 - 24 - xBtt.size.width / 2, y: balloon.size.height / 2 - 24 - xBtt.size.height / 2)
         xBtt.zPosition = 1
         balloon.addChild(xBtt)
-    
-        //Resume Btt
-        let cont = NSLocalizedString("Continue", comment: "continue btn")
-        
-        let resume = SKSpriteNode(
-            color: .green,
-            size: CGSize(width: buttonSize * 2 + scale(32), height: buttonSize * 0.75 * 0.719)
-        )
-        resume.name = "resume"
-        resume.texture = SKTexture(imageNamed: "Button-Resume")
-        y = resetLevel.position.y + resetLevel.size.height / 2 + resume.size.height / 2
-        resume.position = CGPoint(x: 0, y: y + scale(32))
-        resume.zPosition = 1
-        balloon.addChild(resume)
-
-        let txtLabel = SKLabelNode(text: cont)
-        txtLabel.fontSize = fontSize
-        txtLabel.fontColor = .white
-        txtLabel.fontName = "Even"
-        txtLabel.verticalAlignmentMode = .center
-        txtLabel.zPosition = 1
-        resume.addChild(txtLabel)
-        
-        //Even
-        let even = SKSpriteNode(
-            color: .blue,
-            size: CGSize(width: scale(220) * 0.857, height: scale(220))
-        )
-        even.name = "even"
-        even.texture = SKTexture(imageNamed: "Even-Pause")
-        even.position = CGPoint(x: 0, y: scale(30))
-        even.zPosition = 1
-        balloon.addChild(even)
-        
-        createSoundButtons()
-        createMusicButtons()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    //Passar criaçao de elementos para funcs
-    //MARK: Elementos
     private func createSoundButtons() {
         soundBtt = SKSpriteNode(
             color: .red,
@@ -130,7 +95,7 @@ class PausePopUpView: SKSpriteNode {
         )
         soundBtt.name = "sound"
         toggleSound()
-        soundBtt.position.y = xBtt.position.y - soundBtt.size.height * 2
+        soundBtt.position.y = xBtt.position.y - soundBtt.size.height * (2 * scale)
         soundBtt.position.x = -soundBtt.size.width - 8
         soundBtt.zPosition = 1
         balloon.addChild(soundBtt)
@@ -149,18 +114,75 @@ class PausePopUpView: SKSpriteNode {
         balloon.addChild(musicBtt)
     }
     
-    //Ajusta para fazer percetual ao tamanho original - Base iphone 11
-    private func scale(_ valueToScale: CGFloat) -> CGFloat {
-        let base: CGFloat = 414
-        let screen = UIScreen.main.bounds
-        let newDimension: CGFloat = min(screen.height, screen.width)
+    private func createEven(){
+        even = SKSpriteNode(
+            color: .blue,
+            size: CGSize(width: 220 * 0.857, height: 220)
+        )
         
-        var scale: CGFloat = ((100 * newDimension) / base) / 100
+        even.name = "even"
+        even.texture = SKTexture(imageNamed: "Even-Pause")
+        even.position = CGPoint(x: 0, y: 20)
+        even.zPosition = 1
+        even.resizeble(true)
+        balloon.addChild(even)
+    }
+    
+    private func createResetBtt() {
         
-        if scale > 2 {
-            scale = 2
-        }
-        return valueToScale * scale
+        resetLevel = SKSpriteNode(
+            color: .red,
+            size: CGSize(width: buttonSize, height: buttonSize * 0.719)
+        )
+        resetLevel.name = "reset"
+        var y: CGFloat = (balloon.size.height / 2) - (resetLevel.size.height / 2)
+        y -= (64 * scale)
+        resetLevel.texture = SKTexture(imageNamed: "Button-Reset")
+        resetLevel.resizeble()
+        resetLevel.position = CGPoint(x: resetLevel.size.width / 2 + 16 * scale, y: -y)
+        resetLevel.zPosition = 1
+       
+        balloon.addChild(resetLevel)
+    }
+    
+    private func createMapBtt() {
+        map = SKSpriteNode(
+            color: .blue,
+            size: CGSize(width: buttonSize, height: buttonSize * 0.719)
+        )
+        map.name = "exit"
+        map.texture = SKTexture(imageNamed: "Button-Map")
+        map.resizeble()
+        map.position = CGPoint(x: -map.size.width / 2 - 16 * scale, y: resetLevel.position.y)
+        map.zPosition = 1
+
+        balloon.addChild(map)
+    }
+    
+    private func createResumeBtt(){
+        //Resume Btt
+        let cont = NSLocalizedString("Continue", comment: "continue btn")
+        
+        resumeBtt = SKSpriteNode(
+            color: .green,
+            size: CGSize(width: buttonSize * 2 + 32, height: buttonSize * 0.75 * 0.719)
+        )
+        resumeBtt.name = "resume"
+        resumeBtt.resizeble()
+        resumeBtt.texture = SKTexture(imageNamed: "Button-Resume")
+        let y = resetLevel.position.y + resetLevel.size.height / 2 + resumeBtt.size.height / 2
+        resumeBtt.position = CGPoint(x: 0, y: y + 32 * scale)
+        resumeBtt.zPosition = 1
+        
+        balloon.addChild(resumeBtt)
+
+        let txtLabel = SKLabelNode(text: cont)
+        txtLabel.fontSize = fontSize
+        txtLabel.fontColor = .white
+        txtLabel.fontName = "Even"
+        txtLabel.verticalAlignmentMode = .center
+        txtLabel.zPosition = 1
+        resumeBtt.addChild(txtLabel)
     }
     
     //MARK: Interacoes
