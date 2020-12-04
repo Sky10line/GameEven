@@ -138,7 +138,7 @@ class LevelCompletePopUpView: SKSpriteNode {
     private func createEven() {
         even = SKSpriteNode(
             color: .blue,
-            size: CGSize(width: 300 * 0.68, height: 300)
+            size: CGSize(width: 300 * 0.735, height: 300)
         )
         even.resizeble()
         even.name = "even"
