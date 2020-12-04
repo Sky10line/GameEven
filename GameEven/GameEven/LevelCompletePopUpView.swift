@@ -179,7 +179,7 @@ class LevelCompletePopUpView: SKSpriteNode {
     private func createNextBtt(){
         nextBtt = SKSpriteNode(
             color: .green,
-            size: CGSize(width: buttonSize * 2 + 32, height: (buttonSize * 0.75) * 0.719)
+            size: CGSize(width: buttonSize * 2 + 32, height: buttonSize * 0.719)
         )
         nextBtt.resizeble()
         nextBtt.name = "next"
