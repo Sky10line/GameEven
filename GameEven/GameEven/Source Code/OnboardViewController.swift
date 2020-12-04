@@ -114,7 +114,9 @@ class OnboardViewController: UIViewController {
         
         if let confirmeView: ConfirmationView = XibView as? ConfirmationView {
             confirmeView.delegate = self
+            confirmeView.resizeObjects()
             confirmeView.mensage = "Tem certeza que deseja pular a introdução?"
+
         }
     }
     

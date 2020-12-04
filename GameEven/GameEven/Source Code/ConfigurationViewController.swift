@@ -73,8 +73,12 @@ class ConfigurationViewController: UIViewController {
         }, completion: nil)
         
         if let confirmeView: ConfirmationView = XibView as? ConfirmationView {
+            //confirmeView.resizeObjects()
+            //confirmeView.whiteBaloon.frame = confirmeView.whiteBaloon.frame.resizeWithAspectRatio()
             confirmeView.delegate = self
+            confirmeView.resizeObjects()
             confirmeView.mensage = "Tem certeza que deseja resetar o progresso atual?"
+            //confirmeView.whiteBaloon.frame = confirmeView.whiteBaloon.frame.resizeWithAspectRatio()
         }
     }
     

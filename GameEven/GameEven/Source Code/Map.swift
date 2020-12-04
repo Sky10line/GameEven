@@ -67,7 +67,7 @@ class MapViewController: UIViewController {
             
             let scale = button.frame.height
             
-            button.frame = button.frame.resizeWithAspectRatio()
+            button.frame = button.frame.resizeWithAspectRatio(extraScale: 1.2)
             
             // Ajusta o texto do botão para aparecer em 1/4 da altura.
             button.titleLabel?.font = button.titleLabel?.font.withSize((button.frame.height/scale)*(button.titleLabel?.font.pointSize)!)
@@ -80,7 +80,7 @@ class MapViewController: UIViewController {
         }
         
         //mapLine.frame = mapLine.frame.resizeWithAspectRatio()
-        comingSoonImage.frame = comingSoonImage.frame.resizeWithAspectRatio()
+        comingSoonImage.frame = comingSoonImage.frame.resizeWithAspectRatio(extraScale: 1.2)
         
         
         super.viewDidLoad()
@@ -210,7 +210,7 @@ class MapViewController: UIViewController {
 
 extension CGRect {
     
-    func resizeWithAspectRatio () -> CGRect {
+    func resizeWithAspectRatio (extraScale: CGFloat) -> CGRect {
         
         let scaleInWidth = CGFloat(UIScreen.main.bounds.maxX / 414)
         let scaleInHeight = CGFloat(UIScreen.main.bounds.maxY / 896)
@@ -219,8 +219,8 @@ extension CGRect {
             
             let realScale = min(scaleInWidth,scaleInHeight)
             
-            let realWidth = (width * realScale) * 1.20
-            let realHeight = (height * realScale) * 1.20
+            let realWidth = (width * realScale) * extraScale
+            let realHeight = (height * realScale) * extraScale
             
             let realPosX = minX + (width - realWidth) / 2
             let realPosY = minY + (height - realHeight) / 2
