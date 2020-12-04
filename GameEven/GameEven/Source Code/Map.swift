@@ -17,6 +17,10 @@ class MapViewController: UIViewController {
     @IBOutlet var buttonWay: [UIButton]! // Array com todos os botões da fase.
     @IBOutlet var onboardBtn: UIButton!
     @IBOutlet weak var backgroundScrollView: UIScrollView!
+    @IBOutlet weak var mapLine: UIImageView!
+    @IBOutlet weak var comingSoonImage: UIImageView!
+    
+    
     
     // Variáveis Lógicas
     
@@ -24,12 +28,14 @@ class MapViewController: UIViewController {
     
     var scrollFirstTime: Bool = true
     
+    var scaleOfObjects: CGFloat = 1
+    
     private var audioPlayer = AudioManager.sharedInstance
     
     // MARK: Ciclo de Vida da View
     
     override func viewWillAppear(_ animated: Bool) {
- 
+        
         overrideUserInterfaceStyle = .dark
         
         loadingPlayerLevel()
@@ -57,6 +63,26 @@ class MapViewController: UIViewController {
         
         backgroundScrollView.contentOffset.y = 252
         
+        buttonWay.forEach { (button) in
+            
+            let scale = button.frame.height
+            
+            button.frame = button.frame.resizeWithAspectRatio()
+            
+            // Ajusta o texto do botão para aparecer em 1/4 da altura.
+            button.titleLabel?.font = button.titleLabel?.font.withSize((button.frame.height/scale)*(button.titleLabel?.font.pointSize)!)
+            
+            button.titleEdgeInsets = UIEdgeInsets(top: ((button.frame.height) / 4) - ((button.titleLabel?.font.pointSize)! / 4),
+                                                  left: 0,
+                                                  bottom: 0,
+                                                  right: 0)
+            
+        }
+        
+        //mapLine.frame = mapLine.frame.resizeWithAspectRatio()
+        comingSoonImage.frame = comingSoonImage.frame.resizeWithAspectRatio()
+        
+        
         super.viewDidLoad()
         
     }
@@ -69,7 +95,7 @@ class MapViewController: UIViewController {
         
         
     }
-
+    
     //MARK: Métodos de Lógica Interna
     
     // Método que carrega em que nível está o jogador baseado no userDefault, define como 1 caso não encontre nada.
@@ -98,9 +124,6 @@ class MapViewController: UIViewController {
     func initButtons() {
         
         buttonWay.forEach { (button) in
-            
-            // Ajusta o texto do botão para aparecer em 1/4 da altura.
-            button.titleEdgeInsets = UIEdgeInsets(top: ((button.frame.height) / 4)-7.5, left: 0, bottom: 0, right: 0)
             
             if (button.tag <= currentPlayerLevel) {
                 
@@ -183,6 +206,28 @@ class MapViewController: UIViewController {
         //let vc = storyboard.instantiateViewController(withIdentifier: "Onboard") as! OnboardViewController
         //self.show(vc, sender: self)
     }
+}
+
+extension CGRect {
     
-    
+    func resizeWithAspectRatio () -> CGRect {
+        
+        let scaleInWidth = CGFloat(UIScreen.main.bounds.maxX / 414)
+        let scaleInHeight = CGFloat(UIScreen.main.bounds.maxY / 896)
+        
+        if ((scaleInWidth < 1 || scaleInHeight < 1) && UIScreen.main.nativeScale != 3) {
+            
+            let realScale = min(scaleInWidth,scaleInHeight)
+            
+            let realWidth = (width * realScale) * 1.20
+            let realHeight = (height * realScale) * 1.20
+            
+            let realPosX = minX + (width - realWidth) / 2
+            let realPosY = minY + (height - realHeight) / 2
+            
+            return CGRect.init(x: realPosX, y: realPosY, width: realWidth, height: realHeight)
+        }
+        
+        return CGRect.init(x: minX, y: minY, width: width, height: height)
+    }
 }
