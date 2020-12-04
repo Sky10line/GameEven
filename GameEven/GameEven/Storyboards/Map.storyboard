@@ -137,6 +137,8 @@
                     <size key="freeformSize" width="414" height="1300"/>
                     <connections>
                         <outlet property="backgroundScrollView" destination="kR0-Wm-fzj" id="CQw-nf-qWe"/>
+                        <outlet property="comingSoonImage" destination="jib-EP-HsL" id="oXJ-eT-QCw"/>
+                        <outlet property="mapLine" destination="7Fg-df-ZG1" id="Yb0-ve-QyQ"/>
                         <outlet property="onboardBtn" destination="DIV-Rs-tsP" id="QA8-X2-E1j"/>
                         <outletCollection property="buttonWay" destination="zHM-Gi-U9M" collectionClass="NSMutableArray" id="L7S-cc-IQe"/>
                         <outletCollection property="buttonWay" destination="eGs-uw-KzJ" collectionClass="NSMutableArray" id="bAb-Rw-uGj"/>
