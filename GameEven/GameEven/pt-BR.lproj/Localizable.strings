@@ -43,3 +43,13 @@
 "Parte 20" = "Topa o desafio?";
 
 "Parte fora" = "Eu nasci com uma antena e mais redondo."; // Nao tem 12 imagem
+
+"Reset" = "Resetar";
+
+"Confirm" = "CONFIRMAR";
+
+"Cancel" = "CANCELAR";
+
+"jumpInstruction" = "Tem certeza que deseja pular a introdução?";
+
+"resetProgress" = "Tem certeza que deseja resetar o progresso atual?";

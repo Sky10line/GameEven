@@ -65,6 +65,12 @@ class ConfirmationView: UIView {
     
     func resizeObjects() {
         
+        confirmButton.setTitle(NSLocalizedString("Confirm", comment: "initial instruction"), for: .normal)
+        
+        cancelButton.setTitle(NSLocalizedString("Cancel", comment: "initial instruction"), for: .normal)
+        
+        
+        
         self.evenImage.frame = self.evenImage.frame.resizeWithAspectRatio(extraScale: 1)
         
         for object in [self.confirmButton,self.cancelButton] {

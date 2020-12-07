@@ -23,6 +23,8 @@ class ConfigurationViewController: UIViewController {
         
         super.viewDidLoad()
         
+        resetButton.setTitle(NSLocalizedString("Reset", comment: "initial instruction"), for: .normal)
+        
         changeSoundButtonImage()
         changeMusicButtonImage()
         
@@ -77,7 +79,7 @@ class ConfigurationViewController: UIViewController {
             //confirmeView.whiteBaloon.frame = confirmeView.whiteBaloon.frame.resizeWithAspectRatio()
             confirmeView.delegate = self
             confirmeView.resizeObjects()
-            confirmeView.mensage = "Tem certeza que deseja resetar o progresso atual?"
+            confirmeView.mensage = (NSLocalizedString("resetProgress", comment: "initial instruction"))
             //confirmeView.whiteBaloon.frame = confirmeView.whiteBaloon.frame.resizeWithAspectRatio()
         }
     }
