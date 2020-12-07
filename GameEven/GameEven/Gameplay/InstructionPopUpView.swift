@@ -23,8 +23,10 @@ class InstructionPopUpView: SKSpriteNode {
         
         isUserInteractionEnabled = true
         
-        buttonSize = scale(90)
-        fontSize = scale(28)
+        let scale = scaleValue()
+        
+        buttonSize = 90 * scale
+        fontSize = 28 * scale
         
         let bg = SKSpriteNode()
         bg.texture = SKTexture(imageNamed: "Background-Fases")
@@ -32,11 +34,12 @@ class InstructionPopUpView: SKSpriteNode {
         bg.position = position
         self.addChild(bg)
         
-        let offset = scale(100)
+        let offset = 100 * scale
         let ballon = SKSpriteNode(
             color: .red,
-            size: CGSize(width: scale(320), height: scale(400))
+            size: CGSize(width: self.size.width - 64, height: 400 * scale)
         )
+
         ballon.texture = SKTexture(imageNamed: "InstructionBallon")
         ballon.position = CGPoint(x: 0, y: ballon.size.height / 2 + 8 - offset)
         ballon.zPosition = 1
@@ -55,16 +58,16 @@ class InstructionPopUpView: SKSpriteNode {
         labelText.numberOfLines = 10
         labelText.preferredMaxLayoutWidth = ballon.size.width - 32
         labelText.lineBreakMode = .byCharWrapping
-        labelText.verticalAlignmentMode = .bottom
-        labelText.position.y = ballon.position.y - 32 - fontSize
+        labelText.verticalAlignmentMode = .center
+        labelText.position.y = ballon.position.y - fontSize
         ballon.addChild(labelText)
         
-        //Ajusta para textos maiores
-        if labelText.frame.height > 154 {
-            let dif = labelText.frame.height - 154
-            ballon.size.height = ballon.frame.height + dif
-            labelText.position.y = ballon.position.y + 32 + dif / 2
-        }
+//        Ajusta para textos maiores
+//        if labelText.frame.height > 154 {
+//            let dif = labelText.frame.height - 154
+//            ballon.size.height = ballon.frame.height + dif
+//            labelText.position.y = ballon.position.y + 32 + dif / 2
+//        }
         
         //X Btt
         let xBtt = SKSpriteNode(
@@ -82,11 +85,12 @@ class InstructionPopUpView: SKSpriteNode {
         
         let okBtt = SKSpriteNode(
             color: .red,
-            size: CGSize(width: scale(150), height: scale(50))
+            size: CGSize(width: 150, height: 50)
         )
+        okBtt.resizeble()
         okBtt.name = "ok"
         okBtt.texture = SKTexture(imageNamed: "Button-Resume")
-        okBtt.position = CGPoint(x: 0, y: 16  - ballon.size.height/4 + xBtt.size.height / 2 )
+        okBtt.position = CGPoint(x: 0, y: 32  - ballon.size.height/4 + xBtt.size.height / 2 )
         okBtt.zPosition = 1
         ballon.addChild(okBtt)
         
@@ -103,31 +107,20 @@ class InstructionPopUpView: SKSpriteNode {
         //Even
         let even = SKSpriteNode(
             color: .blue,
-            size: CGSize(width: scale(330) * 0.84, height: scale(330))
+            size: CGSize(width: 330 * 0.891, height: 330)
         )
+        
+        even.resizeble()
         even.name = "even"
         even.texture = SKTexture(imageNamed: "InstructionEven-1")
-        even.position = CGPoint(x: scale(48), y: -even.size.height / 2 - offset)
+        even.position = CGPoint(x: 48, y: -even.size.height / 2 - offset + 32)
+        even.adjustPosition(x: true, y: false)
         even.zPosition = 2
         self.addChild(even)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    //Ajusta para fazer percetual ao tamanho original - Base iphone 11
-    private func scale(_ valueToScale: CGFloat) -> CGFloat {
-        let base: CGFloat = 414
-        let screen = UIScreen.main.bounds
-        let newDimension: CGFloat = min(screen.height, screen.width)
-        
-        var scale: CGFloat = ((100 * newDimension) / base) / 100
-        
-        if scale > 2 {
-            scale = 2
-        }
-        return valueToScale * scale
     }
     
     //Interacoes

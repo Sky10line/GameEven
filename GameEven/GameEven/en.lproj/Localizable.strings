@@ -23,24 +23,34 @@
 
 //Estoria
 //Estoria
-"Parte 1" = "Bip Bip! Chamando Terra?";
-"Parte 2" = "Olá habitantes desse planeta.";
-"Parte 3" = "Muito prazer, eu me chamo Even.";
-"Parte 4" = "Seu novo companheiro alienígena.";
-"Parte 5" = "Por que estou na Terra?";
-"Parte 6" = "Boa pergunta.";
-"Parte 7" = "Eu vim de um planeta quadrado.";
-"Parte 8" = "Todos os habitantes de lá pensavam dentro da caixinha. ";
-"Parte 9" = "Eles eram muito quadradões.";
-"Parte 10" = "Até que eu nasci. \nBem diferente deles. ";
-"Parte 11" = "Desde pequeno, eu sou muito curioso.";
-"Parte 12" = "Sempre fazia perguntas que ninguém conseguia me responder.";
-"Parte 13" = "Então decidi criar minha nave e explorar o universo.";
-"Parte 14" = "Aaa verdade! Por que estou na Terra…";
-"Parte 15" = "Até ai estava tudo bem.";
-"Parte 16" = "Mas de repente o meu radar parou de funcionar, eu bati em um asteroide e vim parar aqui.";
-"Parte 17" = "Agora preciso da sua ajuda para desbravar esse universo.";
-"Parte 18" = "Mas antes de você me ajudar a consertar a nave.";
-"Parte 19" = "Nós vamos treinar a cachola para pensar fora da caixinha.";
-"Parte 20" = "Topa o desafio?";
+"Parte 1" = "Bip Bip! calling earth...";
+"Parte 2" = "Hello inhabitants of this planet.";
+"Parte 3" = "Nice to meet you, my name is Even.";
+"Parte 4" = "Your new alien pal.";
+"Parte 5" = "Why am I on Earth?";
+"Parte 6" = "Good question.";
+"Parte 7" = "I came from a square planet.";
+"Parte 8" = "All the inhabitants there were thinking inside the box.";
+"Parte 9" = "They were very square.";
+"Parte 10" = "Until I was born. \ nVery different from them.";
+"Parte 11" = "Since I was little, I am very curious.";
+"Parte 12" = "I always asked questions that no one could answer.";
+"Parte 13" = "So I decided to create my ship and explore the universe.";
+"Parte 14" = "Oh! Why am I on Earth...";
+"Parte 15" = "So far everything was fine";
+"Parte 16" = "Until suddenly my radar stopped working, I hit an asteroid and ended up here.";
+"Parte 17" = "Now I need your help to explore this universe.";
+"Parte 18" = "But before you help me fix the ship...";
+"Parte 19" = "We will train your mind to think outside the box.";
+"Parte 20" = "You're ready for the challenge?";
+
+"Reset" = "Reset";
+
+"Confirm" = "CONFIRM";
+
+"Cancel" = "CANCEL";
+
+"jumpInstruction" = "Are you sure you want to skip the intro?";
+
+"resetProgress" = "Are you sure you want to reset the current progress?";
 

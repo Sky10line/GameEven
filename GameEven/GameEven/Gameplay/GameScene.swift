@@ -49,6 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var viewControllerDelegate: PopViewControllerDelegate?
     
     override func didMove(to view: SKView) {
+        self.view?.isMultipleTouchEnabled = false
         super.didMove(to: view)
         
         self.physicsWorld.contactDelegate = self

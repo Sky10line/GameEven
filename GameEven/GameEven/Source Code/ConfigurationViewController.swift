@@ -23,6 +23,8 @@ class ConfigurationViewController: UIViewController {
         
         super.viewDidLoad()
         
+        resetButton.setTitle(NSLocalizedString("Reset", comment: "initial instruction"), for: .normal)
+        
         changeSoundButtonImage()
         changeMusicButtonImage()
         
@@ -69,11 +71,16 @@ class ConfigurationViewController: UIViewController {
         
         UIView.transition(with: self.view, duration: 1, options: .transitionFlipFromRight, animations: {
             self.view.addSubview(XibView)
+            XibView.frame = self.view.bounds
         }, completion: nil)
         
         if let confirmeView: ConfirmationView = XibView as? ConfirmationView {
+            //confirmeView.resizeObjects()
+            //confirmeView.whiteBaloon.frame = confirmeView.whiteBaloon.frame.resizeWithAspectRatio()
             confirmeView.delegate = self
-            confirmeView.mensage = "Tem certeza que deseja resetar o progresso atual?"
+            confirmeView.resizeObjects()
+            confirmeView.mensage = (NSLocalizedString("resetProgress", comment: "initial instruction"))
+            //confirmeView.whiteBaloon.frame = confirmeView.whiteBaloon.frame.resizeWithAspectRatio()
         }
     }
     

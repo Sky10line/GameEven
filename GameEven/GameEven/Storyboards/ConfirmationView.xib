@@ -20,87 +20,68 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="xty-Fn-B0R">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="928"/>
+                    <rect key="frame" x="0.0" y="0.0" width="417" height="928"/>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Backgroud-PopUp" translatesAutoresizingMaskIntoConstraints="NO" id="KE4-pl-iJs">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Backgroud-PopUp" translatesAutoresizingMaskIntoConstraints="NO" id="KE4-pl-iJs">
                     <rect key="frame" x="32" y="108" width="350" height="722"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="7FM-QU-mtl">
-                    <rect key="frame" x="64" y="124" width="286" height="674"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="54R-J3-ky6">
-                            <rect key="frame" x="0.0" y="0.0" width="286" height="42"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eeg-Z0-Np6">
-                                    <rect key="frame" x="244" y="0.0" width="42" height="42"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="42" id="EoI-YW-yWm"/>
-                                        <constraint firstAttribute="height" constant="42" id="yZT-US-P4g"/>
-                                    </constraints>
-                                    <state key="normal" image="Button-X"/>
-                                    <connections>
-                                        <action selector="exit:" destination="iN0-l3-epB" eventType="touchUpInside" id="phu-c6-8vi"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </stackView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tem certeza que deseja resetar?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClL-d2-ID3">
-                            <rect key="frame" x="0.0" y="74" width="286" height="120"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="120" id="LAB-2V-6Tr"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Even-Regular" family="Even" pointSize="25"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="highlightedColor" systemColor="labelColor"/>
-                        </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EvenResetar" translatesAutoresizingMaskIntoConstraints="NO" id="qN4-6v-APr">
-                            <rect key="frame" x="0.0" y="226" width="286" height="224"/>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tM-2d-zg1">
-                            <rect key="frame" x="0.0" y="482" width="286" height="80"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="80" id="KJU-MM-zdt"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Even-Regular" family="Even" pointSize="35"/>
-                            <state key="normal" title="CONFIRMAR" backgroundImage="Button-Resume"/>
-                            <connections>
-                                <action selector="confirme:" destination="iN0-l3-epB" eventType="touchUpInside" id="Awn-Pz-tNU"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YvU-vg-gYq">
-                            <rect key="frame" x="0.0" y="594" width="286" height="80"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="80" id="D00-id-baj"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Even-Regular" family="Even" pointSize="35"/>
-                            <state key="normal" title="CANCELAR" backgroundImage="Button-Cancel"/>
-                            <connections>
-                                <action selector="cancel:" destination="iN0-l3-epB" eventType="touchUpInside" id="gKP-kb-6Kd"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eeg-Z0-Np6">
+                    <rect key="frame" x="321" y="127" width="44" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="6"/>
+                    <state key="normal" image="Button-X"/>
+                    <connections>
+                        <action selector="exit:" destination="iN0-l3-epB" eventType="touchUpInside" id="phu-c6-8vi"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="EvenResetar" translatesAutoresizingMaskIntoConstraints="NO" id="qN4-6v-APr">
+                    <rect key="frame" x="103" y="295" width="209" height="307"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tM-2d-zg1">
+                    <rect key="frame" x="64" y="606" width="286" height="80"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Even-Regular" family="Even" pointSize="35"/>
+                    <state key="normal" title="CONFIRMAR" backgroundImage="Button-Resume"/>
+                    <connections>
+                        <action selector="confirme:" destination="iN0-l3-epB" eventType="touchUpInside" id="Awn-Pz-tNU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YvU-vg-gYq">
+                    <rect key="frame" x="64" y="718" width="286" height="80"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Even-Regular" family="Even" pointSize="35"/>
+                    <state key="normal" title="CANCELAR" backgroundImage="Button-Cancel"/>
+                    <connections>
+                        <action selector="cancel:" destination="iN0-l3-epB" eventType="touchUpInside" id="gKP-kb-6Kd"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tem certeza que deseja pular a instrução?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClL-d2-ID3">
+                    <rect key="frame" x="46" y="186" width="323" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Even-Regular" family="Even" pointSize="25"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="highlightedColor" systemColor="labelColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="KE4-pl-iJs" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="64" id="2HI-Os-wvy"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KE4-pl-iJs" secondAttribute="trailing" constant="32" id="ElR-v5-ZQS"/>
-                <constraint firstItem="xty-Fn-B0R" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="G6d-OS-MFO"/>
-                <constraint firstItem="xty-Fn-B0R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RMm-lJ-w1L"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7FM-QU-mtl" secondAttribute="trailing" constant="64" id="Sjm-1f-wtn"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="KE4-pl-iJs" secondAttribute="bottom" constant="32" id="XbA-vp-AFy"/>
-                <constraint firstItem="7FM-QU-mtl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="64" id="e63-Mb-f3A"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7FM-QU-mtl" secondAttribute="bottom" constant="64" id="eUE-SL-SVu"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xty-Fn-B0R" secondAttribute="trailing" id="tTx-kO-0GA"/>
-                <constraint firstItem="KE4-pl-iJs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="v60-SX-gC4"/>
-                <constraint firstItem="7FM-QU-mtl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="80" id="yl7-eu-ght"/>
-                <constraint firstAttribute="bottom" secondItem="xty-Fn-B0R" secondAttribute="bottom" constant="-32" id="ypE-Hk-wMi"/>
+                <constraint firstItem="xty-Fn-B0R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5nb-Lh-cR4"/>
+                <constraint firstAttribute="trailing" secondItem="xty-Fn-B0R" secondAttribute="trailing" constant="-3" id="Eme-sR-7OP"/>
+                <constraint firstAttribute="bottom" secondItem="xty-Fn-B0R" secondAttribute="bottom" constant="-32" id="LE3-gi-gOr"/>
+                <constraint firstItem="xty-Fn-B0R" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="tKa-ZJ-BR2"/>
             </constraints>
             <connections>
+                <outlet property="cancelButton" destination="YvU-vg-gYq" id="W3e-dE-ucr"/>
+                <outlet property="confirmButton" destination="5tM-2d-zg1" id="s6o-N7-t9H"/>
+                <outlet property="evenImage" destination="qN4-6v-APr" id="8SA-SF-BOm"/>
+                <outlet property="exitButton" destination="Eeg-Z0-Np6" id="t1I-xg-xHx"/>
                 <outlet property="label" destination="ClL-d2-ID3" id="7Mz-YU-bzi"/>
+                <outlet property="whiteBaloon" destination="KE4-pl-iJs" id="Z91-gQ-wqL"/>
             </connections>
-            <point key="canvasLocation" x="132" y="96"/>
+            <point key="canvasLocation" x="131.8840579710145" y="95.758928571428569"/>
         </view>
     </objects>
     <resources>
@@ -108,7 +89,7 @@
         <image name="Background" width="1916" height="4149"/>
         <image name="Button-Cancel" width="1137" height="391"/>
         <image name="Button-Resume" width="1136" height="391"/>
-        <image name="Button-X" width="126" height="125"/>
+        <image name="Button-X" width="200" height="200"/>
         <image name="EvenResetar" width="848" height="974"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

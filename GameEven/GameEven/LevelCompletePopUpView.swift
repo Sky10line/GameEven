@@ -45,8 +45,8 @@ class LevelCompletePopUpView: SKSpriteNode {
         texture = SKTexture(imageNamed: "Background-Fases")
         isUserInteractionEnabled = true
         
-        buttonSize = scale(90)
-        fontSize = scale(30)
+        buttonSize = 90
+        fontSize = 30 * scaleValue()
         
         createBalloon()
         
@@ -83,7 +83,7 @@ class LevelCompletePopUpView: SKSpriteNode {
     func createTime() {
         let time = SKLabelNode(text: self.time.intToTime())
         let y = text.position.y - text.fontSize / 2 - time.fontSize / 2
-        time.position = CGPoint(x: 0, y: y - scale(32))
+        time.position = CGPoint(x: 0, y: y - 32 * scaleValue())
         time.fontSize = fontSize * 1.0
         time.fontColor = #colorLiteral(red: 0.04709532857, green: 0.04772982746, blue: 0.04688558728, alpha: 1)
         time.fontName = "Even"
@@ -100,7 +100,7 @@ class LevelCompletePopUpView: SKSpriteNode {
         let congrats = NSLocalizedString("YEAH!", comment: "Complete level title")
         
         text = SKLabelNode(text: congrats)
-        text.position = CGPoint(x: 0, y: balloon.size.height / 2 - text.fontSize / 2 - scale(64))
+        text.position = CGPoint(x: 0, y: balloon.size.height / 2 - text.fontSize / 2 - 64 * scaleValue())
         text.fontSize = fontSize * 1.7
         text.fontColor = #colorLiteral(red: 0.06604217738, green: 0.6873383522, blue: 0.7892531753, alpha: 1)
         text.fontName = "Even"
@@ -111,11 +111,11 @@ class LevelCompletePopUpView: SKSpriteNode {
     
     func createStars(){
         
-        let posY = timeLabel.position.y - timeLabel.fontSize / 2 - scale(16)
+        let posY = timeLabel.position.y - timeLabel.fontSize / 2 - 16 * scaleValue()
         
         let stars2 = SKSpriteNode(imageNamed: "estrela")
         stars2.position.y = posY - stars2.size.height / 2
-        stars2.size.width = scale(50)
+        stars2.size.width = 50 * scaleValue()
         stars2.zPosition = 1
         
         let stars1 = SKSpriteNode(imageNamed: "estrela")
@@ -136,13 +136,15 @@ class LevelCompletePopUpView: SKSpriteNode {
     }
     
     private func createEven() {
-        let even = SKSpriteNode(
+        even = SKSpriteNode(
             color: .blue,
-            size: CGSize(width: scale(200) * 0.68, height: scale(200))
+            size: CGSize(width: 300 * 0.735, height: 300)
         )
+        even.resizeble()
         even.name = "even"
         even.texture = SKTexture(imageNamed: "Even-Next-2")
-        even.position = CGPoint(x: 0, y: nextBtt.position.y + nextBtt.size.height / 2 + even.size.height / 2 + scale(60))
+        even.position = CGPoint(x: 0, y: nextBtt.position.y + nextBtt.size.height / 2 + even.size.height / 2)
+        even.position.y += 20 * scaleValue()
         even.zPosition = 1
         balloon.addChild(even)
     }
@@ -152,10 +154,11 @@ class LevelCompletePopUpView: SKSpriteNode {
             color: .red,
             size: CGSize(width: buttonSize, height: buttonSize * 0.719)
         )
+        resetBtt.resizeble()
         resetBtt.name = "reset"
         resetBtt.texture = SKTexture(imageNamed: "Button-Reset")
-        let y: CGFloat = balloon.size.height / 2 - resetBtt.size.height / 2 - scale(64)
-        resetBtt.position = CGPoint(x: resetBtt.size.width / 2 + scale(16), y: -y)
+        let y: CGFloat = balloon.size.height / 2 - resetBtt.size.height / 2 - 64 * scaleValue()
+        resetBtt.position = CGPoint(x: resetBtt.size.width / 2 + 16 * scaleValue(), y: -y)
         resetBtt.zPosition = 1
         balloon.addChild(resetBtt)
     }
@@ -165,9 +168,10 @@ class LevelCompletePopUpView: SKSpriteNode {
             color: .blue,
             size: CGSize(width: buttonSize, height: buttonSize * 0.719)
         )
+        mapBtt.resizeble()
         mapBtt.texture = SKTexture(imageNamed: "Button-Map")
         mapBtt.name = "exit"
-        mapBtt.position = CGPoint(x: -mapBtt.size.width / 2 - scale(16), y: resetBtt.position.y)
+        mapBtt.position = CGPoint(x: -mapBtt.size.width / 2 - 16 * scaleValue(), y: resetBtt.position.y)
         mapBtt.zPosition = 1
         balloon.addChild(mapBtt)
     }
@@ -175,8 +179,9 @@ class LevelCompletePopUpView: SKSpriteNode {
     private func createNextBtt(){
         nextBtt = SKSpriteNode(
             color: .green,
-            size: CGSize(width: buttonSize * 2 + scale(32), height: (buttonSize * 0.75) * 0.719)
+            size: CGSize(width: buttonSize * 2 + 32, height: buttonSize * 0.719)
         )
+        nextBtt.resizeble()
         nextBtt.name = "next"
         if level >= maxLvl {
             nextBtt.texture = SKTexture(imageNamed: "Button-Next-Disable")
@@ -186,25 +191,12 @@ class LevelCompletePopUpView: SKSpriteNode {
             nextBtt.texture = SKTexture(imageNamed: "Button-Next")
         }
         let y = resetBtt.position.y + resetBtt.size.height / 2 + nextBtt.size.height / 2
-        nextBtt.position = CGPoint(x: 0, y: y + scale(32))
+        nextBtt.position = CGPoint(x: 0, y: y + 32 * scaleValue())
         nextBtt.zPosition = 1
         balloon.addChild(nextBtt)
     }
     
     //MARK: Auxiliares
-    //Ajusta para fazer percetual ao tamanho original - Base iphone 11
-    private func scale(_ valueToScale: CGFloat) -> CGFloat {
-        let base: CGFloat = 414
-        let screen = UIScreen.main.bounds
-        let newDimension: CGFloat = min(screen.height, screen.width)
-        
-        var scale: CGFloat = ((100 * newDimension) / base) / 100
-        
-        if scale > 2 {
-            scale = 2
-        }
-        return valueToScale * scale
-    }
     
     //MARK: Interaçoes
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -41,7 +41,10 @@ class OnboardViewController: UIViewController {
         label.font = UIFont(name: "Even", size: fontSize)
         label.textColor = .black
         label.text = ""
-        label.isEditable = false
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.nextLineScript))
+        label.addGestureRecognizer(tap)
+        label.isSelectable = false
         imageView.image = UIImage(named: "Onboard-\(index + 1)")
         
         for i in 1...20 {
@@ -77,11 +80,7 @@ class OnboardViewController: UIViewController {
         counter += 1
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isPause {
-            return
-        }
-        
+    @objc func nextLineScript(){
         if counter > str[index].count {
             
             if index < str.count - 1{
@@ -103,18 +102,27 @@ class OnboardViewController: UIViewController {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isPause {
+            return
+        }
+        nextLineScript()
+    }
+    
     @IBAction func skipBtt(_ sender: Any) {
         audioPlayer.playSound(SoundType: .button)
         isPause = true
         let XibView = ConfirmationView.instanceFromNib()
-        
         UIView.transition(with: self.view, duration: 1, options: .transitionFlipFromRight, animations: {
             self.view.addSubview(XibView)
+            XibView.frame = self.view.bounds
         }, completion: nil)
         
         if let confirmeView: ConfirmationView = XibView as? ConfirmationView {
             confirmeView.delegate = self
-            confirmeView.mensage = "Tem certeza que deseja pular a introdução?"
+            confirmeView.resizeObjects()
+            confirmeView.mensage = (NSLocalizedString("jumpInstruction", comment: "initial instruction"))
+
         }
     }
     

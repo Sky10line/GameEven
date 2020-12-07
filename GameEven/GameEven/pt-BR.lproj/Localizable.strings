@@ -21,7 +21,7 @@
 "fase7Instruction" = "\nÉ isso ai! Acho que agora só falta mais uma coisinha...";
 
 //Estoria
-"Parte 1" = "Bip Bip! Chamando Terra?";
+"Parte 1" = "Bip Bip! Chamando Terra...";
 "Parte 2" = "Olá habitantes desse planeta.";
 "Parte 3" = "Muito prazer, eu me chamo Even.";
 "Parte 4" = "Seu novo companheiro alienígena.";
@@ -43,3 +43,13 @@
 "Parte 20" = "Topa o desafio?";
 
 "Parte fora" = "Eu nasci com uma antena e mais redondo."; // Nao tem 12 imagem
+
+"Reset" = "Resetar";
+
+"Confirm" = "CONFIRMAR";
+
+"Cancel" = "CANCELAR";
+
+"jumpInstruction" = "Tem certeza que deseja pular a introdução?";
+
+"resetProgress" = "Tem certeza que deseja resetar o progresso atual?";
