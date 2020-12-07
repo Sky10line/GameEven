@@ -47,7 +47,7 @@ class MapViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
+        UIView.appearance().isExclusiveTouch = true
         audioPlayer.musicPlayer?.prepareToPlay()
         audioPlayer.soundPlayer?.prepareToPlay()
         
@@ -59,6 +59,15 @@ class MapViewController: UIViewController {
         
         super.viewDidLoad()
         
+    }
+    
+    func disableMultitouchInSubview(of view: UIView) {
+       let subviews = view.subviews
+       if subviews.count == 0 { return }
+       for subview in subviews {
+          subview.isExclusiveTouch = true
+          disableMultitouchInSubview(of: subview)
+       }
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -41,7 +41,10 @@ class OnboardViewController: UIViewController {
         label.font = UIFont(name: "Even", size: fontSize)
         label.textColor = .black
         label.text = ""
-        label.isEditable = false
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.nextLineScript))
+        label.addGestureRecognizer(tap)
+        label.isSelectable = false
         imageView.image = UIImage(named: "Onboard-\(index + 1)")
         
         for i in 1...20 {
@@ -77,11 +80,7 @@ class OnboardViewController: UIViewController {
         counter += 1
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isPause {
-            return
-        }
-        
+    @objc func nextLineScript(){
         if counter > str[index].count {
             
             if index < str.count - 1{
@@ -101,6 +100,13 @@ class OnboardViewController: UIViewController {
         } else {
             counter = str[index].count
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isPause {
+            return
+        }
+        nextLineScript()
     }
     
     @IBAction func skipBtt(_ sender: Any) {
