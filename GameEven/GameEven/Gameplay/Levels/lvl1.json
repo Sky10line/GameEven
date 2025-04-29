@@ -1,20 +1,20 @@
 {
-    "instruction": "fase1Instruction",
+    "instruction": "Fase1Instruction",
     "silhouette": {
-        "sprite": "fase1/silhouette",
+        "sprite": "Fase1/Silhouette",
         "size": [0, 0],
         "pos": [0, 150],
         "rotation": 0
     },
     "squares": [
         {
-            "sprite": "fase1/part1",
+            "sprite": "Fase1/Part1",
             "size": [150, 300],
             "pos": [100, -200],
             "rotation": 0
         },
         {
-            "sprite": "fase1/part2",
+            "sprite": "Fase1/Part2",
             "size": [150, 300],
             "pos": [-100, -200],
             "rotation": 0

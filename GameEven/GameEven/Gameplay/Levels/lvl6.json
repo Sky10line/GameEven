@@ -1,7 +1,7 @@
 {
-    "instruction": "fase6Instruction",
+    "instruction": "Fase6Instruction",
     "silhouette": {
-        "sprite": "fase6/silhouette",
+        "sprite": "Fase6/Silhouette",
         "size": [0, 0],
         "pos": [0, 150],
         "rotation": 0
@@ -9,42 +9,42 @@
     "squares": [],
     "triangles": [
         {
-            "sprite": "fase6/part1",
+            "sprite": "Fase6/Part1",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 230,
             "rotation": -10.16
         },
         {
-            "sprite": "fase6/part2",
+            "sprite": "Fase6/Part2",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 500,
             "rotation": -109.66
         },
         {
-            "sprite": "fase6/part3",
+            "sprite": "Fase6/Part3",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 347,
             "rotation": -139.38
         },
         {
-            "sprite": "fase6/part4",
+            "sprite": "Fase6/Part4",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 230,
             "rotation": -190.01
         },
         {
-            "sprite": "fase6/part5",
+            "sprite": "Fase6/Part5",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 498,
             "rotation": -289.64
         },
         {
-            "sprite": "fase6/part6",
+            "sprite": "Fase6/Part6",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 347,

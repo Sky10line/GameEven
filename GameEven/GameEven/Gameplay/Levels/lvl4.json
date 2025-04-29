@@ -1,7 +1,7 @@
 {
-    "instruction": "fase4Instruction",
+    "instruction": "Fase4Instruction",
     "silhouette": {
-        "sprite": "fase4/silhouette",
+        "sprite": "Fase4/Silhouette",
         "size": [0, 0],
         "pos": [0, 150],
         "rotation": 0
@@ -9,28 +9,28 @@
     "squares": [],
     "triangles": [
         {
-            "sprite": "fase4/part1",
+            "sprite": "Fase4/Part1",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 488,
             "rotation": 90
         },
         {
-            "sprite": "fase4/part2",
+            "sprite": "Fase4/Part2",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 439,
             "rotation": 0
         },
         {
-            "sprite": "fase4/part3",
+            "sprite": "Fase4/Part3",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 0,
             "rotation": -90
         },
         {
-            "sprite": "fase4/part4",
+            "sprite": "Fase4/Part4",
             "size": [300, 150],
             "pos": [-20, -200],
             "thirdPoint": 0,

@@ -121,7 +121,7 @@ class OnboardViewController: UIViewController {
         if let confirmeView: ConfirmationView = XibView as? ConfirmationView {
             confirmeView.delegate = self
             confirmeView.resizeObjects()
-            confirmeView.mensage = (NSLocalizedString("jumpInstruction", comment: "initial instruction"))
+            confirmeView.mensage = (NSLocalizedString("JumpInstruction", comment: "initial instruction"))
 
         }
     }

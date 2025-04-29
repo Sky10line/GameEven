@@ -79,7 +79,7 @@ class ConfigurationViewController: UIViewController {
             //confirmeView.whiteBaloon.frame = confirmeView.whiteBaloon.frame.resizeWithAspectRatio()
             confirmeView.delegate = self
             confirmeView.resizeObjects()
-            confirmeView.mensage = (NSLocalizedString("resetProgress", comment: "initial instruction"))
+            confirmeView.mensage = (NSLocalizedString("ResetProgress", comment: "initial instruction"))
             //confirmeView.whiteBaloon.frame = confirmeView.whiteBaloon.frame.resizeWithAspectRatio()
         }
     }

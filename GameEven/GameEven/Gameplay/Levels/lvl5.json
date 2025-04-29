@@ -1,32 +1,32 @@
 {
-    "instruction": "fase5Instruction",
+    "instruction": "Fase5Instruction",
     "silhouette": {
-        "sprite": "fase5/silhouette",
+        "sprite": "Fase5/Silhouette",
         "size": [75, 75],
         "pos": [0, 150],
         "rotation": 0
     },
     "squares": [
         {
-            "sprite": "fase5/part2",
+            "sprite": "Fase5/Part2",
             "size": [150, 300],
             "pos": [100, -200],
             "rotation": 56.13
         },
         {
-            "sprite": "fase5/part3",
+            "sprite": "Fase5/Part3",
             "size": [150, 300],
             "pos": [-100, -200],
             "rotation": 56.13
         },
         {
-            "sprite": "fase5/part4",
+            "sprite": "Fase5/Part4",
             "size": [150, 300],
             "pos": [100, -200],
             "rotation": 56.13
         },
         {
-            "sprite": "fase5/part5",
+            "sprite": "Fase5/Part5",
             "size": [150, 300],
             "pos": [100, -200],
             "rotation": 56.13
@@ -35,7 +35,7 @@
     "triangles": [],
     "circles": [
         {
-            "sprite": "fase5/part1",
+            "sprite": "Fase5/Part1",
             "size": [150, 300],
             "pos": [100, -200],
             "rotation": 0
